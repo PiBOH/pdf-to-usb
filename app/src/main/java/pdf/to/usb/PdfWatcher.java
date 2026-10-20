@@ -15,6 +15,7 @@ import java.util.Locale;
  */
 final class PdfWatcher {
 
+    /** Called with the PDF the kernel reported as read; the file may vanish right after. */
     interface Listener {
         void onRead(File pdf);
     }
@@ -24,10 +25,12 @@ final class PdfWatcher {
 
     private final List<FileObserver> observers = new ArrayList<>();
 
+    /** Starts watching the root and its subfolders. */
     PdfWatcher(File root, Listener listener) {
         add(root, 0, listener);
     }
 
+    /** FileObserver is not recursive, so every directory gets its own observer. */
     private void add(File dir, int depth, Listener listener) {
         if (depth > MAX_DEPTH || !dir.isDirectory()) return;
         FileObserver observer = new Watch(dir, listener);
@@ -40,11 +43,13 @@ final class PdfWatcher {
         }
     }
 
+    /** Silences every observer; called before re-arming on a new mount. */
     void stop() {
         for (FileObserver observer : observers) observer.stopWatching();
         observers.clear();
     }
 
+    /** One directory: keeps only the ACCESS events of .pdf files. */
     private static final class Watch extends FileObserver {
         private final File dir;
         private final Listener listener;
@@ -55,6 +60,7 @@ final class PdfWatcher {
             this.listener = listener;
         }
 
+        /** path is relative to the watched directory; null means the directory itself. */
         @Override
         public void onEvent(int event, String path) {
             if (path == null || (event & FileObserver.ACCESS) == 0) return;

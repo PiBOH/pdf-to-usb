@@ -43,4 +43,5 @@
     <string name="not_connected">ni povezan</string>
     <string name="volumes">Izmenljivi diski: %1$s</string>
     <string name="volumes_none">noben ni povezan</string>
+    <string name="listening_on">Poslušam na %1$s</string>
 </resources>

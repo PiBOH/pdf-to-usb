@@ -43,4 +43,5 @@
     <string name="not_connected">غير متصلة</string>
     <string name="volumes">محركات USB: %1$s</string>
     <string name="volumes_none">لا يوجد أي محرك متصل</string>
+    <string name="listening_on">المراقبة على %1$s</string>
 </resources>

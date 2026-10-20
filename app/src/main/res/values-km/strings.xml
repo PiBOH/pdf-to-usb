@@ -43,4 +43,5 @@
     <string name="not_connected">មិនបានភ្ជាប់</string>
     <string name="volumes">ដ្រាយដែលអាចដកបាន៖ %1$s</string>
     <string name="volumes_none">គ្មានការភ្ជាប់</string>
+    <string name="listening_on">កំពុងតាមដាន %1$s</string>
 </resources>

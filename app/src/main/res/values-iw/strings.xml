@@ -43,4 +43,5 @@
     <string name="not_connected">לא מחובר</string>
     <string name="volumes">כוננים נשלפים: %1$s</string>
     <string name="volumes_none">לא מחובר אף כונן</string>
+    <string name="listening_on">מאזין ל-%1$s</string>
 </resources>

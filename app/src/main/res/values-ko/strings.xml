@@ -43,4 +43,5 @@
     <string name="not_connected">연결되지 않음</string>
     <string name="volumes">이동식 드라이브: %1$s</string>
     <string name="volumes_none">연결된 드라이브 없음</string>
+    <string name="listening_on">%1$s 감시 중</string>
 </resources>

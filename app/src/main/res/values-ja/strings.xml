@@ -43,4 +43,5 @@
     <string name="not_connected">接続されていません</string>
     <string name="volumes">リムーバブルドライブ: %1$s</string>
     <string name="volumes_none">接続なし</string>
+    <string name="listening_on">%1$s を監視中</string>
 </resources>

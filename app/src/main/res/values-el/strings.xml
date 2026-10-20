@@ -43,4 +43,5 @@
     <string name="not_connected">δεν είναι συνδεδεμένη</string>
     <string name="volumes">Αφαιρούμενοι δίσκοι: %1$s</string>
     <string name="volumes_none">κανένας συνδεδεμένος</string>
+    <string name="listening_on">Παρακολούθηση %1$s</string>
 </resources>

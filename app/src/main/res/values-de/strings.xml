@@ -43,4 +43,5 @@
     <string name="not_connected">nicht verbunden</string>
     <string name="volumes">Wechseldatenträger: %1$s</string>
     <string name="volumes_none">keiner verbunden</string>
+    <string name="listening_on">Überwache %1$s</string>
 </resources>

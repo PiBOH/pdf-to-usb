@@ -43,4 +43,5 @@
     <string name="not_connected">Ei yhdistetty</string>
     <string name="volumes">Irrotettavat asemat: %1$s</string>
     <string name="volumes_none">Ei yhtään yhdistettyä</string>
+    <string name="listening_on">Seurataan asemaa %1$s</string>
 </resources>

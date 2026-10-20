@@ -43,4 +43,5 @@
     <string name="not_connected">non connecté</string>
     <string name="volumes">Lecteurs amovibles : %1$s</string>
     <string name="volumes_none">aucun connecté</string>
+    <string name="listening_on">À l\'écoute de %1$s</string>
 </resources>

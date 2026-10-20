@@ -43,4 +43,5 @@
     <string name="not_connected">കണക്ട് ചെയ്തിട്ടില്ല</string>
     <string name="volumes">നീക്കാവുന്ന ഡ്രൈവുകൾ: %1$s</string>
     <string name="volumes_none">ഒന്നും കണക്ട് ചെയ്തിട്ടില്ല</string>
+    <string name="listening_on">%1$s നിരീക്ഷിക്കുന്നു</string>
 </resources>

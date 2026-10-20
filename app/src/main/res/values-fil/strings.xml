@@ -43,4 +43,5 @@
     <string name="not_connected">hindi konektado</string>
     <string name="volumes">Mga removable drive: %1$s</string>
     <string name="volumes_none">walang nakakonekta</string>
+    <string name="listening_on">Nagmamatyag sa %1$s</string>
 </resources>

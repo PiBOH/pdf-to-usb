@@ -43,4 +43,5 @@
     <string name="not_connected">ਜੁੜੀ ਨਹੀਂ</string>
     <string name="volumes">ਹਟਾਉਣਯੋਗ ਡਰਾਈਵਾਂ: %1$s</string>
     <string name="volumes_none">ਕੋਈ ਨਹੀਂ ਜੁੜੀ</string>
+    <string name="listening_on">%1$s ਉੱਤੇ ਸੁਣ ਰਿਹਾ ਹੈ</string>
 </resources>

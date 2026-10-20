@@ -43,4 +43,5 @@
     <string name="not_connected">ez dago konektatuta</string>
     <string name="volumes">Unitate eramangarriak: %1$s</string>
     <string name="volumes_none">bat ere ez konektatuta</string>
+    <string name="listening_on">%1$s jarraitzen</string>
 </resources>

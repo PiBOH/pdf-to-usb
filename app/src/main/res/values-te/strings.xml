@@ -43,4 +43,5 @@
     <string name="not_connected">కనెక్ట్ కాలేదు</string>
     <string name="volumes">తొలగించగల డ్రైవ్‌లు: %1$s</string>
     <string name="volumes_none">ఏదీ కనెక్ట్ కాలేదు</string>
+    <string name="listening_on">%1$s పై వింటోంది</string>
 </resources>

@@ -43,4 +43,5 @@
     <string name="not_connected">não ligado</string>
     <string name="volumes">Pen drives: %1$s</string>
     <string name="volumes_none">nenhum ligado</string>
+    <string name="listening_on">A ouvir em %1$s</string>
 </resources>

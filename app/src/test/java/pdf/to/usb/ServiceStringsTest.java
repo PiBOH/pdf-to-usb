@@ -18,6 +18,7 @@ public class ServiceStringsTest {
         return RuntimeEnvironment.getApplication();
     }
 
+    /** Formatted log lines and notifications must be translated, placeholders included. */
     @Test
     @Config(sdk = 28, qualifiers = "de")
     public void germanServiceStrings() {
@@ -31,6 +32,7 @@ public class ServiceStringsTest {
         assertEquals("Datei nicht lesbar", c.getString(R.string.copy_unreadable));
     }
 
+    /** The same contract holds for a non Latin locale, with its own word order. */
     @Test
     @Config(sdk = 28, qualifiers = "ja")
     public void japaneseServiceStrings() {

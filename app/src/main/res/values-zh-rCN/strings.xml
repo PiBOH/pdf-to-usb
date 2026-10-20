@@ -43,4 +43,5 @@
     <string name="not_connected">未连接</string>
     <string name="volumes">可移动磁盘：%1$s</string>
     <string name="volumes_none">未连接任何磁盘</string>
+    <string name="listening_on">正在监听 %1$s</string>
 </resources>

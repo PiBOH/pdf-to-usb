@@ -43,4 +43,5 @@
     <string name="not_connected">bağlı değil</string>
     <string name="volumes">Çıkarılabilir sürücüler: %1$s</string>
     <string name="volumes_none">hiçbiri bağlı değil</string>
+    <string name="listening_on">%1$s üzerinde dinleniyor</string>
 </resources>

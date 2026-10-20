@@ -43,4 +43,5 @@
     <string name="not_connected">ikke tilkoblet</string>
     <string name="volumes">Flyttbare enheter: %1$s</string>
     <string name="volumes_none">ingen tilkoblet</string>
+    <string name="listening_on">Overvåker %1$s</string>
 </resources>

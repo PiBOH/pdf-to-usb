@@ -43,4 +43,5 @@
     <string name="not_connected">не подключён</string>
     <string name="volumes">Съёмные диски: %1$s</string>
     <string name="volumes_none">ни одного подключённого</string>
+    <string name="listening_on">Прослушивание %1$s</string>
 </resources>

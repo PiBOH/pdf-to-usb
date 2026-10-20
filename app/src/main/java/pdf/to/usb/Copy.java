@@ -14,12 +14,15 @@ import java.util.Map;
  */
 final class Copy {
 
+    /** COPIED wrote a new file, PRESENT found the same name and size already on B. */
     enum Result { COPIED, PRESENT }
 
+    /** Destination of a copy: the SAF folder on B, or the in-memory sink used by the tests. */
     interface Sink {
         /** Files already in the destination folder: name -> size. */
         Map<String, Long> items() throws IOException;
 
+        /** Opens a new destination file; the engine writes it and closes it. */
         OutputStream create(String name) throws IOException;
 
         /** Deletes a half written file left by an error. */
@@ -29,6 +32,7 @@ final class Copy {
     private Copy() {
     }
 
+    /** Copies a file read from A, deduplicating against what is already on B. */
     static Result run(File src, Sink sink) throws IOException {
         String name = unique(safeName(src.getName()), src.length(), sink.items());
         if (name == null) return Result.PRESENT;
@@ -41,12 +45,14 @@ final class Copy {
         }
     }
 
+    /** Same, for a PDF that arrives as a stream (file opened with this app or shared to it). */
     static Result run(InputStream in, String rawName, long size, Sink sink) throws IOException {
         String name = unique(safeName(rawName), size, sink.items());
         if (name == null) return Result.PRESENT;
         return walk(in, name, sink);
     }
 
+    /** Streams the bytes; on any failure the partial file is discarded, never left on B. */
     private static Result walk(InputStream in, String name, Sink sink) throws IOException {
         OutputStream out;
         try {
@@ -95,6 +101,7 @@ final class Copy {
         return candidate;
     }
 
+    /** Closing twice, or after a failure, must not hide the error being propagated. */
     private static void closeQuietly(java.io.Closeable c) {
         try {
             c.close();

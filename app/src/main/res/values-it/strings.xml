@@ -27,6 +27,7 @@
     <string name="update_error">Aggiornamento non riuscito: %1$s</string>
     <string name="notification_title">Pdf To Usb</string>
     <string name="waiting">In ascolto su A</string>
+    <string name="listening_on">In ascolto su %1$s</string>
     <string name="need_trees">Scegli la chiavetta A e la chiavetta B</string>
     <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
     <string name="copy_error_detail">✗ %1$s: %2$s</string>

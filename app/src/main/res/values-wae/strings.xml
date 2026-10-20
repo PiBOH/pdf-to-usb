@@ -43,4 +43,5 @@
     <string name="not_connected">nid verbunde</string>
     <string name="volumes">Wechsel-Laufwärk: %1$s</string>
     <string name="volumes_none">kes verbunde</string>
+    <string name="listening_on">Am Hörä uf %1$s</string>
 </resources>

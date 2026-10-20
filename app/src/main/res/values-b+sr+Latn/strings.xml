@@ -43,4 +43,5 @@
     <string name="not_connected">nije povezan</string>
     <string name="volumes">Prenosivi drajvovi: %1$s</string>
     <string name="volumes_none">nijedan nije povezan</string>
+    <string name="listening_on">Pratim %1$s</string>
 </resources>

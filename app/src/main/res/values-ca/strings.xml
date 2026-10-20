@@ -43,4 +43,5 @@
     <string name="not_connected">no connectada</string>
     <string name="volumes">Unitats extraïbles: %1$s</string>
     <string name="volumes_none">cap connectada</string>
+    <string name="listening_on">Escoltant %1$s</string>
 </resources>

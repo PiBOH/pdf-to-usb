@@ -66,6 +66,14 @@ user can give it (Android 5.0+; a normal app cannot write to `/storage/UUID` by 
 confirmation is therefore one tap, once per stick pair, not a missing feature. Everything
 else - which stick is A, which is B, and which PDFs are opened - is detected by the app.
 
+**The source is whichever stick the PDF is opened from.** `CopyService.listen` arms a
+`FileObserver` on *every* mounted removable volume except the one B belongs to (B's UUID is
+read from its tree id), so the first stick plugged in has no special role: open a PDF on
+any other stick and it is copied. B itself is never watched, to avoid a copy loop. The
+stored tree A is only the fallback when the platform lists no removable volumes, and the
+target of the manual buttons (copy all, detection test). Copying from B to B is skipped,
+so opening a PDF already on the destination does nothing.
+
 ## 3. Compatibility
 
 - `minSdk 21` (Android 5.0 Lollipop). **Android 4.x is not supported**: the SAF tree picker
@@ -82,8 +90,8 @@ else - which stick is A, which is B, and which PDFs are opened - is detected by 
 
 ## 4. What is not silent (and cannot be)
 
-- The first setup needs two folder picker choices and the storage read permission (Android
-  6+): those are system prompts, not app prompts.
+- The first setup needs one folder picker choice (the receiving stick B) and the storage
+  read permission (Android 6+): those are system prompts, not app prompts.
 - Installing an APK shows the "unknown sources" consent: it can only be avoided with
   `adb install` or an MDM.
 - Updates: the "install unknown apps" toggle (once per app), the system install confirmation
@@ -98,8 +106,8 @@ else - which stick is A, which is B, and which PDFs are opened - is detected by 
    selected; the service then starts by itself.
    Without that automatic detection (one stick only, or a non-standard provider) the two
    pickers still work as before: A then B, then "Start listening".
-3. "Start listening" (notification "Listening on A") is only needed when the service was
-   stopped by hand.
+3. "Start listening" (notification with the watched drives) is only needed when the service
+   was stopped by hand.
 5. Open a PDF of A with any reader: the file appears in `B/pdf-to-usb` and the log shows
    `name.pdf -> pdf-to-usb`.
 6. Reboot or re-plug: the boot and mount receivers rearm the watcher by themselves.
@@ -113,7 +121,11 @@ Implemented in `Update.java`:
 1. `GET https://api.github.com/repos/PiBOH/pdf-to-usb/releases/latest` (public, no token); at
    most one check every 6 hours, from `MainActivity.onStart` and `CopyService.onCreate`.
    **Check for updates** in the bottom bar calls `Update.checkNow`, which ignores the limit
-   and writes the outcome (`Already up to date (0.1.5)` or the error) in the log.
+   and writes the outcome (`Already up to date (0.1.6)` or the error) in the log.
+   The 6 hour stamp is written **only when GitHub answered**: an offline start or an HTTP
+   error (403 rate limit included) used to silence the check for 6 hours, which is why
+   updates sometimes were never checked. A non 200 answer is reported as `HTTP <code>`,
+   and a clock moved backwards no longer blocks the check either.
 2. Comparison: tag `vX.Y.Z` becomes `major*10000 + minor*100 + patch` and is compared with the
    installed `versionCode` (built from `version.txt`). Non-numeric tags or a release without
    an `.apk` asset are ignored.
@@ -185,7 +197,8 @@ log.
   `drive_a_missing`, `drive_b_missing`, `scan_done`, `access_ok`, `access_missing`,
   `no_pdf_to_test`, `error_unknown`, `auto_source`, `auto_destination`, `auto_none`,
   `language`, `language_system`, `check_updates`, `update_latest`, `not_connected`,
-  `volumes`, `volumes_none` (43 keys per locale). Only technical literals stay: the
+  `volumes`, `volumes_none`, `listening_on` (44 keys per locale). Only technical literals
+  stay: the
   `document.pdf` fallback file name, the `pdf-to-usb` folder and the English messages of
   the SAF exceptions, which end up in the log through `copy_error_detail`.
 - `Lang.TAGS` (one BCP 47 tag per folder) and `TranslationsTest.LOCALES` must stay in step:

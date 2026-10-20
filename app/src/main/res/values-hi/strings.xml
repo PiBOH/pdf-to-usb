@@ -43,4 +43,5 @@
     <string name="not_connected">कनेक्ट नहीं है</string>
     <string name="volumes">रिमूवेबल ड्राइव: %1$s</string>
     <string name="volumes_none">कोई कनेक्ट नहीं है</string>
+    <string name="listening_on">%1$s पर निगरानी</string>
 </resources>

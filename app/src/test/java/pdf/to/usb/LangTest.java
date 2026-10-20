@@ -13,6 +13,7 @@ import java.util.Set;
 /** Language list: every tag must parse and show a readable name. */
 public class LangTest {
 
+    /** Every entry of the language dialog must be unique and show a real name. */
     @Test
     public void everyTagHasAReadableName() {
         Set<String> seen = new HashSet<>();
@@ -24,6 +25,7 @@ public class LangTest {
         }
     }
 
+    /** Resource qualifiers become BCP 47 tags, script and region included. */
     @Test
     public void parsesLanguageScriptAndRegion() {
         assertEquals("it", Lang.toLocale("it").getLanguage());

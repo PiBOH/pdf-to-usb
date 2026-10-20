@@ -23,12 +23,14 @@ public class StoreTest {
         return DocumentsContract.buildTreeDocumentUri("com.android.externalstorage.documents", documentId);
     }
 
+    /** The volume name is the part of the SAF document id before the colon. */
     @Test
     public void volumeNameComesFromDocumentId() {
         assertEquals("1A2B-3C4D", Store.volumeName(tree("1A2B-3C4D:PDF/miei")));
         assertEquals("primary", Store.volumeName(tree("primary:Download")));
     }
 
+    /** A primary tree must resolve to a real directory, FileObserver needs a File. */
     @Test
     public void treePathMapsPrimaryStorage() {
         File path = Volumes.treePath(tree("primary:Download"));
@@ -36,6 +38,7 @@ public class StoreTest {
         assertEquals(new File(Environment.getExternalStorageDirectory(), "Download"), path);
     }
 
+    /** Trees from other providers have no filesystem path: null, never a guess. */
     @Test
     public void treePathIgnoresNonExternalProviders() {
         Uri other = DocumentsContract.buildTreeDocumentUri("com.example.provider", "root-1");

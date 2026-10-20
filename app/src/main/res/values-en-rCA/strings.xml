@@ -43,4 +43,5 @@
     <string name="not_connected">not connected</string>
     <string name="volumes">Removable drives: %1$s</string>
     <string name="volumes_none">none connected</string>
+    <string name="listening_on">Listening on %1$s</string>
 </resources>

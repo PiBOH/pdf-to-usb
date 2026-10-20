@@ -43,4 +43,5 @@
     <string name="not_connected">সংযুক্ত নয়</string>
     <string name="volumes">রিমুভেবল ড্রাইভ: %1$s</string>
     <string name="volumes_none">কোনোটিই সংযুক্ত নয়</string>
+    <string name="listening_on">%1$s-এ নজরদারি</string>
 </resources>

@@ -43,4 +43,5 @@
     <string name="not_connected">chưa kết nối</string>
     <string name="volumes">Ổ đĩa rời: %1$s</string>
     <string name="volumes_none">không có ổ nào được kết nối</string>
+    <string name="listening_on">Đang nghe trên %1$s</string>
 </resources>

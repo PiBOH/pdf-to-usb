@@ -43,4 +43,5 @@
     <string name="not_connected">未連接</string>
     <string name="volumes">可卸除式磁碟：%1$s</string>
     <string name="volumes_none">未連接任何磁碟</string>
+    <string name="listening_on">正在監聽 %1$s</string>
 </resources>

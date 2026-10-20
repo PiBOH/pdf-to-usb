@@ -60,6 +60,22 @@ public class VolumesTest {
         assertNull(Volumes.destination(Arrays.asList(a, b, c), a));
     }
 
+    /** A single stick must never be proposed as its own destination. */
+    /** Every stick except B is watched, so the source is the one the PDF is opened from. */
+    @Test
+    public void sourcesAreEveryStickExceptTheDestination() {
+        Volumes.Volume first = vol("AAAA-0001");
+        Volumes.Volume second = vol("BBBB-0002");
+        Volumes.Volume destination = vol("CCCC-0003");
+        List<Volumes.Volume> all = Arrays.asList(first, second, destination);
+        List<Volumes.Volume> watched = Volumes.sources(all, "CCCC-0003");
+        assertEquals(Arrays.asList(first, second), watched);
+        // Destination not mounted right now: its UUID must still be excluded.
+        assertEquals(2, Volumes.sources(Arrays.asList(first, second), "CCCC-0003").size());
+        // No destination known: everything is a possible source.
+        assertEquals(3, Volumes.sources(all, null).size());
+    }
+
     @Test
     public void destinationIgnoresTheSourceItself() {
         Volumes.Volume a = vol("AAAA-0001");
@@ -67,6 +83,7 @@ public class VolumesTest {
         assertNull(Volumes.destination(Arrays.asList(a), a));
     }
 
+    /** The tree URI is built from the volume UUID, root document id "UUID:". */
     @Test
     public void treePointsAtTheVolumeRoot() {
         Uri tree = Volumes.tree(vol("1A2B-3C4D"));
@@ -74,6 +91,7 @@ public class VolumesTest {
         assertNull(Volumes.tree(new Volumes.Volume("no uuid", new File("/storage/x"), "")));
     }
 
+    /** Deep folders are not scanned: the count only has to rank the sticks. */
     @Test
     public void pdfCountOnlyLooksAtTwoLevels() throws Exception {
         File root = temp.newFolder("stick");

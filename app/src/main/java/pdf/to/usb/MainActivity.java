@@ -100,6 +100,7 @@ public class MainActivity extends Activity {
         if (file != null) CopyService.send(this, CopyService.ACTION_COPY_URI, file);
     }
 
+    /** Re-reads the state on every return to the screen and runs the throttled update check. */
     @Override
     protected void onStart() {
         super.onStart();
@@ -116,6 +117,7 @@ public class MainActivity extends Activity {
         super.onStop();
     }
 
+    /** State of A and B, the removable drives line, the toggle and the last copies. */
     private void showAll() {
         stateA.setText(getString(R.string.state_a, name(Store.tree(this, Store.KEY_A))));
         stateB.setText(getString(R.string.state_b, name(Store.tree(this, Store.KEY_B))));
@@ -131,6 +133,7 @@ public class MainActivity extends Activity {
         showLog();
     }
 
+    /** The button says what the next tap will do, not the current state. */
     private void showToggle() {
         toggle.setText(listening ? R.string.stop : R.string.start);
     }
@@ -160,6 +163,7 @@ public class MainActivity extends Activity {
         }, "drive-detection").start();
     }
 
+    /** Stores the detected A and proposes B; the dialog itself never grants permissions. */
     private void apply(Volumes.Volume a, Volumes.Volume b) {
         if (isFinishing()) return;
         if (a != null && Store.tree(this, Store.KEY_A) == null) {
@@ -176,10 +180,12 @@ public class MainActivity extends Activity {
         showAll();
     }
 
+    /** Human label of a volume, falling back to the mount point name. */
     private String label(Volumes.Volume v) {
         return v.label == null || v.label.isEmpty() ? v.dir.getName() : v.label;
     }
 
+    /** Newest copy first; an empty log explains what to do. */
     private void showLog() {
         log.clear();
         String[] lines = Store.log(this);
@@ -187,6 +193,7 @@ public class MainActivity extends Activity {
         else for (String line : lines) log.add(line);
     }
 
+    /** "UUID or label" plus a tick when the tree is still mounted, or "not connected". */
     private String name(Uri tree) {
         if (tree == null) return getString(R.string.not_set);
         String label = Store.volumeName(tree);
@@ -196,6 +203,7 @@ public class MainActivity extends Activity {
                 + (dir.isDirectory() ? " ✓" : " (" + getString(R.string.not_connected) + ")");
     }
 
+    /** System folder picker; the grant is persisted so it survives a reboot. */
     private void pick(int which) {
         Intent i = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
         i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION
@@ -246,6 +254,7 @@ public class MainActivity extends Activity {
                 .show();
     }
 
+    /** READ_EXTERNAL_STORAGE is only needed by FileObserver, never by the SAF writes. */
     private void askReadPermission() {
         if (Build.VERSION.SDK_INT >= 23
                 && checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {

@@ -43,4 +43,5 @@
     <string name="not_connected">neprijungtas</string>
     <string name="volumes">Nuimami diskai: %1$s</string>
     <string name="volumes_none">nė vienas neprijungtas</string>
+    <string name="listening_on">Stebiu %1$s</string>
 </resources>

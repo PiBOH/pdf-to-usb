@@ -43,4 +43,5 @@
     <string name="not_connected">nepřipojeno</string>
     <string name="volumes">Vyměnitelné disky: %1$s</string>
     <string name="volumes_none">žádný není připojen</string>
+    <string name="listening_on">Sleduji %1$s</string>
 </resources>

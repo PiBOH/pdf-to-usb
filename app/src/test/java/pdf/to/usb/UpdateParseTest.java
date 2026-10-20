@@ -22,6 +22,7 @@ public class UpdateParseTest {
             + "{\"name\":\"pdf-to-usb-0.2.0.apk\",\"browser_download_url\":\"https://example/app.apk\"}"
             + "]}";
 
+    /** The download URL must come from the .apk asset, other assets are skipped. */
     @Test
     public void parsesTagAndApkAsset() {
         Update.Release release = Update.parse(RELEASE);
@@ -30,6 +31,7 @@ public class UpdateParseTest {
         assertEquals("https://example/app.apk", release.apkUrl);
     }
 
+    /** A release without an APK is ignored: there would be nothing to install. */
     @Test
     public void rejectsReleaseWithoutApk() {
         assertNull(Update.parse("{\"tag_name\":\"v0.2.0\",\"assets\":["
@@ -37,6 +39,7 @@ public class UpdateParseTest {
         assertNull(Update.parse("{\"tag_name\":\"v0.2.0\"}"));
     }
 
+    /** Broken JSON and non numeric tags must fail closed, never crash the check. */
     @Test
     public void rejectsBrokenJsonAndTags() {
         assertNull(Update.parse("non json"));

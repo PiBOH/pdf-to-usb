@@ -12,8 +12,10 @@ import java.util.Locale;
 /** Preferences (A/B trees, language) and the copy log shown on the screen. */
 final class Store {
 
+    /** SAF tree of the source stick (A) and of the receiving stick (B). */
     static final String KEY_A = "tree_a";
     static final String KEY_B = "tree_b";
+    /** Sent to the screen after every log line, so the list refreshes itself. */
     static final String ACTION_CHANGED = "pdf.to.usb.CHANGED";
 
     private static final String PREF = "pdf-to-usb";
@@ -22,11 +24,13 @@ final class Store {
     private Store() {
     }
 
+    /** Stored tree for KEY_A or KEY_B, null when the user never picked one. */
     static Uri tree(Context c, String key) {
         String raw = c.getSharedPreferences(PREF, Context.MODE_PRIVATE).getString(key, null);
         return raw == null ? null : Uri.parse(raw);
     }
 
+    /** Persists the tree until the user picks another folder. */
     static void setTree(Context c, String key, Uri tree) {
         c.getSharedPreferences(PREF, Context.MODE_PRIVATE).edit().putString(key, tree.toString()).apply();
     }
@@ -48,18 +52,22 @@ final class Store {
         return c.getSharedPreferences(PREF, Context.MODE_PRIVATE).getString("language", "");
     }
 
+    /** Applied by Lang.wrap on the next start of the activity and of the service. */
     static void setLanguage(Context c, String tag) {
         c.getSharedPreferences(PREF, Context.MODE_PRIVATE).edit().putString("language", tag).apply();
     }
 
+    /** When the last successful update check ran, 0 when it never did. */
     static long lastUpdateCheck(Context c) {
         return c.getSharedPreferences(PREF, Context.MODE_PRIVATE).getLong("update_check", 0L);
     }
 
+    /** Written only after a successful fetch, so a network failure is retried later. */
     static void markUpdateCheck(Context c, long millis) {
         c.getSharedPreferences(PREF, Context.MODE_PRIVATE).edit().putLong("update_check", millis).apply();
     }
 
+    /** Newest line first, capped at LOG_MAX, then the screen is told to refresh. */
     static void log(Context c, String line) {
         String stamp = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
         String[] old = log(c);
@@ -69,6 +77,7 @@ final class Store {
         c.sendBroadcast(new Intent(ACTION_CHANGED).setPackage(c.getPackageName()));
     }
 
+    /** Stored lines, newest first; empty array when nothing was logged yet. */
     static String[] log(Context c) {
         String raw = c.getSharedPreferences(PREF, Context.MODE_PRIVATE).getString("log", "");
         return raw.isEmpty() ? new String[0] : raw.split("\n");

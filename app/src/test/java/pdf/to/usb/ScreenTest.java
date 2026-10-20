@@ -25,6 +25,7 @@ public class ScreenTest {
         Store.markUpdateCheck(RuntimeEnvironment.getApplication(), System.currentTimeMillis());
     }
 
+    /** A fresh install shows both drives as not set, without crashing on the pickers. */
     @Test
     public void screenShowsNotConfiguredState() {
         MainActivity activity = Robolectric.buildActivity(MainActivity.class).setup().get();
@@ -35,6 +36,7 @@ public class ScreenTest {
         assertEquals(activity.getString(R.string.state_b, notSet), b);
     }
 
+    /** The German folder must be wired to the keys, not just present. */
     @Test
     @Config(sdk = 28, qualifiers = "de")
     public void germanStringsLoad() {
@@ -43,6 +45,7 @@ public class ScreenTest {
         assertEquals("A (Quelle): x", activity.getString(R.string.state_a, "x"));
     }
 
+    /** A non Latin locale must still resolve its own strings. */
     @Test
     @Config(sdk = 28, qualifiers = "ja")
     public void japaneseStringsLoad() {
@@ -50,6 +53,7 @@ public class ScreenTest {
         assertEquals("A ドライブを選択（コピー元）", activity.getString(R.string.picked_a));
     }
 
+    /** Right to left locales are plain resources: they must load like the others. */
     @Test
     @Config(sdk = 28, qualifiers = "ar")
     public void arabicStringsLoad() {
@@ -57,6 +61,7 @@ public class ScreenTest {
         assertEquals("اختيار محرك A (المصدر)", activity.getString(R.string.picked_a));
     }
 
+    /** The in-app choice must win over the phone language, before any resource is read. */
     @Test
     public void chosenLanguageOverridesTheSystemOne() {
         Store.setLanguage(RuntimeEnvironment.getApplication(), "it");
@@ -65,6 +70,7 @@ public class ScreenTest {
         assertEquals("Lingua", activity.getString(R.string.language));
     }
 
+    /** Starting the service with no drives must not crash: it only reports the setup. */
     @Test
     public void serviceStartsWithoutDrives() {
         Intent intent = new Intent(RuntimeEnvironment.getApplication(), CopyService.class)

@@ -43,4 +43,5 @@
     <string name="not_connected">ikkje tilkopla</string>
     <string name="volumes">Flyttbare einingar: %1$s</string>
     <string name="volumes_none">ingen tilkopla</string>
+    <string name="listening_on">Overvakar %1$s</string>
 </resources>

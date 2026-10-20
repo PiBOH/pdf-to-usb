@@ -51,7 +51,7 @@ with an English name; a document that grows beyond one screen starts with a summ
 | `Copy.java` | copy engine, pure `java.io`: unique names, dedupe, partial-file cleanup |
 | `SafSink.java` | destination `B/pdf-to-usb` through SAF `DocumentFile` |
 | `PdfWatcher.java` | `FileObserver.ACCESS` watcher on drive A |
-| `CopyService.java` | foreground service: queue, retries, notification, intent handler |
+| `CopyService.java` | foreground service: watches every removable volume except B, queue, retries, notification |
 | `Volumes.java` | `StorageManager`/`StorageVolume` detection, SAF tree to filesystem path |
 | `Store.java` | preferences (trees A/B, language, copy log, update timestamp) |
 | `Lang.java` | language list, BCP 47 tags, context with the chosen language |

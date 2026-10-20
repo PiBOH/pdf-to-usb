@@ -43,4 +43,5 @@
     <string name="not_connected">inte ansluten</string>
     <string name="volumes">Flyttbara enheter: %1$s</string>
     <string name="volumes_none">ingen ansluten</string>
+    <string name="listening_on">Lyssnar på %1$s</string>
 </resources>

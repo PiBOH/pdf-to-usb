@@ -43,4 +43,5 @@
     <string name="not_connected">সংযোগ হোৱা নাই</string>
     <string name="volumes">পৰিবৰ্তনীয় ড্ৰাইভ: %1$s</string>
     <string name="volumes_none">কোনো ড্ৰাইভ সংযোগ হোৱা নাই</string>
+    <string name="listening_on">%1$s ত নিৰীক্ষণ</string>
 </resources>

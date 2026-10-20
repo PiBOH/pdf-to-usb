@@ -43,4 +43,5 @@
     <string name="not_connected">pa konekte</string>
     <string name="volumes">Disk amovib: %1$s</string>
     <string name="volumes_none">okenn pa konekte</string>
+    <string name="listening_on">Pe siveye %1$s</string>
 </resources>

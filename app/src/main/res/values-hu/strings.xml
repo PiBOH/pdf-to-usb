@@ -43,4 +43,5 @@
     <string name="not_connected">nincs csatlakoztatva</string>
     <string name="volumes">Cserélhető meghajtók: %1$s</string>
     <string name="volumes_none">egyik sincs csatlakoztatva</string>
+    <string name="listening_on">%1$s figyelése</string>
 </resources>

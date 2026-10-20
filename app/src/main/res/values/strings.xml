@@ -31,6 +31,7 @@
     <string name="update_error">Update failed: %1$s</string>
     <string name="notification_title">Pdf To Usb</string>
     <string name="waiting">Listening on A</string>
+    <string name="listening_on">Listening on %1$s</string>
     <string name="need_trees">Choose drive A and drive B</string>
 
     <!-- Service log and notification lines. -->

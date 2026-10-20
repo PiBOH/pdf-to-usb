@@ -116,10 +116,15 @@ final class Update {
 
     private static void runCheck(final Context c, final boolean userAsked) {
         long now = System.currentTimeMillis();
-        if (!userAsked && now - Store.lastUpdateCheck(c) < INTERVAL) return;
+        long last = Store.lastUpdateCheck(c);
+        // Clock moved backwards: the saved stamp would silence the check forever.
+        boolean due = last <= 0 || last > now || now - last >= INTERVAL;
+        if (!userAsked && !due) return;
         new Thread(() -> {
+            boolean answered = false;
             try {
                 Release release = fetch();
+                answered = true;   // GitHub replied: only now the 6 hour window may be honoured
                 if (isNewer(installedCode(c), release)) {
                     Store.log(c, "↑ " + c.getString(R.string.update_title) + " " + release.tag);
                     notify(c, release);
@@ -127,9 +132,10 @@ final class Update {
                     Store.log(c, c.getString(R.string.update_latest, installedName(c)));
                 }
             } catch (Exception e) {
+                // No stamp on failure: an offline start must not hide updates for 6 hours.
                 Store.log(c, c.getString(R.string.update_error, message(e)));
             } finally {
-                Store.markUpdateCheck(c, System.currentTimeMillis());
+                if (answered) Store.markUpdateCheck(c, System.currentTimeMillis());
             }
         }, "update-check").start();
     }
@@ -146,15 +152,21 @@ final class Update {
         }, "update-download").start();
     }
 
+    /** Latest release from the API; a non 200 answer is an error, not an empty result. */
     private static Release fetch() throws IOException {
         HttpURLConnection connection = open(API);
-        try (InputStream in = connection.getInputStream()) {
-            return parse(read(in));
+        try {
+            int status = connection.getResponseCode();
+            if (status != 200) throw new IOException("HTTP " + status);
+            try (InputStream in = connection.getInputStream()) {
+                return parse(read(in));
+            }
         } finally {
             connection.disconnect();
         }
     }
 
+    /** Downloads the APK into the cache, where FileProvider can expose it to the installer. */
     private static File download(Context c, String tag, String url) throws IOException {
         File apk = new File(c.getCacheDir(), "update-" + tag + ".apk");
         HttpURLConnection connection = open(url);
@@ -185,6 +197,7 @@ final class Update {
                 .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
+    /** Notification that opens MainActivity with the APK URL in its extras. */
     private static void notify(Context c, Release release) {
         NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
         if (nm == null) return;
@@ -209,6 +222,7 @@ final class Update {
                 .build());
     }
 
+    /** Installed versionName, shown by the manual check when everything is up to date. */
     private static String installedName(Context c) {
         try {
             return c.getPackageManager().getPackageInfo(c.getPackageName(), 0).versionName;
@@ -217,6 +231,7 @@ final class Update {
         }
     }
 
+    /** Installed versionCode, compared with the tag of the latest release. */
     private static int installedCode(Context c) {
         try {
             return c.getPackageManager().getPackageInfo(c.getPackageName(), 0).versionCode;
@@ -225,6 +240,7 @@ final class Update {
         }
     }
 
+    /** GitHub API connection: public, no token, short timeouts, User-Agent required. */
     private static HttpURLConnection open(String url) throws IOException {
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.setConnectTimeout(10000);
@@ -234,6 +250,7 @@ final class Update {
         return connection;
     }
 
+    /** Whole response body as UTF-8; the release JSON is a few kilobytes. */
     private static String read(InputStream in) throws IOException {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         byte[] buffer = new byte[16 * 1024];
@@ -242,6 +259,7 @@ final class Update {
         return out.toString("UTF-8");
     }
 
+    /** Detail for the log: the message of the failure, or its class name. */
     private static String message(Exception e) {
         return e.getMessage() == null ? e.getClass().getSimpleName() : e.getMessage();
     }

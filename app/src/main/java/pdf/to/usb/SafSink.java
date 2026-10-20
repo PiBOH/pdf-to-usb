@@ -21,6 +21,7 @@ final class SafSink implements Copy.Sink {
     private final Context ctx;
     private final DocumentFile dir;
 
+    /** Opens B/pdf-to-usb, creating the folder when missing; throws if the tree is not writable. */
     SafSink(Context ctx, Uri treeB) throws IOException {
         this.ctx = ctx;
         DocumentFile root = DocumentFile.fromTreeUri(ctx, treeB);
@@ -31,6 +32,7 @@ final class SafSink implements Copy.Sink {
         dir = folder;
     }
 
+    /** Name -> size of what is already in the folder: the copy engine uses it for dedupe. */
     @Override
     public Map<String, Long> items() {
         Map<String, Long> out = new HashMap<>();
@@ -41,6 +43,7 @@ final class SafSink implements Copy.Sink {
         return out;
     }
 
+    /** Creates the PDF on B and opens its stream; a missing stream deletes the empty file. */
     @Override
     public OutputStream create(String name) throws IOException {
         DocumentFile file = dir.createFile("application/pdf", name);
@@ -53,6 +56,7 @@ final class SafSink implements Copy.Sink {
         return out;
     }
 
+    /** Best effort: a file that cannot be deleted is skipped by dedupe on the next attempt. */
     @Override
     public void discard(String name) {
         DocumentFile file = dir.findFile(name);

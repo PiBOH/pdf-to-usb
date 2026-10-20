@@ -43,4 +43,5 @@
     <string name="not_connected">متصل نیست</string>
     <string name="volumes">درایوهای قابل جابجایی: %1$s</string>
     <string name="volumes_none">هیچ‌کدام متصل نیست</string>
+    <string name="listening_on">در حال پایش %1$s</string>
 </resources>

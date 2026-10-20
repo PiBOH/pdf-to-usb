@@ -7,6 +7,7 @@ import android.content.Intent;
 /** On boot and on volume mount/unmount: restarts or re-arms the listener. */
 public class BootReceiver extends BroadcastReceiver {
 
+    /** Only a boot or a mount change matters: the service is sticky and rearms itself. */
     @Override
     public void onReceive(Context context, Intent intent) {
         String action = intent == null ? null : intent.getAction();

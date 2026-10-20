@@ -43,4 +43,5 @@
     <string name="not_connected">nie podłączono</string>
     <string name="volumes">Dyski wymienne: %1$s</string>
     <string name="volumes_none">brak podłączonych</string>
+    <string name="listening_on">Nasłuchiwanie na %1$s</string>
 </resources>

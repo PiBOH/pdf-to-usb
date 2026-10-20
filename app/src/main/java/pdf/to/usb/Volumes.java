@@ -109,6 +109,19 @@ final class Volumes {
         return best;
     }
 
+    /**
+     * Sticks to watch: every mounted volume except the destination B. The source is the one
+     * the PDF is opened from, so the plug order does not matter and B is never a source.
+     */
+    static List<Volume> sources(List<Volume> volumes, String destinationUuid) {
+        List<Volume> out = new ArrayList<>();
+        for (Volume v : volumes) {
+            if (destinationUuid != null && destinationUuid.equals(v.uuid)) continue;
+            out.add(v);
+        }
+        return out;
+    }
+
     /** Destination B is the other stick: null when there is not exactly one. */
     static Volume destination(List<Volume> volumes, Volume source) {
         Volume out = null;

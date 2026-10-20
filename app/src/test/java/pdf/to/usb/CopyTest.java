@@ -22,6 +22,7 @@ public class CopyTest {
     @Rule
     public TemporaryFolder tmp = new TemporaryFolder();
 
+    /** A source name must never be able to escape the destination folder. */
     @Test
     public void safeNameBlocksPathsAndAddsExtension() {
         assertEquals("a_b.pdf", Copy.safeName("a/b.pdf"));
@@ -30,6 +31,7 @@ public class CopyTest {
         assertEquals("x.pdf", Copy.safeName("x"));
     }
 
+    /** Same name and same size means the same file: a different size needs a new name. */
     @Test
     public void uniqueSkipsSameNameAndSize() {
         Map<String, Long> onB = new HashMap<>();
@@ -41,6 +43,7 @@ public class CopyTest {
         assertEquals("a (3).pdf", Copy.unique("a.pdf", 11, onB));
     }
 
+    /** Some SAF providers cannot report the size: then only the name can be compared. */
     @Test
     public void uniqueWithUnknownSizeKeepsName() {
         Map<String, Long> onB = new HashMap<>();
@@ -48,6 +51,7 @@ public class CopyTest {
         assertNull(Copy.unique("a.pdf", -1, onB));
     }
 
+    /** A second run on the same source must not create a duplicate on B. */
     @Test
     public void copyWritesThenSkipsExisting() throws IOException {
         File src = tmp.newFile("a.pdf");
@@ -61,6 +65,7 @@ public class CopyTest {
         assertEquals(1, sink.files.size());
     }
 
+    /** A write that fails half way must not leave a truncated PDF on B. */
     @Test
     public void failedCopyLeavesNothingBehind() throws IOException {
         File src = tmp.newFile("b.pdf");

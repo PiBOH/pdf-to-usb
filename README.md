@@ -15,9 +15,10 @@ copied as well.
 
 ## What it does
 
-- finds drive A and drive B by itself: A is the stick with the PDFs, B is the other one
-  (one system confirmation on B is still required, Android does not allow an app to grant
-  itself write access to a USB stick)
+- watches every USB stick except the receiving one: whichever stick you open a PDF from
+  becomes the source, so it does not matter which one was plugged in first
+- finds the receiving drive B by itself and proposes it (one system confirmation is still
+  required, Android does not allow an app to grant itself write access to a USB stick)
 - foreground service with a notification, a copy queue, 3 retries per file
 - dedupe by name and size; a different PDF with the same name becomes `name (2).pdf`
 - English by default, with 57 languages taken from
@@ -38,9 +39,9 @@ Download the APK from [Releases](https://github.com/PiBOH/pdf-to-usb/releases) a
 it (Android asks once for "install unknown apps"). Then:
 
 1. Plug both sticks in, open the app and allow reading storage (used by the watcher).
-2. The app detects drive A by itself (the stick with the PDFs) and proposes drive B: tap
-   **Choose drive B** and confirm the volume already selected. The app creates `pdf-to-usb`
-   there and starts listening.
+2. The app proposes drive B (the receiving stick): tap **Choose drive B** and confirm the
+   volume already selected. The app creates `pdf-to-usb` there and starts listening on the
+   other stick, whichever one it is.
 3. Open a PDF from drive A with any reader.
 
 With only one stick, or if the detection does not fit, the two pickers still let you choose

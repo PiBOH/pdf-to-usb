@@ -43,4 +43,5 @@
     <string name="not_connected">не е свързана</string>
     <string name="volumes">Сменяеми устройства: %1$s</string>
     <string name="volumes_none">няма свързани</string>
+    <string name="listening_on">Наблюдавам %1$s</string>
 </resources>

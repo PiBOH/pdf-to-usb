@@ -43,4 +43,5 @@
     <string name="not_connected">tidak terhubung</string>
     <string name="volumes">Drive yang dapat dilepas: %1$s</string>
     <string name="volumes_none">tidak ada yang terhubung</string>
+    <string name="listening_on">Memantau %1$s</string>
 </resources>

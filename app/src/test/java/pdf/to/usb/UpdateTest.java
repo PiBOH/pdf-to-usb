@@ -7,6 +7,7 @@ import org.junit.Test;
 /** Version comparison contract, as a table. */
 public class UpdateTest {
 
+    /** Tag to versionCode, including the malformed tags the updater has to ignore. */
     @Test
     public void versionCodeTable() {
         String[][] cases = {
@@ -28,6 +29,7 @@ public class UpdateTest {
         }
     }
 
+    /** Only a strictly higher code is an update; a missing release never is. */
     @Test
     public void isNewerTable() {
         Update.Release next = new Update.Release("v0.2.0", 200, "https://example/app.apk");

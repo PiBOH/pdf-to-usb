@@ -43,4 +43,5 @@
     <string name="not_connected">no conectada</string>
     <string name="volumes">Unidades extraíbles: %1$s</string>
     <string name="volumes_none">ninguna conectada</string>
+    <string name="listening_on">Escuchando en %1$s</string>
 </resources>

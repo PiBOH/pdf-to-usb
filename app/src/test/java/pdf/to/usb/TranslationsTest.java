@@ -33,6 +33,7 @@ public class TranslationsTest {
 
     private static final File RES = new File("src/main/res");
 
+    /** A missing folder would silently fall back to English for that language. */
     @Test
     public void allViviMusicLocalesExist() {
         for (String locale : LOCALES) {
@@ -52,6 +53,7 @@ public class TranslationsTest {
         }
     }
 
+    /** Same keys and placeholders as the base, otherwise a locale breaks at runtime. */
     @Test
     public void everyLocaleMatchesBaseKeysAndPlaceholders() throws Exception {
         Map<String, String> base = read(new File(RES, "values/strings.xml"));

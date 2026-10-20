@@ -15,7 +15,9 @@ import android.provider.OpenableColumns;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -36,11 +38,12 @@ public class CopyService extends Service {
     private static final int ATTEMPTS = 3;
 
     private final Set<String> queued = Collections.newSetFromMap(new ConcurrentHashMap<String, Boolean>());
+    private final List<PdfWatcher> watchers = new ArrayList<>();
     private ExecutorService worker;
-    private PdfWatcher watcher;
     private int copied;
     private volatile String lastSeen;
 
+    /** Starts the service for one action; from Android 8 it must go through startForegroundService. */
     static void send(Context c, String action, Uri data) {
         Intent i = new Intent(c, CopyService.class).setAction(action);
         if (data != null) i.setData(data);
@@ -67,6 +70,7 @@ public class CopyService extends Service {
         return null;
     }
 
+    /** Handles one action, then re-arms the listener: the service stays alive between copies. */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         String action = intent == null ? null : intent.getAction();
@@ -81,25 +85,48 @@ public class CopyService extends Service {
         return START_STICKY;
     }
 
-    /** (Re)arms the listener on A: also called when a volume is mounted. */
+    /**
+     * (Re)arms the listener, also called when a volume is mounted. Every removable stick
+     * except the destination B is watched: the source is the stick the PDF is opened from,
+     * not the first one connected, so no stick needs to be chosen as A to copy.
+     */
     private void listen() {
-        if (watcher != null) watcher.stop();
-        watcher = null;
-        Uri a = Store.tree(this, Store.KEY_A);
+        stopWatchers();
         Uri b = Store.tree(this, Store.KEY_B);
-        if (a == null || b == null) {
+        if (b == null) {
             update(getString(R.string.need_trees));
             return;
         }
-        File dir = Volumes.treePath(a);
-        if (dir == null || !dir.isDirectory()) {
+        String destination = Store.volumeName(b);
+        StringBuilder names = new StringBuilder();
+        // Every stick except B: copying from B to B would be a loop.
+        for (Volumes.Volume v : Volumes.sources(Volumes.removable(this), destination)) {
+            if (v.dir == null || !v.dir.isDirectory()) continue;
+            watchers.add(new PdfWatcher(v.dir, this::enqueue));
+            if (names.length() > 0) names.append(", ");
+            names.append(v.label == null || v.label.isEmpty() ? v.dir.getName() : v.label);
+        }
+        // No removable volume listed (odd provider): fall back to the stored tree A, if any.
+        if (watchers.isEmpty()) {
+            File dir = Volumes.treePath(Store.tree(this, Store.KEY_A));
+            if (dir != null && dir.isDirectory()) {
+                watchers.add(new PdfWatcher(dir, this::enqueue));
+                names.append(dir.getName());
+            }
+        }
+        if (watchers.isEmpty()) {
             update(getString(R.string.drive_a_missing));
             return;
         }
-        watcher = new PdfWatcher(dir, this::enqueue);
-        update(getString(R.string.waiting) + " · " + dir.getName());
+        update(getString(R.string.listening_on, names.toString()));
     }
 
+    private void stopWatchers() {
+        for (PdfWatcher w : watchers) w.stop();
+        watchers.clear();
+    }
+
+    /** Queues one PDF; a file already being copied is not queued twice. */
     private void enqueue(File pdf) {
         final String path = pdf.getAbsolutePath();
         lastSeen = path;
@@ -113,6 +140,7 @@ public class CopyService extends Service {
         });
     }
 
+    /** Copies one PDF into B/pdf-to-usb, with 3 attempts and a log row per outcome. */
     private void copy(File src) {
         Uri b = Store.tree(this, Store.KEY_B);
         if (b == null) {
@@ -136,6 +164,7 @@ public class CopyService extends Service {
         update(getString(R.string.copy_error_file, src.getName()));
     }
 
+    /** Manual fallback: copies every PDF of A, for the devices where ACCESS never fires. */
     private void copyAll() {
         File dir = Volumes.treePath(Store.tree(this, Store.KEY_A));
         if (dir == null || !dir.isDirectory()) {
@@ -148,6 +177,7 @@ public class CopyService extends Service {
         });
     }
 
+    /** Walks A up to 4 levels and copies each PDF; returns how many were found. */
     private int walk(File dir, int depth) {
         if (depth > 4) return 0;
         File[] children = dir.listFiles();
@@ -191,6 +221,7 @@ public class CopyService extends Service {
         });
     }
 
+    /** First PDF of A, used by the detection self-test. */
     private File firstPdf(File dir, int depth) {
         if (depth > 4) return null;
         File[] children = dir.listFiles();
@@ -233,6 +264,7 @@ public class CopyService extends Service {
         });
     }
 
+    /** File name behind a content Uri, as the provider reports it. */
     private String displayName(Uri uri) {
         try (Cursor c = getContentResolver().query(uri, null, null, null, null)) {
             if (c != null && c.moveToFirst()) {
@@ -245,6 +277,7 @@ public class CopyService extends Service {
         return last == null ? "document.pdf" : last;
     }
 
+    /** Size behind a content Uri, or -1 when the provider does not report it. */
     private long size(Uri uri) {
         try (Cursor c = getContentResolver().query(uri, null, null, null, null)) {
             if (c != null && c.moveToFirst()) {
@@ -256,6 +289,7 @@ public class CopyService extends Service {
         return -1L;
     }
 
+    /** Ongoing notification; the channel must exist before Android 8 will show it. */
     private Notification notification(String text) {
         Notification.Builder b;
         if (Build.VERSION.SDK_INT >= 26) {
@@ -274,11 +308,13 @@ public class CopyService extends Service {
                 .build();
     }
 
+    /** Replaces the notification text without alerting again. */
     private void update(String text) {
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         if (nm != null) nm.notify(NOTIF, notification(text));
     }
 
+    /** Retry backoff; an interrupt stops the wait and is kept on the thread. */
     private static void sleep(long millis) {
         try {
             Thread.sleep(millis);
@@ -287,13 +323,14 @@ public class CopyService extends Service {
         }
     }
 
+    /** Detail for the log line: the exception message, or a generic one. */
     private String message(Exception e) {
         return e == null || e.getMessage() == null ? getString(R.string.error_unknown) : e.getMessage();
     }
 
     @Override
     public void onDestroy() {
-        if (watcher != null) watcher.stop();
+        stopWatchers();
         if (worker != null) worker.shutdownNow();
         stopForeground(true);
         super.onDestroy();

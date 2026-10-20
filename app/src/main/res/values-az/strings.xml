@@ -43,4 +43,5 @@
     <string name="not_connected">qoşulmayıb</string>
     <string name="volumes">Çıxarıla bilən disklər: %1$s</string>
     <string name="volumes_none">heç biri qoşulmayıb</string>
+    <string name="listening_on">%1$s dinlənir</string>
 </resources>

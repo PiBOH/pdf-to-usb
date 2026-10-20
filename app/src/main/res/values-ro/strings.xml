@@ -43,4 +43,5 @@
     <string name="not_connected">neconectată</string>
     <string name="volumes">Unități amovibile: %1$s</string>
     <string name="volumes_none">niciuna conectată</string>
+    <string name="listening_on">Ascult pe %1$s</string>
 </resources>

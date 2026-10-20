@@ -43,4 +43,5 @@
     <string name="not_connected">ไม่ได้เชื่อมต่อ</string>
     <string name="volumes">ไดรฟ์แบบถอดได้: %1$s</string>
     <string name="volumes_none">ไม่มีไดรฟ์เชื่อมต่อ</string>
+    <string name="listening_on">กำลังฟังบน %1$s</string>
 </resources>
