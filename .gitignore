@@ -11,7 +11,5 @@ captures/
 *.apk
 *.aab
 
-# Firma: mai nel repository
-*.keystore
-*.jks
-keystore.properties
+# Firma: gestito da .ignore/directory
+(vedi .ignore/ per le esclusioni)
