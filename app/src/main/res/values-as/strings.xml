@@ -44,4 +44,9 @@
     <string name="volumes">পৰিবৰ্তনীয় ড্ৰাইভ: %1$s</string>
     <string name="volumes_none">কোনো ড্ৰাইভ সংযোগ হোৱা নাই</string>
     <string name="listening_on">%1$s ত নিৰীক্ষণ</string>
+    <string name="app_subtitle">USB ষ্টিকত খোলা PDF আনখনলৈ কপি কৰা হয়</string>
+    <string name="status_on">শুনি আছে</string>
+    <string name="status_off">শুনি নাই</string>
+    <string name="keep_running">পৃষ্ঠভূমিত চলি থাকক</string>
+    <string name="battery_hint">Pdf To Usb-ক বেটাৰী অভিজ্ঞতানুকূলন অৱহেলা কৰিবলৈ অনুমতি দিয়ক, যাতে স্ক্ৰীন বন্ধ থাকিলেও সাজু থাকে।</string>
 </resources>

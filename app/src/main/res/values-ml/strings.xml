@@ -44,4 +44,9 @@
     <string name="volumes">നീക്കാവുന്ന ഡ്രൈവുകൾ: %1$s</string>
     <string name="volumes_none">ഒന്നും കണക്ട് ചെയ്തിട്ടില്ല</string>
     <string name="listening_on">%1$s നിരീക്ഷിക്കുന്നു</string>
+    <string name="app_subtitle">USB ഡ്രൈവിൽ തുറക്കുന്ന PDF-കൾ മറ്റേ ഡ്രൈവിലേക്ക് പകർത്തുന്നു</string>
+    <string name="status_on">നിരീക്ഷിക്കുന്നു</string>
+    <string name="status_off">നിരീക്ഷിക്കുന്നില്ല</string>
+    <string name="keep_running">പശ്ചാത്തലത്തിൽ പ്രവർത്തനക്ഷമമായിരിക്കുക</string>
+    <string name="battery_hint">സ്ക്രീൻ ഓഫ് ആയിരിക്കുമ്പോഴും തയ്യാറായിരിക്കാൻ Pdf To Usb-നെ ബാറ്ററി ഒപ്റ്റിമൈസേഷൻ അവഗണിക്കാൻ അനുവദിക്കുക.</string>
 </resources>

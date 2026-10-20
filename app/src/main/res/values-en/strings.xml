@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Pdf To Usb</string>
+    <string name="app_subtitle">PDFs opened on a USB stick, copied to the other one</string>
+    <string name="status_on">Listening</string>
+    <string name="status_off">Not listening</string>
+    <string name="keep_running">Keep running in background</string>
+    <string name="battery_hint">Allow Pdf To Usb to ignore battery optimization, so it stays ready with the screen off.</string>
 
     <string name="picked_a">Choose drive A (source)</string>
     <string name="picked_b">Choose drive B (destination)</string>

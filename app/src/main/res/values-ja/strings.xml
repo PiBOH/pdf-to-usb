@@ -44,4 +44,9 @@
     <string name="volumes">リムーバブルドライブ: %1$s</string>
     <string name="volumes_none">接続なし</string>
     <string name="listening_on">%1$s を監視中</string>
+    <string name="app_subtitle">USB ドライブで開いた PDF をもう一方のドライブにコピーします</string>
+    <string name="status_on">監視中</string>
+    <string name="status_off">監視していません</string>
+    <string name="keep_running">バックグラウンドで動作を続ける</string>
+    <string name="battery_hint">Pdf To Usb にバッテリー最適化を無視させると、画面オフでも準備が整います。</string>
 </resources>

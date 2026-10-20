@@ -44,4 +44,9 @@
     <string name="volumes">நீக்கக்கூடிய இயக்ககங்கள்: %1$s</string>
     <string name="volumes_none">எதுவும் இணைக்கப்படவில்லை</string>
     <string name="listening_on">%1$s இல் கேட்கிறது</string>
+    <string name="app_subtitle">USB இயக்ககத்தில் திறக்கும் PDFகள் மற்றதற்கு நகலெடுக்கப்படும்</string>
+    <string name="status_on">கேட்டுக்கொண்டிருக்கிறது</string>
+    <string name="status_off">கேட்கவில்லை</string>
+    <string name="keep_running">பின்னணியில் இயங்கு</string>
+    <string name="battery_hint">திரை அணைந்திருந்தாலும் தயாராக இருக்க Pdf To Usb பேட்டரி மேம்பாட்டைப் புறக்கணிக்க அனுமதிக்கவும்.</string>
 </resources>

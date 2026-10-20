@@ -44,4 +44,9 @@
     <string name="volumes">রিমুভেবল ড্রাইভ: %1$s</string>
     <string name="volumes_none">কোনোটিই সংযুক্ত নয়</string>
     <string name="listening_on">%1$s-এ নজরদারি</string>
+    <string name="app_subtitle">USB ড্রাইভে খোলা PDF অন্য ড্রাইভে কপি হয়</string>
+    <string name="status_on">শুনছে</string>
+    <string name="status_off">শুনছে না</string>
+    <string name="keep_running">ব্যাকগ্রাউন্ডে চলতে থাকুক</string>
+    <string name="battery_hint">স্ক্রিন বন্ধ থাকলেও প্রস্তুত থাকতে Pdf To Usb-কে ব্যাটারি অপ্টিমাইজেশন উপেক্ষা করার অনুমতি দিন।</string>
 </resources>

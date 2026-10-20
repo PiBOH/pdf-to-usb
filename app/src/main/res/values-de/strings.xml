@@ -44,4 +44,9 @@
     <string name="volumes">Wechseldatenträger: %1$s</string>
     <string name="volumes_none">keiner verbunden</string>
     <string name="listening_on">Überwache %1$s</string>
+    <string name="app_subtitle">PDFs, die auf einem USB-Stick geöffnet werden, werden auf den anderen kopiert</string>
+    <string name="status_on">Überwacht</string>
+    <string name="status_off">Nicht aktiv</string>
+    <string name="keep_running">Im Hintergrund weiterlaufen</string>
+    <string name="battery_hint">Erlauben Sie Pdf To Usb, die Akku-Optimierung zu ignorieren, damit es bei ausgeschaltetem Bildschirm bereit bleibt.</string>
 </resources>

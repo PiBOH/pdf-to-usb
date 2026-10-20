@@ -44,4 +44,9 @@
     <string name="volumes">Pen drives: %1$s</string>
     <string name="volumes_none">nenhum ligado</string>
     <string name="listening_on">A ouvir em %1$s</string>
+    <string name="app_subtitle">PDF abertos numa pen drive, copiados para a outra</string>
+    <string name="status_on">A escutar</string>
+    <string name="status_off">Não está a escutar</string>
+    <string name="keep_running">Manter em segundo plano</string>
+    <string name="battery_hint">Permita que o Pdf To Usb ignore a otimização de bateria, para ficar pronto com o ecrã desligado.</string>
 </resources>

@@ -44,4 +44,9 @@
     <string name="volumes">Flyttbare enheter: %1$s</string>
     <string name="volumes_none">ingen tilkoblet</string>
     <string name="listening_on">Overvåker %1$s</string>
+    <string name="app_subtitle">PDF-er som åpnes på en USB-enhet kopieres til den andre enheten</string>
+    <string name="status_on">Overvåker</string>
+    <string name="status_off">Overvåker ikke</string>
+    <string name="keep_running">Fortsett i bakgrunnen</string>
+    <string name="battery_hint">Tillat Pdf To Usb å ignorere batterioptimalisering, slik at den er klar også når skjermen er av.</string>
 </resources>

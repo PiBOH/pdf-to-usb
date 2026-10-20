@@ -44,4 +44,9 @@
     <string name="volumes">Unitats extraïbles: %1$s</string>
     <string name="volumes_none">cap connectada</string>
     <string name="listening_on">Escoltant %1$s</string>
+    <string name="app_subtitle">Els PDF oberts en un llapis USB es copien a l\'altre</string>
+    <string name="status_on">Escoltant</string>
+    <string name="status_off">No escolta</string>
+    <string name="keep_running">Continua en segon pla</string>
+    <string name="battery_hint">Permet que Pdf To Usb ignori l\'optimització de bateria perquè estigui a punt amb la pantalla apagada.</string>
 </resources>

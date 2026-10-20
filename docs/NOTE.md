@@ -197,7 +197,8 @@ log.
   `drive_a_missing`, `drive_b_missing`, `scan_done`, `access_ok`, `access_missing`,
   `no_pdf_to_test`, `error_unknown`, `auto_source`, `auto_destination`, `auto_none`,
   `language`, `language_system`, `check_updates`, `update_latest`, `not_connected`,
-  `volumes`, `volumes_none`, `listening_on` (44 keys per locale). Only technical literals
+  `volumes`, `volumes_none`, `listening_on`, `app_subtitle`, `status_on`, `status_off`,
+  `keep_running`, `battery_hint` (49 keys per locale). Only technical literals
   stay: the
   `document.pdf` fallback file name, the `pdf-to-usb` folder and the English messages of
   the SAF exceptions, which end up in the log through `copy_error_detail`.
@@ -226,3 +227,30 @@ The manifest declares only `android:icon`, not `android:roundIcon`: pointing the
 the same square artwork made lint report five `IconLauncherShape` warnings, and the launcher
 masks the icon itself. Remaining lint warnings: the pre-Android-13 receiver export flag and the
 missing monochrome layer (Android 13 only, out of the target range).
+
+## 10. Interface, background and updates
+
+- **Layout**: one `LinearLayout` with a header (mark, name, subtitle), a white status card
+  (dot plus state, A, B, removable drives, the two pickers), the listening button, the two
+  manual actions, **Keep running in background**, the copy log and the bottom bar. Pure
+  platform widgets and `LinearLayout`, so it works unchanged from Android 5.0 to 9.0; no
+  AppCompat, no ConstraintLayout, no new dependency. Colours and shapes are resources
+  (`bg_card.xml`, `dot_on.xml`, `dot_off.xml`).
+- **Background**: the service is a foreground service with `START_STICKY`; `BootReceiver`
+  restarts it on boot, on `MY_PACKAGE_REPLACED` (so an update does not leave the app dead)
+  and on volume mount/unmount, but only when `Store.listening` is true. `MainActivity.onStart`
+  re-arms it as well, so opening the screen always brings it back. **Keep running in
+  background** sends the standard `ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS` prompt: that
+  is the supported way to keep a foreground service alive with the screen off. No exploit,
+  no permission bypass, no hidden setting.
+- **Silent updates are not possible.** Android shows the "install unknown apps" consent once
+  and its install confirmation every time; only a system signature, root or an MDM can skip
+  them. The app downloads the APK and opens the installer, and nothing in the code or docs
+  promises more.
+- **Copy log**: entries are stored as a string key plus arguments (`Store.log`), never as
+  formatted text, and are formatted with the language in force when the screen draws them.
+  A language change therefore re-reads old entries in the new language instead of mixing
+  languages; non-resource lines (a version tag) stay as they are (`Store.logRaw`).
+- Lint: `BatteryLife` is disabled in `app/build.gradle` because the battery exemption is a
+  requested feature, together with `AppBundleLocaleChanges`; the two tolerated warnings are
+  unchanged.

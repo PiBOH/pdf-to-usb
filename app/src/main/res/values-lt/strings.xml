@@ -44,4 +44,9 @@
     <string name="volumes">Nuimami diskai: %1$s</string>
     <string name="volumes_none">nė vienas neprijungtas</string>
     <string name="listening_on">Stebiu %1$s</string>
+    <string name="app_subtitle">USB diske atidaryti PDF failai kopijuojami į kitą diską</string>
+    <string name="status_on">Stebima</string>
+    <string name="status_off">Nestebima</string>
+    <string name="keep_running">Veikti fone</string>
+    <string name="battery_hint">Leiskite Pdf To Usb nepaisyti akumuliatoriaus optimizavimo, kad ji būtų pasirengusi ir išjungus ekraną.</string>
 </resources>

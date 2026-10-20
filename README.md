@@ -20,6 +20,9 @@ copied as well.
 - finds the receiving drive B by itself and proposes it (one system confirmation is still
   required, Android does not allow an app to grant itself write access to a USB stick)
 - foreground service with a notification, a copy queue, 3 retries per file
+- stays ready with the screen off: restarts at boot, after an app update and when the app is
+  reopened, and **Keep running in background** asks Android to leave it out of battery
+  optimization (a normal system dialog)
 - dedupe by name and size; a different PDF with the same name becomes `name (2).pdf`
 - English by default, with 57 languages taken from
   [vivizzz007/vivi-music](https://github.com/vivizzz007/vivi-music), picked from the bottom
@@ -64,7 +67,9 @@ Regenerate the launcher icons from `matrix_logo.svg` with `python3 tools/icons.p
 ## Updates
 
 The app checks the latest GitHub release at most every 6 hours (or immediately when you tap
-**Check for updates**), downloads the APK and opens the system installer. Android always asks for "install unknown apps" once and always shows
+**Check for updates**), downloads the APK and opens the system installer. A completely silent
+install is not possible: Android always asks for "install unknown apps" once and always
+shows its install confirmation, and no app can skip them without a system signature or root. Android always asks for "install unknown apps" once and always shows
 its install confirmation; Play Protect may show a warning for APKs that do not come from
 the Play Store. No app can skip those dialogs. Updates install only if the new APK is
 signed with the same key as the installed one.

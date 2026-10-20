@@ -44,4 +44,9 @@
     <string name="volumes">Cserélhető meghajtók: %1$s</string>
     <string name="volumes_none">egyik sincs csatlakoztatva</string>
     <string name="listening_on">%1$s figyelése</string>
+    <string name="app_subtitle">Az USB-meghajtón megnyitott PDF-ek a másik meghajtóra másolódnak</string>
+    <string name="status_on">Figyelés fut</string>
+    <string name="status_off">Figyelés leállítva</string>
+    <string name="keep_running">Futás a háttérben</string>
+    <string name="battery_hint">Engedélyezd a Pdf To Usb számára az akkumulátor-optimalizálás mellőzését, hogy kikapcsolt képernyővel is készen álljon.</string>
 </resources>

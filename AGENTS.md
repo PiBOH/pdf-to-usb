@@ -16,7 +16,8 @@ foreground service, and updates itself from this repository's GitHub releases.
 - **Android**: `minSdk 21`, `targetSdk 28`, `compileSdk 35` (the target devices run Android
   5.0 to 9.0)
 - **Dependencies**: `androidx.documentfile`, `androidx.core` (FileProvider). Nothing else.
-- **UI**: one Activity, one layout, platform Material theme. No navigation library.
+- **UI**: one Activity, one layout, platform Material light theme, no AppCompat: header,
+  a status card, the action rows, the copy log and a bottom bar with language and updates.
 - **Locales**: 57 `values-*` folders, base language English in `values/`.
 - **Language**: English is the default everywhere: app, docs, code comments, commit
   messages. Android picks the system language when it matches a `values-*` folder; the

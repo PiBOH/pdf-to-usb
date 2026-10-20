@@ -44,4 +44,9 @@
     <string name="volumes">Unitate eramangarriak: %1$s</string>
     <string name="volumes_none">bat ere ez konektatuta</string>
     <string name="listening_on">%1$s jarraitzen</string>
+    <string name="app_subtitle">USB batean irekitako PDFak bestera kopiatzen dira</string>
+    <string name="status_on">Entzuten</string>
+    <string name="status_off">Ez du entzuten</string>
+    <string name="keep_running">Jarraitu atzeko planoan</string>
+    <string name="battery_hint">Baimendu Pdf To Usb-ri bateriaren optimizazioa alde batera uzteko, pantaila itzalita ere prest egon dadin.</string>
 </resources>

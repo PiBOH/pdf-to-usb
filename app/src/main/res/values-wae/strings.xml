@@ -44,4 +44,9 @@
     <string name="volumes">Wechsel-Laufwärk: %1$s</string>
     <string name="volumes_none">kes verbunde</string>
     <string name="listening_on">Am Hörä uf %1$s</string>
+    <string name="app_subtitle">PDF, wo uf em USB-Stick ufgmacht wärde, wärde uf de andere kopiert</string>
+    <string name="status_on">Lauscht</string>
+    <string name="status_off">Lauscht nöd</string>
+    <string name="keep_running">Im Hintergrund laufe</string>
+    <string name="battery_hint">Erlaub Pdf To Usb, d Batterii-Optimierig z ignoriere, damit’s au mit usgschaltetem Bildschirm bereit isch.</string>
 </resources>

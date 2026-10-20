@@ -44,4 +44,9 @@
     <string name="volumes">रिमूवेबल ड्राइव: %1$s</string>
     <string name="volumes_none">कोई कनेक्ट नहीं है</string>
     <string name="listening_on">%1$s पर निगरानी</string>
+    <string name="app_subtitle">USB ड्राइव पर खोली गई PDF दूसरी ड्राइव पर कॉपी होती हैं</string>
+    <string name="status_on">निगरानी चालू</string>
+    <string name="status_off">निगरानी बंद</string>
+    <string name="keep_running">बैकग्राउंड में चालू रखें</string>
+    <string name="battery_hint">Pdf To Usb को बैटरी ऑप्टिमाइज़ेशन अनदेखा करने दें, ताकि स्क्रीन बंद होने पर भी यह तैयार रहे।</string>
 </resources>

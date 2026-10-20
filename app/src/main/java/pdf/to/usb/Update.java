@@ -126,14 +126,14 @@ final class Update {
                 Release release = fetch();
                 answered = true;   // GitHub replied: only now the 6 hour window may be honoured
                 if (isNewer(installedCode(c), release)) {
-                    Store.log(c, "↑ " + c.getString(R.string.update_title) + " " + release.tag);
+                    Store.logRaw(c, "↑ " + release.tag);
                     notify(c, release);
                 } else if (userAsked) {
-                    Store.log(c, c.getString(R.string.update_latest, installedName(c)));
+                    Store.log(c, "update_latest", installedName(c));
                 }
             } catch (Exception e) {
                 // No stamp on failure: an offline start must not hide updates for 6 hours.
-                Store.log(c, c.getString(R.string.update_error, message(e)));
+                Store.log(c, "update_error", message(e));
             } finally {
                 if (answered) Store.markUpdateCheck(c, System.currentTimeMillis());
             }
@@ -184,7 +184,7 @@ final class Update {
     /** Android 8+: when the app may not install, send the user to the settings once. */
     private static void openInstaller(Activity activity, File apk, String tag, String apkUrl) {
         if (Build.VERSION.SDK_INT >= 26 && !activity.getPackageManager().canRequestPackageInstalls()) {
-            Store.log(activity, activity.getString(R.string.update_permission));
+            Store.log(activity, "update_permission");
             activity.startActivity(new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,
                     Uri.parse("package:" + activity.getPackageName())));
             // the notification was consumed by the first tap: post it again for the second

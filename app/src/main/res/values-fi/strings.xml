@@ -44,4 +44,9 @@
     <string name="volumes">Irrotettavat asemat: %1$s</string>
     <string name="volumes_none">Ei yhtään yhdistettyä</string>
     <string name="listening_on">Seurataan asemaa %1$s</string>
+    <string name="app_subtitle">USB-muistitikulla avatut PDF-tiedostot kopioidaan toiselle tikulle</string>
+    <string name="status_on">Seuranta käynnissä</string>
+    <string name="status_off">Seuranta pysäytetty</string>
+    <string name="keep_running">Pidä käynnissä taustalla</string>
+    <string name="battery_hint">Salli Pdf To Usb -sovelluksen ohittaa akun optimointi, jotta se on valmis myös näytön ollessa pois päältä.</string>
 </resources>

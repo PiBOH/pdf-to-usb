@@ -44,4 +44,9 @@
     <string name="volumes">Αφαιρούμενοι δίσκοι: %1$s</string>
     <string name="volumes_none">κανένας συνδεδεμένος</string>
     <string name="listening_on">Παρακολούθηση %1$s</string>
+    <string name="app_subtitle">Τα PDF που ανοίγουν σε USB αντιγράφονται στο άλλο</string>
+    <string name="status_on">Ακούει</string>
+    <string name="status_off">Δεν ακούει</string>
+    <string name="keep_running">Συνέχιση στο παρασκήνιο</string>
+    <string name="battery_hint">Επιτρέψτε στο Pdf To Usb να αγνοεί τη βελτιστοποίηση μπαταρίας, ώστε να μένει έτοιμο με κλειστή οθόνη.</string>
 </resources>

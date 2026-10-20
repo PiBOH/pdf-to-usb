@@ -44,4 +44,9 @@
     <string name="volumes">Flyttbara enheter: %1$s</string>
     <string name="volumes_none">ingen ansluten</string>
     <string name="listening_on">Lyssnar på %1$s</string>
+    <string name="app_subtitle">PDF-filer som öppnas på ett USB-minne kopieras till det andra</string>
+    <string name="status_on">Övervakar</string>
+    <string name="status_off">Övervakar inte</string>
+    <string name="keep_running">Kör i bakgrunden</string>
+    <string name="battery_hint">Tillåt Pdf To Usb att ignorera batterioptimeringen så att den är redo även med släckt skärm.</string>
 </resources>

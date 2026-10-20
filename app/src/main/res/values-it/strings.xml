@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Pdf To Usb</string>
+    <string name="app_subtitle">PDF aperti su una chiavetta, copiati sull\'altra</string>
+    <string name="status_on">In ascolto</string>
+    <string name="status_off">Non in ascolto</string>
+    <string name="keep_running">Resta attiva in background</string>
+    <string name="battery_hint">Consenti a Pdf To Usb di ignorare l\'ottimizzazione batteria, così resta pronta a schermo spento.</string>
     <string name="picked_a">Scegli chiavetta A (sorgente)</string>
     <string name="picked_b">Scegli chiavetta B (destinazione)</string>
     <string name="start">Avvia ascolto</string>

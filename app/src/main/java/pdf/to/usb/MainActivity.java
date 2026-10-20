@@ -11,7 +11,10 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.provider.DocumentsContract;
+import android.provider.Settings;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -30,6 +33,8 @@ public class MainActivity extends Activity {
     private TextView stateA;
     private TextView stateB;
     private TextView volumes;
+    private TextView status;
+    private View dot;
     private Button toggle;
     private ArrayAdapter<String> log;
     private boolean listening;
@@ -57,7 +62,10 @@ public class MainActivity extends Activity {
         stateA = findViewById(R.id.state_a);
         stateB = findViewById(R.id.state_b);
         volumes = findViewById(R.id.volumes);
+        status = findViewById(R.id.status);
+        dot = findViewById(R.id.dot);
         toggle = findViewById(R.id.toggle);
+        listening = Store.listening(this);
         log = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         ((ListView) findViewById(R.id.log)).setAdapter(log);
 
@@ -69,9 +77,11 @@ public class MainActivity extends Activity {
                 CopyService.send(this, CopyService.ACTION_TEST, null));
         toggle.setOnClickListener(v -> {
             listening = !listening;
+            Store.setListening(this, listening);
             CopyService.send(this, listening ? CopyService.ACTION_START : CopyService.ACTION_STOP, null);
             showToggle();
         });
+        findViewById(R.id.background).setOnClickListener(v -> keepRunning());
         findViewById(R.id.language).setOnClickListener(v -> chooseLanguage());
         findViewById(R.id.updates).setOnClickListener(v -> Update.checkNow(this));
 
@@ -107,6 +117,11 @@ public class MainActivity extends Activity {
         IntentFilter filter = new IntentFilter(Store.ACTION_CHANGED);
         if (Build.VERSION.SDK_INT >= 33) registerReceiver(changed, filter, Context.RECEIVER_NOT_EXPORTED);
         else registerReceiver(changed, filter);
+        // Configured once, then the service is expected to run again by itself after a
+        // reboot, an app update or simply reopening the screen.
+        if (listening && Store.tree(this, Store.KEY_B) != null) {
+            CopyService.send(this, CopyService.ACTION_START, null);
+        }
         showAll();
         Update.check(this);
     }
@@ -133,9 +148,34 @@ public class MainActivity extends Activity {
         showLog();
     }
 
-    /** The button says what the next tap will do, not the current state. */
+    /** The button says what the next tap will do; the dot and the status line show the state. */
     private void showToggle() {
         toggle.setText(listening ? R.string.stop : R.string.start);
+        status.setText(listening ? R.string.status_on : R.string.status_off);
+        dot.setBackgroundResource(listening ? R.drawable.dot_on : R.drawable.dot_off);
+    }
+
+    /**
+     * Asks Android to keep the app out of battery optimization, so the foreground service is
+     * not frozen with the screen off. It is a normal system prompt, not a hidden switch.
+     */
+    private void keepRunning() {
+        if (Build.VERSION.SDK_INT < 23) return;
+        PowerManager pm = (PowerManager) getSystemService(POWER_SERVICE);
+        if (pm != null && pm.isIgnoringBatteryOptimizations(getPackageName())) {
+            Store.logRaw(this, getString(R.string.status_on));
+            showAll();
+            return;
+        }
+        Store.log(this, "battery_hint");
+        try {
+            startActivity(new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
+                    Uri.parse("package:" + getPackageName())));
+        } catch (Exception e) {
+            // Some devices do not expose the direct request: open the list instead.
+            startActivity(new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS));
+        }
+        showAll();
     }
 
     /**
@@ -151,7 +191,7 @@ public class MainActivity extends Activity {
         if (!needA && !needB) return;
         List<Volumes.Volume> found = Volumes.removable(this);
         if (found.isEmpty()) {
-            Store.log(this, getString(R.string.auto_none));
+            Store.log(this, "auto_none");
             return;
         }
         new Thread(() -> {
@@ -170,12 +210,12 @@ public class MainActivity extends Activity {
             Uri tree = Volumes.tree(a);
             if (tree != null) {
                 Store.setTree(this, Store.KEY_A, tree);
-                Store.log(this, getString(R.string.auto_source, label(a)));
+                Store.log(this, "auto_source", label(a));
             }
         }
         if (b != null && Store.tree(this, Store.KEY_B) == null) {
             suggestedB = Volumes.tree(b);
-            Store.log(this, getString(R.string.auto_destination, label(b)));
+            Store.log(this, "auto_destination", label(b));
         }
         showAll();
     }
@@ -233,6 +273,7 @@ public class MainActivity extends Activity {
             suggestedB = null;
             if (Store.tree(this, Store.KEY_A) != null) {
                 listening = true;
+                Store.setListening(this, true);
                 CopyService.send(this, CopyService.ACTION_START, null);
             }
         }

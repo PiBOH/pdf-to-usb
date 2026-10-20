@@ -44,4 +44,9 @@
     <string name="volumes">Izmenljivi diski: %1$s</string>
     <string name="volumes_none">noben ni povezan</string>
     <string name="listening_on">Poslušam na %1$s</string>
+    <string name="app_subtitle">PDF-ji, odprti z diska USB, se kopirajo na drugega</string>
+    <string name="status_on">Spremljam</string>
+    <string name="status_off">Ne spremljam</string>
+    <string name="keep_running">Deluj v ozadju</string>
+    <string name="battery_hint">Dovolite Pdf To Usb, da prezre optimizacijo baterije, da bo pripravljeno tudi z ugasnjenim zaslonom.</string>
 </resources>

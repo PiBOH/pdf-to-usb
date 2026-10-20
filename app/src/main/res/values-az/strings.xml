@@ -44,4 +44,9 @@
     <string name="volumes">Çıxarıla bilən disklər: %1$s</string>
     <string name="volumes_none">heç biri qoşulmayıb</string>
     <string name="listening_on">%1$s dinlənir</string>
+    <string name="app_subtitle">USB yaddaşda açılan PDF-lər digərinə kopyalanır</string>
+    <string name="status_on">Dinlənir</string>
+    <string name="status_off">Dinlənmir</string>
+    <string name="keep_running">Arxa planda işləməyə davam et</string>
+    <string name="battery_hint">Ekran söndürüldükdə də hazır qalması üçün Pdf To Usb-yə batareya optimallaşdırmasını nəzərə almamağa icazə verin.</string>
 </resources>

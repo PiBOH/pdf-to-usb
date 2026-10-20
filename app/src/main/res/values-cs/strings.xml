@@ -44,4 +44,9 @@
     <string name="volumes">Vyměnitelné disky: %1$s</string>
     <string name="volumes_none">žádný není připojen</string>
     <string name="listening_on">Sleduji %1$s</string>
+    <string name="app_subtitle">PDF otevřené na USB disku se zkopírují na druhý</string>
+    <string name="status_on">Naslouchá</string>
+    <string name="status_off">Nenaslouchá</string>
+    <string name="keep_running">Běžet na pozadí</string>
+    <string name="battery_hint">Povolte Pdf To Usb ignorovat optimalizaci baterie, aby bylo připravené i při vypnuté obrazovce.</string>
 </resources>

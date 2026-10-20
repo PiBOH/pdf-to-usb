@@ -44,4 +44,9 @@
     <string name="volumes">محركات USB: %1$s</string>
     <string name="volumes_none">لا يوجد أي محرك متصل</string>
     <string name="listening_on">المراقبة على %1$s</string>
+    <string name="app_subtitle">ملفات PDF المفتوحة على محرك USB تُنسخ إلى المحرك الآخر</string>
+    <string name="status_on">قيد الاستماع</string>
+    <string name="status_off">غير قيد الاستماع</string>
+    <string name="keep_running">الإبقاء على العمل في الخلفية</string>
+    <string name="battery_hint">اسمح لـ Pdf To Usb بتجاهل تحسين البطارية، ليبقى جاهزًا والشاشة مغلقة.</string>
 </resources>

@@ -44,4 +44,9 @@
     <string name="volumes">Verwisselbare schijven: %1$s</string>
     <string name="volumes_none">geen verbonden</string>
     <string name="listening_on">Luistert op %1$s</string>
+    <string name="app_subtitle">Pdf-bestanden die je op een USB-schijf opent, worden naar de andere schijf gekopieerd</string>
+    <string name="status_on">Luistert</string>
+    <string name="status_off">Luistert niet</string>
+    <string name="keep_running">Blijf op de achtergrond draaien</string>
+    <string name="battery_hint">Sta Pdf To Usb toe batterijoptimalisatie te negeren, zodat de app klaar is ook met het scherm uit.</string>
 </resources>

@@ -44,4 +44,9 @@
     <string name="volumes">Unități amovibile: %1$s</string>
     <string name="volumes_none">niciuna conectată</string>
     <string name="listening_on">Ascult pe %1$s</string>
+    <string name="app_subtitle">PDF-uri deschise de pe un stick USB, copiate pe celălalt</string>
+    <string name="status_on">Ascultă</string>
+    <string name="status_off">Nu ascultă</string>
+    <string name="keep_running">Rulează în fundal</string>
+    <string name="battery_hint">Permite aplicației Pdf To Usb să ignore optimizarea bateriei, ca să fie gata cu ecranul stins.</string>
 </resources>

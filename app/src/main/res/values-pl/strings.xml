@@ -44,4 +44,9 @@
     <string name="volumes">Dyski wymienne: %1$s</string>
     <string name="volumes_none">brak podłączonych</string>
     <string name="listening_on">Nasłuchiwanie na %1$s</string>
+    <string name="app_subtitle">PDF-y otwierane na pendrive, kopiowane na drugi</string>
+    <string name="status_on">Nasłuchuje</string>
+    <string name="status_off">Nie nasłuchuje</string>
+    <string name="keep_running">Działaj w tle</string>
+    <string name="battery_hint">Zezwól Pdf To Usb na pominięcie optymalizacji baterii, aby było gotowe przy wyłączonym ekranie.</string>
 </resources>

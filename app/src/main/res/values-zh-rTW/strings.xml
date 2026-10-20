@@ -44,4 +44,9 @@
     <string name="volumes">可卸除式磁碟：%1$s</string>
     <string name="volumes_none">未連接任何磁碟</string>
     <string name="listening_on">正在監聽 %1$s</string>
+    <string name="app_subtitle">從 USB 隨身碟開啟的 PDF 會複製到另一個隨身碟</string>
+    <string name="status_on">正在監聽</string>
+    <string name="status_off">未監聽</string>
+    <string name="keep_running">在背景執行</string>
+    <string name="battery_hint">允許 Pdf To Usb 忽略電池最佳化，讓螢幕關閉時也能保持就緒。</string>
 </resources>

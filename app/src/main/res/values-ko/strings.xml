@@ -44,4 +44,9 @@
     <string name="volumes">이동식 드라이브: %1$s</string>
     <string name="volumes_none">연결된 드라이브 없음</string>
     <string name="listening_on">%1$s 감시 중</string>
+    <string name="app_subtitle">USB 드라이브에서 연 PDF를 다른 드라이브로 복사합니다</string>
+    <string name="status_on">감시 중</string>
+    <string name="status_off">감시 중지됨</string>
+    <string name="keep_running">백그라운드에서 계속 실행</string>
+    <string name="battery_hint">Pdf To Usb가 배터리 최적화를 무시하도록 허용하면 화면이 꺼져도 준비된 상태로 유지됩니다.</string>
 </resources>

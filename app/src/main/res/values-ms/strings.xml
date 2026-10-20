@@ -44,4 +44,9 @@
     <string name="volumes">Pemacu boleh tanggal: %1$s</string>
     <string name="volumes_none">tiada yang disambungkan</string>
     <string name="listening_on">Memantau %1$s</string>
+    <string name="app_subtitle">PDF yang dibuka pada pemacu USB disalin ke pemacu yang lain</string>
+    <string name="status_on">Memantau</string>
+    <string name="status_off">Tidak memantau</string>
+    <string name="keep_running">Kekal berjalan di latar belakang</string>
+    <string name="battery_hint">Benarkan Pdf To Usb mengabaikan pengoptimuman bateri supaya ia sentiasa sedia walaupun skrin dimatikan.</string>
 </resources>

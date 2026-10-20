@@ -3,6 +3,14 @@
     <color name="primary">#E65100</color>
     <color name="primary_dark">#BF360C</color>
     <color name="accent">#FF6D00</color>
-    <!-- Sfondo dell'icona adattiva: primo stop del gradiente di matrix_logo.svg. -->
+    <!-- Adaptive icon background: first stop of the matrix_logo.svg gradient. -->
     <color name="icon_background">#111827</color>
+
+    <color name="window">#F4F5F7</color>
+    <color name="card">#FFFFFF</color>
+    <color name="title">#111827</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="divider">#E5E7EB</color>
+    <color name="ok">#2E7D32</color>
+    <color name="muted">#9CA3AF</color>
 </resources>

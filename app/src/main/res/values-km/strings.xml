@@ -44,4 +44,9 @@
     <string name="volumes">ដ្រាយដែលអាចដកបាន៖ %1$s</string>
     <string name="volumes_none">គ្មានការភ្ជាប់</string>
     <string name="listening_on">កំពុងតាមដាន %1$s</string>
+    <string name="app_subtitle">PDF ដែលបើកនៅលើដ្រាយ USB ត្រូវបានចម្លងទៅដ្រាយមួយទៀត</string>
+    <string name="status_on">កំពុងតាមដាន</string>
+    <string name="status_off">មិនកំពុងតាមដាន</string>
+    <string name="keep_running">រក្សាដំណើរការក្នុងផ្ទៃខាងក្រោយ</string>
+    <string name="battery_hint">អនុញ្ញាតឱ្យ Pdf To Usb មិនគិតពីការបង្កើនប្រសិទ្ធភាពថ្ម ដើម្បីឱ្យវាត្រៀមខ្លួននៅពេលអេក្រង់បិទ។</string>
 </resources>

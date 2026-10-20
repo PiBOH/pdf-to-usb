@@ -44,4 +44,9 @@
     <string name="volumes">Disk amovib: %1$s</string>
     <string name="volumes_none">okenn pa konekte</string>
     <string name="listening_on">Pe siveye %1$s</string>
+    <string name="app_subtitle">Bann PDF ki ouver lor enn disk USB kopye lor lot disk la</string>
+    <string name="status_on">Pe siveye</string>
+    <string name="status_off">Pa pe siveye</string>
+    <string name="keep_running">Reste aktif an arriere-plan</string>
+    <string name="battery_hint">Permet Pdf To Usb ignor optimizasyon batri, konsa li pare mem ler ekran ete.</string>
 </resources>

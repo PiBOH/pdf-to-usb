@@ -44,4 +44,9 @@
     <string name="volumes">Здымныя дыскі: %1$s</string>
     <string name="volumes_none">ні адзін не падключаны</string>
     <string name="listening_on">Назіраю за %1$s</string>
+    <string name="app_subtitle">PDF, адкрытыя на USB-носьбіце, капіруюцца на іншы</string>
+    <string name="status_on">Слухае</string>
+    <string name="status_off">Не слухае</string>
+    <string name="keep_running">Працаваць у фоне</string>
+    <string name="battery_hint">Дазвольце Pdf To Usb ігнараваць аптымізацыю батарэі, каб ён заставаўся гатовым пры выключаным экране.</string>
 </resources>

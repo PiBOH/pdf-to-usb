@@ -44,4 +44,9 @@
     <string name="volumes">Çıkarılabilir sürücüler: %1$s</string>
     <string name="volumes_none">hiçbiri bağlı değil</string>
     <string name="listening_on">%1$s üzerinde dinleniyor</string>
+    <string name="app_subtitle">USB sürücüsünde açılan PDF’ler diğerine kopyalanır</string>
+    <string name="status_on">Dinliyor</string>
+    <string name="status_off">Dinlemiyor</string>
+    <string name="keep_running">Arka planda çalış</string>
+    <string name="battery_hint">Ekran kapalıyken de hazır olması için Pdf To Usb’nin pil optimizasyonunu yok saymasına izin ver.</string>
 </resources>

@@ -44,4 +44,9 @@
     <string name="volumes">可移动磁盘：%1$s</string>
     <string name="volumes_none">未连接任何磁盘</string>
     <string name="listening_on">正在监听 %1$s</string>
+    <string name="app_subtitle">从 USB 盘打开的 PDF 会复制到另一个盘</string>
+    <string name="status_on">正在监听</string>
+    <string name="status_off">未监听</string>
+    <string name="keep_running">后台运行</string>
+    <string name="battery_hint">允许 Pdf To Usb 忽略电池优化，以便在息屏时也保持就绪。</string>
 </resources>

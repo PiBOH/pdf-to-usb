@@ -44,4 +44,9 @@
     <string name="volumes">ਹਟਾਉਣਯੋਗ ਡਰਾਈਵਾਂ: %1$s</string>
     <string name="volumes_none">ਕੋਈ ਨਹੀਂ ਜੁੜੀ</string>
     <string name="listening_on">%1$s ਉੱਤੇ ਸੁਣ ਰਿਹਾ ਹੈ</string>
+    <string name="app_subtitle">USB ਡਰਾਈਵ ’ਤੇ ਖੋਲ੍ਹੇ PDF, ਦੂਜੀ ’ਤੇ ਕਾਪੀ ਹੁੰਦੇ ਹਨ</string>
+    <string name="status_on">ਸੁਣ ਰਿਹਾ ਹੈ</string>
+    <string name="status_off">ਸੁਣ ਨਹੀਂ ਰਿਹਾ</string>
+    <string name="keep_running">ਬੈਕਗ੍ਰਾਊਂਡ ਵਿੱਚ ਚਾਲੂ ਰੱਖੋ</string>
+    <string name="battery_hint">Pdf To Usb ਨੂੰ ਬੈਟਰੀ ਅਨੁਕੂਲਣ ਅਣਡਿੱਠ ਕਰਨ ਦਿਓ, ਤਾਂ ਜੋ ਸਕ੍ਰੀਨ ਬੰਦ ਹੋਣ ’ਤੇ ਵੀ ਤਿਆਰ ਰਹੇ।</string>
 </resources>

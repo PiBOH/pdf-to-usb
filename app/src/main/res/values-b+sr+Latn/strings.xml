@@ -44,4 +44,9 @@
     <string name="volumes">Prenosivi drajvovi: %1$s</string>
     <string name="volumes_none">nijedan nije povezan</string>
     <string name="listening_on">Pratim %1$s</string>
+    <string name="app_subtitle">PDF-ovi otvoreni na USB drajvu kopiraju se na drugi</string>
+    <string name="status_on">Sluša</string>
+    <string name="status_off">Ne sluša</string>
+    <string name="keep_running">Nastavi da radi u pozadini</string>
+    <string name="battery_hint">Dozvolite Pdf To Usb da zanemari optimizaciju baterije, da ostane spreman i sa ugašenim ekranom.</string>
 </resources>

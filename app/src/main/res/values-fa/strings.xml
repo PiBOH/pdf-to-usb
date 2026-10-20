@@ -44,4 +44,9 @@
     <string name="volumes">درایوهای قابل جابجایی: %1$s</string>
     <string name="volumes_none">هیچ‌کدام متصل نیست</string>
     <string name="listening_on">در حال پایش %1$s</string>
+    <string name="app_subtitle">PDFهای بازشده روی فلش USB روی فلش دیگر کپی می‌شوند</string>
+    <string name="status_on">در حال گوش دادن</string>
+    <string name="status_off">گوش نمی‌دهد</string>
+    <string name="keep_running">در پس‌زمینه اجرا شود</string>
+    <string name="battery_hint">به Pdf To Usb اجازه دهید بهینه‌سازی باتری را نادیده بگیرد تا با خاموش بودن صفحه آماده بماند.</string>
 </resources>

@@ -44,4 +44,9 @@
     <string name="volumes">Drive yang dapat dilepas: %1$s</string>
     <string name="volumes_none">tidak ada yang terhubung</string>
     <string name="listening_on">Memantau %1$s</string>
+    <string name="app_subtitle">PDF yang dibuka di USB drive disalin ke drive lainnya</string>
+    <string name="status_on">Memantau</string>
+    <string name="status_off">Tidak memantau</string>
+    <string name="keep_running">Tetap berjalan di latar belakang</string>
+    <string name="battery_hint">Izinkan Pdf To Usb mengabaikan optimasi baterai agar tetap siap saat layar mati.</string>
 </resources>

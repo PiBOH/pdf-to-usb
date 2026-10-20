@@ -46,11 +46,23 @@ public class StoreTest {
     }
 
     /** The log keeps the newest line first and stops at 30 entries. */
+    /** Log entries are stored as keys, so they are re-read in the language in force now. */
+    @Test
+    @Config(sdk = 28, qualifiers = "de")
+    public void logLinesFollowTheCurrentLanguage() {
+        Store.log(RuntimeEnvironment.getApplication(), "copy_ok", "a.pdf");
+        Store.log(RuntimeEnvironment.getApplication(), "copy_progress", 2, "a.pdf");
+        String[] lines = Store.log(RuntimeEnvironment.getApplication());
+        org.junit.Assert.assertTrue(lines[0], lines[0].contains("2"));
+        org.junit.Assert.assertTrue(lines[0], lines[0].endsWith("a.pdf"));
+        org.junit.Assert.assertTrue(lines[1], lines[1].contains("a.pdf"));
+    }
+
     @Test
     public void logKeepsNewestFirstAndIsCapped() {
-        for (int i = 1; i <= 35; i++) Store.log(RuntimeEnvironment.getApplication(), "riga " + i);
+        for (int i = 1; i <= 35; i++) Store.logRaw(RuntimeEnvironment.getApplication(), "line " + i);
         String[] lines = Store.log(RuntimeEnvironment.getApplication());
         assertEquals(30, lines.length);
-        org.junit.Assert.assertTrue(lines[0], lines[0].endsWith("riga 35"));
+        org.junit.Assert.assertTrue(lines[0], lines[0].endsWith("line 35"));
     }
 }

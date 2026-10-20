@@ -44,4 +44,9 @@
     <string name="volumes">Lecteurs amovibles : %1$s</string>
     <string name="volumes_none">aucun connecté</string>
     <string name="listening_on">À l\'écoute de %1$s</string>
+    <string name="app_subtitle">Les PDF ouverts sur une clé USB sont copiés sur l\'autre clé</string>
+    <string name="status_on">À l\'écoute</string>
+    <string name="status_off">Pas à l\'écoute</string>
+    <string name="keep_running">Rester active en arrière-plan</string>
+    <string name="battery_hint">Autorisez Pdf To Usb à ignorer l\'optimisation de la batterie, pour qu\'elle reste prête écran éteint.</string>
 </resources>

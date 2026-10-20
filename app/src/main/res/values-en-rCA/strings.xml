@@ -44,4 +44,9 @@
     <string name="volumes">Removable drives: %1$s</string>
     <string name="volumes_none">none connected</string>
     <string name="listening_on">Listening on %1$s</string>
+    <string name="app_subtitle">PDFs opened on a USB stick, copied to the other one</string>
+    <string name="status_on">Listening</string>
+    <string name="status_off">Not listening</string>
+    <string name="keep_running">Keep running in background</string>
+    <string name="battery_hint">Allow Pdf To Usb to ignore battery optimization, so it stays ready with the screen off.</string>
 </resources>

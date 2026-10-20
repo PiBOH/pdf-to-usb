@@ -44,4 +44,9 @@
     <string name="volumes">Mga removable drive: %1$s</string>
     <string name="volumes_none">walang nakakonekta</string>
     <string name="listening_on">Nagmamatyag sa %1$s</string>
+    <string name="app_subtitle">Mga PDF na binuksan sa USB drive, kinokopya sa isa pang drive</string>
+    <string name="status_on">Nakikinig</string>
+    <string name="status_off">Hindi nakikinig</string>
+    <string name="keep_running">Panatilihing tumatakbo sa background</string>
+    <string name="battery_hint">Payagan ang Pdf To Usb na huwag sundin ang battery optimization, para laging handa kahit patay ang screen.</string>
 </resources>

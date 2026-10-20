@@ -44,4 +44,9 @@
     <string name="volumes">Ổ đĩa rời: %1$s</string>
     <string name="volumes_none">không có ổ nào được kết nối</string>
     <string name="listening_on">Đang nghe trên %1$s</string>
+    <string name="app_subtitle">PDF mở từ USB được sao chép sang USB kia</string>
+    <string name="status_on">Đang theo dõi</string>
+    <string name="status_off">Không theo dõi</string>
+    <string name="keep_running">Chạy nền</string>
+    <string name="battery_hint">Cho phép Pdf To Usb bỏ qua tối ưu pin để luôn sẵn sàng khi màn hình tắt.</string>
 </resources>

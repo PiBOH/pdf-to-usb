@@ -44,4 +44,9 @@
     <string name="volumes">Uklonjivi pogoni: %1$s</string>
     <string name="volumes_none">nijedan nije povezan</string>
     <string name="listening_on">Pratim %1$s</string>
+    <string name="app_subtitle">PDF-ovi otvoreni na USB pogonu kopiraju se na drugi pogon</string>
+    <string name="status_on">Praćenje radi</string>
+    <string name="status_off">Praćenje je zaustavljeno</string>
+    <string name="keep_running">Radi u pozadini</string>
+    <string name="battery_hint">Dopustite aplikaciji Pdf To Usb da zanemari optimizaciju baterije kako bi bila spremna i s isključenim zaslonom.</string>
 </resources>

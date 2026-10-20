@@ -44,4 +44,9 @@
     <string name="volumes">తొలగించగల డ్రైవ్‌లు: %1$s</string>
     <string name="volumes_none">ఏదీ కనెక్ట్ కాలేదు</string>
     <string name="listening_on">%1$s పై వింటోంది</string>
+    <string name="app_subtitle">USB డ్రైవ్‌లో తెరిచిన PDFలు మరొకదానికి కాపీ అవుతాయి</string>
+    <string name="status_on">వినిపిస్తోంది</string>
+    <string name="status_off">వినడం లేదు</string>
+    <string name="keep_running">నేపథ్యంలో నడపు</string>
+    <string name="battery_hint">స్క్రీన్ ఆఫ్‌లో ఉన్నా సిద్ధంగా ఉండేందుకు Pdf To Usb బ్యాటరీ ఆప్టిమైజేషన్‌ను విస్మరించడానికి అనుమతించండి.</string>
 </resources>

@@ -44,4 +44,9 @@
     <string name="volumes">Съёмные диски: %1$s</string>
     <string name="volumes_none">ни одного подключённого</string>
     <string name="listening_on">Прослушивание %1$s</string>
+    <string name="app_subtitle">PDF, открытые с флешки, копируются на другую</string>
+    <string name="status_on">Наблюдение</string>
+    <string name="status_off">Наблюдение выключено</string>
+    <string name="keep_running">Работать в фоне</string>
+    <string name="battery_hint">Разрешите Pdf To Usb игнорировать оптимизацию батареи, чтобы приложение было готово при выключенном экране.</string>
 </resources>

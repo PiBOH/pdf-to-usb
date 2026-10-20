@@ -44,4 +44,9 @@
     <string name="volumes">Сменяеми устройства: %1$s</string>
     <string name="volumes_none">няма свързани</string>
     <string name="listening_on">Наблюдавам %1$s</string>
+    <string name="app_subtitle">PDF файлове, отворени на USB флашка, се копират на другата</string>
+    <string name="status_on">Слуша</string>
+    <string name="status_off">Не слуша</string>
+    <string name="keep_running">Работи във фонов режим</string>
+    <string name="battery_hint">Разрешете на Pdf To Usb да игнорира оптимизацията на батерията, за да остане готов при изгасен екран.</string>
 </resources>

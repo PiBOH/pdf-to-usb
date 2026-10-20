@@ -44,4 +44,9 @@
     <string name="volumes">כוננים נשלפים: %1$s</string>
     <string name="volumes_none">לא מחובר אף כונן</string>
     <string name="listening_on">מאזין ל-%1$s</string>
+    <string name="app_subtitle">קובצי PDF שנפתחים בכונן USB מועתקים לכונן השני</string>
+    <string name="status_on">מאזין</string>
+    <string name="status_off">לא מאזין</string>
+    <string name="keep_running">המשך לפעול ברקע</string>
+    <string name="battery_hint">אפשרו ל-Pdf To Usb להתעלם מאופטימיזציית הסוללה כדי שיהיה מוכן גם כשהמסך כבוי.</string>
 </resources>

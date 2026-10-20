@@ -44,4 +44,9 @@
     <string name="volumes">ไดรฟ์แบบถอดได้: %1$s</string>
     <string name="volumes_none">ไม่มีไดรฟ์เชื่อมต่อ</string>
     <string name="listening_on">กำลังฟังบน %1$s</string>
+    <string name="app_subtitle">PDF ที่เปิดจากไดรฟ์ USB จะถูกคัดลอกไปยังอีกไดรฟ์</string>
+    <string name="status_on">กำลังเฝ้าดู</string>
+    <string name="status_off">ไม่ได้เฝ้าดู</string>
+    <string name="keep_running">ทำงานเบื้องหลัง</string>
+    <string name="battery_hint">อนุญาตให้ Pdf To Usb ข้ามการประหยัดแบตเตอรี่ เพื่อให้พร้อมใช้แม้ปิดหน้าจอ</string>
 </resources>

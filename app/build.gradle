@@ -80,6 +80,9 @@ android {
         // App Bundle, and every locale is inside it (bundle.language.enableSplit = false
         // above), so there is no Play Core language download to wire up.
         disable 'AppBundleLocaleChanges'
+        // The "keep running" button asks for the battery exemption on purpose: the copy
+        // service has to answer a PDF read while the screen is off.
+        disable 'BatteryLife'
     }
 }
 

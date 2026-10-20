@@ -44,4 +44,9 @@
     <string name="volumes">Unidades extraíbles: %1$s</string>
     <string name="volumes_none">ninguna conectada</string>
     <string name="listening_on">Escuchando en %1$s</string>
+    <string name="app_subtitle">Los PDF abiertos en un USB se copian al otro</string>
+    <string name="status_on">Escuchando</string>
+    <string name="status_off">Sin escuchar</string>
+    <string name="keep_running">Seguir en segundo plano</string>
+    <string name="battery_hint">Permite que Pdf To Usb ignore la optimización de batería para que siga listo con la pantalla apagada.</string>
 </resources>

@@ -144,7 +144,7 @@ public class CopyService extends Service {
     private void copy(File src) {
         Uri b = Store.tree(this, Store.KEY_B);
         if (b == null) {
-            Store.log(this, "✗ " + getString(R.string.drive_b_missing));
+            Store.log(this, "drive_b_missing");
             return;
         }
         Exception last = null;
@@ -152,7 +152,7 @@ public class CopyService extends Service {
             try {
                 if (Copy.run(src, new SafSink(this, b)) == Copy.Result.PRESENT) return;
                 copied++;
-                Store.log(this, getString(R.string.copy_ok, src.getName()));
+                Store.log(this, "copy_ok", src.getName());
                 update(getString(R.string.copy_progress, copied, src.getName()));
                 return;
             } catch (Exception e) {
@@ -160,7 +160,7 @@ public class CopyService extends Service {
                 sleep(500L * attempt);
             }
         }
-        Store.log(this, getString(R.string.copy_error_detail, src.getName(), message(last)));
+        Store.log(this, "copy_error_detail", src.getName(), message(last));
         update(getString(R.string.copy_error_file, src.getName()));
     }
 
@@ -168,12 +168,12 @@ public class CopyService extends Service {
     private void copyAll() {
         File dir = Volumes.treePath(Store.tree(this, Store.KEY_A));
         if (dir == null || !dir.isDirectory()) {
-            Store.log(this, "✗ " + getString(R.string.drive_a_missing));
+            Store.log(this, "drive_a_missing");
             return;
         }
         worker.execute(() -> {
             int found = walk(dir, 0);
-            Store.log(this, getString(R.string.scan_done, found));
+            Store.log(this, "scan_done", found);
         });
     }
 
@@ -201,7 +201,7 @@ public class CopyService extends Service {
         File dir = Volumes.treePath(Store.tree(this, Store.KEY_A));
         File first = dir == null ? null : firstPdf(dir, 0);
         if (first == null) {
-            Store.log(this, getString(R.string.no_pdf_to_test));
+            Store.log(this, "no_pdf_to_test");
             return;
         }
         lastSeen = null;
@@ -212,12 +212,12 @@ public class CopyService extends Service {
             }
             for (int i = 0; i < 30; i++) {
                 if (first.getAbsolutePath().equals(lastSeen)) {
-                    Store.log(this, getString(R.string.access_ok));
+                    Store.log(this, "access_ok");
                     return;
                 }
                 sleep(100);
             }
-            Store.log(this, getString(R.string.access_missing));
+            Store.log(this, "access_missing");
         });
     }
 
@@ -252,14 +252,14 @@ public class CopyService extends Service {
                 try {
                     if (Copy.run(in, name, size(uri), new SafSink(this, b)) == Copy.Result.COPIED) {
                         copied++;
-                        Store.log(this, getString(R.string.copy_ok, Copy.safeName(name)));
+                        Store.log(this, "copy_ok", Copy.safeName(name));
                         update(getString(R.string.copy_progress, copied, Copy.safeName(name)));
                     }
                 } finally {
                     in.close();
                 }
             } catch (Exception e) {
-                Store.log(this, getString(R.string.copy_error_detail, name, message(e)));
+                Store.log(this, "copy_error_detail", name, message(e));
             }
         });
     }

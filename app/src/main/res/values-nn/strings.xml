@@ -44,4 +44,9 @@
     <string name="volumes">Flyttbare einingar: %1$s</string>
     <string name="volumes_none">ingen tilkopla</string>
     <string name="listening_on">Overvakar %1$s</string>
+    <string name="app_subtitle">PDF-ar som blir opna på ein USB-eining blir kopierte til den andre eininga</string>
+    <string name="status_on">Overvakar</string>
+    <string name="status_off">Overvakar ikkje</string>
+    <string name="keep_running">Hald fram i bakgrunnen</string>
+    <string name="battery_hint">Tillat Pdf To Usb å sjå bort frå batterioptimalisering, slik at han er klar også når skjermen er av.</string>
 </resources>
