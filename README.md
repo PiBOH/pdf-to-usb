@@ -1,6 +1,6 @@
 # Pdf To Usb
 
-![Pdf To Usb](logo.png)
+![Pdf To Usb](logo_256.png)
 
 Small Android app that copies the PDFs you open from USB drive **A** into the folder
 `pdf-to-usb` on USB drive **B**, with no computer in between.
