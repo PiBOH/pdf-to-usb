@@ -57,7 +57,7 @@ with an English name; a document that grows beyond one screen starts with a summ
 | `Store.java` | preferences (trees A/B, language, copy log, update timestamp) |
 | `Lang.java` | language list, BCP 47 tags, context with the chosen language |
 | `Update.java` | GitHub release check, version compare, APK download, install intent |
-| `MainActivity.java` | the single screen: state, automatic drive detection, pickers, log, bottom bar |
+| `MainActivity.java` | the four screens (drives, log, language, updates), automatic drive detection, pickers |
 | `BootReceiver.java` | boot and media mount/unmount, rearms the service |
 
 Tests: `CopyTest` (engine, names, dedupe, partial cleanup), `StoreTest` (preferences and

@@ -49,4 +49,9 @@
     <string name="status_off">వినడం లేదు</string>
     <string name="keep_running">నేపథ్యంలో నడపు</string>
     <string name="battery_hint">స్క్రీన్ ఆఫ్‌లో ఉన్నా సిద్ధంగా ఉండేందుకు Pdf To Usb బ్యాటరీ ఆప్టిమైజేషన్‌ను విస్మరించడానికి అనుమతించండి.</string>
+    <string name="tab_drives">డ్రైవ్‌లు</string>
+    <string name="tab_log">లాగ్</string>
+    <string name="tab_updates">నవీకరణలు</string>
+    <string name="app_version">వెర్షన్ %1$s</string>
+    <string name="update_hint">యాప్ గరిష్ఠంగా ప్రతి 6 గంటలకు నవీకరణలను తనిఖీ చేస్తుంది; ఈ బటన్ ఇప్పుడే తనిఖీ చేస్తుంది.</string>
 </resources>

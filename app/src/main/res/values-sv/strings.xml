@@ -49,4 +49,9 @@
     <string name="status_off">Övervakar inte</string>
     <string name="keep_running">Kör i bakgrunden</string>
     <string name="battery_hint">Tillåt Pdf To Usb att ignorera batterioptimeringen så att den är redo även med släckt skärm.</string>
+    <string name="tab_drives">Enheter</string>
+    <string name="tab_log">Logg</string>
+    <string name="tab_updates">Uppdateringar</string>
+    <string name="app_version">Version %1$s</string>
+    <string name="update_hint">Appen söker efter uppdateringar högst var 6:e timme; den här knappen söker nu.</string>
 </resources>

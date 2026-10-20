@@ -49,4 +49,9 @@
     <string name="status_off">Tidak memantau</string>
     <string name="keep_running">Tetap berjalan di latar belakang</string>
     <string name="battery_hint">Izinkan Pdf To Usb mengabaikan optimasi baterai agar tetap siap saat layar mati.</string>
+    <string name="tab_drives">Drive</string>
+    <string name="tab_log">Log</string>
+    <string name="tab_updates">Pembaruan</string>
+    <string name="app_version">Versi %1$s</string>
+    <string name="update_hint">Aplikasi memeriksa pembaruan paling sering setiap 6 jam; tombol ini memeriksa sekarang.</string>
 </resources>

@@ -6,7 +6,7 @@ import android.content.Intent;
 
 /**
  * On boot, on an app update and on volume mount/unmount: restarts or re-arms the listener,
- * so the app is ready again without opening it. Only when the user asked it to run.
+ * so the app is ready again without opening it. Listening is on by default.
  */
 public class BootReceiver extends BroadcastReceiver {
 
@@ -19,7 +19,8 @@ public class BootReceiver extends BroadcastReceiver {
                 && !Intent.ACTION_MEDIA_UNMOUNTED.equals(action)
                 && !Intent.ACTION_MEDIA_REMOVED.equals(action)) return;
         if (!Store.listening(context)) return;
-        if (Store.tree(context, Store.KEY_B) == null) return;
+        // Also without a destination yet: the notification asks for the two drives, and the
+        // listener is already in place when the user confirms them.
         CopyService.send(context, CopyService.ACTION_START, null);
     }
 }

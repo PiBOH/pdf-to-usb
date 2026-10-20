@@ -49,4 +49,9 @@
     <string name="status_off">Ez du entzuten</string>
     <string name="keep_running">Jarraitu atzeko planoan</string>
     <string name="battery_hint">Baimendu Pdf To Usb-ri bateriaren optimizazioa alde batera uzteko, pantaila itzalita ere prest egon dadin.</string>
+    <string name="tab_drives">Unitateak</string>
+    <string name="tab_log">Erregistroa</string>
+    <string name="tab_updates">Eguneratzeak</string>
+    <string name="app_version">Bertsioa %1$s</string>
+    <string name="update_hint">Aplikazioak 6 oroan behin soilik egiaztatzen ditu eguneratzeak; botoi honek orain egiaztatzen du.</string>
 </resources>

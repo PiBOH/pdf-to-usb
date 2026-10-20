@@ -49,4 +49,9 @@
     <string name="status_off">ไม่ได้เฝ้าดู</string>
     <string name="keep_running">ทำงานเบื้องหลัง</string>
     <string name="battery_hint">อนุญาตให้ Pdf To Usb ข้ามการประหยัดแบตเตอรี่ เพื่อให้พร้อมใช้แม้ปิดหน้าจอ</string>
+    <string name="tab_drives">ไดรฟ์</string>
+    <string name="tab_log">บันทึก</string>
+    <string name="tab_updates">อัปเดต</string>
+    <string name="app_version">เวอร์ชัน %1$s</string>
+    <string name="update_hint">แอปตรวจหาอัปเดตไม่เกินทุก 6 ชั่วโมง ปุ่มนี้จะตรวจตอนนี้</string>
 </resources>

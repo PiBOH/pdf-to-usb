@@ -49,4 +49,9 @@
     <string name="status_off">Nu ascultă</string>
     <string name="keep_running">Rulează în fundal</string>
     <string name="battery_hint">Permite aplicației Pdf To Usb să ignore optimizarea bateriei, ca să fie gata cu ecranul stins.</string>
+    <string name="tab_drives">Unități</string>
+    <string name="tab_log">Jurnal</string>
+    <string name="tab_updates">Actualizări</string>
+    <string name="app_version">Versiunea %1$s</string>
+    <string name="update_hint">Aplicația verifică actualizările cel mult la 6 ore; acest buton verifică acum.</string>
 </resources>

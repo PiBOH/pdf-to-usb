@@ -20,6 +20,12 @@
     <string name="not_connected">non collegata</string>
     <string name="volumes">Chiavette rimovibili: %1$s</string>
     <string name="volumes_none">nessuna collegata</string>
+    <string name="tab_drives">Chiavette</string>
+    <string name="tab_log">Registro</string>
+    <string name="tab_updates">Aggiornamenti</string>
+    <string name="app_version">Versione %1$s</string>
+    <string name="update_hint">L\'app controlla gli aggiornamenti al massimo ogni 6 ore; questo pulsante controlla ora.</string>
+
     <string name="language">Lingua</string>
     <string name="language_system">Lingua di sistema</string>
     <string name="check_updates">Controlla aggiornamenti</string>

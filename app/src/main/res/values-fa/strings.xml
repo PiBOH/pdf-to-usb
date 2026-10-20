@@ -49,4 +49,9 @@
     <string name="status_off">گوش نمی‌دهد</string>
     <string name="keep_running">در پس‌زمینه اجرا شود</string>
     <string name="battery_hint">به Pdf To Usb اجازه دهید بهینه‌سازی باتری را نادیده بگیرد تا با خاموش بودن صفحه آماده بماند.</string>
+    <string name="tab_drives">درایوها</string>
+    <string name="tab_log">گزارش</string>
+    <string name="tab_updates">بهروزرسانی‌ها</string>
+    <string name="app_version">نسخه %1$s</string>
+    <string name="update_hint">برنامه حداکثر هر ۶ ساعت یک‌بار به‌روزرسانی‌ها را بررسی می‌کند؛ این دکمه اکنون بررسی می‌کند.</string>
 </resources>

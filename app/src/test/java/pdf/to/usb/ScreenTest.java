@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import android.content.Intent;
+import android.view.View;
 import android.widget.TextView;
 
 import org.junit.Before;
@@ -23,6 +24,19 @@ public class ScreenTest {
     @Before
     public void noUpdateCheck() {
         Store.markUpdateCheck(RuntimeEnvironment.getApplication(), System.currentTimeMillis());
+    }
+
+    /** The screen opens on the drives and the tab bar swaps one screen at a time. */
+    @Test
+    public void tabBarSwitchesScreen() {
+        MainActivity activity = Robolectric.buildActivity(MainActivity.class).setup().get();
+        assertEquals(View.VISIBLE, activity.findViewById(R.id.screen_drives).getVisibility());
+        assertEquals(View.GONE, activity.findViewById(R.id.screen_log).getVisibility());
+        activity.findViewById(R.id.tab_log).performClick();
+        assertEquals(View.GONE, activity.findViewById(R.id.screen_drives).getVisibility());
+        assertEquals(View.VISIBLE, activity.findViewById(R.id.screen_log).getVisibility());
+        activity.findViewById(R.id.tab_updates).performClick();
+        assertEquals(View.VISIBLE, activity.findViewById(R.id.screen_updates).getVisibility());
     }
 
     /** A fresh install shows both drives as not set, without crashing on the pickers. */

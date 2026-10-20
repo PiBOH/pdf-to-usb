@@ -49,4 +49,9 @@
     <string name="status_off">Спостереження вимкнено</string>
     <string name="keep_running">Працювати у фоні</string>
     <string name="battery_hint">Дозвольте Pdf To Usb ігнорувати оптимізацію батареї, щоб застосунок був готовий навіть із вимкненим екраном.</string>
+    <string name="tab_drives">Диски</string>
+    <string name="tab_log">Журнал</string>
+    <string name="tab_updates">Оновлення</string>
+    <string name="app_version">Версія %1$s</string>
+    <string name="update_hint">Застосунок перевіряє оновлення щонайбільше раз на 6 годин; ця кнопка перевіряє зараз.</string>
 </resources>

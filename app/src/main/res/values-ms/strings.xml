@@ -49,4 +49,9 @@
     <string name="status_off">Tidak memantau</string>
     <string name="keep_running">Kekal berjalan di latar belakang</string>
     <string name="battery_hint">Benarkan Pdf To Usb mengabaikan pengoptimuman bateri supaya ia sentiasa sedia walaupun skrin dimatikan.</string>
+    <string name="tab_drives">Drive</string>
+    <string name="tab_log">Log</string>
+    <string name="tab_updates">Kemas kini</string>
+    <string name="app_version">Versi %1$s</string>
+    <string name="update_hint">Apl menyemak kemas kini paling kerap setiap 6 jam; butang ini menyemak sekarang.</string>
 </resources>

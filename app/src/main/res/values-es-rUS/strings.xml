@@ -49,4 +49,9 @@
     <string name="status_off">Sin escuchar</string>
     <string name="keep_running">Seguir en segundo plano</string>
     <string name="battery_hint">Permite que Pdf To Usb ignore la optimización de batería para que siga listo con la pantalla apagada.</string>
+    <string name="tab_drives">Unidades</string>
+    <string name="tab_log">Registro</string>
+    <string name="tab_updates">Actualizaciones</string>
+    <string name="app_version">Versión %1$s</string>
+    <string name="update_hint">La app busca actualizaciones como máximo cada 6 horas; este botón busca ahora.</string>
 </resources>

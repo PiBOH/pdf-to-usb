@@ -20,15 +20,16 @@ copied as well.
 - finds the receiving drive B by itself and proposes it (one system confirmation is still
   required, Android does not allow an app to grant itself write access to a USB stick)
 - foreground service with a notification, a copy queue, 3 retries per file
-- stays ready with the screen off: restarts at boot, after an app update and when the app is
-  reopened, and **Keep running in background** asks Android to leave it out of battery
-  optimization (a normal system dialog)
+- **listening is on by default** and starts as soon as the app is opened: it survives a
+  reboot, an app update and being closed, and **Keep running in background** asks Android to
+  leave it out of battery optimization (a normal system dialog)
+- four screens behind a tab bar: **Drives**, **Log**, **Language**, **Updates**
 - dedupe by name and size; a different PDF with the same name becomes `name (2).pdf`
 - English by default, with 57 languages taken from
-  [vivizzz007/vivi-music](https://github.com/vivizzz007/vivi-music), picked from the bottom
-  bar (**Language**) or from the Android language
+  [vivizzz007/vivi-music](https://github.com/vivizzz007/vivi-music), picked from the
+  **Language** screen or from the Android language
 - automatic update from this repository's GitHub releases, plus a **Check for updates**
-  button in the bottom bar
+  button in the **Updates** screen
 
 ## Requirements
 
@@ -67,12 +68,13 @@ Regenerate the launcher icons from `matrix_logo.svg` with `python3 tools/icons.p
 ## Updates
 
 The app checks the latest GitHub release at most every 6 hours (or immediately when you tap
-**Check for updates**), downloads the APK and opens the system installer. A completely silent
-install is not possible: Android always asks for "install unknown apps" once and always
-shows its install confirmation, and no app can skip them without a system signature or root. Android always asks for "install unknown apps" once and always shows
-its install confirmation; Play Protect may show a warning for APKs that do not come from
-the Play Store. No app can skip those dialogs. Updates install only if the new APK is
-signed with the same key as the installed one.
+**Check for updates** in the **Updates** screen) and downloads the APK in advance, so the
+installer opens at once. A completely silent install is not possible: Android always asks for
+"install unknown apps" once and always shows its install confirmation, and no app can skip
+them without a system signature or root. Play Protect may also warn about APKs that do not
+come from the Play Store. Once you allow installs for this app, coming back to it opens the
+installer by itself. Updates install only if the new APK is signed with the same key as the
+installed one.
 
 ## License
 

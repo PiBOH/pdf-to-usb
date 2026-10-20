@@ -49,4 +49,9 @@
     <string name="status_off">Pa pe siveye</string>
     <string name="keep_running">Reste aktif an arriere-plan</string>
     <string name="battery_hint">Permet Pdf To Usb ignor optimizasyon batri, konsa li pare mem ler ekran ete.</string>
+    <string name="tab_drives">Disk</string>
+    <string name="tab_log">Zournal</string>
+    <string name="tab_updates">Mis a zur</string>
+    <string name="app_version">Versyon %1$s</string>
+    <string name="update_hint">Aplikasion verifie mis a zur omwens sak 6 er; sa bouton-la verifie aster.</string>
 </resources>

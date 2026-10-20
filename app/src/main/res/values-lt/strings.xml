@@ -49,4 +49,9 @@
     <string name="status_off">Nestebima</string>
     <string name="keep_running">Veikti fone</string>
     <string name="battery_hint">Leiskite Pdf To Usb nepaisyti akumuliatoriaus optimizavimo, kad ji būtų pasirengusi ir išjungus ekraną.</string>
+    <string name="tab_drives">Diskai</string>
+    <string name="tab_log">Žurnalas</string>
+    <string name="tab_updates">Naujiniai</string>
+    <string name="app_version">Versija %1$s</string>
+    <string name="update_hint">Programa naujinius tikrina ne dažniau kaip kas 6 valandas; šis mygtukas tikrina dabar.</string>
 </resources>

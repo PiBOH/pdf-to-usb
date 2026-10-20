@@ -91,9 +91,12 @@ final class Store {
         c.getSharedPreferences(PREF, Context.MODE_PRIVATE).edit().putString("language", tag).apply();
     }
 
-    /** True while the user wants the copy service running, also after a reboot or an update. */
+    /**
+     * True while the user wants the copy service running, also after a reboot or an update.
+     * The default is on: the app is ready from the first start, the screen only shows it.
+     */
     static boolean listening(Context c) {
-        return c.getSharedPreferences(PREF, Context.MODE_PRIVATE).getBoolean("listening", false);
+        return c.getSharedPreferences(PREF, Context.MODE_PRIVATE).getBoolean("listening", true);
     }
 
     static void setListening(Context c, boolean on) {

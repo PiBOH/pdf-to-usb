@@ -49,4 +49,9 @@
     <string name="status_off">നിരീക്ഷിക്കുന്നില്ല</string>
     <string name="keep_running">പശ്ചാത്തലത്തിൽ പ്രവർത്തനക്ഷമമായിരിക്കുക</string>
     <string name="battery_hint">സ്ക്രീൻ ഓഫ് ആയിരിക്കുമ്പോഴും തയ്യാറായിരിക്കാൻ Pdf To Usb-നെ ബാറ്ററി ഒപ്റ്റിമൈസേഷൻ അവഗണിക്കാൻ അനുവദിക്കുക.</string>
+    <string name="tab_drives">ഡ്രൈവുകൾ</string>
+    <string name="tab_log">ലോഗ്</string>
+    <string name="tab_updates">അപ്ഡേറ്റുകൾ</string>
+    <string name="app_version">പതിപ്പ് %1$s</string>
+    <string name="update_hint">ആപ്പ് പരമാവധി 6 മണിക്കൂറിലൊരിക്കൽ അപ്ഡേറ്റുകൾ പരിശോധിക്കുന്നു; ഈ ബട്ടൺ ഇപ്പോൾ പരിശോധിക്കുന്നു.</string>
 </resources>

@@ -49,4 +49,9 @@
     <string name="status_off">Hindi nakikinig</string>
     <string name="keep_running">Panatilihing tumatakbo sa background</string>
     <string name="battery_hint">Payagan ang Pdf To Usb na huwag sundin ang battery optimization, para laging handa kahit patay ang screen.</string>
+    <string name="tab_drives">Mga drive</string>
+    <string name="tab_log">Log</string>
+    <string name="tab_updates">Mga update</string>
+    <string name="app_version">Bersyon %1$s</string>
+    <string name="update_hint">Sinusuri ng app ang mga update nang hindi hihigit sa bawat 6 na oras; ang button na ito ay nagsusuri ngayon.</string>
 </resources>

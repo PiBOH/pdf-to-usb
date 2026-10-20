@@ -49,4 +49,9 @@
     <string name="status_off">শুনছে না</string>
     <string name="keep_running">ব্যাকগ্রাউন্ডে চলতে থাকুক</string>
     <string name="battery_hint">স্ক্রিন বন্ধ থাকলেও প্রস্তুত থাকতে Pdf To Usb-কে ব্যাটারি অপ্টিমাইজেশন উপেক্ষা করার অনুমতি দিন।</string>
+    <string name="tab_drives">ড্রাইভ</string>
+    <string name="tab_log">লগ</string>
+    <string name="tab_updates">আপডেট</string>
+    <string name="app_version">সংস্করণ %1$s</string>
+    <string name="update_hint">অ্যাপটি সর্বাধিক ৬ ঘণ্টায় একবার আপডেট পরীক্ষা করে; এই বোতামটি এখনই পরীক্ষা করে।</string>
 </resources>

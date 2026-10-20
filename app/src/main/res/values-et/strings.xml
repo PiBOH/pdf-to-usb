@@ -49,4 +49,9 @@
     <string name="status_off">Ei kuula</string>
     <string name="keep_running">Jätka taustal töötamist</string>
     <string name="battery_hint">Lubage Pdf To Usb-il akuhäälestust eirata, et see püsiks valmis ka väljalülitatud ekraaniga.</string>
+    <string name="tab_drives">Seadmed</string>
+    <string name="tab_log">Logi</string>
+    <string name="tab_updates">Värskendused</string>
+    <string name="app_version">Versioon %1$s</string>
+    <string name="update_hint">Rakendus kontrollib värskendusi kõige sagedamini iga 6 tunni järel; see nupp kontrollib kohe.</string>
 </resources>

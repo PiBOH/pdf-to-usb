@@ -49,4 +49,9 @@
     <string name="status_off">Overvakar ikkje</string>
     <string name="keep_running">Hald fram i bakgrunnen</string>
     <string name="battery_hint">Tillat Pdf To Usb å sjå bort frå batterioptimalisering, slik at han er klar også når skjermen er av.</string>
+    <string name="tab_drives">Stasjonar</string>
+    <string name="tab_log">Logg</string>
+    <string name="tab_updates">Oppdateringar</string>
+    <string name="app_version">Versjon %1$s</string>
+    <string name="update_hint">Appen ser etter oppdateringar maks kvar 6. time; denne knappen sjekkar no.</string>
 </resources>

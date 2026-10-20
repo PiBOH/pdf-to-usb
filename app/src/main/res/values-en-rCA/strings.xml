@@ -49,4 +49,9 @@
     <string name="status_off">Not listening</string>
     <string name="keep_running">Keep running in background</string>
     <string name="battery_hint">Allow Pdf To Usb to ignore battery optimization, so it stays ready with the screen off.</string>
+    <string name="tab_drives">Drives</string>
+    <string name="tab_log">Log</string>
+    <string name="tab_updates">Updates</string>
+    <string name="app_version">Version %1$s</string>
+    <string name="update_hint">The app checks for updates at most every 6 hours; this button checks now.</string>
 </resources>

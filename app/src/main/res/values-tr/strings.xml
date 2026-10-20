@@ -49,4 +49,9 @@
     <string name="status_off">Dinlemiyor</string>
     <string name="keep_running">Arka planda çalış</string>
     <string name="battery_hint">Ekran kapalıyken de hazır olması için Pdf To Usb’nin pil optimizasyonunu yok saymasına izin ver.</string>
+    <string name="tab_drives">Sürücüler</string>
+    <string name="tab_log">Günlük</string>
+    <string name="tab_updates">Güncellemeler</string>
+    <string name="app_version">Sürüm %1$s</string>
+    <string name="update_hint">Uygulama güncellemeleri en fazla 6 saatte bir denetler; bu düğme şimdi denetler.</string>
 </resources>

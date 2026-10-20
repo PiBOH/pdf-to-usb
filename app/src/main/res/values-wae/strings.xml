@@ -49,4 +49,9 @@
     <string name="status_off">Lauscht nöd</string>
     <string name="keep_running">Im Hintergrund laufe</string>
     <string name="battery_hint">Erlaub Pdf To Usb, d Batterii-Optimierig z ignoriere, damit’s au mit usgschaltetem Bildschirm bereit isch.</string>
+    <string name="tab_drives">Laufwärk</string>
+    <string name="tab_log">Protokoll</string>
+    <string name="tab_updates">Update</string>
+    <string name="app_version">Version %1$s</string>
+    <string name="update_hint">S App prüeft Updates högstens all 6 Stund; dä Chnopf prüeft jetz.</string>
 </resources>

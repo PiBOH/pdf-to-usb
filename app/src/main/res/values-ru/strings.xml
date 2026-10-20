@@ -49,4 +49,9 @@
     <string name="status_off">Наблюдение выключено</string>
     <string name="keep_running">Работать в фоне</string>
     <string name="battery_hint">Разрешите Pdf To Usb игнорировать оптимизацию батареи, чтобы приложение было готово при выключенном экране.</string>
+    <string name="tab_drives">Диски</string>
+    <string name="tab_log">Журнал</string>
+    <string name="tab_updates">Обновления</string>
+    <string name="app_version">Версия %1$s</string>
+    <string name="update_hint">Приложение проверяет обновления не чаще раза в 6 часов; эта кнопка проверяет сейчас.</string>
 </resources>

@@ -49,4 +49,9 @@
     <string name="status_off">No escolta</string>
     <string name="keep_running">Continua en segon pla</string>
     <string name="battery_hint">Permet que Pdf To Usb ignori l\'optimització de bateria perquè estigui a punt amb la pantalla apagada.</string>
+    <string name="tab_drives">Unitats</string>
+    <string name="tab_log">Registre</string>
+    <string name="tab_updates">Actualitzacions</string>
+    <string name="app_version">Versió %1$s</string>
+    <string name="update_hint">L\'aplicació comprova si hi ha actualitzacions com a màxim cada 6 hores; aquest botó comprova ara.</string>
 </resources>

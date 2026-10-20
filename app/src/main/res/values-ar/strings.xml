@@ -49,4 +49,9 @@
     <string name="status_off">غير قيد الاستماع</string>
     <string name="keep_running">الإبقاء على العمل في الخلفية</string>
     <string name="battery_hint">اسمح لـ Pdf To Usb بتجاهل تحسين البطارية، ليبقى جاهزًا والشاشة مغلقة.</string>
+    <string name="tab_drives">المحركات</string>
+    <string name="tab_log">السجل</string>
+    <string name="tab_updates">التحديثات</string>
+    <string name="app_version">الإصدار %1$s</string>
+    <string name="update_hint">يتحقق التطبيق من التحديثات كل 6 ساعات على الأكثر؛ هذا الزر يتحقق الآن.</string>
 </resources>

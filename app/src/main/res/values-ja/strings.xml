@@ -49,4 +49,9 @@
     <string name="status_off">監視していません</string>
     <string name="keep_running">バックグラウンドで動作を続ける</string>
     <string name="battery_hint">Pdf To Usb にバッテリー最適化を無視させると、画面オフでも準備が整います。</string>
+    <string name="tab_drives">ドライブ</string>
+    <string name="tab_log">ログ</string>
+    <string name="tab_updates">アップデート</string>
+    <string name="app_version">バージョン %1$s</string>
+    <string name="update_hint">アプリは最大 6 時間ごとにアップデートを確認します。このボタンで今すぐ確認します。</string>
 </resources>

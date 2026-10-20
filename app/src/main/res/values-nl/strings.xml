@@ -49,4 +49,9 @@
     <string name="status_off">Luistert niet</string>
     <string name="keep_running">Blijf op de achtergrond draaien</string>
     <string name="battery_hint">Sta Pdf To Usb toe batterijoptimalisatie te negeren, zodat de app klaar is ook met het scherm uit.</string>
+    <string name="tab_drives">Schijven</string>
+    <string name="tab_log">Logboek</string>
+    <string name="tab_updates">Updates</string>
+    <string name="app_version">Versie %1$s</string>
+    <string name="update_hint">De app controleert maximaal elke 6 uur op updates; deze knop controleert nu.</string>
 </resources>

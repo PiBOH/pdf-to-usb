@@ -49,4 +49,9 @@
     <string name="status_off">Nesledujem</string>
     <string name="keep_running">Bežať na pozadí</string>
     <string name="battery_hint">Povoľte Pdf To Usb ignorovať optimalizáciu batérie, aby bolo pripravené aj s vypnutou obrazovkou.</string>
+    <string name="tab_drives">Disky</string>
+    <string name="tab_log">Záznam</string>
+    <string name="tab_updates">Aktualizácie</string>
+    <string name="app_version">Verzia %1$s</string>
+    <string name="update_hint">Aplikácia kontroluje aktualizácie najviac každých 6 hodín; toto tlačidlo skontroluje teraz.</string>
 </resources>

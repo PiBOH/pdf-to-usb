@@ -11,5 +11,7 @@ captures/
 *.apk
 *.aab
 
-# Firma: gestito da .ignore/directory
-(vedi .ignore/ per le esclusioni)
+# Firma: materiale locale, mai in un commit (le copie stanno in .ignore/)
+release.keystore
+keystore.properties
+*.jks

@@ -49,4 +49,9 @@
     <string name="status_off">ਸੁਣ ਨਹੀਂ ਰਿਹਾ</string>
     <string name="keep_running">ਬੈਕਗ੍ਰਾਊਂਡ ਵਿੱਚ ਚਾਲੂ ਰੱਖੋ</string>
     <string name="battery_hint">Pdf To Usb ਨੂੰ ਬੈਟਰੀ ਅਨੁਕੂਲਣ ਅਣਡਿੱਠ ਕਰਨ ਦਿਓ, ਤਾਂ ਜੋ ਸਕ੍ਰੀਨ ਬੰਦ ਹੋਣ ’ਤੇ ਵੀ ਤਿਆਰ ਰਹੇ।</string>
+    <string name="tab_drives">ਡਰਾਈਵਾਂ</string>
+    <string name="tab_log">ਲੌਗ</string>
+    <string name="tab_updates">ਅੱਪਡੇਟ</string>
+    <string name="app_version">ਵਰਜਨ %1$s</string>
+    <string name="update_hint">ਐਪ ਅੱਪਡੇਟਾਂ ਦੀ ਜਾਂਚ ਵੱਧ ਤੋਂ ਵੱਧ ਹਰ 6 ਘੰਟੇ ਵਿੱਚ ਕਰਦੀ ਹੈ; ਇਹ ਬਟਨ ਹੁਣੇ ਜਾਂਚਦਾ ਹੈ।</string>
 </resources>

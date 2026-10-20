@@ -43,6 +43,10 @@ final class Update {
     private static final int NOTIF = 2;
     private static final String CHANNEL = "update";
 
+    /** APK downloaded by the background check, so the tap starts the installer at once. */
+    private static volatile File pendingApk;
+    private static volatile String pendingTag;
+
     static final class Release {
         final String tag;
         final int code;
@@ -128,6 +132,8 @@ final class Update {
                 if (isNewer(installedCode(c), release)) {
                     Store.logRaw(c, "↑ " + release.tag);
                     notify(c, release);
+                    // Prefetch now: the user only has to accept the two system dialogs.
+                    prefetch(c, release);
                 } else if (userAsked) {
                     Store.log(c, "update_latest", installedName(c));
                 }
@@ -140,16 +146,45 @@ final class Update {
         }, "update-check").start();
     }
 
-    /** Downloads the APK and opens the installer. Call it from a user tap. */
+    /** Keeps the APK of the newest release in the cache while the notification is up. */
+    private static void prefetch(Context c, Release release) {
+        try {
+            pendingApk = download(c, release.tag, release.apkUrl);
+            pendingTag = release.tag;
+        } catch (Exception e) {
+            // No prefetch: install() downloads again when the notification is tapped.
+        }
+    }
+
+    /** Downloads the APK (only when it is not already cached) and opens the installer. */
     static void install(final Activity activity, final String tag, final String apkUrl) {
+        File cached = pendingApk;
+        if (tag != null && tag.equals(pendingTag) && cached != null && cached.isFile()) {
+            openInstaller(activity, cached, tag, apkUrl);
+            return;
+        }
         new Thread(() -> {
             try {
                 final File apk = download(activity, tag, apkUrl);
+                pendingApk = apk;
+                pendingTag = tag;
                 activity.runOnUiThread(() -> openInstaller(activity, apk, tag, apkUrl));
             } catch (Exception e) {
                 Store.log(activity, activity.getString(R.string.update_error, message(e)));
             }
         }, "update-download").start();
+    }
+
+    /**
+     * Called when the screen comes back after the "install unknown apps" switch: once the
+     * app may install, the cached APK goes straight to the system installer, no second tap.
+     */
+    static void installPending(Activity activity) {
+        File apk = pendingApk;
+        String tag = pendingTag;
+        if (apk == null || tag == null || !apk.isFile()) return;
+        if (Build.VERSION.SDK_INT >= 26 && !activity.getPackageManager().canRequestPackageInstalls()) return;
+        openInstaller(activity, apk, tag, null);
     }
 
     /** Latest release from the API; a non 200 answer is an error, not an empty result. */
@@ -185,10 +220,13 @@ final class Update {
     private static void openInstaller(Activity activity, File apk, String tag, String apkUrl) {
         if (Build.VERSION.SDK_INT >= 26 && !activity.getPackageManager().canRequestPackageInstalls()) {
             Store.log(activity, "update_permission");
+            // Kept for installPending(), which runs when the screen comes back.
+            pendingApk = apk;
+            pendingTag = tag;
             activity.startActivity(new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,
                     Uri.parse("package:" + activity.getPackageName())));
             // the notification was consumed by the first tap: post it again for the second
-            notify(activity, new Release(tag, versionCode(tag), apkUrl));
+            if (apkUrl != null) notify(activity, new Release(tag, versionCode(tag), apkUrl));
             return;
         }
         Uri uri = FileProvider.getUriForFile(activity, activity.getPackageName() + ".fileprovider", apk);

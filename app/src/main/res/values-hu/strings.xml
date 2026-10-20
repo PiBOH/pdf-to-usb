@@ -49,4 +49,9 @@
     <string name="status_off">Figyelés leállítva</string>
     <string name="keep_running">Futás a háttérben</string>
     <string name="battery_hint">Engedélyezd a Pdf To Usb számára az akkumulátor-optimalizálás mellőzését, hogy kikapcsolt képernyővel is készen álljon.</string>
+    <string name="tab_drives">Meghajtók</string>
+    <string name="tab_log">Napló</string>
+    <string name="tab_updates">Frissítések</string>
+    <string name="app_version">Verzió %1$s</string>
+    <string name="update_hint">Az app legfeljebb 6 óránként ellenőrzi a frissítéseket; ez a gomb most ellenőrzi.</string>
 </resources>

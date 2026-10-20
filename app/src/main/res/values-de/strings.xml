@@ -49,4 +49,9 @@
     <string name="status_off">Nicht aktiv</string>
     <string name="keep_running">Im Hintergrund weiterlaufen</string>
     <string name="battery_hint">Erlauben Sie Pdf To Usb, die Akku-Optimierung zu ignorieren, damit es bei ausgeschaltetem Bildschirm bereit bleibt.</string>
+    <string name="tab_drives">Laufwerke</string>
+    <string name="tab_log">Protokoll</string>
+    <string name="tab_updates">Updates</string>
+    <string name="app_version">Version %1$s</string>
+    <string name="update_hint">Die App sucht höchstens alle 6 Stunden nach Updates; diese Schaltfläche sucht jetzt.</string>
 </resources>

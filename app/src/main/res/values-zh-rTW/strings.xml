@@ -49,4 +49,9 @@
     <string name="status_off">未監聽</string>
     <string name="keep_running">在背景執行</string>
     <string name="battery_hint">允許 Pdf To Usb 忽略電池最佳化，讓螢幕關閉時也能保持就緒。</string>
+    <string name="tab_drives">磁碟</string>
+    <string name="tab_log">日誌</string>
+    <string name="tab_updates">更新</string>
+    <string name="app_version">版本 %1$s</string>
+    <string name="update_hint">應用程式最多每 6 小時檢查一次更新；此按鈕立即檢查。</string>
 </resources>

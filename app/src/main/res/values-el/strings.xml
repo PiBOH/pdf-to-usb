@@ -49,4 +49,9 @@
     <string name="status_off">Δεν ακούει</string>
     <string name="keep_running">Συνέχιση στο παρασκήνιο</string>
     <string name="battery_hint">Επιτρέψτε στο Pdf To Usb να αγνοεί τη βελτιστοποίηση μπαταρίας, ώστε να μένει έτοιμο με κλειστή οθόνη.</string>
+    <string name="tab_drives">Μονάδες</string>
+    <string name="tab_log">Αρχείο καταγραφής</string>
+    <string name="tab_updates">Ενημερώσεις</string>
+    <string name="app_version">Έκδοση %1$s</string>
+    <string name="update_hint">Η εφαρμογή ελέγχει για ενημερώσεις το πολύ κάθε 6 ώρες· αυτό το κουμπί ελέγχει τώρα.</string>
 </resources>

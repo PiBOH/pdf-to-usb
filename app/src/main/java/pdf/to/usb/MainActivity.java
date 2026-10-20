@@ -2,7 +2,6 @@ package pdf.to.usb;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -23,12 +22,20 @@ import android.widget.TextView;
 import java.io.File;
 import java.util.List;
 
-/** Single screen: A/B state, drive detection and pickers, language, updates, copy log. */
+/**
+ * Single Activity with four screens behind a tab bar: drives, copy log, language and
+ * updates. Keeping one Activity avoids a navigation library and keeps Android 5.0 support.
+ */
 public class MainActivity extends Activity {
 
     private static final int PICK_A = 1;
     private static final int PICK_B = 2;
     private static final int ASK_STORAGE = 3;
+
+    private static final int SCREEN_DRIVES = 0;
+    private static final int SCREEN_LOG = 1;
+    private static final int SCREEN_LANGUAGE = 2;
+    private static final int SCREEN_UPDATES = 3;
 
     private TextView stateA;
     private TextView stateB;
@@ -36,15 +43,22 @@ public class MainActivity extends Activity {
     private TextView status;
     private View dot;
     private Button toggle;
+    private View[] screens;
+    private Button[] tabs;
     private ArrayAdapter<String> log;
+    private ArrayAdapter<String> languages;
+    private String[] tags;
     private boolean listening;
     private boolean autoTried;
     private Uri suggestedB;
+    private int screen = SCREEN_DRIVES;
 
+    /** The screen refreshes itself when the service writes a log line or a preference. */
     private final BroadcastReceiver changed = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            showLog();
+            if (screen == SCREEN_LOG) showLog();
+            else showAll();
         }
     };
 
@@ -59,15 +73,39 @@ public class MainActivity extends Activity {
         super.onCreate(saved);
         setContentView(R.layout.activity_main);
 
+        screens = new View[]{
+                findViewById(R.id.screen_drives),
+                findViewById(R.id.screen_log),
+                findViewById(R.id.screen_language),
+                findViewById(R.id.screen_updates)};
+        tabs = new Button[]{
+                findViewById(R.id.tab_drives),
+                findViewById(R.id.tab_log),
+                findViewById(R.id.tab_language),
+                findViewById(R.id.tab_updates)};
+        for (int i = 0; i < tabs.length; i++) {
+            final int which = i;
+            tabs[i].setOnClickListener(v -> showScreen(which));
+        }
+
         stateA = findViewById(R.id.state_a);
         stateB = findViewById(R.id.state_b);
         volumes = findViewById(R.id.volumes);
         status = findViewById(R.id.status);
         dot = findViewById(R.id.dot);
         toggle = findViewById(R.id.toggle);
+        // Background listening is the default: the app is ready without opening it again.
         listening = Store.listening(this);
+
         log = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         ((ListView) findViewById(R.id.log)).setAdapter(log);
+        languages = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        ListView list = findViewById(R.id.languages);
+        list.setAdapter(languages);
+        list.setOnItemClickListener((parent, view, position, id) -> {
+            Store.setLanguage(this, position == 0 ? Lang.SYSTEM : tags[position - 1]);
+            recreate();
+        });
 
         findViewById(R.id.pick_a).setOnClickListener(v -> pick(PICK_A));
         findViewById(R.id.pick_b).setOnClickListener(v -> pick(PICK_B));
@@ -75,15 +113,18 @@ public class MainActivity extends Activity {
                 CopyService.send(this, CopyService.ACTION_COPY_ALL, null));
         findViewById(R.id.test).setOnClickListener(v ->
                 CopyService.send(this, CopyService.ACTION_TEST, null));
+        findViewById(R.id.background).setOnClickListener(v -> keepRunning());
+        findViewById(R.id.check).setOnClickListener(v -> Update.checkNow(this));
         toggle.setOnClickListener(v -> {
             listening = !listening;
             Store.setListening(this, listening);
             CopyService.send(this, listening ? CopyService.ACTION_START : CopyService.ACTION_STOP, null);
             showToggle();
         });
-        findViewById(R.id.background).setOnClickListener(v -> keepRunning());
-        findViewById(R.id.language).setOnClickListener(v -> chooseLanguage());
-        findViewById(R.id.updates).setOnClickListener(v -> Update.checkNow(this));
+
+        showVersion();
+        showLanguages();
+        showScreen(SCREEN_DRIVES);
 
         askReadPermission();
         if (saved == null) handle(getIntent());
@@ -97,7 +138,7 @@ public class MainActivity extends Activity {
         handle(intent);
     }
 
-    /** A PDF opened with this app arrives here: copy it and show the state. */
+    /** A PDF opened with this app arrives here: copy it and show the drives screen. */
     private void handle(Intent intent) {
         if (intent == null) return;
         if (intent.getStringExtra(Update.EXTRA_APK) != null) {
@@ -117,19 +158,41 @@ public class MainActivity extends Activity {
         IntentFilter filter = new IntentFilter(Store.ACTION_CHANGED);
         if (Build.VERSION.SDK_INT >= 33) registerReceiver(changed, filter, Context.RECEIVER_NOT_EXPORTED);
         else registerReceiver(changed, filter);
-        // Configured once, then the service is expected to run again by itself after a
-        // reboot, an app update or simply reopening the screen.
-        if (listening && Store.tree(this, Store.KEY_B) != null) {
-            CopyService.send(this, CopyService.ACTION_START, null);
-        }
+        // Listening starts at once: the service is the app, the screen only shows it.
+        if (listening) CopyService.send(this, CopyService.ACTION_START, null);
         showAll();
         Update.check(this);
+    }
+
+    /** Back from the "install unknown apps" settings: finish the update without another tap. */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Update.installPending(this);
     }
 
     @Override
     protected void onStop() {
         unregisterReceiver(changed);
         super.onStop();
+    }
+
+    private void showScreen(int which) {
+        screen = which;
+        for (int i = 0; i < screens.length; i++) screens[i].setVisibility(i == which ? View.VISIBLE : View.GONE);
+        for (int i = 0; i < tabs.length; i++) {
+            tabs[i].setTextColor(getResources().getColor(i == which ? R.color.primary : R.color.text_secondary));
+        }
+        if (which == SCREEN_LOG) showLog();
+        if (which == SCREEN_LANGUAGE) showLanguages();
+        if (which == SCREEN_UPDATES) showVersion();
+    }
+
+    /** Back from a secondary screen returns to the drives screen, then closes the app. */
+    @Override
+    public void onBackPressed() {
+        if (screen != SCREEN_DRIVES) showScreen(SCREEN_DRIVES);
+        else super.onBackPressed();
     }
 
     /** State of A and B, the removable drives line, the toggle and the last copies. */
@@ -145,7 +208,7 @@ public class MainActivity extends Activity {
         volumes.setText(getString(R.string.volumes,
                 found.isEmpty() ? getString(R.string.volumes_none) : sb.toString()));
         showToggle();
-        showLog();
+        if (screen == SCREEN_LOG) showLog();
     }
 
     /** The button says what the next tap will do; the dot and the status line show the state. */
@@ -153,6 +216,24 @@ public class MainActivity extends Activity {
         toggle.setText(listening ? R.string.stop : R.string.start);
         status.setText(listening ? R.string.status_on : R.string.status_off);
         dot.setBackgroundResource(listening ? R.drawable.dot_on : R.drawable.dot_off);
+    }
+
+    private void showVersion() {
+        String name;
+        try {
+            name = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+        } catch (Exception e) {
+            name = "?";
+        }
+        ((TextView) findViewById(R.id.version)).setText(getString(R.string.app_version, name));
+    }
+
+    /** Language list: system language first, then every bundled locale by its native name. */
+    private void showLanguages() {
+        languages.clear();
+        languages.add(getString(R.string.language_system));
+        tags = Lang.tags();
+        for (String tag : tags) languages.add(Lang.label(tag));
     }
 
     /**
@@ -278,21 +359,6 @@ public class MainActivity extends Activity {
             }
         }
         showAll();
-    }
-
-    /** Language list: native names plus the system language, then the screen is rebuilt. */
-    private void chooseLanguage() {
-        final String[] tags = Lang.tags();
-        String[] labels = new String[tags.length + 1];
-        labels[0] = getString(R.string.language_system);
-        for (int i = 0; i < tags.length; i++) labels[i + 1] = Lang.label(tags[i]);
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.language)
-                .setItems(labels, (dialog, which) -> {
-                    Store.setLanguage(this, which == 0 ? Lang.SYSTEM : tags[which - 1]);
-                    recreate();
-                })
-                .show();
     }
 
     /** READ_EXTERNAL_STORAGE is only needed by FileObserver, never by the SAF writes. */

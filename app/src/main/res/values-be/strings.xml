@@ -49,4 +49,9 @@
     <string name="status_off">Не слухае</string>
     <string name="keep_running">Працаваць у фоне</string>
     <string name="battery_hint">Дазвольце Pdf To Usb ігнараваць аптымізацыю батарэі, каб ён заставаўся гатовым пры выключаным экране.</string>
+    <string name="tab_drives">Дыскі</string>
+    <string name="tab_log">Журнал</string>
+    <string name="tab_updates">Абнаўленні</string>
+    <string name="app_version">Версія %1$s</string>
+    <string name="update_hint">Праграма правярае абнаўленні не часцей за раз у 6 гадзін; гэта кнопка правярае цяпер.</string>
 </resources>

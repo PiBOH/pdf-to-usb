@@ -49,4 +49,9 @@
     <string name="status_off">Nie nasłuchuje</string>
     <string name="keep_running">Działaj w tle</string>
     <string name="battery_hint">Zezwól Pdf To Usb na pominięcie optymalizacji baterii, aby było gotowe przy wyłączonym ekranie.</string>
+    <string name="tab_drives">Dyski</string>
+    <string name="tab_log">Dziennik</string>
+    <string name="tab_updates">Aktualizacje</string>
+    <string name="app_version">Wersja %1$s</string>
+    <string name="update_hint">Aplikacja sprawdza aktualizacje najwyżej co 6 godzin; ten przycisk sprawdza teraz.</string>
 </resources>

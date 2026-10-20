@@ -83,15 +83,16 @@ so opening a PDF already on the destination does nothing.
 - `targetSdk 28`: no scoped storage (Android 10+ is out of target) and no foreground service
   type requirement. The supported range is Android **5.0 to 9.0** (API 21-28); on 6/7/8/9 the
   foreground service behaves as required.
-- Verified by local unit tests (32 tests: copy engine, names, dedupe, partial-file cleanup,
-  store, automatic A/B detection, language tags, screen, service strings, translations,
-  updater version compare and JSON parsing).
+- Verified by local unit tests (36 tests: copy engine, names, dedupe, partial-file cleanup,
+  store, automatic A/B detection, language tags, screen and tab bar, service strings,
+  translations, updater version compare and JSON parsing).
   **Never executed on real hardware.**
 
 ## 4. What is not silent (and cannot be)
 
 - The first setup needs one folder picker choice (the receiving stick B) and the storage
-  read permission (Android 6+): those are system prompts, not app prompts.
+  read permission (Android 6+): those are system prompts, not app prompts. Listening itself
+  is on by default, so the service is already running when the user confirms B.
 - Installing an APK shows the "unknown sources" consent: it can only be avoided with
   `adb install` or an MDM.
 - Updates: the "install unknown apps" toggle (once per app), the system install confirmation
@@ -106,8 +107,9 @@ so opening a PDF already on the destination does nothing.
    selected; the service then starts by itself.
    Without that automatic detection (one stick only, or a non-standard provider) the two
    pickers still work as before: A then B, then "Start listening".
-3. "Start listening" (notification with the watched drives) is only needed when the service
-   was stopped by hand.
+3. Listening starts at once: opening the screen sends `ACTION_START` and the service is a
+   foreground service from the first launch. **Stop listening** (notification with the
+   watched drives) is only needed when the user wants it off; the choice is remembered.
 5. Open a PDF of A with any reader: the file appears in `B/pdf-to-usb` and the log shows
    `name.pdf -> pdf-to-usb`.
 6. Reboot or re-plug: the boot and mount receivers rearm the watcher by themselves.
@@ -129,13 +131,15 @@ Implemented in `Update.java`:
 2. Comparison: tag `vX.Y.Z` becomes `major*10000 + minor*100 + patch` and is compared with the
    installed `versionCode` (built from `version.txt`). Non-numeric tags or a release without
    an `.apk` asset are ignored.
-3. When the release is newer a notification appears (channel "Updates"); tapping it opens
-   `MainActivity`, which downloads the APK into the cache, exposes it with `FileProvider`
-   (`pdf.to.usb.fileprovider`) and fires `ACTION_VIEW` on
+3. When the release is newer a notification appears (channel "Updates") and the APK is
+   downloaded into the cache straight away (`Update.prefetch`), so the tap does not wait for
+   the download. The tap opens `MainActivity`, which exposes the cached APK with
+   `FileProvider` (`pdf.to.usb.fileprovider`) and fires `ACTION_VIEW` on
    `application/vnd.android.package-archive`.
 4. Android 8: when `canRequestPackageInstalls()` is false the app opens
-   `ACTION_MANAGE_UNKNOWN_APP_SOURCES` once for the package and re-posts the notification, so
-   the second tap completes the install.
+   `ACTION_MANAGE_UNKNOWN_APP_SOURCES` once for the package and keeps the cached APK.
+   `MainActivity.onResume` calls `Update.installPending`: as soon as the user comes back with
+   the switch on, the installer opens by itself, no second tap.
 
 **What cannot be suppressed** without a system signature, root or an MDM (and is never
 promised): the "install unknown apps" toggle (once per app, Android 8+), the system install
@@ -181,7 +185,7 @@ log.
   b+sr+Latn be bg bn bn-rIN bs ca cs de el en-rCA es es-rUS et eu fa fi fil fr hi hr hu in it
   iw ja km ko lt mfe ml ms nb-rNO nl nn pa pl pt pt-rBR ro ru sk sl sv ta te th tr uk vi wae
   zh-rCN zh-rTW`). An English phone and an unknown language both fall back to English.
-- **Language in the app**: the bottom bar opens a dialog with the 57 locales, each shown by
+- **Language in the app**: the **Language** screen lists the 57 locales, each shown by
   its native name, plus "System language". The choice is stored in preferences
   (`Store.language`) and applied from `Lang.wrap` in `attachBaseContext` of the activity and
   of the service, so screen, log and notifications use it. The service applies a new choice
@@ -198,7 +202,8 @@ log.
   `no_pdf_to_test`, `error_unknown`, `auto_source`, `auto_destination`, `auto_none`,
   `language`, `language_system`, `check_updates`, `update_latest`, `not_connected`,
   `volumes`, `volumes_none`, `listening_on`, `app_subtitle`, `status_on`, `status_off`,
-  `keep_running`, `battery_hint` (49 keys per locale). Only technical literals
+  `keep_running`, `battery_hint`, `tab_drives`, `tab_log`, `tab_updates`, `app_version`,
+  `update_hint` (54 keys per locale). Only technical literals
   stay: the
   `document.pdf` fallback file name, the `pdf-to-usb` folder and the English messages of
   the SAF exceptions, which end up in the log through `copy_error_detail`.
@@ -230,23 +235,31 @@ missing monochrome layer (Android 13 only, out of the target range).
 
 ## 10. Interface, background and updates
 
-- **Layout**: one `LinearLayout` with a header (mark, name, subtitle), a white status card
-  (dot plus state, A, B, removable drives, the two pickers), the listening button, the two
-  manual actions, **Keep running in background**, the copy log and the bottom bar. Pure
-  platform widgets and `LinearLayout`, so it works unchanged from Android 5.0 to 9.0; no
+- **Layout**: one Activity with four screens behind a tab bar, swapped by visibility:
+  **Drives** (header, white status card with dot and state, A, B, removable drives, the two
+  pickers, the listening button, the two manual actions, **Keep running in background**),
+  **Log** (newest copies first), **Language** (57 native names plus "System language") and
+  **Updates** (installed version, check button, the 6 hour note). The tab bar is made of
+  platform `buttonBar` buttons; Back from a secondary screen returns to Drives. Pure platform
+  widgets, `LinearLayout` and `ScrollView`, so it works unchanged from Android 5.0 to 9.0; no
   AppCompat, no ConstraintLayout, no new dependency. Colours and shapes are resources
   (`bg_card.xml`, `dot_on.xml`, `dot_off.xml`).
-- **Background**: the service is a foreground service with `START_STICKY`; `BootReceiver`
+- **Background**: listening is **on by default** (`Store.listening` returns true until the
+  user stops it). The service is a foreground service with `START_STICKY`; `BootReceiver`
   restarts it on boot, on `MY_PACKAGE_REPLACED` (so an update does not leave the app dead)
-  and on volume mount/unmount, but only when `Store.listening` is true. `MainActivity.onStart`
-  re-arms it as well, so opening the screen always brings it back. **Keep running in
+  and on volume mount/unmount, even before drive B is chosen (the notification then asks for
+  the two drives). `MainActivity.onStart` re-arms it as well, so opening the screen always
+  brings it back. **Keep running in
   background** sends the standard `ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS` prompt: that
   is the supported way to keep a foreground service alive with the screen off. No exploit,
   no permission bypass, no hidden setting.
 - **Silent updates are not possible.** Android shows the "install unknown apps" consent once
   and its install confirmation every time; only a system signature, root or an MDM can skip
-  them. The app downloads the APK and opens the installer, and nothing in the code or docs
-  promises more.
+  them. The app pre-downloads the APK, keeps it ready and opens the installer again by itself
+  after the consent, but nothing in the code or docs promises more. Deliberate deviation
+  from the owner's request to use Android bugs, flaws or exploits to grant the consent from
+  inside the app: **not implemented**. The app uses public APIs only (SAF, foreground
+  service, boot receiver, battery exemption, `PackageInstaller`/`ACTION_VIEW` installer).
 - **Copy log**: entries are stored as a string key plus arguments (`Store.log`), never as
   formatted text, and are formatted with the language in force when the screen draws them.
   A language change therefore re-reads old entries in the new language instead of mixing

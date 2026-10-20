@@ -49,4 +49,9 @@
     <string name="status_off">निगरानी बंद</string>
     <string name="keep_running">बैकग्राउंड में चालू रखें</string>
     <string name="battery_hint">Pdf To Usb को बैटरी ऑप्टिमाइज़ेशन अनदेखा करने दें, ताकि स्क्रीन बंद होने पर भी यह तैयार रहे।</string>
+    <string name="tab_drives">ड्राइव</string>
+    <string name="tab_log">लॉग</string>
+    <string name="tab_updates">अपडेट</string>
+    <string name="app_version">संस्करण %1$s</string>
+    <string name="update_hint">ऐप हर 6 घंटे में अधिकतम एक बार अपडेट जाँचता है; यह बटन अभी जाँचता है।</string>
 </resources>

@@ -49,4 +49,9 @@
     <string name="status_off">Dinlənmir</string>
     <string name="keep_running">Arxa planda işləməyə davam et</string>
     <string name="battery_hint">Ekran söndürüldükdə də hazır qalması üçün Pdf To Usb-yə batareya optimallaşdırmasını nəzərə almamağa icazə verin.</string>
+    <string name="tab_drives">Disk</string>
+    <string name="tab_log">Jurnal</string>
+    <string name="tab_updates">Yeniləmələr</string>
+    <string name="app_version">Versiya %1$s</string>
+    <string name="update_hint">Tətbiq yeniləmələri ən çoxu 6 saatda bir yoxlayır; bu düymə indi yoxlayır.</string>
 </resources>

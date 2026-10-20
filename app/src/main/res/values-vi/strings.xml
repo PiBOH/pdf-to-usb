@@ -49,4 +49,9 @@
     <string name="status_off">Không theo dõi</string>
     <string name="keep_running">Chạy nền</string>
     <string name="battery_hint">Cho phép Pdf To Usb bỏ qua tối ưu pin để luôn sẵn sàng khi màn hình tắt.</string>
+    <string name="tab_drives">Ổ đĩa</string>
+    <string name="tab_log">Nhật ký</string>
+    <string name="tab_updates">Cập nhật</string>
+    <string name="app_version">Phiên bản %1$s</string>
+    <string name="update_hint">Ứng dụng kiểm tra cập nhật tối đa 6 giờ một lần; nút này kiểm tra ngay.</string>
 </resources>

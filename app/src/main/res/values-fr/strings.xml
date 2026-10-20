@@ -49,4 +49,9 @@
     <string name="status_off">Pas à l\'écoute</string>
     <string name="keep_running">Rester active en arrière-plan</string>
     <string name="battery_hint">Autorisez Pdf To Usb à ignorer l\'optimisation de la batterie, pour qu\'elle reste prête écran éteint.</string>
+    <string name="tab_drives">Clés</string>
+    <string name="tab_log">Journal</string>
+    <string name="tab_updates">Mises à jour</string>
+    <string name="app_version">Version %1$s</string>
+    <string name="update_hint">L\'app vérifie les mises à jour au plus toutes les 6 heures ; ce bouton vérifie maintenant.</string>
 </resources>

@@ -49,4 +49,9 @@
     <string name="status_off">Praćenje je zaustavljeno</string>
     <string name="keep_running">Radi u pozadini</string>
     <string name="battery_hint">Dopustite aplikaciji Pdf To Usb da zanemari optimizaciju baterije kako bi bila spremna i s isključenim zaslonom.</string>
+    <string name="tab_drives">Pogoni</string>
+    <string name="tab_log">Zapisnik</string>
+    <string name="tab_updates">Ažuriranja</string>
+    <string name="app_version">Verzija %1$s</string>
+    <string name="update_hint">Aplikacija provjerava ažuriranja najviše svakih 6 sati; ovaj gumb provjerava sada.</string>
 </resources>

@@ -49,4 +49,9 @@
     <string name="status_off">Seuranta pysäytetty</string>
     <string name="keep_running">Pidä käynnissä taustalla</string>
     <string name="battery_hint">Salli Pdf To Usb -sovelluksen ohittaa akun optimointi, jotta se on valmis myös näytön ollessa pois päältä.</string>
+    <string name="tab_drives">Asemat</string>
+    <string name="tab_log">Loki</string>
+    <string name="tab_updates">Päivitykset</string>
+    <string name="app_version">Versio %1$s</string>
+    <string name="update_hint">Sovellus tarkistaa päivitykset enintään 6 tunnin välein; tämä painike tarkistaa heti.</string>
 </resources>

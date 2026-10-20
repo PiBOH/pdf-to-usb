@@ -23,6 +23,12 @@ public class StoreTest {
         return DocumentsContract.buildTreeDocumentUri("com.android.externalstorage.documents", documentId);
     }
 
+    /** Listening is on from the first start: the app has to be ready without opening it. */
+    @Test
+    public void listeningDefaultsToOn() {
+        org.junit.Assert.assertTrue(Store.listening(RuntimeEnvironment.getApplication()));
+    }
+
     /** The volume name is the part of the SAF document id before the colon. */
     @Test
     public void volumeNameComesFromDocumentId() {

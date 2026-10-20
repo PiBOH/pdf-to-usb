@@ -49,4 +49,9 @@
     <string name="status_off">לא מאזין</string>
     <string name="keep_running">המשך לפעול ברקע</string>
     <string name="battery_hint">אפשרו ל-Pdf To Usb להתעלם מאופטימיזציית הסוללה כדי שיהיה מוכן גם כשהמסך כבוי.</string>
+    <string name="tab_drives">כוננים</string>
+    <string name="tab_log">יומן</string>
+    <string name="tab_updates">עדכונים</string>
+    <string name="app_version">גרסה %1$s</string>
+    <string name="update_hint">האפליקציה בודקת עדכונים לכל היותר כל 6 שעות; כפתור זה בודק עכשיו.</string>
 </resources>

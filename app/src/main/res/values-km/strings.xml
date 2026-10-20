@@ -49,4 +49,9 @@
     <string name="status_off">មិនកំពុងតាមដាន</string>
     <string name="keep_running">រក្សាដំណើរការក្នុងផ្ទៃខាងក្រោយ</string>
     <string name="battery_hint">អនុញ្ញាតឱ្យ Pdf To Usb មិនគិតពីការបង្កើនប្រសិទ្ធភាពថ្ម ដើម្បីឱ្យវាត្រៀមខ្លួននៅពេលអេក្រង់បិទ។</string>
+    <string name="tab_drives">ដ្រាយ</string>
+    <string name="tab_log">កំណត់ហេតុ</string>
+    <string name="tab_updates">បច្ចុប្បន្នភាព</string>
+    <string name="app_version">ជំនាន់ %1$s</string>
+    <string name="update_hint">កម្មវិធីពិនិត្យបច្ចុប្បន្នភាពមិនលើសពីរៀងរាល់ 6 ម៉ោង; ប៊ូតុងនេះពិនិត្យឥឡូវនេះ។</string>
 </resources>

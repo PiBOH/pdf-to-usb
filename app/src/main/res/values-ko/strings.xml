@@ -49,4 +49,9 @@
     <string name="status_off">감시 중지됨</string>
     <string name="keep_running">백그라운드에서 계속 실행</string>
     <string name="battery_hint">Pdf To Usb가 배터리 최적화를 무시하도록 허용하면 화면이 꺼져도 준비된 상태로 유지됩니다.</string>
+    <string name="tab_drives">드라이브</string>
+    <string name="tab_log">로그</string>
+    <string name="tab_updates">업데이트</string>
+    <string name="app_version">버전 %1$s</string>
+    <string name="update_hint">앱은 최대 6시간마다 업데이트를 확인합니다. 이 버튼은 지금 확인합니다.</string>
 </resources>

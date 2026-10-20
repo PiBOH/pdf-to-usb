@@ -49,4 +49,9 @@
     <string name="status_off">கேட்கவில்லை</string>
     <string name="keep_running">பின்னணியில் இயங்கு</string>
     <string name="battery_hint">திரை அணைந்திருந்தாலும் தயாராக இருக்க Pdf To Usb பேட்டரி மேம்பாட்டைப் புறக்கணிக்க அனுமதிக்கவும்.</string>
+    <string name="tab_drives">இயக்ககங்கள்</string>
+    <string name="tab_log">பதிவு</string>
+    <string name="tab_updates">புதுப்பிப்புகள்</string>
+    <string name="app_version">பதிப்பு %1$s</string>
+    <string name="update_hint">ஆப் அதிகபட்சம் 6 மணிக்கு ஒருமுறை புதுப்பிப்புகளைச் சரிபார்க்கும்; இந்த பொத்தான் இப்போது சரிபார்க்கும்.</string>
 </resources>

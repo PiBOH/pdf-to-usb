@@ -49,4 +49,9 @@
     <string name="status_off">শুনি নাই</string>
     <string name="keep_running">পৃষ্ঠভূমিত চলি থাকক</string>
     <string name="battery_hint">Pdf To Usb-ক বেটাৰী অভিজ্ঞতানুকূলন অৱহেলা কৰিবলৈ অনুমতি দিয়ক, যাতে স্ক্ৰীন বন্ধ থাকিলেও সাজু থাকে।</string>
+    <string name="tab_drives">ড্ৰাইভ</string>
+    <string name="tab_log">লগ</string>
+    <string name="tab_updates">আপডেট</string>
+    <string name="app_version">সংস্কৰণ %1$s</string>
+    <string name="update_hint">এপে প্ৰতি ৬ ঘণ্টাত সৰ্বাধিক এবাৰ আপডেট পৰীক্ষা কৰে; এই বুটামে এতিয়া পৰীক্ষা কৰে।</string>
 </resources>

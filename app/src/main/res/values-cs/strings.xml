@@ -49,4 +49,9 @@
     <string name="status_off">Nenaslouchá</string>
     <string name="keep_running">Běžet na pozadí</string>
     <string name="battery_hint">Povolte Pdf To Usb ignorovat optimalizaci baterie, aby bylo připravené i při vypnuté obrazovce.</string>
+    <string name="tab_drives">Disky</string>
+    <string name="tab_log">Protokol</string>
+    <string name="tab_updates">Aktualizace</string>
+    <string name="app_version">Verze %1$s</string>
+    <string name="update_hint">Aplikace kontroluje aktualizace nejvýše každých 6 hodin; toto tlačítko kontroluje nyní.</string>
 </resources>

@@ -49,4 +49,9 @@
     <string name="status_off">Ne spremljam</string>
     <string name="keep_running">Deluj v ozadju</string>
     <string name="battery_hint">Dovolite Pdf To Usb, da prezre optimizacijo baterije, da bo pripravljeno tudi z ugasnjenim zaslonom.</string>
+    <string name="tab_drives">Diski</string>
+    <string name="tab_log">Dnevnik</string>
+    <string name="tab_updates">Posodobitve</string>
+    <string name="app_version">Različica %1$s</string>
+    <string name="update_hint">Aplikacija preveri posodobitve največ vsakih 6 ur; ta gumb preveri zdaj.</string>
 </resources>
