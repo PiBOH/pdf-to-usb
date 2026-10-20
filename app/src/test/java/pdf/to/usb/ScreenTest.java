@@ -19,7 +19,7 @@ import org.robolectric.annotation.Config;
 @Config(sdk = 28)
 public class ScreenTest {
 
-    /** Nessuna rete nei test: il controllo aggiornamenti resta spento per 6 ore. */
+    /** No network in tests: the update check stays off for 6 hours. */
     @Before
     public void noUpdateCheck() {
         Store.markUpdateCheck(RuntimeEnvironment.getApplication(), System.currentTimeMillis());
@@ -55,6 +55,14 @@ public class ScreenTest {
     public void arabicStringsLoad() {
         MainActivity activity = Robolectric.buildActivity(MainActivity.class).setup().get();
         assertEquals("اختيار محرك A (المصدر)", activity.getString(R.string.picked_a));
+    }
+
+    @Test
+    public void chosenLanguageOverridesTheSystemOne() {
+        Store.setLanguage(RuntimeEnvironment.getApplication(), "it");
+        MainActivity activity = Robolectric.buildActivity(MainActivity.class).setup().get();
+        assertEquals("Scegli chiavetta A (sorgente)", activity.getString(R.string.picked_a));
+        assertEquals("Lingua", activity.getString(R.string.language));
     }
 
     @Test

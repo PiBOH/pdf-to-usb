@@ -36,4 +36,11 @@
     <string name="auto_source">Drive sumber terdeteksi: %1$s</string>
     <string name="auto_destination">Drive tujuan terdeteksi: %1$s (konfirmasi dengan «Pilih drive B»)</string>
     <string name="auto_none">Tidak ada drive terdeteksi: hubungkan dan buka ulang aplikasi</string>
+    <string name="language">Bahasa</string>
+    <string name="language_system">Bahasa sistem</string>
+    <string name="check_updates">Periksa pembaruan</string>
+    <string name="update_latest">Sudah terbaru (%1$s)</string>
+    <string name="not_connected">tidak terhubung</string>
+    <string name="volumes">Drive yang dapat dilepas: %1$s</string>
+    <string name="volumes_none">tidak ada yang terhubung</string>
 </resources>

@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-/** Volumi rimovibili visti dal sistema e percorso reale di un albero SAF. */
+/** Removable volumes as the system sees them, and the real path behind a SAF tree. */
 final class Volumes {
 
-    /** Autority del provider che il sistema usa per le chiavette (StorageProvider). */
+    /** Authority of the provider the system uses for the sticks (StorageProvider). */
     private static final String EXTERNAL = "com.android.externalstorage.documents";
 
     static final class Volume {
@@ -50,7 +50,7 @@ final class Volumes {
                 if (dir != null) out.add(new Volume(v.getDescription(c), dir, v.getUuid()));
             }
         } else {
-            // API 21-23: getStorageVolumes() non esiste ancora, si passa dai metodi nascosti.
+            // API 21-23: getStorageVolumes() does not exist yet, hidden methods are used.
             try {
                 Object[] volumes = (Object[]) StorageManager.class.getMethod("getVolumeList").invoke(sm);
                 for (Object v : volumes) {
@@ -61,13 +61,13 @@ final class Volumes {
                     out.add(new Volume(label, new File(path)));
                 }
             } catch (Exception ignored) {
-                // device senza volumi rimovibili o metodo nascosto rimosso: elenco vuoto
+                // device without removable volumes, or hidden method removed: empty list
             }
         }
         return out;
     }
 
-    /** Percorso del volume: UUID pubblico, poi i metodi nascosti, per ultimo null. */
+    /** Volume path: public UUID first, then the hidden methods, null last. */
     @android.annotation.TargetApi(24)
     private static File path(StorageVolume v) {
         if (Build.VERSION.SDK_INT >= 24) {
@@ -90,13 +90,13 @@ final class Volumes {
         return null;
     }
 
-    /** Albero SAF della radice del volume: serve a pre-selezionarlo nel picker di B. */
+    /** SAF tree of the volume root: used to preselect it in the B picker. */
     static Uri tree(Volume v) {
         if (v == null || v.uuid == null || v.uuid.isEmpty()) return null;
         return DocumentsContract.buildTreeDocumentUri(EXTERNAL, v.uuid + ":");
     }
 
-    /** La sorgente A è la chiavetta con più PDF: è quella dove l'utente tiene i documenti. */
+    /** Source A is the stick with more PDFs: the one that holds the documents. */
     static Volume source(List<Volume> volumes, int[] pdfs) {
         Volume best = null;
         int bestCount = -1;
@@ -109,19 +109,19 @@ final class Volumes {
         return best;
     }
 
-    /** La destinazione B è l'altra chiavetta: null se non ce n'è esattamente una. */
+    /** Destination B is the other stick: null when there is not exactly one. */
     static Volume destination(List<Volume> volumes, Volume source) {
         Volume out = null;
         for (Volume v : volumes) {
             if (v == source) continue;
             if (source != null && source.uuid != null && source.uuid.equals(v.uuid)) continue;
-            if (out != null) return null;   // tre o più chiavette: non si indovina
+            if (out != null) return null;   // three or more sticks: no guessing
             out = v;
         }
         return out;
     }
 
-    /** Conta i PDF fino a due livelli: basta a distinguere la chiavetta dei documenti. */
+    /** Counts PDFs two levels deep: enough to tell the documents stick apart. */
     static int pdfCount(File dir, int depth) {
         if (dir == null || depth > 2) return 0;
         File[] children = dir.listFiles();
@@ -135,8 +135,8 @@ final class Volumes {
     }
 
     /**
-     * Percorso del filesystem dietro un albero SAF: l'id di ExternalStorageProvider è
-     * "UUID:cartella". Serve a FileObserver, che vuole un File e non un Uri.
+     * Filesystem path behind a SAF tree: the ExternalStorageProvider id is "UUID:folder".
+     * FileObserver needs a File, not an Uri.
      */
     static File treePath(Uri tree) {
         if (tree == null) return null;

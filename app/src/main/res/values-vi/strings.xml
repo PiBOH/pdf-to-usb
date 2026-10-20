@@ -36,4 +36,11 @@
     <string name="auto_source">Đã nhận diện ổ nguồn: %1$s</string>
     <string name="auto_destination">Đã nhận diện ổ đích: %1$s (xác nhận bằng «Chọn ổ B»)</string>
     <string name="auto_none">Không nhận diện được ổ nào: hãy kết nối và mở lại ứng dụng</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="language_system">Ngôn ngữ hệ thống</string>
+    <string name="check_updates">Kiểm tra cập nhật</string>
+    <string name="update_latest">Đã là bản mới nhất (%1$s)</string>
+    <string name="not_connected">chưa kết nối</string>
+    <string name="volumes">Ổ đĩa rời: %1$s</string>
+    <string name="volumes_none">không có ổ nào được kết nối</string>
 </resources>

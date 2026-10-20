@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/** Preferenze (alberi A/B) e registro delle copie mostrato in schermata. */
+/** Preferences (A/B trees, language) and the copy log shown on the screen. */
 final class Store {
 
     static final String KEY_A = "tree_a";
@@ -31,7 +31,7 @@ final class Store {
         c.getSharedPreferences(PREF, Context.MODE_PRIVATE).edit().putString(key, tree.toString()).apply();
     }
 
-    /** Nome leggibile dell'albero: per una USB è l'UUID del volume (es. 1A2B-3C4D). */
+    /** Readable tree name: for a USB stick it is the volume UUID (e.g. 1A2B-3C4D). */
     static String volumeName(Uri tree) {
         if (tree == null) return null;
         try {
@@ -43,6 +43,15 @@ final class Store {
         }
     }
 
+    /** Chosen app language: BCP 47 tag, or "" for the system language. */
+    static String language(Context c) {
+        return c.getSharedPreferences(PREF, Context.MODE_PRIVATE).getString("language", "");
+    }
+
+    static void setLanguage(Context c, String tag) {
+        c.getSharedPreferences(PREF, Context.MODE_PRIVATE).edit().putString("language", tag).apply();
+    }
+
     static long lastUpdateCheck(Context c) {
         return c.getSharedPreferences(PREF, Context.MODE_PRIVATE).getLong("update_check", 0L);
     }
@@ -52,7 +61,7 @@ final class Store {
     }
 
     static void log(Context c, String line) {
-        String stamp = new SimpleDateFormat("HH:mm", Locale.ITALY).format(new Date());
+        String stamp = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
         String[] old = log(c);
         StringBuilder sb = new StringBuilder(stamp).append("  ").append(line);
         for (int i = 0; i < old.length && i < LOG_MAX - 1; i++) sb.append('\n').append(old[i]);

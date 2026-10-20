@@ -36,4 +36,11 @@
     <string name="auto_source">Kildeenhet oppdaget: %1$s</string>
     <string name="auto_destination">Målenhet oppdaget: %1$s (bekreft med «Velg enhet B»)</string>
     <string name="auto_none">Ingen enhet oppdaget: koble den til og åpne appen på nytt</string>
+    <string name="language">Språk</string>
+    <string name="language_system">Systemspråk</string>
+    <string name="check_updates">Se etter oppdateringer</string>
+    <string name="update_latest">Allerede oppdatert (%1$s)</string>
+    <string name="not_connected">ikke tilkoblet</string>
+    <string name="volumes">Flyttbare enheter: %1$s</string>
+    <string name="volumes_none">ingen tilkoblet</string>
 </resources>

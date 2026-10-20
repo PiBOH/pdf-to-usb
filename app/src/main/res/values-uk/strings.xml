@@ -36,4 +36,11 @@
     <string name="auto_source">Виявлено диск-джерело: %1$s</string>
     <string name="auto_destination">Виявлено диск-призначення: %1$s (підтвердьте кнопкою «Вибрати диск B»)</string>
     <string name="auto_none">Дисків не виявлено: підключіть його та відкрийте застосунок знову</string>
+    <string name="language">Мова</string>
+    <string name="language_system">Мова системи</string>
+    <string name="check_updates">Перевірити оновлення</string>
+    <string name="update_latest">Уже найновіша версія (%1$s)</string>
+    <string name="not_connected">не підключено</string>
+    <string name="volumes">Знімні диски: %1$s</string>
+    <string name="volumes_none">жодного не підключено</string>
 </resources>

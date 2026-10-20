@@ -36,4 +36,11 @@
     <string name="auto_source">Izvorni disk zaznan: %1$s</string>
     <string name="auto_destination">Ciljni disk zaznan: %1$s (potrdite z «Izber disk B»)</string>
     <string name="auto_none">Ni zaznanega diska: priključite ga in znova odprite aplikacijo</string>
+    <string name="language">Jezik</string>
+    <string name="language_system">Sistemski jezik</string>
+    <string name="check_updates">Preveri posodobitve</string>
+    <string name="update_latest">Že posodobljeno (%1$s)</string>
+    <string name="not_connected">ni povezan</string>
+    <string name="volumes">Izmenljivi diski: %1$s</string>
+    <string name="volumes_none">noben ni povezan</string>
 </resources>

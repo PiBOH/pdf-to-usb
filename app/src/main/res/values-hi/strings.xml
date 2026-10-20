@@ -36,4 +36,11 @@
     <string name="auto_source">स्रोत ड्राइव मिली: %1$s</string>
     <string name="auto_destination">गंतव्य ड्राइव मिली: %1$s (「B ड्राइव चुनें」 से पुष्टि करें)</string>
     <string name="auto_none">कोई ड्राइव नहीं मिली: इसे जोड़ें और ऐप फिर से खोलें</string>
+    <string name="language">भाषा</string>
+    <string name="language_system">सिस्टम भाषा</string>
+    <string name="check_updates">अपडेट जांचें</string>
+    <string name="update_latest">पहले से अद्यतित (%1$s)</string>
+    <string name="not_connected">कनेक्ट नहीं है</string>
+    <string name="volumes">रिमूवेबल ड्राइव: %1$s</string>
+    <string name="volumes_none">कोई कनेक्ट नहीं है</string>
 </resources>

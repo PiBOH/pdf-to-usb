@@ -36,4 +36,11 @@
     <string name="auto_source">コピー元ドライブを検出しました：%1$s</string>
     <string name="auto_destination">コピー先ドライブを検出しました：%1$s（「B ドライブを選択」で確認）</string>
     <string name="auto_none">ドライブが検出されません：接続してアプリを開き直してください</string>
+    <string name="language">言語</string>
+    <string name="language_system">システムの言語</string>
+    <string name="check_updates">アップデートを確認</string>
+    <string name="update_latest">最新です（%1$s）</string>
+    <string name="not_connected">接続されていません</string>
+    <string name="volumes">リムーバブルドライブ: %1$s</string>
+    <string name="volumes_none">接続なし</string>
 </resources>

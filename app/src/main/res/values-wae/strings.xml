@@ -36,4 +36,11 @@
     <string name="auto_source">Quälle-Laufwärk erkennt: %1$s</string>
     <string name="auto_destination">Ziel-Laufwärk erkennt: %1$s (bestätige mit «Laufwärk B wele»)</string>
     <string name="auto_none">Kes Laufwärk erkennt: schlüss es a und mach s App nomol uf</string>
+    <string name="language">Sproch</string>
+    <string name="language_system">Systemsproch</string>
+    <string name="check_updates">Update prüefe</string>
+    <string name="update_latest">Scho aktuell (%1$s)</string>
+    <string name="not_connected">nid verbunde</string>
+    <string name="volumes">Wechsel-Laufwärk: %1$s</string>
+    <string name="volumes_none">kes verbunde</string>
 </resources>

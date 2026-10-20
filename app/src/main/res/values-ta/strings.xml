@@ -36,4 +36,11 @@
     <string name="auto_source">மூல இயக்ககம் கண்டறியப்பட்டது: %1$s</string>
     <string name="auto_destination">இலக்கு இயக்ககம் கண்டறியப்பட்டது: %1$s («B இயக்ககத்தைத் தேர்ந்தெடு» மூலம் உறுதிப்படுத்தவும்)</string>
     <string name="auto_none">இயக்ககம் எதுவும் கண்டறியப்படவில்லை: அதை இணைத்து ஆப்பை மீண்டும் திறக்கவும்</string>
+    <string name="language">மொழி</string>
+    <string name="language_system">கணினி மொழி</string>
+    <string name="check_updates">புதுப்பிப்புகளைச் சரிபார்</string>
+    <string name="update_latest">ஏற்கனவே புதுப்பித்துள்ளது (%1$s)</string>
+    <string name="not_connected">இணைக்கப்படவில்லை</string>
+    <string name="volumes">நீக்கக்கூடிய இயக்ககங்கள்: %1$s</string>
+    <string name="volumes_none">எதுவும் இணைக்கப்படவில்லை</string>
 </resources>

@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
-/** org.json e' fornito da Android: qui serve Robolectric, ma nessuna rete. */
+/** org.json comes from Android: Robolectric is needed here, but no network. */
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 28)
 public class UpdateParseTest {

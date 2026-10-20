@@ -36,4 +36,11 @@
     <string name="auto_source">ตรวจพบไดรฟ์ต้นทาง: %1$s</string>
     <string name="auto_destination">ตรวจพบไดรฟ์ปลายทาง: %1$s (ยืนยันด้วย «เลือกไดรฟ์ B»)</string>
     <string name="auto_none">ไม่พบไดรฟ์ใดเลย: เชื่อมต่อแล้วเปิดแอปอีกครั้ง</string>
+    <string name="language">ภาษา</string>
+    <string name="language_system">ภาษาของระบบ</string>
+    <string name="check_updates">ตรวจหาอัปเดต</string>
+    <string name="update_latest">อัปเดตล่าสุดแล้ว (%1$s)</string>
+    <string name="not_connected">ไม่ได้เชื่อมต่อ</string>
+    <string name="volumes">ไดรฟ์แบบถอดได้: %1$s</string>
+    <string name="volumes_none">ไม่มีไดรฟ์เชื่อมต่อ</string>
 </resources>

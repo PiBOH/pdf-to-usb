@@ -36,4 +36,11 @@
     <string name="auto_source">Обнаружен диск-источник: %1$s</string>
     <string name="auto_destination">Обнаружен диск-назначение: %1$s (подтвердите кнопкой «Выбрать диск B»)</string>
     <string name="auto_none">Диски не обнаружены: подключите диск и откройте приложение снова</string>
+    <string name="language">Язык</string>
+    <string name="language_system">Язык системы</string>
+    <string name="check_updates">Проверить обновления</string>
+    <string name="update_latest">Уже последняя версия (%1$s)</string>
+    <string name="not_connected">не подключён</string>
+    <string name="volumes">Съёмные диски: %1$s</string>
+    <string name="volumes_none">ни одного подключённого</string>
 </resources>

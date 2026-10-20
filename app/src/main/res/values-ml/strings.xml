@@ -36,4 +36,11 @@
     <string name="auto_source">സ്രോതസ്സ് ഡ്രൈവ് കണ്ടെത്തി: %1$s</string>
     <string name="auto_destination">ലക്ഷ്യ ഡ്രൈവ് കണ്ടെത്തി: %1$s («B ഡ്രൈവ് തിരഞ്ഞെടുക്കുക» ഉപയോഗിച്ച് സ്ഥിരീകരിക്കുക)</string>
     <string name="auto_none">ഡ്രൈവ് കണ്ടെത്തിയില്ല: അത് ബന്ധിപ്പിച്ച് ആപ്പ് വീണ്ടും തുറക്കുക</string>
+    <string name="language">ഭാഷ</string>
+    <string name="language_system">സിസ്റ്റം ഭാഷ</string>
+    <string name="check_updates">അപ്ഡേറ്റുകൾ പരിശോധിക്കുക</string>
+    <string name="update_latest">ഇതിനകം അപ്ഡേറ്റ് ചെയ്തു (%1$s)</string>
+    <string name="not_connected">കണക്ട് ചെയ്തിട്ടില്ല</string>
+    <string name="volumes">നീക്കാവുന്ന ഡ്രൈവുകൾ: %1$s</string>
+    <string name="volumes_none">ഒന്നും കണക്ട് ചെയ്തിട്ടില്ല</string>
 </resources>

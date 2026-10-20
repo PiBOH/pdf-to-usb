@@ -36,4 +36,11 @@
     <string name="auto_source">Unidad de origen detectada: %1$s</string>
     <string name="auto_destination">Unidad de destino detectada: %1$s (confirma con «Elegir unidad B»)</string>
     <string name="auto_none">No se detectó ninguna unidad: conéctala y vuelve a abrir la app</string>
+    <string name="language">Idioma</string>
+    <string name="language_system">Idioma del sistema</string>
+    <string name="check_updates">Buscar actualizaciones</string>
+    <string name="update_latest">Ya está actualizado (%1$s)</string>
+    <string name="not_connected">no conectada</string>
+    <string name="volumes">Unidades extraíbles: %1$s</string>
+    <string name="volumes_none">ninguna conectada</string>
 </resources>

@@ -26,7 +26,7 @@ public class CopyTest {
     public void safeNameBlocksPathsAndAddsExtension() {
         assertEquals("a_b.pdf", Copy.safeName("a/b.pdf"));
         assertEquals("a_b.pdf", Copy.safeName("a\\b"));
-        assertEquals("documento.pdf", Copy.safeName("  "));
+        assertEquals("document.pdf", Copy.safeName("  "));
         assertEquals("x.pdf", Copy.safeName("x"));
     }
 
@@ -71,7 +71,7 @@ public class CopyTest {
         sink.fail = true;
         try {
             Copy.run(src, sink);
-            fail("la copia doveva fallire");
+            fail("the copy was supposed to fail");
         } catch (IOException expected) {
             assertTrue(sink.files.isEmpty());
         }
@@ -94,7 +94,7 @@ public class CopyTest {
             return new OutputStream() {
                 @Override
                 public void write(int b) throws IOException {
-                    if (fail) throw new IOException("disco pieno");
+                    if (fail) throw new IOException("disk full");
                     buffer.write(b);
                 }
 

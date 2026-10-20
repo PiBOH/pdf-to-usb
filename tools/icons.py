@@ -1,8 +1,8 @@
-"""Rigenera icon.png, logo.png e tutti i mipmap partendo da matrix_logo.svg.
+"""Regenerates icon.png, logo.png and every mipmap from matrix_logo.svg.
 
-Solo libreria standard. Il disegno e' composto con le stesse coordinate, gli stessi
-colori e gli stessi testi del file SVG (viewBox 512): il SVG resta la sorgente del
-marchio, questo script lo riproduce in PNG a tutte le densita'.
+Standard library only. The drawing is composed with the same coordinates, the same
+colours and the same texts as the SVG file (viewBox 512): the SVG stays the source of
+the brand, this script reproduces it as PNG at every density.
 """
 
 import math
@@ -16,13 +16,13 @@ RES = os.path.join(ROOT, "app", "src", "main", "res")
 SVG = os.path.join(ROOT, "matrix_logo.svg")
 
 VIEW = 512.0
-SS = 4                      # campioni per unita' SVG: 2048 px, poi ridotti con filtro a media
+SS = 4                      # samples per SVG unit: 2048 px, then reduced with a box filter
 RENDER = int(VIEW * SS)
 
-# ---------------------------------------------------------------- PNG e riduzione
+# ---------------------------------------------------------------- PNG and downscale
 
 def png(path, w, h, rgba):
-    """RGBA PNG (color type 6): gli angoli arrotondati restano trasparenti."""
+    """RGBA PNG (color type 6): the rounded corners stay transparent."""
     raw = b"".join(b"\x00" + bytes(rgba[y * w * 4:(y + 1) * w * 4]) for y in range(h))
 
     def chunk(tag, data):
@@ -37,7 +37,7 @@ def png(path, w, h, rgba):
 
 
 def downscale(src, src_size, dst_size):
-    """Media pesata sull'alfa: i bordi trasparenti non tirano il colore verso il nero."""
+    """Alpha weighted average: transparent edges do not pull the colour towards black."""
     out = bytearray(dst_size * dst_size * 4)
     factor = src_size / dst_size
     for y in range(dst_size):
@@ -66,7 +66,7 @@ def downscale(src, src_size, dst_size):
 
 
 def blit(dst, dst_size, src, src_size, left, top):
-    """Copia src (RGBA) dentro dst alla posizione indicata, in pixel."""
+    """Copies src (RGBA) into dst at the given position, in pixels."""
     for y in range(src_size):
         dy = top + y
         if dy < 0 or dy >= dst_size:
@@ -75,7 +75,7 @@ def blit(dst, dst_size, src, src_size, left, top):
         srow = y * src_size * 4
         dst[row:row + src_size * 4] = src[srow:srow + src_size * 4]
 
-# ---------------------------------------------------------------- composizione
+# ---------------------------------------------------------------- compositing
 
 def over(buf, i, rgb, a):
     if a <= 0:
@@ -91,7 +91,7 @@ def over(buf, i, rgb, a):
 
 
 def span(buf, w, y, xa, xb, rgb, a):
-    """Riempie una fascia orizzontale del canvas, coordinate in unita' SVG."""
+    """Fills a horizontal band of the canvas, coordinates in SVG units."""
     if a <= 0:
         return
     i0 = max(0, int(round(xa * SS)))
@@ -104,7 +104,7 @@ def span(buf, w, y, xa, xb, rgb, a):
 
 
 def rows(y0, y1):
-    """Righe in pixel toccate da una fascia verticale in unita' SVG."""
+    """Pixel rows touched by a vertical band given in SVG units."""
     return range(max(0, int(math.floor(y0 * SS))), min(RENDER, int(math.ceil(y1 * SS))))
 
 
@@ -134,10 +134,10 @@ def circle(buf, w, cx, cy, r, rgb, a):
         h = math.sqrt(d)
         span(buf, w, py, cx - h, cx + h, rgb, a)
 
-# ---------------------------------------------------------------- gradiente
+# ---------------------------------------------------------------- gradient
 
 def gradient(stops):
-    """stops = [(posizione 0..1, (r,g,b), alfa)]: restituisce t -> (rgb, alfa)."""
+    """stops = [(position 0..1, (r,g,b), alpha)]: returns t -> (rgb, alpha)."""
     def at(t):
         t = 0.0 if t < 0 else (1.0 if t > 1 else t)
         for i in range(1, len(stops)):
@@ -153,7 +153,7 @@ def gradient(stops):
 
 
 def fill_gradient(buf, w, y0, y1, x_of_y, stops):
-    """Colora riga per riga fra due quote SVG: x_of_y(sy) -> (xa, xb)."""
+    """Colours row by row between two SVG heights: x_of_y(sy) -> (xa, xb)."""
     at = gradient(stops)
     for py in rows(y0, y1):
         sy = (py + 0.5) / SS
@@ -161,7 +161,7 @@ def fill_gradient(buf, w, y0, y1, x_of_y, stops):
         xa, xb = x_of_y(sy)
         span(buf, w, py, xa, xb, rgb, a)
 
-# ---------------------------------------------------------------- forme del marchio
+# ---------------------------------------------------------------- brand shapes
 
 BG = gradient([(0.0, (17, 24, 39), 1.0), (0.6, (5, 28, 20), 1.0), (1.0, (2, 12, 8), 1.0)])
 DOC_STOPS = [(0.0, (248, 250, 252), 0.98), (0.4, (226, 232, 240), 0.85),
@@ -194,7 +194,7 @@ def grid(buf, w):
 
 
 def document(buf, w):
-    """Path del foglio: M140 80 H310 L372 142 V420 A20 20 ... H160 A20 20 ... Z."""
+    """Sheet path: M140 80 H310 L372 142 V420 A20 20 ... H160 A20 20 ... Z."""
     def edges(sy):
         left, right = 140.0, 372.0
         if sy < 142 and sy > 80:
@@ -207,7 +207,7 @@ def document(buf, w):
 
 
 def folded_corner(buf, w):
-    """Path della piega: M310 80 V132 A10 10 0 0 0 320 142 H372 Z."""
+    """Fold path: M310 80 V132 A10 10 0 0 0 320 142 H372 Z."""
     for py in rows(80, 142):
         sy = (py + 0.5) / SS
         left = 310.0
@@ -217,7 +217,7 @@ def folded_corner(buf, w):
 
 
 def badge(buf, w):
-    # filter="badgeShadow": dy 4, sfocatura 4, opacita' 0.3 (tre strati bastano).
+    # filter="badgeShadow": dy 4, blur 4, opacity 0.3 (three layers are enough).
     round_rect(buf, w, 168, 117, 80, 38, 10, (0, 0, 0), 0.10)
     round_rect(buf, w, 169, 118, 78, 36, 9, (0, 0, 0), 0.10)
     round_rect(buf, w, 170, 119, 76, 34, 8, (0, 0, 0), 0.12)
@@ -240,7 +240,7 @@ def round_rect_test(x, y, rx, ry, rw, rh, r):
 
 
 def bars(buf, w):
-    """Le righe del documento: grigie verso l'alto, verdi verso la matrice."""
+    """The document lines: grey towards the top, green towards the matrix."""
     for x, y, rw, rh, rgb, a in [
             (260, 124, 70, 8, (100, 116, 139), 0.7),
             (260, 138, 45, 6, (148, 163, 184), 0.5),
@@ -255,10 +255,10 @@ def bars(buf, w):
 
 
 def gloss(buf, w):
-    """Path del riflesso: M0 112 A112 ... V160 L0 260 Z, bianco al 3%."""
+    """Gloss path: M0 112 A112 ... V160 L0 260 Z, white at 3%."""
     for py in rows(0, 260):
         sy = (py + 0.5) / SS
-        limit = (260.0 - sy) * (VIEW / 100.0)   # diagonale (0,260) - (512,160)
+        limit = (260.0 - sy) * (VIEW / 100.0)   # diagonal (0,260) - (512,160)
         left, right = 0.0, VIEW
         if sy < 112:
             left = 112.0 - math.sqrt(max(0.0, 112.0 ** 2 - (112.0 - sy) ** 2))
@@ -274,7 +274,7 @@ def particles(buf, w):
             (330, 380, 1.5, (5, 150, 105), 0.4)]:
         circle(buf, w, cx, cy, r, rgb, a)
 
-# ---------------------------------------------------------------- testo
+# ---------------------------------------------------------------- text
 
 FONT = {
     "0": ("01110", "10001", "10011", "10101", "11001", "10001", "01110"),
@@ -302,7 +302,7 @@ def colour(value, default=(255, 255, 255)):
 
 def draw_text(buf, w, text, x, baseline, size, rgb, alpha, anchor="start",
               letter_spacing=0.0, bold=0.0, glow=0.0):
-    """Testo monospazio disegnato con un font 5x7: nessun font esterno da caricare."""
+    """Monospace text drawn with a 5x7 font: no external font to load."""
     height = 0.62 * size
     step = height / 7.0
     advance = 0.6 * size + letter_spacing
@@ -329,7 +329,7 @@ def draw_text(buf, w, text, x, baseline, size, rgb, alpha, anchor="start",
 
 
 def svg_texts():
-    """Legge i <text> di matrix_logo.svg nell'ordine in cui compaiono."""
+    """Reads the <text> elements of matrix_logo.svg in document order."""
     out = []
     root = ET.parse(SVG).getroot()
     for node in root.iter():
@@ -349,7 +349,7 @@ def svg_texts():
         })
     return out
 
-# ---------------------------------------------------------------- disegno completo
+# ---------------------------------------------------------------- full drawing
 
 def render(with_background):
     buf = bytearray(RENDER * RENDER * 4)
@@ -362,7 +362,7 @@ def render(with_background):
     bars(buf, RENDER)
     texts = svg_texts()
     for t in texts:
-        # Il filtro greenGlow del SVG vale per la pioggia di caratteri verdi.
+        # The greenGlow filter of the SVG applies to the rain of green characters.
         glow = 0.9 if t["rgb"] in GREEN and with_background else 0.0
         draw_text(buf, RENDER, t["text"], t["x"], t["y"], t["size"], t["rgb"],
                   t["alpha"], t["anchor"], t["spacing"], t["bold"], glow)
@@ -381,7 +381,7 @@ for name, size in densities.items():
     png(os.path.join(RES, "mipmap-" + name, "ic_launcher.png"), size, size,
         downscale(icon, RENDER, size))
 
-# Adattiva (Android 8): primo piano senza sfondo, dentro il 66% centrale sicuro.
+# Adaptive (Android 8): foreground without background, inside the central 66% safe zone.
 foreground = render(False)
 safe = 0.86
 for name, size in densities.items():
@@ -392,4 +392,4 @@ for name, size in densities.items():
     blit(out, canvas, layer, inner, (canvas - inner) // 2, (canvas - inner) // 2)
     png(os.path.join(RES, "mipmap-" + name, "ic_launcher_foreground.png"), canvas, canvas, out)
 
-print("icon.png, logo.png, mipmap e foreground generati da matrix_logo.svg")
+print("icon.png, logo.png, mipmaps and foreground generated from matrix_logo.svg")

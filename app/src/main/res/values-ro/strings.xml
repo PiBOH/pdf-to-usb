@@ -36,4 +36,11 @@
     <string name="auto_source">Unitate sursă detectată: %1$s</string>
     <string name="auto_destination">Unitate destinație detectată: %1$s (confirmă cu «Alege unitatea B»)</string>
     <string name="auto_none">Nicio unitate detectată: conecteaz-o și redeschide aplicația</string>
+    <string name="language">Limbă</string>
+    <string name="language_system">Limba sistemului</string>
+    <string name="check_updates">Verifică actualizări</string>
+    <string name="update_latest">Deja actualizat (%1$s)</string>
+    <string name="not_connected">neconectată</string>
+    <string name="volumes">Unități amovibile: %1$s</string>
+    <string name="volumes_none">niciuna conectată</string>
 </resources>

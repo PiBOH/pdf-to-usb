@@ -36,4 +36,11 @@
     <string name="auto_source">উৎস ড্রাইভ শনাক্ত হয়েছে: %1$s</string>
     <string name="auto_destination">গন্তব্য ড্রাইভ শনাক্ত হয়েছে: %1$s («B ড্রাইভ বাছুন» দিয়ে নিশ্চিত করুন)</string>
     <string name="auto_none">কোনো ড্রাইভ শনাক্ত হয়নি: এটি সংযুক্ত করে অ্যাপটি আবার খুলুন</string>
+    <string name="language">ভাষা</string>
+    <string name="language_system">সিস্টেমের ভাষা</string>
+    <string name="check_updates">আপডেট দেখুন</string>
+    <string name="update_latest">ইতিমধ্যে আপ-টু-ডেট (%1$s)</string>
+    <string name="not_connected">সংযুক্ত নয়</string>
+    <string name="volumes">রিমুভেবল ড্রাইভ: %1$s</string>
+    <string name="volumes_none">কোনোটিই সংযুক্ত নয়</string>
 </resources>

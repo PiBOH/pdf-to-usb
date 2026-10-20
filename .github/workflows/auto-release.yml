@@ -69,26 +69,26 @@ jobs:
           KEYSTORE: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
         run: |
           set -euo pipefail
-          # Il base64 puo' arrivare con a capo, spazi o CRLF (e' copiato da Windows):
-          # si tolgono prima di decodificare, altrimenti il keystore esce corrotto.
+          # The base64 may arrive with newlines, spaces or CRLF (it is copied on Windows):
+          # they are stripped before decoding, otherwise the keystore comes out corrupt.
           printf '%s' "$KEYSTORE" | tr -d '[:space:]' | sed 's/_/+/g; s/-/\//g' \
             | awk '{ l = length($0) % 4; if (l == 2) print $0 "=="; else if (l == 3) print $0 "="; else print $0 }' \
             | base64 --decode > release.keystore
           if [ ! -s release.keystore ]; then
-            echo "::error::RELEASE_KEYSTORE_BASE64 non ha prodotto un file: ricontrolla il secret"
+            echo "::error::RELEASE_KEYSTORE_BASE64 produced no file: check the secret again"
             exit 1
           fi
-          # La password e' fissa per scelta del titolare: il keystore di rilascio e'
-          # stato creato con storePassword e keyPassword "android", alias pdf-to-usb.
+          # The password is fixed by the owner's decision: the release keystore was
+          # created with storePassword and keyPassword "android", alias pdf-to-usb.
           {
             echo "storeFile=release.keystore"
             echo "storePassword=android"
             echo "keyAlias=pdf-to-usb"
             echo "keyPassword=android"
           } > keystore.properties
-          # Fermati qui, con un messaggio leggibile, se il file restaurato non si apre.
+          # Stop here, with a readable message, when the restored file does not open.
           if ! keytool -list -keystore release.keystore -storepass android -alias pdf-to-usb > /dev/null 2>&1; then
-            echo "::error::release.keystore non si apre con storePassword 'android' e alias 'pdf-to-usb': il secret RELEASE_KEYSTORE_BASE64 non contiene il keystore giusto o e' troncato"
+            echo "::error::release.keystore does not open with storePassword 'android' and alias 'pdf-to-usb': the RELEASE_KEYSTORE_BASE64 secret does not hold the right keystore or is truncated"
             exit 1
           fi
 

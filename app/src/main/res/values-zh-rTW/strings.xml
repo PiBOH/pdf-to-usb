@@ -36,4 +36,11 @@
     <string name="auto_source">已自動辨識來源磁碟：%1$s</string>
     <string name="auto_destination">已自動辨識目標磁碟：%1$s（請用「選擇 B 磁碟」確認）</string>
     <string name="auto_none">未偵測到磁碟：請連接後重新開啟應用程式</string>
+    <string name="language">語言</string>
+    <string name="language_system">系統語言</string>
+    <string name="check_updates">檢查更新</string>
+    <string name="update_latest">已是最新版本（%1$s）</string>
+    <string name="not_connected">未連接</string>
+    <string name="volumes">可卸除式磁碟：%1$s</string>
+    <string name="volumes_none">未連接任何磁碟</string>
 </resources>

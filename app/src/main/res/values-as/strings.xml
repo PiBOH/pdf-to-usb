@@ -36,4 +36,11 @@
     <string name="auto_source">উৎস ড্ৰাইভ চিনাক্ত হৈছে: %1$s</string>
     <string name="auto_destination">গন্তব্য ড্ৰাইভ চিনাক্ত হৈছে: %1$s («B ড্ৰাইভ বাছনি কৰক» ৰে নিশ্চিত কৰক)</string>
     <string name="auto_none">কোনো ড্ৰাইভ চিনাক্ত হোৱা নাই: ইয়াক সংযোগ কৰি এপ পুনৰ খোলক</string>
+    <string name="language">ভাষা</string>
+    <string name="language_system">ব্যৱস্থাপ্ৰণালীৰ ভাষা</string>
+    <string name="check_updates">আপডেটসমূহ পৰীক্ষা কৰক</string>
+    <string name="update_latest">ইতিমধ্যে আপ-টু-ডেট (%1$s)</string>
+    <string name="not_connected">সংযোগ হোৱা নাই</string>
+    <string name="volumes">পৰিবৰ্তনীয় ড্ৰাইভ: %1$s</string>
+    <string name="volumes_none">কোনো ড্ৰাইভ সংযোগ হোৱা নাই</string>
 </resources>

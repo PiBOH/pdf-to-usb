@@ -36,4 +36,11 @@
     <string name="auto_source">درایو مبدأ شناسایی شد: %1$s</string>
     <string name="auto_destination">درایو مقصد شناسایی شد: %1$s (با «انتخاب درایو B» تأیید کنید)</string>
     <string name="auto_none">هیچ درایوی شناسایی نشد: آن را وصل کنید و برنامه را دوباره باز کنید</string>
+    <string name="language">زبان</string>
+    <string name="language_system">زبان سیستم</string>
+    <string name="check_updates">بررسی به‌روزرسانی‌ها</string>
+    <string name="update_latest">از قبل به‌روز است (%1$s)</string>
+    <string name="not_connected">متصل نیست</string>
+    <string name="volumes">درایوهای قابل جابجایی: %1$s</string>
+    <string name="volumes_none">هیچ‌کدام متصل نیست</string>
 </resources>

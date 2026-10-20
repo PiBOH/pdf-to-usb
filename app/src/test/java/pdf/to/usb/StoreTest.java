@@ -42,6 +42,7 @@ public class StoreTest {
         assertEquals(null, Volumes.treePath(other));
     }
 
+    /** The log keeps the newest line first and stops at 30 entries. */
     @Test
     public void logKeepsNewestFirstAndIsCapped() {
         for (int i = 1; i <= 35; i++) Store.log(RuntimeEnvironment.getApplication(), "riga " + i);

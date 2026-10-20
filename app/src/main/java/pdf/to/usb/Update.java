@@ -26,11 +26,11 @@ import java.net.URL;
 import java.util.Locale;
 
 /**
- * Aggiornamento dall'ultima release GitHub di PiBOH/pdf-to-usb.
+ * Update from the latest GitHub release of PiBOH/pdf-to-usb.
  *
- * Cosa l'app non puo' eliminare: il consenso "installa app sconosciute" (una volta per
- * app, Android 8) e la conferma di installazione del sistema. Play Protect puo' inoltre
- * mostrare un avviso su APK non firmati da Google. Vedi docs/NOTE.md.
+ * What the app cannot remove: the "install unknown apps" consent (once per app, Android 8)
+ * and the system install confirmation. Play Protect may also warn about APKs not signed by
+ * Google. See docs/NOTE.md.
  */
 final class Update {
 
@@ -38,7 +38,7 @@ final class Update {
     static final String EXTRA_APK = "pdf.to.usb.APK";
     static final String EXTRA_TAG = "pdf.to.usb.TAG";
 
-    /** Al massimo un controllo ogni 6 ore, anche se il servizio riparte. */
+    /** At most one check every 6 hours, also when the service restarts. */
     private static final long INTERVAL = 6 * 60 * 60 * 1000L;
     private static final int NOTIF = 2;
     private static final String CHANNEL = "update";
@@ -58,7 +58,7 @@ final class Update {
     private Update() {
     }
 
-    /** "v1.2.3" (o "1.2.3", "1.2") -&gt; 10203 / 10200; -1 se non numerica. */
+    /** "v1.2.3" (or "1.2.3", "1.2") -&gt; 10203 / 10200; -1 when not numeric. */
     static int versionCode(String tag) {
         if (tag == null) return -1;
         String value = tag.trim();
@@ -77,7 +77,7 @@ final class Update {
         return n[0] * 10000 + n[1] * 100 + n[2];
     }
 
-    /** null se il JSON non e' una release con un APK allegato. */
+    /** null when the JSON is not a release with an attached APK. */
     static Release parse(String json) {
         try {
             JSONObject release = new JSONObject(json);
@@ -104,16 +104,27 @@ final class Update {
         return release != null && release.code > installed;
     }
 
-    /** Controllo in background: notifica se c'e' una versione piu' nuova. */
+    /** Background check: notifies when a newer version exists. */
     static void check(final Context c) {
+        runCheck(c, false);
+    }
+
+    /** Check asked by the user from the screen: ignores the 6 hour limit and logs the outcome. */
+    static void checkNow(final Context c) {
+        runCheck(c, true);
+    }
+
+    private static void runCheck(final Context c, final boolean userAsked) {
         long now = System.currentTimeMillis();
-        if (now - Store.lastUpdateCheck(c) < INTERVAL) return;
+        if (!userAsked && now - Store.lastUpdateCheck(c) < INTERVAL) return;
         new Thread(() -> {
             try {
                 Release release = fetch();
                 if (isNewer(installedCode(c), release)) {
                     Store.log(c, "↑ " + c.getString(R.string.update_title) + " " + release.tag);
                     notify(c, release);
+                } else if (userAsked) {
+                    Store.log(c, c.getString(R.string.update_latest, installedName(c)));
                 }
             } catch (Exception e) {
                 Store.log(c, c.getString(R.string.update_error, message(e)));
@@ -123,7 +134,7 @@ final class Update {
         }, "update-check").start();
     }
 
-    /** Scarica l'APK e apre l'installer. Da chiamare su un tap dell'utente. */
+    /** Downloads the APK and opens the installer. Call it from a user tap. */
     static void install(final Activity activity, final String tag, final String apkUrl) {
         new Thread(() -> {
             try {
@@ -158,13 +169,13 @@ final class Update {
         return apk;
     }
 
-    /** Android 8+: se l'app non puo' installare, manda una volta alle impostazioni. */
+    /** Android 8+: when the app may not install, send the user to the settings once. */
     private static void openInstaller(Activity activity, File apk, String tag, String apkUrl) {
         if (Build.VERSION.SDK_INT >= 26 && !activity.getPackageManager().canRequestPackageInstalls()) {
             Store.log(activity, activity.getString(R.string.update_permission));
             activity.startActivity(new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,
                     Uri.parse("package:" + activity.getPackageName())));
-            // la notifica e' stata consumata dal primo tap: la si ripubblica per il secondo
+            // the notification was consumed by the first tap: post it again for the second
             notify(activity, new Release(tag, versionCode(tag), apkUrl));
             return;
         }
@@ -196,6 +207,14 @@ final class Update {
                 .setAutoCancel(true)
                 .setContentIntent(PendingIntent.getActivity(c, NOTIF, open, flags))
                 .build());
+    }
+
+    private static String installedName(Context c) {
+        try {
+            return c.getPackageManager().getPackageInfo(c.getPackageName(), 0).versionName;
+        } catch (Exception e) {
+            return "?";
+        }
     }
 
     private static int installedCode(Context c) {

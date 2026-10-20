@@ -64,16 +64,28 @@ android {
         }
     }
 
+    bundle {
+        language {
+            // All 57 locales ship inside the APK: no Play Core language splits, the in-app
+            // language choice has to work offline on Android 5.0 to 9.0.
+            enableSplit = false
+        }
+    }
+
     lint {
-        // App for Android <=8.0 distributed outside the Play Store: targetSdk 28 is
+        // App for Android <=9.0 distributed outside the Play Store: targetSdk 28 is
         // deliberate, raising it breaks legacy storage and foreground services there.
         disable 'ExpiredTargetSdkVersion'
+        // In-app language switch. The release is an APK built by auto-release.yml, never an
+        // App Bundle, and every locale is inside it (bundle.language.enableSplit = false
+        // above), so there is no Play Core language download to wire up.
+        disable 'AppBundleLocaleChanges'
     }
 }
 
 dependencies {
     implementation 'androidx.documentfile:documentfile:1.1.0'
-    // FileProvider per passare l'APK aggiornato all'installer (documentfile la porta solo a runtime).
+    // FileProvider to hand the updated APK to the installer (documentfile only brings it at runtime).
     implementation 'androidx.core:core:1.7.0'
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.robolectric:robolectric:4.13'

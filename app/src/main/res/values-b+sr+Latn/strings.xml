@@ -36,4 +36,11 @@
     <string name="auto_source">Izvorni disk otkriven: %1$s</string>
     <string name="auto_destination">Odredišni disk otkriven: %1$s (potvrdi sa «Izaberi disk B»)</string>
     <string name="auto_none">Nijedan disk nije otkriven: poveži ga i ponovo otvori aplikaciju</string>
+    <string name="language">Jezik</string>
+    <string name="language_system">Jezik sistema</string>
+    <string name="check_updates">Proveri ažuriranja</string>
+    <string name="update_latest">Već je ažurirano (%1$s)</string>
+    <string name="not_connected">nije povezan</string>
+    <string name="volumes">Prenosivi drajvovi: %1$s</string>
+    <string name="volumes_none">nijedan nije povezan</string>
 </resources>

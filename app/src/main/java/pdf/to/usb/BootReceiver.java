@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-/** Al boot e al montaggio/smontaggio di un volume: riavvia o riarma l'ascolto. */
+/** On boot and on volume mount/unmount: restarts or re-arms the listener. */
 public class BootReceiver extends BroadcastReceiver {
 
     @Override

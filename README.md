@@ -1,6 +1,6 @@
 # Pdf To Usb
 
-![Pdf To Usb](logo.png)
+<img src="logo.png" alt="Pdf To Usb" width="128">
 
 Small Android app that copies the PDFs you open from USB drive **A** into the folder
 `pdf-to-usb` on USB drive **B**, with no computer in between.
@@ -20,12 +20,15 @@ copied as well.
   itself write access to a USB stick)
 - foreground service with a notification, a copy queue, 3 retries per file
 - dedupe by name and size; a different PDF with the same name becomes `name (2).pdf`
-- 57 languages, taken from [vivizzz007/vivi-music](https://github.com/vivizzz007/vivi-music)
-- automatic update from this repository's GitHub releases
+- English by default, with 57 languages taken from
+  [vivizzz007/vivi-music](https://github.com/vivizzz007/vivi-music), picked from the bottom
+  bar (**Language**) or from the Android language
+- automatic update from this repository's GitHub releases, plus a **Check for updates**
+  button in the bottom bar
 
 ## Requirements
 
-Android 5.0 to 8.0 (`minSdk 21`, `targetSdk 28`). Android 4.x is not supported: the SAF
+Android 5.0 to 9.0 (`minSdk 21`, `targetSdk 28`). Android 4.x is not supported: the SAF
 directory picker starts at Android 5.0 and secondary storage is read-only for normal apps
 before that. Both USB drives must be connected at the same time.
 
@@ -55,11 +58,12 @@ from A now**: details in [docs/NOTE.md](docs/NOTE.md).
 ```
 
 JDK 17+ (CI uses 21) and Android SDK 35. The version lives only in [version.txt](version.txt).
+Regenerate the launcher icons from `matrix_logo.svg` with `python3 tools/icons.py`.
 
 ## Updates
 
-The app checks the latest GitHub release at most every 6 hours, downloads the APK and opens
-the system installer. Android always asks for "install unknown apps" once and always shows
+The app checks the latest GitHub release at most every 6 hours (or immediately when you tap
+**Check for updates**), downloads the APK and opens the system installer. Android always asks for "install unknown apps" once and always shows
 its install confirmation; Play Protect may show a warning for APKs that do not come from
 the Play Store. No app can skip those dialogs. Updates install only if the new APK is
 signed with the same key as the installed one.

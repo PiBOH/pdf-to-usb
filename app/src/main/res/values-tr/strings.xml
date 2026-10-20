@@ -36,4 +36,11 @@
     <string name="auto_source">Kaynak sürücü algılandı: %1$s</string>
     <string name="auto_destination">Hedef sürücü algılandı: %1$s («B sürücüsünü seç» ile onayla)</string>
     <string name="auto_none">Sürücü algılanmadı: sürücüyü bağla ve uygulamayı yeniden aç</string>
+    <string name="language">Dil</string>
+    <string name="language_system">Sistem dili</string>
+    <string name="check_updates">Güncellemeleri denetle</string>
+    <string name="update_latest">Zaten güncel (%1$s)</string>
+    <string name="not_connected">bağlı değil</string>
+    <string name="volumes">Çıkarılabilir sürücüler: %1$s</string>
+    <string name="volumes_none">hiçbiri bağlı değil</string>
 </resources>

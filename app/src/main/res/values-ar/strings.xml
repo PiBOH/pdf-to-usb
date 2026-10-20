@@ -36,4 +36,11 @@
     <string name="auto_source">تم اكتشاف محرك المصدر: %1$s</string>
     <string name="auto_destination">تم اكتشاف محرك الوجهة: %1$s (أكّد بزر «اختيار محرك B»)</string>
     <string name="auto_none">لم يتم اكتشاف أي محرك: صِل المحرك وأعد فتح التطبيق</string>
+    <string name="language">اللغة</string>
+    <string name="language_system">لغة النظام</string>
+    <string name="check_updates">التحقق من التحديثات</string>
+    <string name="update_latest">محدَّث بالفعل (%1$s)</string>
+    <string name="not_connected">غير متصلة</string>
+    <string name="volumes">محركات USB: %1$s</string>
+    <string name="volumes_none">لا يوجد أي محرك متصل</string>
 </resources>

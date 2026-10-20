@@ -36,4 +36,11 @@
     <string name="auto_source">כונן המקור זוהה: %1$s</string>
     <string name="auto_destination">כונן היעד זוהה: %1$s (אשרו עם «בחירת כונן B»)</string>
     <string name="auto_none">לא זוהה כונן: חברו אותו ופתחו שוב את האפליקציה</string>
+    <string name="language">שפה</string>
+    <string name="language_system">שפת המערכת</string>
+    <string name="check_updates">בדיקת עדכונים</string>
+    <string name="update_latest">מעודכן כבר (%1$s)</string>
+    <string name="not_connected">לא מחובר</string>
+    <string name="volumes">כוננים נשלפים: %1$s</string>
+    <string name="volumes_none">לא מחובר אף כונן</string>
 </resources>

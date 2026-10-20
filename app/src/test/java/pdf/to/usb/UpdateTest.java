@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-/** Contratto del confronto versioni, in tabella. */
+/** Version comparison contract, as a table. */
 public class UpdateTest {
 
     @Test
@@ -31,7 +31,7 @@ public class UpdateTest {
     @Test
     public void isNewerTable() {
         Update.Release next = new Update.Release("v0.2.0", 200, "https://example/app.apk");
-        // installed, release, atteso
+        // installed, release, expected
         Object[][] cases = {
                 {100, next, true},
                 {200, next, false},
@@ -39,7 +39,7 @@ public class UpdateTest {
                 {100, null, false},
         };
         for (Object[] c : cases) {
-            assertEquals("installato " + c[0], c[2], Update.isNewer((Integer) c[0], (Update.Release) c[1]));
+            assertEquals("installed " + c[0], c[2], Update.isNewer((Integer) c[0], (Update.Release) c[1]));
         }
     }
 }

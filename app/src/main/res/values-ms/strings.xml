@@ -36,4 +36,11 @@
     <string name="auto_source">Pemacu sumber dikesan: %1$s</string>
     <string name="auto_destination">Pemacu destinasi dikesan: %1$s (sahkan dengan «Pilih pemacu B»)</string>
     <string name="auto_none">Tiada pemacu dikesan: sambungkan dan buka semula aplikasi</string>
+    <string name="language">Bahasa</string>
+    <string name="language_system">Bahasa sistem</string>
+    <string name="check_updates">Semak kemas kini</string>
+    <string name="update_latest">Sudah terkini (%1$s)</string>
+    <string name="not_connected">tidak disambungkan</string>
+    <string name="volumes">Pemacu boleh tanggal: %1$s</string>
+    <string name="volumes_none">tiada yang disambungkan</string>
 </resources>

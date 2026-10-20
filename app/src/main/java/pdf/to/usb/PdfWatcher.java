@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Sorveglia i PDF di A. FileObserver.ACCESS è inotify IN_ACCESS: il kernel segnala la
- * lettura fatta da QUALUNQUE processo, quindi anche dal lettore PDF scelto dall'utente.
- * Limite noto: su alcuni device/storage (FUSE, sdcardfs, mount diversi) l'evento può non
- * arrivare; per questo la UI offre "Copia ora tutti i PDF da A".
+ * Watches the PDFs on A. FileObserver.ACCESS is inotify IN_ACCESS: the kernel reports a read
+ * made by ANY process, so also by the PDF reader the user picked. Known limit: on some
+ * devices/storage layers (FUSE, sdcardfs, different mounts) the event may never arrive;
+ * that is why the screen offers "Copy all PDFs from A now".
  */
 final class PdfWatcher {
 

@@ -36,4 +36,11 @@
     <string name="auto_source">Source drive detected: %1$s</string>
     <string name="auto_destination">Destination drive detected: %1$s (confirm with «Choose drive B»)</string>
     <string name="auto_none">No drive detected: connect it and reopen the app</string>
+    <string name="language">Language</string>
+    <string name="language_system">System language</string>
+    <string name="check_updates">Check for updates</string>
+    <string name="update_latest">Already up to date (%1$s)</string>
+    <string name="not_connected">not connected</string>
+    <string name="volumes">Removable drives: %1$s</string>
+    <string name="volumes_none">none connected</string>
 </resources>

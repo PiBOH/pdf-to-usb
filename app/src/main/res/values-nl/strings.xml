@@ -36,4 +36,11 @@
     <string name="auto_source">Bronschijf gedetecteerd: %1$s</string>
     <string name="auto_destination">Doelschijf gedetecteerd: %1$s (bevestig met «Schijf B kiezen»)</string>
     <string name="auto_none">Geen schijf gedetecteerd: sluit hem aan en open de app opnieuw</string>
+    <string name="language">Taal</string>
+    <string name="language_system">Systeemtaal</string>
+    <string name="check_updates">Controleren op updates</string>
+    <string name="update_latest">Al up-to-date (%1$s)</string>
+    <string name="not_connected">niet verbonden</string>
+    <string name="volumes">Verwisselbare schijven: %1$s</string>
+    <string name="volumes_none">geen verbonden</string>
 </resources>

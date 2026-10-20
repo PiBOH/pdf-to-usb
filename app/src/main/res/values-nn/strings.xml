@@ -36,4 +36,11 @@
     <string name="auto_source">Kjeldeeining oppdaga: %1$s</string>
     <string name="auto_destination">Måleining oppdaga: %1$s (stadfest med «Vel einheit B»)</string>
     <string name="auto_none">Inga eining oppdaga: kople henne til og opne appen på nytt</string>
+    <string name="language">Språk</string>
+    <string name="language_system">Systemspråk</string>
+    <string name="check_updates">Sjå etter oppdateringar</string>
+    <string name="update_latest">Allereie oppdatert (%1$s)</string>
+    <string name="not_connected">ikkje tilkopla</string>
+    <string name="volumes">Flyttbare einingar: %1$s</string>
+    <string name="volumes_none">ingen tilkopla</string>
 </resources>

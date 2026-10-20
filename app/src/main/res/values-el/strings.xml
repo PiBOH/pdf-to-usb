@@ -36,4 +36,11 @@
     <string name="auto_source">Εντοπίστηκε μονάδα πηγής: %1$s</string>
     <string name="auto_destination">Εντοπίστηκε μονάδα προορισμού: %1$s (επιβεβαιώστε με «Επιλογή μονάδας B»)</string>
     <string name="auto_none">Δεν εντοπίστηκε μονάδα: συνδέστε την και ανοίξτε ξανά την εφαρμογή</string>
+    <string name="language">Γλώσσα</string>
+    <string name="language_system">Γλώσσα συστήματος</string>
+    <string name="check_updates">Έλεγχος ενημερώσεων</string>
+    <string name="update_latest">Είναι ήδη ενημερωμένο (%1$s)</string>
+    <string name="not_connected">δεν είναι συνδεδεμένη</string>
+    <string name="volumes">Αφαιρούμενοι δίσκοι: %1$s</string>
+    <string name="volumes_none">κανένας συνδεδεμένος</string>
 </resources>

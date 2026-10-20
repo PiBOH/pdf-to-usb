@@ -2,45 +2,53 @@
 <resources>
     <string name="app_name">Pdf To Usb</string>
 
-    <string name="picked_a">Scegli chiavetta A (sorgente)</string>
-    <string name="picked_b">Scegli chiavetta B (destinazione)</string>
-    <string name="start">Avvia ascolto</string>
-    <string name="stop">Ferma ascolto</string>
-    <string name="copy_all">Copia ora tutti i PDF da A</string>
-    <string name="test">Prova rilevamento su A</string>
-    <string name="log_title">Ultime copie</string>
-    <string name="empty_log">Nessuna copia: apri un PDF dalla chiavetta A.</string>
+    <string name="picked_a">Choose drive A (source)</string>
+    <string name="picked_b">Choose drive B (destination)</string>
+    <string name="start">Start listening</string>
+    <string name="stop">Stop listening</string>
+    <string name="copy_all">Copy all PDFs from A now</string>
+    <string name="test">Test detection on A</string>
+    <string name="log_title">Recent copies</string>
+    <string name="empty_log">No copies yet: open a PDF from drive A.</string>
 
-    <string name="state_a">A (sorgente): %1$s</string>
-    <string name="state_b">B (destinazione): %1$s — cartella pdf-to-usb</string>
-    <string name="not_set">non impostata</string>
+    <string name="state_a">A (source): %1$s</string>
+    <string name="state_b">B (destination): %1$s - pdf-to-usb folder</string>
+    <string name="not_set">not set</string>
+    <string name="not_connected">not connected</string>
+    <string name="volumes">Removable drives: %1$s</string>
+    <string name="volumes_none">none connected</string>
 
-    <string name="channel_copies">Copie</string>
-    <string name="channel_update">Aggiornamenti</string>
-    <string name="update_title">Aggiornamento disponibile</string>
-    <string name="update_text">Versione %1$s: tocca per installare</string>
-    <string name="update_permission">Consenti una volta l\'installazione da questa app, poi tocca di nuovo l\'aggiornamento.</string>
-    <string name="update_error">Aggiornamento non riuscito: %1$s</string>
+    <string name="language">Language</string>
+    <string name="language_system">System language</string>
+    <string name="check_updates">Check for updates</string>
+    <string name="update_latest">Already up to date (%1$s)</string>
+
+    <string name="channel_copies">Copies</string>
+    <string name="channel_update">Updates</string>
+    <string name="update_title">Update available</string>
+    <string name="update_text">Version %1$s: tap to install</string>
+    <string name="update_permission">Allow installing from this app once, then tap the update again.</string>
+    <string name="update_error">Update failed: %1$s</string>
     <string name="notification_title">Pdf To Usb</string>
-    <string name="waiting">In ascolto su A</string>
-    <string name="need_trees">Scegli la chiavetta A e la chiavetta B</string>
+    <string name="waiting">Listening on A</string>
+    <string name="need_trees">Choose drive A and drive B</string>
 
-    <!-- Registro e notifica del servizio. -->
+    <!-- Service log and notification lines. -->
     <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
     <string name="copy_error_detail">✗ %1$s: %2$s</string>
-    <string name="copy_progress">Copiati %1$d · ultimo: %2$s</string>
-    <string name="copy_error_file">Errore su %1$s</string>
-    <string name="copy_unreadable">file non leggibile</string>
-    <string name="drive_a_missing">Chiavetta A non collegata</string>
-    <string name="drive_b_missing">B non impostata</string>
-    <string name="scan_done">↻ scansione manuale di A: %1$d PDF</string>
-    <string name="access_ok">✓ ACCESS rilevato: l\'ascolto funziona</string>
-    <string name="access_missing">✗ ACCESS non rilevato su questo device</string>
-    <string name="no_pdf_to_test">✗ nessun PDF da provare su A</string>
-    <string name="error_unknown">errore sconosciuto</string>
+    <string name="copy_progress">Copied %1$d · last: %2$s</string>
+    <string name="copy_error_file">Error on %1$s</string>
+    <string name="copy_unreadable">file not readable</string>
+    <string name="drive_a_missing">Drive A not connected</string>
+    <string name="drive_b_missing">B not set</string>
+    <string name="scan_done">↻ manual scan of A: %1$d PDFs</string>
+    <string name="access_ok">✓ ACCESS detected: listening works</string>
+    <string name="access_missing">✗ ACCESS not detected on this device</string>
+    <string name="no_pdf_to_test">✗ no PDF to test on A</string>
+    <string name="error_unknown">unknown error</string>
 
-    <!-- Rilevamento automatico delle chiavette: sorgente e destinazione. -->
-    <string name="auto_source">Chiavetta sorgente rilevata: %1$s</string>
-    <string name="auto_destination">Chiavetta destinazione rilevata: %1$s (conferma con «Scegli chiavetta B»)</string>
-    <string name="auto_none">Nessuna chiavetta rilevata: collegala e riapri l\'app</string>
+    <!-- Automatic drive detection: source and destination. -->
+    <string name="auto_source">Source drive detected: %1$s</string>
+    <string name="auto_destination">Destination drive detected: %1$s (confirm with «Choose drive B»)</string>
+    <string name="auto_none">No drive detected: connect it and reopen the app</string>
 </resources>

@@ -36,4 +36,11 @@
     <string name="auto_source">Natukoy ang source drive: %1$s</string>
     <string name="auto_destination">Natukoy ang destination drive: %1$s (kumpirmahin sa «Piliin ang drive B»)</string>
     <string name="auto_none">Walang natukoy na drive: ikonekta ito at muling buksan ang app</string>
+    <string name="language">Wika</string>
+    <string name="language_system">Wika ng system</string>
+    <string name="check_updates">Tingnan ang mga update</string>
+    <string name="update_latest">Napapanahon na (%1$s)</string>
+    <string name="not_connected">hindi konektado</string>
+    <string name="volumes">Mga removable drive: %1$s</string>
+    <string name="volumes_none">walang nakakonekta</string>
 </resources>

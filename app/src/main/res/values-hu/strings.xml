@@ -36,4 +36,11 @@
     <string name="auto_source">Forrásmeghajtó észlelve: %1$s</string>
     <string name="auto_destination">Célmeghajtó észlelve: %1$s (erősítsd meg a «B meghajtó kiválasztása» gombbal)</string>
     <string name="auto_none">Nem észlelhető meghajtó: csatlakoztasd, és nyisd meg újra az appot</string>
+    <string name="language">Nyelv</string>
+    <string name="language_system">Rendszer nyelve</string>
+    <string name="check_updates">Frissítések keresése</string>
+    <string name="update_latest">Már naprakész (%1$s)</string>
+    <string name="not_connected">nincs csatlakoztatva</string>
+    <string name="volumes">Cserélhető meghajtók: %1$s</string>
+    <string name="volumes_none">egyik sincs csatlakoztatva</string>
 </resources>

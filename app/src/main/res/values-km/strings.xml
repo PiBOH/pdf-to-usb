@@ -36,4 +36,11 @@
     <string name="auto_source">រកឃើញដ្រាយប្រភព៖ %1$s</string>
     <string name="auto_destination">រកឃើញដ្រាយគោលដៅ៖ %1$s (បញ្ជាក់ដោយ «ជ្រើសរើសដ្រាយ B»)</string>
     <string name="auto_none">រកមិនឃើញដ្រាយ៖ ភ្ជាប់វា ហើយបើកកម្មវិធីម្តងទៀត</string>
+    <string name="language">ភាសា</string>
+    <string name="language_system">ភាសាប្រព័ន្ធ</string>
+    <string name="check_updates">ពិនិត្យបច្ចុប្បន្នភាព</string>
+    <string name="update_latest">ធ្វើបច្ចុប្បន្នភាពរួចហើយ (%1$s)</string>
+    <string name="not_connected">មិនបានភ្ជាប់</string>
+    <string name="volumes">ដ្រាយដែលអាចដកបាន៖ %1$s</string>
+    <string name="volumes_none">គ្មានការភ្ជាប់</string>
 </resources>

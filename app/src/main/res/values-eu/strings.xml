@@ -36,4 +36,11 @@
     <string name="auto_source">Iturri unitatea detektatu da: %1$s</string>
     <string name="auto_destination">Helburu unitatea detektatu da: %1$s (berretsi «Hautatu B unitatea» aukerarekin)</string>
     <string name="auto_none">Ez da unitaterik detektatu: konektatu eta ireki berriro aplikazioa</string>
+    <string name="language">Hizkuntza</string>
+    <string name="language_system">Sistemaren hizkuntza</string>
+    <string name="check_updates">Egiaztatu eguneratzeak</string>
+    <string name="update_latest">Dagoeneko eguneratuta (%1$s)</string>
+    <string name="not_connected">ez dago konektatuta</string>
+    <string name="volumes">Unitate eramangarriak: %1$s</string>
+    <string name="volumes_none">bat ere ez konektatuta</string>
 </resources>

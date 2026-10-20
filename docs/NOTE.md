@@ -73,10 +73,11 @@ else - which stick is A, which is B, and which PDFs are opened - is detected by 
   public way to write to the stick. Supporting 4.x would need root or system permissions, and
   is not implemented.
 - `targetSdk 28`: no scoped storage (Android 10+ is out of target) and no foreground service
-  type requirement. On Android 6/7/8 the foreground service behaves as required.
-- Verified by local unit tests (28 tests: copy engine, names, dedupe, partial-file cleanup,
-  store, automatic A/B detection, screen, service strings, translations, updater version
-  compare and JSON parsing).
+  type requirement. The supported range is Android **5.0 to 9.0** (API 21-28); on 6/7/8/9 the
+  foreground service behaves as required.
+- Verified by local unit tests (32 tests: copy engine, names, dedupe, partial-file cleanup,
+  store, automatic A/B detection, language tags, screen, service strings, translations,
+  updater version compare and JSON parsing).
   **Never executed on real hardware.**
 
 ## 4. What is not silent (and cannot be)
@@ -111,6 +112,8 @@ Implemented in `Update.java`:
 
 1. `GET https://api.github.com/repos/PiBOH/pdf-to-usb/releases/latest` (public, no token); at
    most one check every 6 hours, from `MainActivity.onStart` and `CopyService.onCreate`.
+   **Check for updates** in the bottom bar calls `Update.checkNow`, which ignores the limit
+   and writes the outcome (`Already up to date (0.1.5)` or the error) in the log.
 2. Comparison: tag `vX.Y.Z` becomes `major*10000 + minor*100 + patch` and is compared with the
    installed `versionCode` (built from `version.txt`). Non-numeric tags or a release without
    an `.apk` asset are ignored.
@@ -161,11 +164,17 @@ log.
 
 ## 8. Localization
 
-- **57 `values-*` folders**: the 56 locales of `vivizzz007/vivi-music` (`ar as az b+sr+Latn be
-  bg bn bn-rIN bs ca cs de el en-rCA es es-rUS et eu fa fi fil fr hi hr hu in it iw ja km ko
-  lt mfe ml ms nb-rNO nl nn pa pl pt pt-rBR ro ru sk sl sv ta te th tr uk vi wae zh-rCN
-  zh-rTW`) plus **`values-en`**. In vivi-music English is the default (`values/`); here the
-  default is Italian, so without `values-en` an English phone would show Italian.
+- **English is the base language** in `values/`; `values-en` mirrors it, `values-it` is the
+  Italian translation and the other 55 folders come from `vivizzz007/vivi-music` (`ar as az
+  b+sr+Latn be bg bn bn-rIN bs ca cs de el en-rCA es es-rUS et eu fa fi fil fr hi hr hu in it
+  iw ja km ko lt mfe ml ms nb-rNO nl nn pa pl pt pt-rBR ro ru sk sl sv ta te th tr uk vi wae
+  zh-rCN zh-rTW`). An English phone and an unknown language both fall back to English.
+- **Language in the app**: the bottom bar opens a dialog with the 57 locales, each shown by
+  its native name, plus "System language". The choice is stored in preferences
+  (`Store.language`) and applied from `Lang.wrap` in `attachBaseContext` of the activity and
+  of the service, so screen, log and notifications use it. The service applies a new choice
+  from its next start; the activity calls `recreate()` immediately. No dependency is needed:
+  the platform API 33 per-app language is out of the supported range.
 - No locale was dropped: `b+sr+Latn`, `nb-rNO`, `bn-rIN`, `zh-rCN/TW`, `in`, `iw` are valid
   qualifiers; `mfe` and `wae` are 3-letter codes accepted by aapt2 (green build).
 - `TranslationsTest` compares every locale with `values/strings.xml`: missing keys, extra keys
@@ -174,9 +183,17 @@ log.
 - **Everything the user reads is a resource**, including the service log and notifications:
   `copy_ok`, `copy_error_detail`, `copy_progress`, `copy_error_file`, `copy_unreadable`,
   `drive_a_missing`, `drive_b_missing`, `scan_done`, `access_ok`, `access_missing`,
-  `no_pdf_to_test`, `error_unknown`, `auto_source`, `auto_destination`, `auto_none`
-  (21 UI keys + these 15 = 36 per locale). Only technical
-  literals stay: the `documento.pdf` fallback file name and the `pdf-to-usb` folder.
+  `no_pdf_to_test`, `error_unknown`, `auto_source`, `auto_destination`, `auto_none`,
+  `language`, `language_system`, `check_updates`, `update_latest`, `not_connected`,
+  `volumes`, `volumes_none` (43 keys per locale). Only technical literals stay: the
+  `document.pdf` fallback file name, the `pdf-to-usb` folder and the English messages of
+  the SAF exceptions, which end up in the log through `copy_error_detail`.
+- `Lang.TAGS` (one BCP 47 tag per folder) and `TranslationsTest.LOCALES` must stay in step:
+  `languageListCoversEveryLocale` fails when a folder has no entry in the dialog.
+- The lint check `AppBundleLocaleChanges` is disabled in `app/build.gradle`: it asks for the
+  Play Core language download, which only applies to an App Bundle. This project publishes
+  an APK (`auto-release.yml`) with all 57 locales inside and
+  `bundle.language.enableSplit = false` set.
 
 ## 9. Icons
 

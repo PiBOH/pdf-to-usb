@@ -10,7 +10,7 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
-/** Le stringhe del servizio, formattate, devono uscire nella lingua del telefono. */
+/** The service strings, formatted, must come out in the phone language. */
 @RunWith(RobolectricTestRunner.class)
 public class ServiceStringsTest {
 

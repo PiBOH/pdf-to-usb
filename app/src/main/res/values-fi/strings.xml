@@ -36,4 +36,11 @@
     <string name="auto_source">Lähdeasema havaittu: %1$s</string>
     <string name="auto_destination">Kohdeasema havaittu: %1$s (vahvista «Valitse asema B (kohde)»)</string>
     <string name="auto_none">Asemaa ei havaittu: liitä se ja avaa sovellus uudelleen</string>
+    <string name="language">Kieli</string>
+    <string name="language_system">Järjestelmän kieli</string>
+    <string name="check_updates">Tarkista päivitykset</string>
+    <string name="update_latest">Ajan tasalla (%1$s)</string>
+    <string name="not_connected">Ei yhdistetty</string>
+    <string name="volumes">Irrotettavat asemat: %1$s</string>
+    <string name="volumes_none">Ei yhtään yhdistettyä</string>
 </resources>

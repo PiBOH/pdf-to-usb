@@ -36,4 +36,11 @@
     <string name="auto_source">Mənbə diski aşkarlandı: %1$s</string>
     <string name="auto_destination">Təyinat diski aşkarlandı: %1$s («B diskini seç» ilə təsdiqləyin)</string>
     <string name="auto_none">Heç bir disk aşkarlanmadı: qoşun və tətbiqi yenidən açın</string>
+    <string name="language">Dil</string>
+    <string name="language_system">Sistem dili</string>
+    <string name="check_updates">Yeniləmələri yoxla</string>
+    <string name="update_latest">Artıq yenidir (%1$s)</string>
+    <string name="not_connected">qoşulmayıb</string>
+    <string name="volumes">Çıxarıla bilən disklər: %1$s</string>
+    <string name="volumes_none">heç biri qoşulmayıb</string>
 </resources>

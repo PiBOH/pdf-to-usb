@@ -36,4 +36,11 @@
     <string name="auto_source">Zdrojový disk zjištěn: %1$s</string>
     <string name="auto_destination">Cílový disk zjištěn: %1$s (potvrďte tlačítkem «Vybrat disk B»)</string>
     <string name="auto_none">Nebyl zjištěn žádný disk: připojte ho a znovu otevřete aplikaci</string>
+    <string name="language">Jazyk</string>
+    <string name="language_system">Jazyk systému</string>
+    <string name="check_updates">Zkontrolovat aktualizace</string>
+    <string name="update_latest">Již je aktuální (%1$s)</string>
+    <string name="not_connected">nepřipojeno</string>
+    <string name="volumes">Vyměnitelné disky: %1$s</string>
+    <string name="volumes_none">žádný není připojen</string>
 </resources>

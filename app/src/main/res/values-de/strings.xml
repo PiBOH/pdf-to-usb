@@ -36,4 +36,11 @@
     <string name="auto_source">Quelllaufwerk erkannt: %1$s</string>
     <string name="auto_destination">Ziellaufwerk erkannt: %1$s (mit «Laufwerk B wählen» bestätigen)</string>
     <string name="auto_none">Kein Laufwerk erkannt: anschließen und die App erneut öffnen</string>
+    <string name="language">Sprache</string>
+    <string name="language_system">Systemsprache</string>
+    <string name="check_updates">Nach Updates suchen</string>
+    <string name="update_latest">Bereits aktuell (%1$s)</string>
+    <string name="not_connected">nicht verbunden</string>
+    <string name="volumes">Wechseldatenträger: %1$s</string>
+    <string name="volumes_none">keiner verbunden</string>
 </resources>

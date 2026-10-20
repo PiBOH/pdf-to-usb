@@ -11,8 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Destinazione B/pdf-to-usb via SAF. Da Android 6.0 la scrittura per percorso su una
- * chiavetta USB è vietata a un'app normale: l'unica via è l'albero scelto dall'utente.
+ * Destination B/pdf-to-usb through SAF. From Android 6.0 a normal app cannot write to a USB
+ * stick by path: the only route is the tree the user picked.
  */
 final class SafSink implements Copy.Sink {
 
@@ -24,10 +24,10 @@ final class SafSink implements Copy.Sink {
     SafSink(Context ctx, Uri treeB) throws IOException {
         this.ctx = ctx;
         DocumentFile root = DocumentFile.fromTreeUri(ctx, treeB);
-        if (root == null || !root.canWrite()) throw new IOException("chiavetta B non accessibile");
+        if (root == null || !root.canWrite()) throw new IOException("drive B not accessible");
         DocumentFile folder = root.findFile(FOLDER);
         if (folder == null) folder = root.createDirectory(FOLDER);
-        if (folder == null || !folder.canWrite()) throw new IOException("cartella pdf-to-usb non creabile");
+        if (folder == null || !folder.canWrite()) throw new IOException("pdf-to-usb folder cannot be created");
         dir = folder;
     }
 
@@ -44,11 +44,11 @@ final class SafSink implements Copy.Sink {
     @Override
     public OutputStream create(String name) throws IOException {
         DocumentFile file = dir.createFile("application/pdf", name);
-        if (file == null) throw new IOException("creazione di " + name + " rifiutata");
+        if (file == null) throw new IOException("creation of " + name + " refused");
         OutputStream out = ctx.getContentResolver().openOutputStream(file.getUri());
         if (out == null) {
             file.delete();
-            throw new IOException("apertura di " + name + " fallita");
+            throw new IOException("opening " + name + " failed");
         }
         return out;
     }

@@ -36,4 +36,11 @@
     <string name="auto_source">Izvoršni pogon otkriven: %1$s</string>
     <string name="auto_destination">Odredišni pogon otkriven: %1$s (potvrdi s «Odaberi pogon B»)</string>
     <string name="auto_none">Nije otkriven nijedan pogon: poveži ga i ponovno otvori aplikaciju</string>
+    <string name="language">Jezik</string>
+    <string name="language_system">Jezik sustava</string>
+    <string name="check_updates">Provjeri ažuriranja</string>
+    <string name="update_latest">Već je ažurno (%1$s)</string>
+    <string name="not_connected">nije povezan</string>
+    <string name="volumes">Uklonjivi pogoni: %1$s</string>
+    <string name="volumes_none">nijedan nije povezan</string>
 </resources>

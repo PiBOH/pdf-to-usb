@@ -36,4 +36,11 @@
     <string name="auto_source">Pendrive de origem detectado: %1$s</string>
     <string name="auto_destination">Pendrive de destino detectado: %1$s (confirme com «Escolher pen drive B»)</string>
     <string name="auto_none">Nenhum pendrive detectado: conecte-o e abra o app de novo</string>
+    <string name="language">Idioma</string>
+    <string name="language_system">Idioma do sistema</string>
+    <string name="check_updates">Verificar atualizações</string>
+    <string name="update_latest">Já está atualizado (%1$s)</string>
+    <string name="not_connected">não conectado</string>
+    <string name="volumes">Pendrives: %1$s</string>
+    <string name="volumes_none">nenhum conectado</string>
 </resources>

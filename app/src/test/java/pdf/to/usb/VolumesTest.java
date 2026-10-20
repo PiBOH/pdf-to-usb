@@ -17,7 +17,15 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
-/** Rilevamento automatico: quale chiavetta è A, quale è B. */
+/**
+ * Automatic detection: which stick becomes A and which one becomes B.
+ *
+ * The rules under test are the ones the screen relies on:
+ * - A is the volume with the most PDFs (first one on a tie);
+ * - B is the only other volume, and is left unset as soon as a third stick is plugged in;
+ * - the tree URI of a volume is built from its UUID, so it can be preselected in the picker;
+ * - the PDF count stops two levels below the volume root, to stay fast on a big stick.
+ */
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 28)
 public class VolumesTest {
@@ -25,6 +33,7 @@ public class VolumesTest {
     @Rule
     public TemporaryFolder temp = new TemporaryFolder();
 
+    /** A fake removable volume; the directory is never touched by these tests. */
     private static Volumes.Volume vol(String uuid) {
         return new Volumes.Volume("USB " + uuid, new File("/storage/" + uuid), uuid);
     }
@@ -36,6 +45,7 @@ public class VolumesTest {
         Volumes.Volume few = vol("CCCC-0003");
         List<Volumes.Volume> found = Arrays.asList(empty, documents, few);
         assertEquals(documents, Volumes.source(found, new int[]{0, 12, 3}));
+        // No PDF anywhere: no evidence to prefer one stick, the first one wins.
         assertEquals(empty, Volumes.source(found, new int[]{0, 0, 0}));
     }
 
@@ -46,6 +56,7 @@ public class VolumesTest {
         Volumes.Volume c = vol("CCCC-0003");
         assertEquals(b, Volumes.destination(Arrays.asList(a, b), a));
         assertEquals(a, Volumes.destination(Arrays.asList(a, b), b));
+        // Three sticks: guessing would be wrong, so nothing is proposed.
         assertNull(Volumes.destination(Arrays.asList(a, b, c), a));
     }
 
@@ -60,21 +71,21 @@ public class VolumesTest {
     public void treePointsAtTheVolumeRoot() {
         Uri tree = Volumes.tree(vol("1A2B-3C4D"));
         assertEquals("1A2B-3C4D:", DocumentsContract.getTreeDocumentId(tree));
-        assertNull(Volumes.tree(new Volumes.Volume("senza uuid", new File("/storage/x"), "")));
+        assertNull(Volumes.tree(new Volumes.Volume("no uuid", new File("/storage/x"), "")));
     }
 
     @Test
     public void pdfCountOnlyLooksAtTwoLevels() throws Exception {
-        File root = temp.newFolder("chiavetta");
-        File sub = new File(root, "documenti");
-        File deep = new File(sub, "archivio");
-        File tooDeep = new File(deep, "vecchi");
+        File root = temp.newFolder("stick");
+        File sub = new File(root, "documents");
+        File deep = new File(sub, "archive");
+        File tooDeep = new File(deep, "old");
         tooDeep.mkdirs();
         new File(root, "a.pdf").createNewFile();
-        new File(sub, "b.PDF").createNewFile();
-        new File(root, "note.txt").createNewFile();
-        new File(deep, "c.pdf").createNewFile();
-        new File(tooDeep, "d.pdf").createNewFile();
+        new File(sub, "b.PDF").createNewFile();   // extension is case insensitive
+        new File(root, "note.txt").createNewFile(); // not a PDF
+        new File(deep, "c.pdf").createNewFile();    // depth 2: counted
+        new File(tooDeep, "d.pdf").createNewFile(); // depth 3: not counted
         assertEquals(3, Volumes.pdfCount(root, 0));
     }
 }

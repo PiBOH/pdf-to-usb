@@ -10,6 +10,7 @@ import org.w3c.dom.NodeList;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,10 +20,10 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/** Ogni locale deve avere esattamente le chiavi (e i segnaposto) di values/strings.xml. */
+/** Every locale must have exactly the keys (and placeholders) of values/strings.xml. */
 public class TranslationsTest {
 
-    /** Cartelle values-* language-qualified di vivizzz007/vivi-music, più values-en. */
+    /** values-* language folders of vivizzz007/vivi-music, plus values-en. */
     private static final String[] LOCALES = {
             "ar", "as", "az", "b+sr+Latn", "be", "bg", "bn", "bn-rIN", "bs", "ca", "cs", "de", "el",
             "en", "en-rCA", "es", "es-rUS", "et", "eu", "fa", "fi", "fil", "fr", "hi", "hr", "hu",
@@ -36,14 +37,25 @@ public class TranslationsTest {
     public void allViviMusicLocalesExist() {
         for (String locale : LOCALES) {
             File file = new File(RES, "values-" + locale + "/strings.xml");
-            assertTrue("manca la locale " + locale, file.isFile());
+            assertTrue("missing locale " + locale, file.isFile());
+        }
+    }
+
+    /** The in-app language list must cover the same 57 locales as the resource folders. */
+    @Test
+    public void languageListCoversEveryLocale() {
+        assertEquals(57, Lang.tags().length);
+        Set<String> tags = new HashSet<>(Arrays.asList(Lang.tags()));
+        for (String locale : LOCALES) {
+            String tag = locale.replace("b+", "").replace("+", "-").replace("-r", "-");
+            assertTrue("Lang.TAGS is missing " + tag, tags.contains(tag));
         }
     }
 
     @Test
-    public void everyLocaleMatchesItalianKeysAndPlaceholders() throws Exception {
+    public void everyLocaleMatchesBaseKeysAndPlaceholders() throws Exception {
         Map<String, String> base = read(new File(RES, "values/strings.xml"));
-        assertTrue("values/strings.xml è vuoto", base.size() > 0);
+        assertTrue("values/strings.xml is empty", base.size() > 0);
         List<String> problems = new ArrayList<>();
         for (String locale : LOCALES) {
             Map<String, String> translated = read(new File(RES, "values-" + locale + "/strings.xml"));
@@ -51,18 +63,18 @@ public class TranslationsTest {
             missing.removeAll(translated.keySet());
             Set<String> extra = new TreeSet<>(translated.keySet());
             extra.removeAll(base.keySet());
-            if (!missing.isEmpty()) problems.add(locale + ": chiavi mancanti " + missing);
-            if (!extra.isEmpty()) problems.add(locale + ": chiavi in più " + extra);
+            if (!missing.isEmpty()) problems.add(locale + ": missing keys " + missing);
+            if (!extra.isEmpty()) problems.add(locale + ": extra keys " + extra);
             for (String key : base.keySet()) {
                 if (!translated.containsKey(key)) continue;
                 Set<String> expected = placeholders(base.get(key));
                 if (!expected.equals(placeholders(translated.get(key)))) {
-                    problems.add(locale + ": " + key + " ha segnaposto "
-                            + placeholders(translated.get(key)) + " invece di " + expected);
+                    problems.add(locale + ": " + key + " has placeholders "
+                            + placeholders(translated.get(key)) + " instead of " + expected);
                 }
             }
         }
-        assertTrue("traduzioni incomplete:\n" + String.join("\n", problems), problems.isEmpty());
+        assertTrue("incomplete translations:\n" + String.join("\n", problems), problems.isEmpty());
     }
 
     private static Map<String, String> read(File file) throws Exception {

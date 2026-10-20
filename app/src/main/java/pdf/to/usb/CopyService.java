@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/** Servizio in foreground: ascolta i PDF aperti su A e li copia in B/pdf-to-usb. */
+/** Foreground service: listens for PDFs opened on A and copies them to B/pdf-to-usb. */
 public class CopyService extends Service {
 
     static final String ACTION_START = "pdf.to.usb.START";
@@ -46,6 +46,12 @@ public class CopyService extends Service {
         if (data != null) i.setData(data);
         if (Build.VERSION.SDK_INT >= 26) c.startForegroundService(i);
         else c.startService(i);
+    }
+
+    /** Same language as the screen, so log lines and notifications match it. */
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(Lang.wrap(base));
     }
 
     @Override
@@ -75,7 +81,7 @@ public class CopyService extends Service {
         return START_STICKY;
     }
 
-    /** (Ri)arma l'ascolto di A: chiamata anche al mount di un volume. */
+    /** (Re)arms the listener on A: also called when a volume is mounted. */
     private void listen() {
         if (watcher != null) watcher.stop();
         watcher = null;
@@ -158,8 +164,8 @@ public class CopyService extends Service {
     }
 
     /**
-     * Prova sul campo: legge un PDF di A e aspetta l'evento ACCESS. Se non arriva, la
-     * sorveglianza non funziona su questo device e resta "Copia ora tutti i PDF da A".
+     * Field test: reads one PDF on A and waits for the ACCESS event. If it never arrives the
+     * watcher does not work on this device and "Copy all PDFs from A now" is the fallback.
      */
     private void testDetection() {
         File dir = Volumes.treePath(Store.tree(this, Store.KEY_A));
@@ -200,7 +206,7 @@ public class CopyService extends Service {
         return null;
     }
 
-    /** Rilevatore secondario: PDF aperto direttamente con questa app. */
+    /** Second detector: a PDF opened directly with this app. */
     private void copyIncoming(Uri uri) {
         worker.execute(() -> {
             Uri b = Store.tree(this, Store.KEY_B);
@@ -236,7 +242,7 @@ public class CopyService extends Service {
         } catch (Exception ignored) {
         }
         String last = uri.getLastPathSegment();
-        return last == null ? "documento.pdf" : last;
+        return last == null ? "document.pdf" : last;
     }
 
     private long size(Uri uri) {

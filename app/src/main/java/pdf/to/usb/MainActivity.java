@@ -2,6 +2,7 @@ package pdf.to.usb;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -19,7 +20,7 @@ import android.widget.TextView;
 import java.io.File;
 import java.util.List;
 
-/** Schermata unica: stato A/B, scelta delle chiavette e registro delle copie. */
+/** Single screen: A/B state, drive detection and pickers, language, updates, copy log. */
 public class MainActivity extends Activity {
 
     private static final int PICK_A = 1;
@@ -41,6 +42,12 @@ public class MainActivity extends Activity {
             showLog();
         }
     };
+
+    /** Applies the language chosen in the screen before any resource is read. */
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(Lang.wrap(base));
+    }
 
     @Override
     protected void onCreate(Bundle saved) {
@@ -65,6 +72,8 @@ public class MainActivity extends Activity {
             CopyService.send(this, listening ? CopyService.ACTION_START : CopyService.ACTION_STOP, null);
             showToggle();
         });
+        findViewById(R.id.language).setOnClickListener(v -> chooseLanguage());
+        findViewById(R.id.updates).setOnClickListener(v -> Update.checkNow(this));
 
         askReadPermission();
         if (saved == null) handle(getIntent());
@@ -78,7 +87,7 @@ public class MainActivity extends Activity {
         handle(intent);
     }
 
-    /** Un PDF aperto con questa app arriva qui: copialo e mostra lo stato. */
+    /** A PDF opened with this app arrives here: copy it and show the state. */
     private void handle(Intent intent) {
         if (intent == null) return;
         if (intent.getStringExtra(Update.EXTRA_APK) != null) {
@@ -111,13 +120,13 @@ public class MainActivity extends Activity {
         stateA.setText(getString(R.string.state_a, name(Store.tree(this, Store.KEY_A))));
         stateB.setText(getString(R.string.state_b, name(Store.tree(this, Store.KEY_B))));
         List<Volumes.Volume> found = Volumes.removable(this);
-        StringBuilder sb = new StringBuilder("Volumi rimovibili: ");
-        if (found.isEmpty()) sb.append("nessuno collegato");
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < found.size(); i++) {
             if (i > 0) sb.append(", ");
             sb.append(found.get(i).label).append(" (").append(found.get(i).dir.getName()).append(')');
         }
-        volumes.setText(sb);
+        volumes.setText(getString(R.string.volumes,
+                found.isEmpty() ? getString(R.string.volumes_none) : sb.toString()));
         showToggle();
         showLog();
     }
@@ -127,9 +136,9 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Sorgente e destinazione senza sceglierle a mano: A è la chiavetta con più PDF,
-     * B è l'altra. La scrittura su B richiede comunque il consenso SAF una volta sola,
-     * quindi B viene solo proposta e il picker si apre già sulla chiavetta giusta.
+     * Source and destination without picking them by hand: A is the stick with more PDFs,
+     * B is the other one. Writing to B still needs the SAF consent once, so B is only
+     * proposed and the picker opens already on the right stick.
      */
     private void autoDetect() {
         if (autoTried) return;
@@ -148,7 +157,7 @@ public class MainActivity extends Activity {
             Volumes.Volume a = needA ? Volumes.source(found, pdfs) : null;
             Volumes.Volume b = Volumes.destination(found, a);
             runOnUiThread(() -> apply(a, b));
-        }, "rilevamento-chiavette").start();
+        }, "drive-detection").start();
     }
 
     private void apply(Volumes.Volume a, Volumes.Volume b) {
@@ -182,8 +191,9 @@ public class MainActivity extends Activity {
         if (tree == null) return getString(R.string.not_set);
         String label = Store.volumeName(tree);
         File dir = Volumes.treePath(tree);
-        if (dir == null) return (label == null ? "?" : label) + " (percorso non disponibile)";
-        return (label == null ? dir.getName() : label) + (dir.isDirectory() ? " ✓" : " (non collegata)");
+        if (dir == null) return label == null ? "?" : label;
+        return (label == null ? dir.getName() : label)
+                + (dir.isDirectory() ? " ✓" : " (" + getString(R.string.not_connected) + ")");
     }
 
     private void pick(int which) {
@@ -191,7 +201,7 @@ public class MainActivity extends Activity {
         i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION
                 | Intent.FLAG_GRANT_WRITE_URI_PERMISSION
                 | Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
-        // Il picker si apre sulla chiavetta rilevata: all'utente resta solo la conferma.
+        // The picker opens on the detected stick: the user only has to confirm.
         if (which == PICK_B && suggestedB != null && Build.VERSION.SDK_INT >= 26) {
             i.putExtra(DocumentsContract.EXTRA_INITIAL_URI, suggestedB);
         }
@@ -207,11 +217,11 @@ public class MainActivity extends Activity {
             getContentResolver().takePersistableUriPermission(tree,
                     Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         } catch (SecurityException ignored) {
-            // provider senza grant persistente: vale fino al riavvio
+            // provider without a persistable grant: valid until the next reboot
         }
         Store.setTree(this, request == PICK_A ? Store.KEY_A : Store.KEY_B, tree);
         if (request == PICK_B) {
-            // B confermata: la configurazione è completa, l'ascolto parte da solo.
+            // B confirmed: setup is complete, listening starts by itself.
             suggestedB = null;
             if (Store.tree(this, Store.KEY_A) != null) {
                 listening = true;
@@ -219,6 +229,21 @@ public class MainActivity extends Activity {
             }
         }
         showAll();
+    }
+
+    /** Language list: native names plus the system language, then the screen is rebuilt. */
+    private void chooseLanguage() {
+        final String[] tags = Lang.tags();
+        String[] labels = new String[tags.length + 1];
+        labels[0] = getString(R.string.language_system);
+        for (int i = 0; i < tags.length; i++) labels[i + 1] = Lang.label(tags[i]);
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.language)
+                .setItems(labels, (dialog, which) -> {
+                    Store.setLanguage(this, which == 0 ? Lang.SYSTEM : tags[which - 1]);
+                    recreate();
+                })
+                .show();
     }
 
     private void askReadPermission() {

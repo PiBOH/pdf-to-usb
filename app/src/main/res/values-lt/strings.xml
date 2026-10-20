@@ -36,4 +36,11 @@
     <string name="auto_source">Aptiktas šaltinio diskas: %1$s</string>
     <string name="auto_destination">Aptiktas paskirties diskas: %1$s (patvirtinkite „Pasirinkti B diską“)</string>
     <string name="auto_none">Diskas neaptiktas: prijunkite jį ir iš naujo atidarykite programą</string>
+    <string name="language">Kalba</string>
+    <string name="language_system">Sistemos kalba</string>
+    <string name="check_updates">Tikrinti naujinius</string>
+    <string name="update_latest">Jau atnaujinta (%1$s)</string>
+    <string name="not_connected">neprijungtas</string>
+    <string name="volumes">Nuimami diskai: %1$s</string>
+    <string name="volumes_none">nė vienas neprijungtas</string>
 </resources>

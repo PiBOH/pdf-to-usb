@@ -36,4 +36,11 @@
     <string name="auto_source">Lähteseade tuvastatud: %1$s</string>
     <string name="auto_destination">Sihtseade tuvastatud: %1$s (kinnita valikuga «Vali seade B»)</string>
     <string name="auto_none">Ühtegi seadet ei tuvastatud: ühenda see ja ava rakendus uuesti</string>
+    <string name="language">Keel</string>
+    <string name="language_system">Süsteemi keel</string>
+    <string name="check_updates">Otsi uuendusi</string>
+    <string name="update_latest">On juba ajakohane (%1$s)</string>
+    <string name="not_connected">ei ole ühendatud</string>
+    <string name="volumes">Eemaldatavad seadmed: %1$s</string>
+    <string name="volumes_none">ükski pole ühendatud</string>
 </resources>

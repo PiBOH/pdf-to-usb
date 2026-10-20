@@ -36,4 +36,11 @@
     <string name="auto_source">Disk sours detekte: %1$s</string>
     <string name="auto_destination">Disk destinasyon detekte: %1$s (konfirm avek «Swazir disk B»)</string>
     <string name="auto_none">Pena disk detekte: konekt li epi ouver aplikasyon la ankò</string>
+    <string name="language">Lang</string>
+    <string name="language_system">Lang sistem</string>
+    <string name="check_updates">Get mis a zur</string>
+    <string name="update_latest">Deza a zur (%1$s)</string>
+    <string name="not_connected">pa konekte</string>
+    <string name="volumes">Disk amovib: %1$s</string>
+    <string name="volumes_none">okenn pa konekte</string>
 </resources>

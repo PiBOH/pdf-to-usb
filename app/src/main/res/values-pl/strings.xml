@@ -36,4 +36,11 @@
     <string name="auto_source">Wykryto dysk źródłowy: %1$s</string>
     <string name="auto_destination">Wykryto dysk docelowy: %1$s (potwierdź przez „Wybierz dysk B”)</string>
     <string name="auto_none">Nie wykryto dysku: podłącz go i otwórz aplikację ponownie</string>
+    <string name="language">Język</string>
+    <string name="language_system">Język systemu</string>
+    <string name="check_updates">Sprawdź aktualizacje</string>
+    <string name="update_latest">Już aktualne (%1$s)</string>
+    <string name="not_connected">nie podłączono</string>
+    <string name="volumes">Dyski wymienne: %1$s</string>
+    <string name="volumes_none">brak podłączonych</string>
 </resources>

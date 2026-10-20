@@ -13,10 +13,14 @@ foreground service, and updates itself from this repository's GitHub releases.
 
 - **Package**: `pdf.to.usb`
 - **Build**: Gradle 8.9, AGP 8.7.2, Java 11 source level, JDK 17+ (CI uses 21)
-- **Android**: `minSdk 21`, `targetSdk 28`, `compileSdk 35` (the target devices are 5.0 to 8.0)
+- **Android**: `minSdk 21`, `targetSdk 28`, `compileSdk 35` (the target devices run Android
+  5.0 to 9.0)
 - **Dependencies**: `androidx.documentfile`, `androidx.core` (FileProvider). Nothing else.
 - **UI**: one Activity, one layout, platform Material theme. No navigation library.
-- **Locales**: 57 `values-*` folders, base language Italian.
+- **Locales**: 57 `values-*` folders, base language English in `values/`.
+- **Language**: English is the default everywhere: app, docs, code comments, commit
+  messages. Android picks the system language when it matches a `values-*` folder; the
+  screen also offers an in-app choice (`Lang.java`).
 - **License**: UNLICENSE (public domain dedication). The program is distributed this way on
   purpose: use is at the user's own risk and peril, the creator claims no copyright and
   accepts no liability of any kind. Never add a license header or a copyleft notice.
@@ -49,17 +53,18 @@ with an English name; a document that grows beyond one screen starts with a summ
 | `PdfWatcher.java` | `FileObserver.ACCESS` watcher on drive A |
 | `CopyService.java` | foreground service: queue, retries, notification, intent handler |
 | `Volumes.java` | `StorageManager`/`StorageVolume` detection, SAF tree to filesystem path |
-| `Store.java` | preferences (trees A/B, copy log, update timestamp) |
+| `Store.java` | preferences (trees A/B, language, copy log, update timestamp) |
+| `Lang.java` | language list, BCP 47 tags, context with the chosen language |
 | `Update.java` | GitHub release check, version compare, APK download, install intent |
-| `MainActivity.java` | the single screen: state, automatic drive detection, drive pickers, log |
+| `MainActivity.java` | the single screen: state, automatic drive detection, pickers, log, bottom bar |
 | `BootReceiver.java` | boot and media mount/unmount, rearms the service |
 
 Tests: `CopyTest` (engine, names, dedupe, partial cleanup), `StoreTest` (preferences and
-log), `VolumesTest` (automatic A/B assignment, tree URI, PDF count), `ScreenTest`
-(Robolectric screen), `ServiceStringsTest` (formatted service strings in German and
-Japanese), `TranslationsTest` (key and placeholder parity across 57 locales), `UpdateTest`
-(tag to version) and `UpdateParseTest` (release JSON). Design constraints that
-must survive:
+log), `VolumesTest` (automatic A/B assignment, tree URI, PDF count), `LangTest` (tags and
+names), `ScreenTest` (Robolectric screen, in-app language), `ServiceStringsTest`
+(formatted service strings in German and Japanese), `TranslationsTest` (key and
+placeholder parity across 57 locales, language list), `UpdateTest` (tag to version) and
+`UpdateParseTest` (release JSON). Design constraints that must survive:
 
 - `Copy.java` stays free of Android classes so it can be tested on the JVM.
 - The Activity holds no copy logic; the service owns the queue.
@@ -68,15 +73,17 @@ must survive:
 ## 4. Code conventions - MANDATORY
 
 - Java 11 syntax, existing style, one-line comments only where the why is not obvious.
-- Code comments are in Italian; every user-visible string (screen, log lines, notifications)
-  lives in `res/values*/strings.xml`, never inline in Java.
+- Code comments, docs and commit messages are in English. Every user-visible string
+  (screen, log lines, notifications) lives in `res/values*/strings.xml`, never inline in
+  Java.
 - No em dash in new text (owner preference): use `-`, `:`, parentheses or a full stop.
 - Apply the `ponytail` skill on every coding task: smallest working change, reuse what is
   already in the repo, no new dependency for a few lines.
 - Verify non-trivial changes with
   `./gradlew :app:assembleDebug :app:testDebugUnitTest :app:lintDebug`.
-  Lint must stay at zero errors (the two known warnings, receiver export flags and the
-  androidx version hint, are tolerated; do not add more).
+  Lint must stay at zero errors (the two known warnings, the receiver export flag and the
+  missing monochrome icon layer, are tolerated; do not add more). `AppBundleLocaleChanges`
+  is disabled in `app/build.gradle` because the release is an APK with every locale inside.
 - `minSdk 21` and `targetSdk 28` are deliberate: raising `targetSdk` changes storage
   access and foreground-service rules for the target devices. Do not raise it as a
   drive-by change.
@@ -139,13 +146,17 @@ device run, not a "should be fine".
 
 ## 7. Localization - MANDATORY
 
-- Base strings are Italian in `app/src/main/res/values/strings.xml`.
-- The locale set mirrors `vivizzz007/vivi-music`: 56 language folders plus `values-en`
-  (in that project English is the `values/` default, here the default is Italian).
+- Base strings are **English** in `app/src/main/res/values/strings.xml`. `values-en` mirrors
+  the base, `values-it` is the Italian translation, the other 55 folders are the locales of
+  `vivizzz007/vivi-music`.
 - Every locale must have exactly the same keys and the same format placeholders as the
   base. `TranslationsTest` fails the build otherwise: never add a string to `values/`
   without adding it to all 57 folders. The locale list in `TranslationsTest` is the
   canonical list.
+- `Lang.TAGS` in `Lang.java` is the language list shown by the **Language** dialog, one
+  BCP 47 tag per folder (`b+sr+Latn` becomes `sr-Latn`, `en-rCA` becomes `en-CA`).
+  `TranslationsTest.languageListCoversEveryLocale` fails if a folder is missing from that
+  list: keep the two in step.
 - Do not renumber or reformat `%1$s`; do not translate `app_name`, `notification_title`
   or the folder name `pdf-to-usb`.
 
@@ -180,7 +191,8 @@ code, docs or comments. Details in `docs/NOTE.md` §6.
 
 ## 10. Testing - MANDATORY
 
-- All tests run offline. `Update.check` is throttled; Robolectric tests call
+- All tests run offline. `Update.check` / `Update.checkNow` never run in tests;
+  Robolectric tests call
   `Store.markUpdateCheck(...)` in `@Before` so the service and the screen never fetch.
 - Updater tests cover tag-to-version mapping and release JSON parsing only. Network,
   download and the installer are not exercised by tests.

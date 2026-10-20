@@ -36,4 +36,11 @@
     <string name="auto_source">Clé source détectée : %1$s</string>
     <string name="auto_destination">Clé de destination détectée : %1$s (confirmez avec « Choisir clé B »)</string>
     <string name="auto_none">Aucune clé détectée : connectez-la et rouvrez l\'app</string>
+    <string name="language">Langue</string>
+    <string name="language_system">Langue du système</string>
+    <string name="check_updates">Vérifier les mises à jour</string>
+    <string name="update_latest">Déjà à jour (%1$s)</string>
+    <string name="not_connected">non connecté</string>
+    <string name="volumes">Lecteurs amovibles : %1$s</string>
+    <string name="volumes_none">aucun connecté</string>
 </resources>

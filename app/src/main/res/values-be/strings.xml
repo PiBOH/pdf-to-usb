@@ -36,4 +36,11 @@
     <string name="auto_source">Выяўлены дыск-крыніца: %1$s</string>
     <string name="auto_destination">Выяўлены дыск-прызначэнне: %1$s (пацвердзіце кнопкай «Выбраць дыск B»)</string>
     <string name="auto_none">Дыскі не выяўлены: падключыце яго і адкрыйце праграму зноў</string>
+    <string name="language">Мова</string>
+    <string name="language_system">Мова сістэмы</string>
+    <string name="check_updates">Праверыць абнаўленні</string>
+    <string name="update_latest">Ужо абноўлена (%1$s)</string>
+    <string name="not_connected">не падключана</string>
+    <string name="volumes">Здымныя дыскі: %1$s</string>
+    <string name="volumes_none">ні адзін не падключаны</string>
 </resources>

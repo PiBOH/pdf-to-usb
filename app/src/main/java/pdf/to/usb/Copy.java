@@ -9,20 +9,20 @@ import java.util.Locale;
 import java.util.Map;
 
 /**
- * Motore di copia. Solo java.io: la destinazione è un {@link Sink}, così la logica
- * (deduplica, nomi, file parziali) si può testare senza device.
+ * Copy engine. Pure java.io: the destination is a {@link Sink}, so the logic (dedupe,
+ * names, partial files) can be tested without a device.
  */
 final class Copy {
 
     enum Result { COPIED, PRESENT }
 
     interface Sink {
-        /** File già presenti nella cartella di destinazione: nome -> dimensione. */
+        /** Files already in the destination folder: name -> size. */
         Map<String, Long> items() throws IOException;
 
         OutputStream create(String name) throws IOException;
 
-        /** Cancella un file rimasto a metà dopo un errore. */
+        /** Deletes a half written file left by an error. */
         void discard(String name);
     }
 
@@ -70,19 +70,19 @@ final class Copy {
         return Result.COPIED;
     }
 
-    /** Nome valido su B: niente separatori di percorso, estensione .pdf. */
+    /** Name valid on B: no path separators, .pdf extension. */
     static String safeName(String raw) {
         String name = raw == null ? "" : raw.replace('/', '_').replace('\\', '_').trim();
-        if (name.isEmpty()) return "documento.pdf";
+        if (name.isEmpty()) return "document.pdf";
         if (!name.toLowerCase(Locale.ROOT).endsWith(".pdf")) name += ".pdf";
         return name;
     }
 
-    /** null = stesso nome e stessa dimensione già su B: niente da fare. */
+    /** null = same name and same size already on B: nothing to do. */
     static String unique(String name, long size, Map<String, Long> existing) {
         Long found = existing.get(name);
         if (found == null) return name;
-        // size -1 = destinazione che non sa dire la dimensione: conta solo il nome
+        // size -1 = destination that cannot report the size: the name alone decides
         if (size < 0 || found == size) return null;
         int dot = name.lastIndexOf('.');
         String base = dot > 0 ? name.substring(0, dot) : name;
