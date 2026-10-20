@@ -33,4 +33,7 @@
     <string name="error_unknown">অজানা ত্রুটি</string>
     <string name="copy_unreadable">ফাইল পড়া যাচ্ছে না</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">উৎস ড্রাইভ শনাক্ত হয়েছে: %1$s</string>
+    <string name="auto_destination">গন্তব্য ড্রাইভ শনাক্ত হয়েছে: %1$s («B ড্রাইভ বাছুন» দিয়ে নিশ্চিত করুন)</string>
+    <string name="auto_none">কোনো ড্রাইভ শনাক্ত হয়নি: এটি সংযুক্ত করে অ্যাপটি আবার খুলুন</string>
 </resources>

@@ -33,4 +33,7 @@
     <string name="error_unknown">알 수 없는 오류</string>
     <string name="copy_unreadable">파일을 읽을 수 없습니다</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">원본 드라이브 감지됨: %1$s</string>
+    <string name="auto_destination">대상 드라이브 감지됨: %1$s («B 드라이브 선택»으로 확인)</string>
+    <string name="auto_none">드라이브가 감지되지 않았습니다: 연결한 뒤 앱을 다시 여세요</string>
 </resources>

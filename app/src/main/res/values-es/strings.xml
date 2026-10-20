@@ -33,4 +33,7 @@
     <string name="error_unknown">error desconocido</string>
     <string name="copy_unreadable">archivo no legible</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Unidad de origen detectada: %1$s</string>
+    <string name="auto_destination">Unidad de destino detectada: %1$s (confirma con «Elegir unidad B»)</string>
+    <string name="auto_none">No se detectó ninguna unidad: conéctala y vuelve a abrir la app</string>
 </resources>

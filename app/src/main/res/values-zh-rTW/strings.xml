@@ -33,4 +33,7 @@
     <string name="error_unknown">未知錯誤</string>
     <string name="copy_unreadable">無法讀取檔案</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">已自動辨識來源磁碟：%1$s</string>
+    <string name="auto_destination">已自動辨識目標磁碟：%1$s（請用「選擇 B 磁碟」確認）</string>
+    <string name="auto_none">未偵測到磁碟：請連接後重新開啟應用程式</string>
 </resources>

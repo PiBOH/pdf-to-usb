@@ -33,4 +33,7 @@
     <string name="error_unknown">erer inkoni</string>
     <string name="copy_unreadable">fisye pa kapav lir</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Disk sours detekte: %1$s</string>
+    <string name="auto_destination">Disk destinasyon detekte: %1$s (konfirm avek «Swazir disk B»)</string>
+    <string name="auto_none">Pena disk detekte: konekt li epi ouver aplikasyon la ankò</string>
 </resources>

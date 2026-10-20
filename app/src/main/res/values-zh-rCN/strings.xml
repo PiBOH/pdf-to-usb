@@ -33,4 +33,7 @@
     <string name="error_unknown">未知错误</string>
     <string name="copy_unreadable">无法读取文件</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">已自动识别来源盘：%1$s</string>
+    <string name="auto_destination">已自动识别目标盘：%1$s（请用「选择 B 盘」确认）</string>
+    <string name="auto_none">未检测到 U 盘：请连接后重新打开应用</string>
 </resources>

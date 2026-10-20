@@ -33,4 +33,7 @@
     <string name="error_unknown">onbekende fout</string>
     <string name="copy_unreadable">bestand niet leesbaar</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Bronschijf gedetecteerd: %1$s</string>
+    <string name="auto_destination">Doelschijf gedetecteerd: %1$s (bevestig met «Schijf B kiezen»)</string>
+    <string name="auto_none">Geen schijf gedetecteerd: sluit hem aan en open de app opnieuw</string>
 </resources>

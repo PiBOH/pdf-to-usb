@@ -33,4 +33,7 @@
     <string name="error_unknown">ukjend feil</string>
     <string name="copy_unreadable">fila kan ikkje lesast</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Kjeldeeining oppdaga: %1$s</string>
+    <string name="auto_destination">Måleining oppdaga: %1$s (stadfest med «Vel einheit B»)</string>
+    <string name="auto_none">Inga eining oppdaga: kople henne til og opne appen på nytt</string>
 </resources>

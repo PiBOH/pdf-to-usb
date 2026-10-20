@@ -33,4 +33,7 @@
     <string name="error_unknown">bilinmeyen hata</string>
     <string name="copy_unreadable">dosya okunamıyor</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Kaynak sürücü algılandı: %1$s</string>
+    <string name="auto_destination">Hedef sürücü algılandı: %1$s («B sürücüsünü seç» ile onayla)</string>
+    <string name="auto_none">Sürücü algılanmadı: sürücüyü bağla ve uygulamayı yeniden aç</string>
 </resources>

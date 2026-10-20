@@ -33,4 +33,7 @@
     <string name="error_unknown">errore sconosciuto</string>
     <string name="copy_unreadable">file non leggibile</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Chiavetta sorgente rilevata: %1$s</string>
+    <string name="auto_destination">Chiavetta destinazione rilevata: %1$s (conferma con «Scegli chiavetta B»)</string>
+    <string name="auto_none">Nessuna chiavetta rilevata: collegala e riapri l\'app</string>
 </resources>

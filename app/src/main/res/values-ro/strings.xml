@@ -33,4 +33,7 @@
     <string name="error_unknown">eroare necunoscută</string>
     <string name="copy_unreadable">fișierul nu poate fi citit</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Unitate sursă detectată: %1$s</string>
+    <string name="auto_destination">Unitate destinație detectată: %1$s (confirmă cu «Alege unitatea B»)</string>
+    <string name="auto_none">Nicio unitate detectată: conecteaz-o și redeschide aplicația</string>
 </resources>

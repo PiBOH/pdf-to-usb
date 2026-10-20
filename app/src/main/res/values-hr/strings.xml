@@ -33,4 +33,7 @@
     <string name="error_unknown">nepoznata greška</string>
     <string name="copy_unreadable">datoteku nije moguće pročitati</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Izvoršni pogon otkriven: %1$s</string>
+    <string name="auto_destination">Odredišni pogon otkriven: %1$s (potvrdi s «Odaberi pogon B»)</string>
+    <string name="auto_none">Nije otkriven nijedan pogon: poveži ga i ponovno otvori aplikaciju</string>
 </resources>

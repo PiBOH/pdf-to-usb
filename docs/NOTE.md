@@ -47,6 +47,25 @@ permission. Therefore:
   know *which* volume is A the app reads the SAF tree id (`UUID:folder`) and derives
   `/storage/UUID` for `FileObserver` (reading is allowed).
 
+### Automatic detection of A and B
+
+Opening the app with A or B still missing runs `MainActivity.autoDetect()`:
+
+1. `Volumes.removable()` lists the mounted removable volumes;
+2. **A is the stick that holds the PDFs**: each volume is counted to two levels (cheap, off
+   the UI thread) and the one with more PDFs wins, first one on a tie;
+3. **B is the only other stick** (with three or more volumes the app does not guess);
+4. A is stored straight away (reading uses plain `File` + `READ_EXTERNAL_STORAGE`), B is only
+   *proposed*: the button "Scegli chiavetta B" opens the system picker already positioned on
+   that volume (`DocumentsContract.EXTRA_INITIAL_URI`, API 26+) and the user confirms;
+5. after that confirmation the foreground service starts by itself, and both trees are
+   remembered by volume UUID, so a replug, a reboot or a different port needs nothing.
+
+What cannot be automatic: writing into a removable volume needs the SAF grant, and only the
+user can give it (Android 5.0+; a normal app cannot write to `/storage/UUID` by path). The
+confirmation is therefore one tap, once per stick pair, not a missing feature. Everything
+else - which stick is A, which is B, and which PDFs are opened - is detected by the app.
+
 ## 3. Compatibility
 
 - `minSdk 21` (Android 5.0 Lollipop). **Android 4.x is not supported**: the SAF tree picker
@@ -55,8 +74,9 @@ permission. Therefore:
   is not implemented.
 - `targetSdk 28`: no scoped storage (Android 10+ is out of target) and no foreground service
   type requirement. On Android 6/7/8 the foreground service behaves as required.
-- Verified by local unit tests (23 tests: copy engine, names, dedupe, partial-file cleanup,
-  store, screen, service strings, translations, updater version compare and JSON parsing).
+- Verified by local unit tests (28 tests: copy engine, names, dedupe, partial-file cleanup,
+  store, automatic A/B detection, screen, service strings, translations, updater version
+  compare and JSON parsing).
   **Never executed on real hardware.**
 
 ## 4. What is not silent (and cannot be)
@@ -72,9 +92,13 @@ permission. Therefore:
 ## 5. Flow
 
 1. Install, open the app, grant the read permission (needed by `FileObserver`, not by writes).
-2. "Choose drive A": select the root (or a folder) of drive A.
-3. "Choose drive B": select the root of drive B.
-4. "Start listening": the foreground service starts (notification "Listening on A").
+2. With both sticks plugged in, A is detected by itself (the one with the PDFs) and B is
+   proposed. "Choose drive B" is only the system confirmation of the volume already
+   selected; the service then starts by itself.
+   Without that automatic detection (one stick only, or a non-standard provider) the two
+   pickers still work as before: A then B, then "Start listening".
+3. "Start listening" (notification "Listening on A") is only needed when the service was
+   stopped by hand.
 5. Open a PDF of A with any reader: the file appears in `B/pdf-to-usb` and the log shows
    `name.pdf -> pdf-to-usb`.
 6. Reboot or re-plug: the boot and mount receivers rearm the watcher by themselves.
@@ -114,19 +138,26 @@ log.
 - **Signing**: `release.keystore` and `keystore.properties` live in the repository root and are
   gitignored. `app/build.gradle` enables the release signing config only when
   `keystore.properties` exists. The keystore is a 4096-bit RSA, PKCS12, alias `pdf-to-usb`.
-  Keep a backup of both files: without them you cannot ship an update that installs over the
-  current app (Android refuses a different key).
+  `storePassword` and `keyPassword` are the fixed word `android`, by owner's decision: the
+  passwords are not secrets that change, and the release workflow writes them itself. Keep a
+  backup of both files: without them you cannot ship an update that installs over the current
+  app (Android refuses a different key).
 - **CI**: `.github/workflows/build.yml` runs `assembleDebug`, unit tests and lint on every
   push and pull request. `.github/workflows/auto-release.yml` runs on a push whose commit
-  subject starts with `v`, or manually: it reads `version.txt`, restores the keystore from
-  repository secrets, builds `assembleRelease`, verifies the signature with `apksigner` and
-  publishes tag `vX.Y.Z` with `pdf-to-usb-<version>.apk` attached. Required secrets:
-  `RELEASE_KEYSTORE_BASE64` (base64 of `release.keystore`), `KEYSTORE_PASSWORD`, `KEY_ALIAS`,
-  `KEY_PASSWORD`. The workflow fails instead of publishing an unsigned APK. To fill them the
-  first time: `base64 -w0 release.keystore` (PowerShell:
-  `[Convert]::ToBase64String([IO.File]::ReadAllBytes("release.keystore"))`) goes into
-  `RELEASE_KEYSTORE_BASE64`; the other three are copied from `keystore.properties`. Secrets are
-  set from the GitHub web UI (Settings, Secrets and variables, Actions), never from a commit.
+  subject starts with `v`, or manually: it reads `version.txt`, restores the keystore,
+  builds `assembleRelease`, verifies the signature with `apksigner` and publishes tag
+  `vX.Y.Z` with `pdf-to-usb-<version>.apk` attached. The only required secret is
+  `RELEASE_KEYSTORE_BASE64` (base64 of `release.keystore`); the workflow writes
+  `storePassword=android`, `keyPassword=android`, `keyAlias=pdf-to-usb` into
+  `keystore.properties` itself, because those values are fixed. Before decoding it strips
+  spaces, tabs, CR and LF (a base64 copied on Windows carries them and a single `\r` is
+  enough to produce a corrupt file), and right after writing the keystore it runs
+  `keytool -list -storepass android -alias pdf-to-usb`: if that fails, the job stops with
+  "il secret RELEASE_KEYSTORE_BASE64 non contiene il keystore giusto o e' troncato"
+  instead of dying later inside `packageRelease`. The workflow fails instead of publishing
+  an unsigned APK. To fill the secret: `base64 -w0 release.keystore` (PowerShell:
+  `[Convert]::ToBase64String([IO.File]::ReadAllBytes("release.keystore"))`) from the GitHub
+  web UI (Settings, Secrets and variables, Actions), never from a commit.
 
 ## 8. Localization
 
@@ -143,17 +174,22 @@ log.
 - **Everything the user reads is a resource**, including the service log and notifications:
   `copy_ok`, `copy_error_detail`, `copy_progress`, `copy_error_file`, `copy_unreadable`,
   `drive_a_missing`, `drive_b_missing`, `scan_done`, `access_ok`, `access_missing`,
-  `no_pdf_to_test`, `error_unknown` (21 UI keys + these 12 = 33 per locale). Only technical
+  `no_pdf_to_test`, `error_unknown`, `auto_source`, `auto_destination`, `auto_none`
+  (21 UI keys + these 15 = 36 per locale). Only technical
   literals stay: the `documento.pdf` fallback file name and the `pdf-to-usb` folder.
 
 ## 9. Icons
 
-`icon.png` (1024 px, launcher source) and `logo.png` (512 px, the README mark) are the artwork
-at the repository root. Both are RGBA with transparent rounded corners. `tools/icons.py`
-(python3, standard library only) draws all of them - the two root images, `mipmap-*/
-ic_launcher.png` and `ic_launcher_foreground.png` - so `python3 tools/icons.py` regenerates
-every file instead of hand-editing PNGs; on Android 8+ the adaptive icon combines the orange
-background with the foreground mark. The notification icon is the vector
+`matrix_logo.svg` at the repository root is the source of the mark. `tools/icons.py`
+(python3, standard library only) renders it into `icon.png` (1024 px), `logo.png` (512 px,
+the README mark), `mipmap-*/ic_launcher.png` and `mipmap-*/ic_launcher_foreground.png`:
+all the PNGs, so regenerate with `python3 tools/icons.py` instead of hand-editing files.
+The SVG shapes are redrawn with the same geometry (rounded square, page with folded corner,
+red PDF badge, matrix rain) and the `<text>` elements are read from the SVG itself; the
+script uses a small built-in 5x7 font because no font or renderer library is available.
+Both root images are RGBA with transparent rounded corners. On Android 8+ the adaptive icon
+combines `@color/icon_background` (`#111827`, the first stop of the SVG gradient) with the
+foreground mark inside the central 66% safe zone. The notification icon is the vector
 `drawable/ic_stat.xml`.
 
 The manifest declares only `android:icon`, not `android:roundIcon`: pointing the round slot at

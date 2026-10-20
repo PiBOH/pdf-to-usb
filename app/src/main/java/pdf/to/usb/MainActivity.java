@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.DocumentsContract;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -31,6 +32,8 @@ public class MainActivity extends Activity {
     private Button toggle;
     private ArrayAdapter<String> log;
     private boolean listening;
+    private boolean autoTried;
+    private Uri suggestedB;
 
     private final BroadcastReceiver changed = new BroadcastReceiver() {
         @Override
@@ -65,6 +68,7 @@ public class MainActivity extends Activity {
 
         askReadPermission();
         if (saved == null) handle(getIntent());
+        autoDetect();
     }
 
     @Override
@@ -122,6 +126,51 @@ public class MainActivity extends Activity {
         toggle.setText(listening ? R.string.stop : R.string.start);
     }
 
+    /**
+     * Sorgente e destinazione senza sceglierle a mano: A è la chiavetta con più PDF,
+     * B è l'altra. La scrittura su B richiede comunque il consenso SAF una volta sola,
+     * quindi B viene solo proposta e il picker si apre già sulla chiavetta giusta.
+     */
+    private void autoDetect() {
+        if (autoTried) return;
+        autoTried = true;
+        boolean needA = Store.tree(this, Store.KEY_A) == null;
+        boolean needB = Store.tree(this, Store.KEY_B) == null;
+        if (!needA && !needB) return;
+        List<Volumes.Volume> found = Volumes.removable(this);
+        if (found.isEmpty()) {
+            Store.log(this, getString(R.string.auto_none));
+            return;
+        }
+        new Thread(() -> {
+            int[] pdfs = new int[found.size()];
+            if (needA) for (int i = 0; i < found.size(); i++) pdfs[i] = Volumes.pdfCount(found.get(i).dir, 0);
+            Volumes.Volume a = needA ? Volumes.source(found, pdfs) : null;
+            Volumes.Volume b = Volumes.destination(found, a);
+            runOnUiThread(() -> apply(a, b));
+        }, "rilevamento-chiavette").start();
+    }
+
+    private void apply(Volumes.Volume a, Volumes.Volume b) {
+        if (isFinishing()) return;
+        if (a != null && Store.tree(this, Store.KEY_A) == null) {
+            Uri tree = Volumes.tree(a);
+            if (tree != null) {
+                Store.setTree(this, Store.KEY_A, tree);
+                Store.log(this, getString(R.string.auto_source, label(a)));
+            }
+        }
+        if (b != null && Store.tree(this, Store.KEY_B) == null) {
+            suggestedB = Volumes.tree(b);
+            Store.log(this, getString(R.string.auto_destination, label(b)));
+        }
+        showAll();
+    }
+
+    private String label(Volumes.Volume v) {
+        return v.label == null || v.label.isEmpty() ? v.dir.getName() : v.label;
+    }
+
     private void showLog() {
         log.clear();
         String[] lines = Store.log(this);
@@ -142,6 +191,10 @@ public class MainActivity extends Activity {
         i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION
                 | Intent.FLAG_GRANT_WRITE_URI_PERMISSION
                 | Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        // Il picker si apre sulla chiavetta rilevata: all'utente resta solo la conferma.
+        if (which == PICK_B && suggestedB != null && Build.VERSION.SDK_INT >= 26) {
+            i.putExtra(DocumentsContract.EXTRA_INITIAL_URI, suggestedB);
+        }
         startActivityForResult(i, which);
     }
 
@@ -157,6 +210,14 @@ public class MainActivity extends Activity {
             // provider senza grant persistente: vale fino al riavvio
         }
         Store.setTree(this, request == PICK_A ? Store.KEY_A : Store.KEY_B, tree);
+        if (request == PICK_B) {
+            // B confermata: la configurazione è completa, l'ascolto parte da solo.
+            suggestedB = null;
+            if (Store.tree(this, Store.KEY_A) != null) {
+                listening = true;
+                CopyService.send(this, CopyService.ACTION_START, null);
+            }
+        }
         showAll();
     }
 

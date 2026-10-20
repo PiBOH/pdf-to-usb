@@ -33,4 +33,7 @@
     <string name="error_unknown">error desconegut</string>
     <string name="copy_unreadable">fitxer no llegible</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Unitat d\'origen detectada: %1$s</string>
+    <string name="auto_destination">Unitat de destinació detectada: %1$s (confirma amb «Triar unitat B»)</string>
+    <string name="auto_none">Cap unitat detectada: connecta-la i torna a obrir l\'aplicació</string>
 </resources>

@@ -33,4 +33,7 @@
     <string name="error_unknown">ralat tidak diketahui</string>
     <string name="copy_unreadable">fail tidak dapat dibaca</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Pemacu sumber dikesan: %1$s</string>
+    <string name="auto_destination">Pemacu destinasi dikesan: %1$s (sahkan dengan «Pilih pemacu B»)</string>
+    <string name="auto_none">Tiada pemacu dikesan: sambungkan dan buka semula aplikasi</string>
 </resources>

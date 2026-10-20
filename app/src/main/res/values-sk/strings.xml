@@ -33,4 +33,7 @@
     <string name="error_unknown">neznáma chyba</string>
     <string name="copy_unreadable">súbor sa nedá prečítať</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Zdrojový disk zistený: %1$s</string>
+    <string name="auto_destination">Cieľový disk zistený: %1$s (potvrďte tlačidlom «Vybrať disk B»)</string>
+    <string name="auto_none">Nezistil sa žiadny disk: pripojte ho a znova otvorte aplikáciu</string>
 </resources>

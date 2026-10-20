@@ -33,4 +33,7 @@
     <string name="error_unknown">অজ্ঞাত ত্ৰুটি</string>
     <string name="copy_unreadable">ফাইল পঢ়িব পৰা নাই</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">উৎস ড্ৰাইভ চিনাক্ত হৈছে: %1$s</string>
+    <string name="auto_destination">গন্তব্য ড্ৰাইভ চিনাক্ত হৈছে: %1$s («B ড্ৰাইভ বাছনি কৰক» ৰে নিশ্চিত কৰক)</string>
+    <string name="auto_none">কোনো ড্ৰাইভ চিনাক্ত হোৱা নাই: ইয়াক সংযোগ কৰি এপ পুনৰ খোলক</string>
 </resources>

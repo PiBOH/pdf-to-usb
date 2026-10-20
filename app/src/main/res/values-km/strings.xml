@@ -33,4 +33,7 @@
     <string name="error_unknown">កំហុសមិនស្គាល់</string>
     <string name="copy_unreadable">មិនអាចអានឯកសារ</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">រកឃើញដ្រាយប្រភព៖ %1$s</string>
+    <string name="auto_destination">រកឃើញដ្រាយគោលដៅ៖ %1$s (បញ្ជាក់ដោយ «ជ្រើសរើសដ្រាយ B»)</string>
+    <string name="auto_none">រកមិនឃើញដ្រាយ៖ ភ្ជាប់វា ហើយបើកកម្មវិធីម្តងទៀត</string>
 </resources>

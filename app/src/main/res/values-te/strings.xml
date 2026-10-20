@@ -33,4 +33,7 @@
     <string name="error_unknown">తెలియని లోపం</string>
     <string name="copy_unreadable">ఫైల్ చదవలేము</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">మూల డ్రైవ్ గుర్తించబడింది: %1$s</string>
+    <string name="auto_destination">గమ్య డ్రైవ్ గుర్తించబడింది: %1$s («B డ్రైవ్ ఎంచుకో»తో నిర్ధారించండి)</string>
+    <string name="auto_none">డ్రైవ్ ఏదీ గుర్తించబడలేదు: దాన్ని కనెక్ట్ చేసి యాప్‌ను మళ్లీ తెరవండి</string>
 </resources>

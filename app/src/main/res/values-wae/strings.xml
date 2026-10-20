@@ -33,4 +33,7 @@
     <string name="error_unknown">unbekannte Fehler</string>
     <string name="copy_unreadable">Datei nid lääsbar</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Quälle-Laufwärk erkennt: %1$s</string>
+    <string name="auto_destination">Ziel-Laufwärk erkennt: %1$s (bestätige mit «Laufwärk B wele»)</string>
+    <string name="auto_none">Kes Laufwärk erkennt: schlüss es a und mach s App nomol uf</string>
 </resources>

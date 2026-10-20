@@ -33,4 +33,7 @@
     <string name="error_unknown">tuntematon virhe</string>
     <string name="copy_unreadable">tiedostoa ei voi lukea</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Lähdeasema havaittu: %1$s</string>
+    <string name="auto_destination">Kohdeasema havaittu: %1$s (vahvista «Valitse asema B (kohde)»)</string>
+    <string name="auto_none">Asemaa ei havaittu: liitä se ja avaa sovellus uudelleen</string>
 </resources>

@@ -33,4 +33,7 @@
     <string name="error_unknown">unknown error</string>
     <string name="copy_unreadable">file not readable</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Source drive detected: %1$s</string>
+    <string name="auto_destination">Destination drive detected: %1$s (confirm with «Choose drive B»)</string>
+    <string name="auto_none">No drive detected: connect it and reopen the app</string>
 </resources>

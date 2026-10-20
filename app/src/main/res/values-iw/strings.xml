@@ -33,4 +33,7 @@
     <string name="error_unknown">שגיאה לא ידועה</string>
     <string name="copy_unreadable">הקובץ אינו קריא</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">כונן המקור זוהה: %1$s</string>
+    <string name="auto_destination">כונן היעד זוהה: %1$s (אשרו עם «בחירת כונן B»)</string>
+    <string name="auto_none">לא זוהה כונן: חברו אותו ופתחו שוב את האפליקציה</string>
 </resources>

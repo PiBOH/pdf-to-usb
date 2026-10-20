@@ -33,4 +33,7 @@
     <string name="error_unknown">nežinoma klaida</string>
     <string name="copy_unreadable">failo nepavyksta perskaityti</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Aptiktas šaltinio diskas: %1$s</string>
+    <string name="auto_destination">Aptiktas paskirties diskas: %1$s (patvirtinkite „Pasirinkti B diską“)</string>
+    <string name="auto_none">Diskas neaptiktas: prijunkite jį ir iš naujo atidarykite programą</string>
 </resources>

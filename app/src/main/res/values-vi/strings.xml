@@ -33,4 +33,7 @@
     <string name="error_unknown">lỗi không xác định</string>
     <string name="copy_unreadable">không đọc được tệp</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Đã nhận diện ổ nguồn: %1$s</string>
+    <string name="auto_destination">Đã nhận diện ổ đích: %1$s (xác nhận bằng «Chọn ổ B»)</string>
+    <string name="auto_none">Không nhận diện được ổ nào: hãy kết nối và mở lại ứng dụng</string>
 </resources>

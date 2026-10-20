@@ -33,4 +33,7 @@
     <string name="error_unknown">ukjent feil</string>
     <string name="copy_unreadable">filen kan ikke leses</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Kildeenhet oppdaget: %1$s</string>
+    <string name="auto_destination">Målenhet oppdaget: %1$s (bekreft med «Velg enhet B»)</string>
+    <string name="auto_none">Ingen enhet oppdaget: koble den til og åpne appen på nytt</string>
 </resources>

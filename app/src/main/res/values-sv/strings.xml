@@ -33,4 +33,7 @@
     <string name="error_unknown">okänt fel</string>
     <string name="copy_unreadable">filen kan inte läsas</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Källenheten hittades: %1$s</string>
+    <string name="auto_destination">Målenheten hittades: %1$s (bekräfta med «Välj enhet B»)</string>
+    <string name="auto_none">Ingen enhet hittades: anslut den och öppna appen igen</string>
 </resources>

@@ -33,4 +33,7 @@
     <string name="error_unknown">不明なエラー</string>
     <string name="copy_unreadable">ファイルを読み取れません</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">コピー元ドライブを検出しました：%1$s</string>
+    <string name="auto_destination">コピー先ドライブを検出しました：%1$s（「B ドライブを選択」で確認）</string>
+    <string name="auto_none">ドライブが検出されません：接続してアプリを開き直してください</string>
 </resources>

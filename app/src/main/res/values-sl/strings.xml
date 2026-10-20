@@ -33,4 +33,7 @@
     <string name="error_unknown">neznana napaka</string>
     <string name="copy_unreadable">datoteke ni mogoče prebrati</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Izvorni disk zaznan: %1$s</string>
+    <string name="auto_destination">Ciljni disk zaznan: %1$s (potrdite z «Izber disk B»)</string>
+    <string name="auto_none">Ni zaznanega diska: priključite ga in znova odprite aplikacijo</string>
 </resources>

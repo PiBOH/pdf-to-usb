@@ -33,4 +33,7 @@
     <string name="error_unknown">nieznany błąd</string>
     <string name="copy_unreadable">nie można odczytać pliku</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Wykryto dysk źródłowy: %1$s</string>
+    <string name="auto_destination">Wykryto dysk docelowy: %1$s (potwierdź przez „Wybierz dysk B”)</string>
+    <string name="auto_none">Nie wykryto dysku: podłącz go i otwórz aplikację ponownie</string>
 </resources>

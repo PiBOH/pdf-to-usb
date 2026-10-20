@@ -33,4 +33,7 @@
     <string name="error_unknown">അജ്ഞാത പിശക്</string>
     <string name="copy_unreadable">ഫയൽ വായിക്കാനാകുന്നില്ല</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">സ്രോതസ്സ് ഡ്രൈവ് കണ്ടെത്തി: %1$s</string>
+    <string name="auto_destination">ലക്ഷ്യ ഡ്രൈവ് കണ്ടെത്തി: %1$s («B ഡ്രൈവ് തിരഞ്ഞെടുക്കുക» ഉപയോഗിച്ച് സ്ഥിരീകരിക്കുക)</string>
+    <string name="auto_none">ഡ്രൈവ് കണ്ടെത്തിയില്ല: അത് ബന്ധിപ്പിച്ച് ആപ്പ് വീണ്ടും തുറക്കുക</string>
 </resources>

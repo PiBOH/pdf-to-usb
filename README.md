@@ -1,6 +1,6 @@
 # Pdf To Usb
 
-![Pdf To Usb](logo_256.png)
+![Pdf To Usb](logo.png)
 
 Small Android app that copies the PDFs you open from USB drive **A** into the folder
 `pdf-to-usb` on USB drive **B**, with no computer in between.
@@ -15,6 +15,9 @@ copied as well.
 
 ## What it does
 
+- finds drive A and drive B by itself: A is the stick with the PDFs, B is the other one
+  (one system confirmation on B is still required, Android does not allow an app to grant
+  itself write access to a USB stick)
 - foreground service with a notification, a copy queue, 3 retries per file
 - dedupe by name and size; a different PDF with the same name becomes `name (2).pdf`
 - 57 languages, taken from [vivizzz007/vivi-music](https://github.com/vivizzz007/vivi-music)
@@ -31,11 +34,14 @@ before that. Both USB drives must be connected at the same time.
 Download the APK from [Releases](https://github.com/PiBOH/pdf-to-usb/releases) and install
 it (Android asks once for "install unknown apps"). Then:
 
-1. Open the app and allow reading storage (used by the watcher).
-2. **Choose drive A**: pick the root of drive A.
-3. **Choose drive B**: pick the root of drive B; the app creates `pdf-to-usb` there.
-4. **Start listening**.
-5. Open a PDF from drive A with any reader.
+1. Plug both sticks in, open the app and allow reading storage (used by the watcher).
+2. The app detects drive A by itself (the stick with the PDFs) and proposes drive B: tap
+   **Choose drive B** and confirm the volume already selected. The app creates `pdf-to-usb`
+   there and starts listening.
+3. Open a PDF from drive A with any reader.
+
+With only one stick, or if the detection does not fit, the two pickers still let you choose
+A and B by hand, then **Start listening**.
 
 If nothing is copied, use **Test detection on A** (look at the log) and **Copy all PDFs
 from A now**: details in [docs/NOTE.md](docs/NOTE.md).

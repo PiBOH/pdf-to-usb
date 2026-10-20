@@ -33,4 +33,7 @@
     <string name="error_unknown">erro desconhecido</string>
     <string name="copy_unreadable">ficheiro não legível</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Pen drive de origem detetado: %1$s</string>
+    <string name="auto_destination">Pen drive de destino detetado: %1$s (confirme com «Escolher pen drive B»)</string>
+    <string name="auto_none">Nenhum pen drive detetado: ligue-o e reabra a app</string>
 </resources>

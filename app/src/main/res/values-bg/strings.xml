@@ -33,4 +33,7 @@
     <string name="error_unknown">неизвестна грешка</string>
     <string name="copy_unreadable">файлът не може да бъде прочетен</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Открито устройство източник: %1$s</string>
+    <string name="auto_destination">Открито устройство дестинация: %1$s (потвърдете с «Избор на устройство B»)</string>
+    <string name="auto_none">Не е открито устройство: свържете го и отворете приложението отново</string>
 </resources>

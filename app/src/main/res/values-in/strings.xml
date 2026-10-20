@@ -33,4 +33,7 @@
     <string name="error_unknown">kesalahan tidak diketahui</string>
     <string name="copy_unreadable">berkas tidak dapat dibaca</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Drive sumber terdeteksi: %1$s</string>
+    <string name="auto_destination">Drive tujuan terdeteksi: %1$s (konfirmasi dengan «Pilih drive B»)</string>
+    <string name="auto_none">Tidak ada drive terdeteksi: hubungkan dan buka ulang aplikasi</string>
 </resources>

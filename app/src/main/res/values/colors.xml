@@ -3,4 +3,6 @@
     <color name="primary">#E65100</color>
     <color name="primary_dark">#BF360C</color>
     <color name="accent">#FF6D00</color>
+    <!-- Sfondo dell'icona adattiva: primo stop del gradiente di matrix_logo.svg. -->
+    <color name="icon_background">#111827</color>
 </resources>

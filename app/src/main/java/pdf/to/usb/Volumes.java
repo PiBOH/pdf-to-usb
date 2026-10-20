@@ -11,17 +11,27 @@ import android.provider.DocumentsContract;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /** Volumi rimovibili visti dal sistema e percorso reale di un albero SAF. */
 final class Volumes {
 
+    /** Autority del provider che il sistema usa per le chiavette (StorageProvider). */
+    private static final String EXTERNAL = "com.android.externalstorage.documents";
+
     static final class Volume {
         final String label;
         final File dir;
+        final String uuid;
 
         Volume(String label, File dir) {
+            this(label, dir, dir == null ? null : dir.getName());
+        }
+
+        Volume(String label, File dir, String uuid) {
             this.label = label;
             this.dir = dir;
+            this.uuid = uuid;
         }
     }
 
@@ -37,7 +47,7 @@ final class Volumes {
                 if (!v.isRemovable()) continue;
                 if (!Environment.MEDIA_MOUNTED.equals(v.getState())) continue;
                 File dir = path(v);
-                if (dir != null) out.add(new Volume(v.getDescription(c), dir));
+                if (dir != null) out.add(new Volume(v.getDescription(c), dir, v.getUuid()));
             }
         } else {
             // API 21-23: getStorageVolumes() non esiste ancora, si passa dai metodi nascosti.
@@ -78,6 +88,50 @@ final class Volumes {
         } catch (Exception ignored) {
         }
         return null;
+    }
+
+    /** Albero SAF della radice del volume: serve a pre-selezionarlo nel picker di B. */
+    static Uri tree(Volume v) {
+        if (v == null || v.uuid == null || v.uuid.isEmpty()) return null;
+        return DocumentsContract.buildTreeDocumentUri(EXTERNAL, v.uuid + ":");
+    }
+
+    /** La sorgente A è la chiavetta con più PDF: è quella dove l'utente tiene i documenti. */
+    static Volume source(List<Volume> volumes, int[] pdfs) {
+        Volume best = null;
+        int bestCount = -1;
+        for (int i = 0; i < volumes.size() && i < pdfs.length; i++) {
+            if (pdfs[i] > bestCount) {
+                bestCount = pdfs[i];
+                best = volumes.get(i);
+            }
+        }
+        return best;
+    }
+
+    /** La destinazione B è l'altra chiavetta: null se non ce n'è esattamente una. */
+    static Volume destination(List<Volume> volumes, Volume source) {
+        Volume out = null;
+        for (Volume v : volumes) {
+            if (v == source) continue;
+            if (source != null && source.uuid != null && source.uuid.equals(v.uuid)) continue;
+            if (out != null) return null;   // tre o più chiavette: non si indovina
+            out = v;
+        }
+        return out;
+    }
+
+    /** Conta i PDF fino a due livelli: basta a distinguere la chiavetta dei documenti. */
+    static int pdfCount(File dir, int depth) {
+        if (dir == null || depth > 2) return 0;
+        File[] children = dir.listFiles();
+        if (children == null) return 0;
+        int found = 0;
+        for (File child : children) {
+            if (child.isDirectory()) found += pdfCount(child, depth + 1);
+            else if (child.getName().toLowerCase(Locale.ROOT).endsWith(".pdf")) found++;
+        }
+        return found;
     }
 
     /**

@@ -33,4 +33,7 @@
     <string name="error_unknown">ข้อผิดพลาดที่ไม่รู้จัก</string>
     <string name="copy_unreadable">อ่านไฟล์ไม่ได้</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">ตรวจพบไดรฟ์ต้นทาง: %1$s</string>
+    <string name="auto_destination">ตรวจพบไดรฟ์ปลายทาง: %1$s (ยืนยันด้วย «เลือกไดรฟ์ B»)</string>
+    <string name="auto_none">ไม่พบไดรฟ์ใดเลย: เชื่อมต่อแล้วเปิดแอปอีกครั้ง</string>
 </resources>

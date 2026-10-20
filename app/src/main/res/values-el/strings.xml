@@ -33,4 +33,7 @@
     <string name="error_unknown">άγνωστο σφάλμα</string>
     <string name="copy_unreadable">το αρχείο δεν είναι αναγνώσιμο</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Εντοπίστηκε μονάδα πηγής: %1$s</string>
+    <string name="auto_destination">Εντοπίστηκε μονάδα προορισμού: %1$s (επιβεβαιώστε με «Επιλογή μονάδας B»)</string>
+    <string name="auto_none">Δεν εντοπίστηκε μονάδα: συνδέστε την και ανοίξτε ξανά την εφαρμογή</string>
 </resources>

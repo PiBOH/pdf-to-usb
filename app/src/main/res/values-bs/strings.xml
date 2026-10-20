@@ -33,4 +33,7 @@
     <string name="error_unknown">nepoznata greška</string>
     <string name="copy_unreadable">datoteku nije moguće pročitati</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Izvorni disk otkriven: %1$s</string>
+    <string name="auto_destination">Odredišni disk otkriven: %1$s (potvrdi sa «Odaberi disk B»)</string>
+    <string name="auto_none">Nijedan disk nije otkriven: poveži ga i ponovo otvori aplikaciju</string>
 </resources>

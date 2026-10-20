@@ -33,4 +33,7 @@
     <string name="error_unknown">خطای ناشناخته</string>
     <string name="copy_unreadable">فایل خوانده نمی‌شود</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">درایو مبدأ شناسایی شد: %1$s</string>
+    <string name="auto_destination">درایو مقصد شناسایی شد: %1$s (با «انتخاب درایو B» تأیید کنید)</string>
+    <string name="auto_none">هیچ درایوی شناسایی نشد: آن را وصل کنید و برنامه را دوباره باز کنید</string>
 </resources>

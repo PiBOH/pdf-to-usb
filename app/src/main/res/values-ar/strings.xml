@@ -33,4 +33,7 @@
     <string name="error_unknown">خطأ غير معروف</string>
     <string name="copy_unreadable">الملف غير قابل للقراءة</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">تم اكتشاف محرك المصدر: %1$s</string>
+    <string name="auto_destination">تم اكتشاف محرك الوجهة: %1$s (أكّد بزر «اختيار محرك B»)</string>
+    <string name="auto_none">لم يتم اكتشاف أي محرك: صِل المحرك وأعد فتح التطبيق</string>
 </resources>

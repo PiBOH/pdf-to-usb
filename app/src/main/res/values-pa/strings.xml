@@ -33,4 +33,7 @@
     <string name="error_unknown">ਅਣਜਾਣ ਤਰੁੱਟੀ</string>
     <string name="copy_unreadable">ਫਾਈਲ ਪੜ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕਦੀ</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">ਸਰੋਤ ਡਰਾਈਵ ਮਿਲੀ: %1$s</string>
+    <string name="auto_destination">ਟਿਕਾਣਾ ਡਰਾਈਵ ਮਿਲੀ: %1$s (「B ਡਰਾਈਵ ਚੁਣੋ」 ਨਾਲ ਪੁਸ਼ਟੀ ਕਰੋ)</string>
+    <string name="auto_none">ਕੋਈ ਡਰਾਈਵ ਨਹੀਂ ਮਿਲੀ: ਇਸਨੂੰ ਜੋੜੋ ਅਤੇ ਐਪ ਦੁਬਾਰਾ ਖੋਲ੍ਹੋ</string>
 </resources>

@@ -33,4 +33,7 @@
     <string name="error_unknown">tundmatu viga</string>
     <string name="copy_unreadable">faili ei ole loetav</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Lähteseade tuvastatud: %1$s</string>
+    <string name="auto_destination">Sihtseade tuvastatud: %1$s (kinnita valikuga «Vali seade B»)</string>
+    <string name="auto_none">Ühtegi seadet ei tuvastatud: ühenda see ja ava rakendus uuesti</string>
 </resources>

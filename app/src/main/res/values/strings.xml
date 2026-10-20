@@ -38,4 +38,9 @@
     <string name="access_missing">✗ ACCESS non rilevato su questo device</string>
     <string name="no_pdf_to_test">✗ nessun PDF da provare su A</string>
     <string name="error_unknown">errore sconosciuto</string>
+
+    <!-- Rilevamento automatico delle chiavette: sorgente e destinazione. -->
+    <string name="auto_source">Chiavetta sorgente rilevata: %1$s</string>
+    <string name="auto_destination">Chiavetta destinazione rilevata: %1$s (conferma con «Scegli chiavetta B»)</string>
+    <string name="auto_none">Nessuna chiavetta rilevata: collegala e riapri l\'app</string>
 </resources>

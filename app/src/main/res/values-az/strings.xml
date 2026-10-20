@@ -33,4 +33,7 @@
     <string name="error_unknown">naməlum xəta</string>
     <string name="copy_unreadable">fayl oxunmur</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Mənbə diski aşkarlandı: %1$s</string>
+    <string name="auto_destination">Təyinat diski aşkarlandı: %1$s («B diskini seç» ilə təsdiqləyin)</string>
+    <string name="auto_none">Heç bir disk aşkarlanmadı: qoşun və tətbiqi yenidən açın</string>
 </resources>

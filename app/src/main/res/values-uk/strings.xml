@@ -33,4 +33,7 @@
     <string name="error_unknown">невідома помилка</string>
     <string name="copy_unreadable">файл не читається</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Виявлено диск-джерело: %1$s</string>
+    <string name="auto_destination">Виявлено диск-призначення: %1$s (підтвердьте кнопкою «Вибрати диск B»)</string>
+    <string name="auto_none">Дисків не виявлено: підключіть його та відкрийте застосунок знову</string>
 </resources>

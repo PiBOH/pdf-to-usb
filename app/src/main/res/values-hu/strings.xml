@@ -33,4 +33,7 @@
     <string name="error_unknown">ismeretlen hiba</string>
     <string name="copy_unreadable">a fájl nem olvasható</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Forrásmeghajtó észlelve: %1$s</string>
+    <string name="auto_destination">Célmeghajtó észlelve: %1$s (erősítsd meg a «B meghajtó kiválasztása» gombbal)</string>
+    <string name="auto_none">Nem észlelhető meghajtó: csatlakoztasd, és nyisd meg újra az appot</string>
 </resources>

@@ -51,13 +51,14 @@ with an English name; a document that grows beyond one screen starts with a summ
 | `Volumes.java` | `StorageManager`/`StorageVolume` detection, SAF tree to filesystem path |
 | `Store.java` | preferences (trees A/B, copy log, update timestamp) |
 | `Update.java` | GitHub release check, version compare, APK download, install intent |
-| `MainActivity.java` | the single screen: state, drive pickers, log |
+| `MainActivity.java` | the single screen: state, automatic drive detection, drive pickers, log |
 | `BootReceiver.java` | boot and media mount/unmount, rearms the service |
 
 Tests: `CopyTest` (engine, names, dedupe, partial cleanup), `StoreTest` (preferences and
-log), `ScreenTest` (Robolectric screen), `ServiceStringsTest` (formatted service strings in
-German and Japanese), `TranslationsTest` (key and placeholder parity across 57 locales),
-`UpdateTest` (tag to version) and `UpdateParseTest` (release JSON). Design constraints that
+log), `VolumesTest` (automatic A/B assignment, tree URI, PDF count), `ScreenTest`
+(Robolectric screen), `ServiceStringsTest` (formatted service strings in German and
+Japanese), `TranslationsTest` (key and placeholder parity across 57 locales), `UpdateTest`
+(tag to version) and `UpdateParseTest` (release JSON). Design constraints that
 must survive:
 
 - `Copy.java` stays free of Android classes so it can be tested on the JVM.
@@ -118,9 +119,13 @@ device run, not a "should be fine".
 - An update installs only if the new APK has **the same key** as the installed app. Changing
   the key (a debug keystore, a different machine, a regenerated keystore) forces an uninstall
   and loses the app's preferences, so the keystore is backed up outside the repository.
-- CI restores the keystore from repository secrets `RELEASE_KEYSTORE_BASE64`,
-  `KEYSTORE_PASSWORD`, `KEY_ALIAS`, `KEY_PASSWORD` and **fails instead of publishing** an
-  unsigned APK.
+- The release keystore is restored from the single secret `RELEASE_KEYSTORE_BASE64`.
+  `storePassword`, `keyPassword` and `keyAlias` are written by the workflow as the fixed
+  values `android`, `android` and `pdf-to-usb` (owner's decision, see `docs/NOTE.md` §7);
+  there are no password secrets. The base64 is decoded after stripping spaces, tabs, CR
+  and LF, so a copy taken on Windows cannot corrupt the file, and `keytool -list` runs
+  before the build: a keystore that does not open with those values fails the job with a
+  clear message. CI **fails instead of publishing** an unsigned APK.
 
 ### Release flow
 
@@ -149,10 +154,11 @@ device run, not a "should be fine".
 - `icon.png` (1024 px, launcher source) and `logo.png` (512 px, the README mark) are the
   artwork and stay at the repository root; both are RGBA, transparent outside the rounded
   square.
-- `mipmap-*/ic_launcher.png` and `ic_launcher_foreground.png` are generated from `icon.png`;
-  `mipmap-anydpi-v26/ic_launcher.xml` is the adaptive icon (orange background plus
-  foreground). `python3 tools/icons.py` (standard library only) redraws every PNG, so
-  regenerate with it instead of hand-editing the files.
+- `mipmap-*/ic_launcher.png` and `ic_launcher_foreground.png` are generated from
+  `matrix_logo.svg`; `mipmap-anydpi-v26/ic_launcher.xml` is the adaptive icon (background
+  `@color/icon_background`, the first stop of the SVG gradient). `python3 tools/icons.py`
+  (standard library only) redraws every PNG from the SVG geometry, so regenerate with it
+  instead of hand-editing the files.
 - Launcher icons live in `mipmap`: `drawable` is for the notification vector only. The
   manifest declares `android:icon` and no `android:roundIcon` (a square round icon makes lint
   report five `IconLauncherShape` warnings).

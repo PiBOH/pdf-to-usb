@@ -33,4 +33,7 @@
     <string name="error_unknown">errore ezezaguna</string>
     <string name="copy_unreadable">fitxategia ezin da irakurri</string>
     <string name="notification_title">Pdf To Usb</string>
+    <string name="auto_source">Iturri unitatea detektatu da: %1$s</string>
+    <string name="auto_destination">Helburu unitatea detektatu da: %1$s (berretsi «Hautatu B unitatea» aukerarekin)</string>
+    <string name="auto_none">Ez da unitaterik detektatu: konektatu eta ireki berriro aplikazioa</string>
 </resources>
