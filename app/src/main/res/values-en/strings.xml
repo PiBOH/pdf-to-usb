@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Choose drive A (source)</string>
+    <string name="picked_b">Choose drive B (destination)</string>
+    <string name="start">Start listening</string>
+    <string name="stop">Stop listening</string>
+    <string name="copy_all">Copy all PDFs from A now</string>
+    <string name="test">Test detection on A</string>
+    <string name="log_title">Recent copies</string>
+    <string name="empty_log">No copies yet: open a PDF from drive A.</string>
+    <string name="state_a">A (source): %1$s</string>
+    <string name="state_b">B (destination): %1$s — pdf-to-usb folder</string>
+    <string name="not_set">not set</string>
+    <string name="channel_copies">Copies</string>
+    <string name="waiting">Listening on A</string>
+    <string name="need_trees">Choose drive A and drive B</string>
+    <string name="channel_update">Updates</string>
+    <string name="update_title">Update available</string>
+    <string name="update_text">Version %1$s: tap to install</string>
+    <string name="update_permission">Allow installing from this app once, then tap the update again.</string>
+    <string name="update_error">Update failed: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Copied %1$d · last: %2$s</string>
+    <string name="copy_error_file">Error on %1$s</string>
+    <string name="drive_a_missing">Drive A not connected</string>
+    <string name="drive_b_missing">B not set</string>
+    <string name="scan_done">↻ manual scan of A: %1$d PDFs</string>
+    <string name="access_ok">✓ ACCESS detected: listening works</string>
+    <string name="access_missing">✗ ACCESS not detected on this device</string>
+    <string name="no_pdf_to_test">✗ no PDF to test on A</string>
+    <string name="error_unknown">unknown error</string>
+    <string name="copy_unreadable">file not readable</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

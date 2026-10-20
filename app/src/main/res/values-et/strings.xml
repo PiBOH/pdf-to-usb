@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Vali seade A (allikas)</string>
+    <string name="picked_b">Vali seade B (sihtkoht)</string>
+    <string name="start">Alusta jälgimist</string>
+    <string name="stop">Peata jälgimine</string>
+    <string name="copy_all">Kopeeri kohe kõik PDF-id seadmelt A</string>
+    <string name="test">Testi tuvastust seadmel A</string>
+    <string name="log_title">Viimased kopeerimised</string>
+    <string name="empty_log">Kopeerimisi pole: ava PDF seadmelt A.</string>
+    <string name="state_a">A (allikas): %1$s</string>
+    <string name="state_b">B (sihtkoht): %1$s — kaust pdf-to-usb</string>
+    <string name="not_set">määramata</string>
+    <string name="channel_copies">Kopeerimised</string>
+    <string name="waiting">Jälgin seadet A</string>
+    <string name="need_trees">Vali seade A ja seade B</string>
+    <string name="channel_update">Uuendused</string>
+    <string name="update_title">Uuendus saadaval</string>
+    <string name="update_text">Versioon %1$s: puuduta installimiseks</string>
+    <string name="update_permission">Luba üks kord sellest rakendusest installimine ja puuduta seejärel uuendust uuesti.</string>
+    <string name="update_error">Uuendus ebaõnnestus: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Kopeeritud %1$d · viimane: %2$s</string>
+    <string name="copy_error_file">Viga: %1$s</string>
+    <string name="drive_a_missing">Seade A pole ühendatud</string>
+    <string name="drive_b_missing">B pole määratud</string>
+    <string name="scan_done">↻ A käsitsi skannimine: %1$d PDF-i</string>
+    <string name="access_ok">✓ ACCESS tuvastatud: jälgimine töötab</string>
+    <string name="access_missing">✗ ACCESS-i ei tuvastatud selles seadmes</string>
+    <string name="no_pdf_to_test">✗ A-l pole PDF-i testida</string>
+    <string name="error_unknown">tundmatu viga</string>
+    <string name="copy_unreadable">faili ei ole loetav</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

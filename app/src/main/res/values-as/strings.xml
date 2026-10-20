@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">A ড্ৰাইভ বাছনি কৰক (উৎস)</string>
+    <string name="picked_b">B ড্ৰাইভ বাছনি কৰক (গন্তব্য)</string>
+    <string name="start">নিৰীক্ষণ আৰম্ভ কৰক</string>
+    <string name="stop">নিৰীক্ষণ বন্ধ কৰক</string>
+    <string name="copy_all">এতিয়া A ৰ পৰা সকলো PDF কপি কৰক</string>
+    <string name="test">A ত চিনাক্তকৰণ পৰীক্ষা কৰক</string>
+    <string name="log_title">শেহতীয়া কপি</string>
+    <string name="empty_log">কোনো কপি নাই: A ড্ৰাইভৰ পৰা PDF খোলক।</string>
+    <string name="state_a">A (উৎস): %1$s</string>
+    <string name="state_b">B (গন্তব্য): %1$s — pdf-to-usb ফোল্ডাৰ</string>
+    <string name="not_set">ছেট কৰা নাই</string>
+    <string name="channel_copies">কপি</string>
+    <string name="waiting">A ত নিৰীক্ষণ</string>
+    <string name="need_trees">A আৰু B ড্ৰাইভ বাছনি কৰক</string>
+    <string name="channel_update">আপডেট</string>
+    <string name="update_title">আপডেট উপলব্ধ</string>
+    <string name="update_text">সংস্কৰণ %1$s: ইনষ্টল কৰিবলৈ টিপক</string>
+    <string name="update_permission">এই এপৰ পৰা ইনষ্টল কৰাৰ অনুমতি এবাৰ দিয়ক, তাৰ পিছত আপডেটত পুনৰ টিপক।</string>
+    <string name="update_error">আপডেট বিফল: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">%1$d কপি হৈছে · শেহতীয়া: %2$s</string>
+    <string name="copy_error_file">%1$s ত ত্ৰুটি</string>
+    <string name="drive_a_missing">A ড্ৰাইভ সংযুক্ত নহয়</string>
+    <string name="drive_b_missing">B ছেট কৰা নাই</string>
+    <string name="scan_done">↻ A ৰ মেনুৱেল স্কেন: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS ধৰা পৰিছে: নিৰীক্ষণ কাম কৰি আছে</string>
+    <string name="access_missing">✗ এই ডিভাইচত ACCESS ধৰা পৰা নাই</string>
+    <string name="no_pdf_to_test">✗ A ত পৰীক্ষাৰ বাবে PDF নাই</string>
+    <string name="error_unknown">অজ্ঞাত ত্ৰুটি</string>
+    <string name="copy_unreadable">ফাইল পঢ়িব পৰা নাই</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

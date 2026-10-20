@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Elegir unidad A (origen)</string>
+    <string name="picked_b">Elegir unidad B (destino)</string>
+    <string name="start">Iniciar escucha</string>
+    <string name="stop">Detener escucha</string>
+    <string name="copy_all">Copiar ahora todos los PDF de A</string>
+    <string name="test">Probar detección en A</string>
+    <string name="log_title">Últimas copias</string>
+    <string name="empty_log">Sin copias: abre un PDF desde la unidad A.</string>
+    <string name="state_a">A (origen): %1$s</string>
+    <string name="state_b">B (destino): %1$s — carpeta pdf-to-usb</string>
+    <string name="not_set">no configurada</string>
+    <string name="channel_copies">Copias</string>
+    <string name="waiting">Escuchando en A</string>
+    <string name="need_trees">Elige la unidad A y la unidad B</string>
+    <string name="channel_update">Actualizaciones</string>
+    <string name="update_title">Actualización disponible</string>
+    <string name="update_text">Versión %1$s: toca para instalar</string>
+    <string name="update_permission">Permite una vez la instalación desde esta app y vuelve a tocar la actualización.</string>
+    <string name="update_error">Actualización fallida: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Copiados %1$d · último: %2$s</string>
+    <string name="copy_error_file">Error en %1$s</string>
+    <string name="drive_a_missing">Unidad A no conectada</string>
+    <string name="drive_b_missing">B no configurada</string>
+    <string name="scan_done">↻ escaneo manual de A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS detectado: la escucha funciona</string>
+    <string name="access_missing">✗ ACCESS no detectado en este dispositivo</string>
+    <string name="no_pdf_to_test">✗ no hay PDF para probar en A</string>
+    <string name="error_unknown">error desconocido</string>
+    <string name="copy_unreadable">archivo no legible</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

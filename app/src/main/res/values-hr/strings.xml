@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Odaberi pogon A (izvor)</string>
+    <string name="picked_b">Odaberi pogon B (odredište)</string>
+    <string name="start">Pokreni praćenje</string>
+    <string name="stop">Zaustavi praćenje</string>
+    <string name="copy_all">Kopiraj sada sve PDF-ove s A</string>
+    <string name="test">Testiraj otkrivanje na A</string>
+    <string name="log_title">Posljednje kopije</string>
+    <string name="empty_log">Nema kopija: otvori PDF s pogona A.</string>
+    <string name="state_a">A (izvor): %1$s</string>
+    <string name="state_b">B (odredište): %1$s — mapa pdf-to-usb</string>
+    <string name="not_set">nije postavljeno</string>
+    <string name="channel_copies">Kopije</string>
+    <string name="waiting">Pratim A</string>
+    <string name="need_trees">Odaberi pogon A i pogon B</string>
+    <string name="channel_update">Ažuriranja</string>
+    <string name="update_title">Dostupno je ažuriranje</string>
+    <string name="update_text">Verzija %1$s: dodirnite za instalaciju</string>
+    <string name="update_permission">Dopustite jednom instalaciju iz ove aplikacije, zatim ponovno dodirnite ažuriranje.</string>
+    <string name="update_error">Ažuriranje nije uspjelo: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Kopirano %1$d · zadnje: %2$s</string>
+    <string name="copy_error_file">Greška: %1$s</string>
+    <string name="drive_a_missing">Pogon A nije povezan</string>
+    <string name="drive_b_missing">B nije postavljeno</string>
+    <string name="scan_done">↻ ručno skeniranje A: %1$d PDF-ova</string>
+    <string name="access_ok">✓ ACCESS otkriven: praćenje radi</string>
+    <string name="access_missing">✗ ACCESS nije otkriven na ovom uređaju</string>
+    <string name="no_pdf_to_test">✗ nema PDF-a za test na A</string>
+    <string name="error_unknown">nepoznata greška</string>
+    <string name="copy_unreadable">datoteku nije moguće pročitati</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Pasirinkti A diską (šaltinis)</string>
+    <string name="picked_b">Pasirinkti B diską (paskirtis)</string>
+    <string name="start">Pradėti stebėjimą</string>
+    <string name="stop">Sustabdyti stebėjimą</string>
+    <string name="copy_all">Dabar nukopijuoti visus PDF iš A</string>
+    <string name="test">Išbandyti aptikimą A diske</string>
+    <string name="log_title">Naujausios kopijos</string>
+    <string name="empty_log">Kopijų nėra: atidarykite PDF iš A disko.</string>
+    <string name="state_a">A (šaltinis): %1$s</string>
+    <string name="state_b">B (paskirtis): %1$s — aplankas pdf-to-usb</string>
+    <string name="not_set">nenustatyta</string>
+    <string name="channel_copies">Kopijos</string>
+    <string name="waiting">Stebiu A</string>
+    <string name="need_trees">Pasirinkite A ir B diskus</string>
+    <string name="channel_update">Atnaujinimai</string>
+    <string name="update_title">Galimas atnaujinimas</string>
+    <string name="update_text">Versija %1$s: palieskite, kad įdiegtumėte</string>
+    <string name="update_permission">Leiskite vieną kartą diegti iš šios programos, tada dar kartą palieskite atnaujinimą.</string>
+    <string name="update_error">Atnaujinti nepavyko: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Nukopijuota %1$d · paskutinis: %2$s</string>
+    <string name="copy_error_file">Klaida: %1$s</string>
+    <string name="drive_a_missing">A diskas neprijungtas</string>
+    <string name="drive_b_missing">B nenustatyta</string>
+    <string name="scan_done">↻ rankinis A disko skenavimas: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS aptiktas: stebėjimas veikia</string>
+    <string name="access_missing">✗ ACCESS neaptiktas šiame įrenginyje</string>
+    <string name="no_pdf_to_test">✗ A diske nėra PDF bandymui</string>
+    <string name="error_unknown">nežinoma klaida</string>
+    <string name="copy_unreadable">failo nepavyksta perskaityti</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

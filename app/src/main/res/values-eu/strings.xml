@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Hautatu A unitatea (iturria)</string>
+    <string name="picked_b">Hautatu B unitatea (helburua)</string>
+    <string name="start">Hasi jarraipena</string>
+    <string name="stop">Gelditu jarraipena</string>
+    <string name="copy_all">Kopiatu orain A-ko PDF guztiak</string>
+    <string name="test">Probatu detekzioa A-n</string>
+    <string name="log_title">Azken kopiak</string>
+    <string name="empty_log">Ez dago kopiarik: ireki PDF bat A unitatetik.</string>
+    <string name="state_a">A (iturria): %1$s</string>
+    <string name="state_b">B (helburua): %1$s — pdf-to-usb karpeta</string>
+    <string name="not_set">ezarri gabe</string>
+    <string name="channel_copies">Kopiak</string>
+    <string name="waiting">A jarraitzen</string>
+    <string name="need_trees">Hautatu A unitatea eta B unitatea</string>
+    <string name="channel_update">Eguneraketak</string>
+    <string name="update_title">Eguneraketa erabilgarri</string>
+    <string name="update_text">Bertsioa %1$s: sakatu instalatzeko</string>
+    <string name="update_permission">Baimendu behin aplikazio honetatik instalatzen eta sakatu berriro eguneraketa.</string>
+    <string name="update_error">Eguneraketak huts egin du: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Kopiatuta %1$d · azkena: %2$s</string>
+    <string name="copy_error_file">Errorea: %1$s</string>
+    <string name="drive_a_missing">A unitatea ez dago konektatuta</string>
+    <string name="drive_b_missing">B ezarri gabe</string>
+    <string name="scan_done">↻ A-ren eskuzko eskaneatzea: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS detektatu da: jarraipena dabil</string>
+    <string name="access_missing">✗ ez da ACCESS detektatu gailu honetan</string>
+    <string name="no_pdf_to_test">✗ ez dago PDFrik probatzeko A-n</string>
+    <string name="error_unknown">errore ezezaguna</string>
+    <string name="copy_unreadable">fitxategia ezin da irakurri</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

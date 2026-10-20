@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">A డ్రైవ్ ఎంచుకో (మూలం)</string>
+    <string name="picked_b">B డ్రైవ్ ఎంచుకో (గమ్యం)</string>
+    <string name="start">పర్యవేక్షణ ప్రారంభించు</string>
+    <string name="stop">పర్యవేక్షణ ఆపు</string>
+    <string name="copy_all">ఇప్పుడు A నుండి అన్ని PDFలను కాపీ చేయి</string>
+    <string name="test">A పై గుర్తింపును పరీక్షించు</string>
+    <string name="log_title">ఇటీవలి కాపీలు</string>
+    <string name="empty_log">కాపీలు లేవు: A డ్రైవ్ నుండి PDF తెరవండి.</string>
+    <string name="state_a">A (మూలం): %1$s</string>
+    <string name="state_b">B (గమ్యం): %1$s — pdf-to-usb ఫోల్డర్</string>
+    <string name="not_set">సెట్ చేయలేదు</string>
+    <string name="channel_copies">కాపీలు</string>
+    <string name="waiting">A పర్యవేక్షిస్తోంది</string>
+    <string name="need_trees">A మరియు B డ్రైవ్‌లను ఎంచుకో</string>
+    <string name="channel_update">నవీకరణలు</string>
+    <string name="update_title">నవీకరణ అందుబాటులో ఉంది</string>
+    <string name="update_text">వెర్షన్ %1$s: ఇన్‌స్టాల్ చేయడానికి నొక్కండి</string>
+    <string name="update_permission">ఈ యాప్ నుండి ఇన్‌స్టాల్ చేయడానికి ఒకసారి అనుమతించి, ఆపై నవీకరణను మళ్లీ నొక్కండి.</string>
+    <string name="update_error">నవీకరణ విఫలమైంది: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">%1$d కాపీ అయ్యాయి · చివరి: %2$s</string>
+    <string name="copy_error_file">%1$s లో లోపం</string>
+    <string name="drive_a_missing">A డ్రైవ్ కనెక్ట్ కాలేదు</string>
+    <string name="drive_b_missing">B సెట్ చేయలేదు</string>
+    <string name="scan_done">↻ A మాన్యువల్ స్కాన్: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS గుర్తించబడింది: పర్యవేక్షణ పనిచేస్తోంది</string>
+    <string name="access_missing">✗ ఈ పరికరంలో ACCESS గుర్తించబడలేదు</string>
+    <string name="no_pdf_to_test">✗ A పై పరీక్షించడానికి PDF లేదు</string>
+    <string name="error_unknown">తెలియని లోపం</string>
+    <string name="copy_unreadable">ఫైల్ చదవలేము</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Piliin ang drive A (pinagmulan)</string>
+    <string name="picked_b">Piliin ang drive B (patutunguhan)</string>
+    <string name="start">Simulan ang pagmamatyag</string>
+    <string name="stop">Itigil ang pagmamatyag</string>
+    <string name="copy_all">Kopyahin ngayon ang lahat ng PDF mula sa A</string>
+    <string name="test">Subukan ang pagtuklas sa A</string>
+    <string name="log_title">Mga huling kopya</string>
+    <string name="empty_log">Wala pang kopya: magbukas ng PDF mula sa drive A.</string>
+    <string name="state_a">A (pinagmulan): %1$s</string>
+    <string name="state_b">B (patutunguhan): %1$s — folder na pdf-to-usb</string>
+    <string name="not_set">hindi nakatakda</string>
+    <string name="channel_copies">Mga kopya</string>
+    <string name="waiting">Nagmamatyag sa A</string>
+    <string name="need_trees">Piliin ang drive A at drive B</string>
+    <string name="channel_update">Mga update</string>
+    <string name="update_title">May available na update</string>
+    <string name="update_text">Bersyon %1$s: i-tap para i-install</string>
+    <string name="update_permission">Payagan nang isang beses ang pag-install mula sa app na ito, pagkatapos ay i-tap muli ang update.</string>
+    <string name="update_error">Nabigo ang update: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Na-kopya %1$d · huli: %2$s</string>
+    <string name="copy_error_file">Error sa %1$s</string>
+    <string name="drive_a_missing">Hindi nakakonekta ang drive A</string>
+    <string name="drive_b_missing">Hindi nakatakda ang B</string>
+    <string name="scan_done">↻ manual na scan ng A: %1$d PDF</string>
+    <string name="access_ok">✓ Natuklasan ang ACCESS: gumagana ang pagmamatyag</string>
+    <string name="access_missing">✗ Hindi natuklasan ang ACCESS sa device na ito</string>
+    <string name="no_pdf_to_test">✗ walang PDF na susubukan sa A</string>
+    <string name="error_unknown">hindi kilalang error</string>
+    <string name="copy_unreadable">hindi mabasa ang file</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

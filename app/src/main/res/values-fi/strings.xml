@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Valitse asema A (lähde)</string>
+    <string name="picked_b">Valitse asema B (kohde)</string>
+    <string name="start">Aloita seuranta</string>
+    <string name="stop">Lopeta seuranta</string>
+    <string name="copy_all">Kopioi nyt kaikki PDF-tiedostot asemalta A</string>
+    <string name="test">Testaa tunnistus asemalla A</string>
+    <string name="log_title">Viimeisimmät kopiot</string>
+    <string name="empty_log">Ei kopioita: avaa PDF asemalta A.</string>
+    <string name="state_a">A (lähde): %1$s</string>
+    <string name="state_b">B (kohde): %1$s — pdf-to-usb-kansio</string>
+    <string name="not_set">ei asetettu</string>
+    <string name="channel_copies">Kopiot</string>
+    <string name="waiting">Seurataan asemaa A</string>
+    <string name="need_trees">Valitse asema A ja asema B</string>
+    <string name="channel_update">Päivitykset</string>
+    <string name="update_title">Päivitys saatavilla</string>
+    <string name="update_text">Versio %1$s: napauta asentaaksesi</string>
+    <string name="update_permission">Salli kerran asennus tästä sovelluksesta ja napauta päivitystä uudelleen.</string>
+    <string name="update_error">Päivitys epäonnistui: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Kopioitu %1$d · viimeisin: %2$s</string>
+    <string name="copy_error_file">Virhe: %1$s</string>
+    <string name="drive_a_missing">Asema A ei ole liitetty</string>
+    <string name="drive_b_missing">B:tä ei ole asetettu</string>
+    <string name="scan_done">↻ A:n manuaalinen skannaus: %1$d PDF-tiedostoa</string>
+    <string name="access_ok">✓ ACCESS havaittu: seuranta toimii</string>
+    <string name="access_missing">✗ ACCESSia ei havaittu tällä laitteella</string>
+    <string name="no_pdf_to_test">✗ ei PDF-tiedostoa testattavaksi asemalla A</string>
+    <string name="error_unknown">tuntematon virhe</string>
+    <string name="copy_unreadable">tiedostoa ei voi lukea</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Pilih pemacu A (sumber)</string>
+    <string name="picked_b">Pilih pemacu B (destinasi)</string>
+    <string name="start">Mula memantau</string>
+    <string name="stop">Henti memantau</string>
+    <string name="copy_all">Salin semua PDF daripada A sekarang</string>
+    <string name="test">Uji pengesanan pada A</string>
+    <string name="log_title">Salinan terkini</string>
+    <string name="empty_log">Tiada salinan: buka PDF daripada pemacu A.</string>
+    <string name="state_a">A (sumber): %1$s</string>
+    <string name="state_b">B (destinasi): %1$s — folder pdf-to-usb</string>
+    <string name="not_set">belum ditetapkan</string>
+    <string name="channel_copies">Salinan</string>
+    <string name="waiting">Memantau A</string>
+    <string name="need_trees">Pilih pemacu A dan pemacu B</string>
+    <string name="channel_update">Kemas kini</string>
+    <string name="update_title">Kemas kini tersedia</string>
+    <string name="update_text">Versi %1$s: ketik untuk memasang</string>
+    <string name="update_permission">Benarkan sekali pemasangan daripada aplikasi ini, kemudian ketik kemas kini sekali lagi.</string>
+    <string name="update_error">Kemas kini gagal: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">%1$d disalin · terakhir: %2$s</string>
+    <string name="copy_error_file">Ralat pada %1$s</string>
+    <string name="drive_a_missing">Pemacu A tidak disambungkan</string>
+    <string name="drive_b_missing">B belum ditetapkan</string>
+    <string name="scan_done">↻ imbasan manual A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS dikesan: pemantauan berfungsi</string>
+    <string name="access_missing">✗ ACCESS tidak dikesan pada peranti ini</string>
+    <string name="no_pdf_to_test">✗ tiada PDF untuk diuji pada A</string>
+    <string name="error_unknown">ralat tidak diketahui</string>
+    <string name="copy_unreadable">fail tidak dapat dibaca</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

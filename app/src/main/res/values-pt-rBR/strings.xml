@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Escolher pen drive A (origem)</string>
+    <string name="picked_b">Escolher pen drive B (destino)</string>
+    <string name="start">Iniciar escuta</string>
+    <string name="stop">Parar escuta</string>
+    <string name="copy_all">Copiar agora todos os PDFs de A</string>
+    <string name="test">Testar detecção em A</string>
+    <string name="log_title">Últimas cópias</string>
+    <string name="empty_log">Nenhuma cópia: abra um PDF do pen drive A.</string>
+    <string name="state_a">A (origem): %1$s</string>
+    <string name="state_b">B (destino): %1$s — pasta pdf-to-usb</string>
+    <string name="not_set">não definida</string>
+    <string name="channel_copies">Cópias</string>
+    <string name="waiting">Escutando em A</string>
+    <string name="need_trees">Escolha o pen drive A e o pen drive B</string>
+    <string name="channel_update">Atualizações</string>
+    <string name="update_title">Atualização disponível</string>
+    <string name="update_text">Versão %1$s: toque para instalar</string>
+    <string name="update_permission">Permita uma vez a instalação a partir deste app e toque novamente na atualização.</string>
+    <string name="update_error">Falha na atualização: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Copiados %1$d · último: %2$s</string>
+    <string name="copy_error_file">Erro em %1$s</string>
+    <string name="drive_a_missing">Pendrive A não conectado</string>
+    <string name="drive_b_missing">B não definida</string>
+    <string name="scan_done">↻ varredura manual de A: %1$d PDFs</string>
+    <string name="access_ok">✓ ACCESS detectado: a escuta funciona</string>
+    <string name="access_missing">✗ ACCESS não detectado neste dispositivo</string>
+    <string name="no_pdf_to_test">✗ nenhum PDF para testar em A</string>
+    <string name="error_unknown">erro desconhecido</string>
+    <string name="copy_unreadable">arquivo não legível</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

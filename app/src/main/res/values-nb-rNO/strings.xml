@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Velg enhet A (kilde)</string>
+    <string name="picked_b">Velg enhet B (mål)</string>
+    <string name="start">Start overvåking</string>
+    <string name="stop">Stopp overvåking</string>
+    <string name="copy_all">Kopier alle PDF-er fra A nå</string>
+    <string name="test">Test gjenkjenning på A</string>
+    <string name="log_title">Siste kopier</string>
+    <string name="empty_log">Ingen kopier: åpne en PDF fra enhet A.</string>
+    <string name="state_a">A (kilde): %1$s</string>
+    <string name="state_b">B (mål): %1$s — mappen pdf-to-usb</string>
+    <string name="not_set">ikke angitt</string>
+    <string name="channel_copies">Kopier</string>
+    <string name="waiting">Overvåker A</string>
+    <string name="need_trees">Velg enhet A og enhet B</string>
+    <string name="channel_update">Oppdateringer</string>
+    <string name="update_title">Oppdatering tilgjengelig</string>
+    <string name="update_text">Versjon %1$s: trykk for å installere</string>
+    <string name="update_permission">Tillat én gang installasjon fra denne appen, og trykk deretter på oppdateringen igjen.</string>
+    <string name="update_error">Oppdateringen mislyktes: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Kopierte %1$d · sist: %2$s</string>
+    <string name="copy_error_file">Feil på %1$s</string>
+    <string name="drive_a_missing">Enhet A ikke tilkoblet</string>
+    <string name="drive_b_missing">B ikke angitt</string>
+    <string name="scan_done">↻ manuell skanning av A: %1$d PDF-er</string>
+    <string name="access_ok">✓ ACCESS oppdaget: overvåkingen fungerer</string>
+    <string name="access_missing">✗ ACCESS ble ikke oppdaget på denne enheten</string>
+    <string name="no_pdf_to_test">✗ ingen PDF å teste på A</string>
+    <string name="error_unknown">ukjent feil</string>
+    <string name="copy_unreadable">filen kan ikke leses</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

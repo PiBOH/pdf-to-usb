@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Laufwärk A wele (Quelle)</string>
+    <string name="picked_b">Laufwärk B wele (Ziel)</string>
+    <string name="start">Überwachig starte</string>
+    <string name="stop">Überwachig stoppe</string>
+    <string name="copy_all">Jetz alli PDF vo A kopiere</string>
+    <string name="test">Erkennig uf A teste</string>
+    <string name="log_title">Letschti Kopie</string>
+    <string name="empty_log">Keni Kopie: e PDF vom Laufwärk A ufmache.</string>
+    <string name="state_a">A (Quelle): %1$s</string>
+    <string name="state_b">B (Ziel): %1$s — Ordner pdf-to-usb</string>
+    <string name="not_set">nid gsetzt</string>
+    <string name="channel_copies">Kopie</string>
+    <string name="waiting">Überwach A</string>
+    <string name="need_trees">Laufwärk A und Laufwärk B wele</string>
+    <string name="channel_update">Update</string>
+    <string name="update_title">Update verfiegbar</string>
+    <string name="update_text">Version %1$s: tippe zum Installiere</string>
+    <string name="update_permission">Erloub eimol s Installiere us däm App und tippe de Update nomol.</string>
+    <string name="update_error">Update fehlgschlage: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Kopiert %1$d · letschti: %2$s</string>
+    <string name="copy_error_file">Fehler: %1$s</string>
+    <string name="drive_a_missing">Laufwärk A nid verbunde</string>
+    <string name="drive_b_missing">B nid gsetzt</string>
+    <string name="scan_done">↻ manuell Scan vo A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS erkennt: Überwachig funktioniert</string>
+    <string name="access_missing">✗ ACCESS uf däm Gerät nid erkennt</string>
+    <string name="no_pdf_to_test">✗ kes PDF zum Teste uf A</string>
+    <string name="error_unknown">unbekannte Fehler</string>
+    <string name="copy_unreadable">Datei nid lääsbar</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

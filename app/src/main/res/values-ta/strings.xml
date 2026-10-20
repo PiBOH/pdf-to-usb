@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">A இயக்ககத்தைத் தேர்ந்தெடு (மூலம்)</string>
+    <string name="picked_b">B இயக்ககத்தைத் தேர்ந்தெடு (இலக்கு)</string>
+    <string name="start">கண்காணிப்பைத் தொடங்கு</string>
+    <string name="stop">கண்காணிப்பை நிறுத்து</string>
+    <string name="copy_all">இப்போது A-விலிருந்து அனைத்து PDF-களையும் நகலெடு</string>
+    <string name="test">A-வில் கண்டறிதலைச் சோதி</string>
+    <string name="log_title">சமீபத்திய நகல்கள்</string>
+    <string name="empty_log">நகல்கள் இல்லை: A இயக்ககத்திலிருந்து PDF திறக்கவும்.</string>
+    <string name="state_a">A (மூலம்): %1$s</string>
+    <string name="state_b">B (இலக்கு): %1$s — pdf-to-usb கோப்பகம்</string>
+    <string name="not_set">அமைக்கப்படவில்லை</string>
+    <string name="channel_copies">நகல்கள்</string>
+    <string name="waiting">A கண்காணிக்கப்படுகிறது</string>
+    <string name="need_trees">A மற்றும் B இயக்ககங்களைத் தேர்ந்தெடு</string>
+    <string name="channel_update">புதுப்பிப்புகள்</string>
+    <string name="update_title">புதுப்பிப்பு கிடைக்கிறது</string>
+    <string name="update_text">பதிப்பு %1$s: நிறுவ தட்டவும்</string>
+    <string name="update_permission">இந்த ஆப்பிலிருந்து நிறுவ ஒருமுறை அனுமதிக்கவும், பிறகு புதுப்பிப்பை மீண்டும் தட்டவும்.</string>
+    <string name="update_error">புதுப்பிப்பு தோல்வி: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">%1$d நகலெடுக்கப்பட்டது · கடைசி: %2$s</string>
+    <string name="copy_error_file">%1$s இல் பிழை</string>
+    <string name="drive_a_missing">A இயக்ககம் இணைக்கப்படவில்லை</string>
+    <string name="drive_b_missing">B அமைக்கப்படவில்லை</string>
+    <string name="scan_done">↻ A கைமுறை ஸ்கேன்: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS கண்டறியப்பட்டது: கண்காணிப்பு வேலை செய்கிறது</string>
+    <string name="access_missing">✗ இந்த சாதனத்தில் ACCESS கண்டறியப்படவில்லை</string>
+    <string name="no_pdf_to_test">✗ A-வில் சோதிக்க PDF இல்லை</string>
+    <string name="error_unknown">தெரியாத பிழை</string>
+    <string name="copy_unreadable">கோப்பைப் படிக்க முடியவில்லை</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

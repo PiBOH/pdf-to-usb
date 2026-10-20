@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">เลือกไดรฟ์ A (ต้นทาง)</string>
+    <string name="picked_b">เลือกไดรฟ์ B (ปลายทาง)</string>
+    <string name="start">เริ่มเฝ้าดู</string>
+    <string name="stop">หยุดเฝ้าดู</string>
+    <string name="copy_all">คัดลอก PDF ทั้งหมดจาก A ตอนนี้</string>
+    <string name="test">ทดสอบการตรวจจับบน A</string>
+    <string name="log_title">สำเนาล่าสุด</string>
+    <string name="empty_log">ยังไม่มีสำเนา: เปิด PDF จากไดรฟ์ A</string>
+    <string name="state_a">A (ต้นทาง): %1$s</string>
+    <string name="state_b">B (ปลายทาง): %1$s — โฟลเดอร์ pdf-to-usb</string>
+    <string name="not_set">ยังไม่ได้ตั้งค่า</string>
+    <string name="channel_copies">สำเนา</string>
+    <string name="waiting">กำลังเฝ้าดู A</string>
+    <string name="need_trees">เลือกไดรฟ์ A และไดรฟ์ B</string>
+    <string name="channel_update">อัปเดต</string>
+    <string name="update_title">มีอัปเดตพร้อมใช้งาน</string>
+    <string name="update_text">เวอร์ชัน %1$s: แตะเพื่อติดตั้ง</string>
+    <string name="update_permission">อนุญาตการติดตั้งจากแอปนี้หนึ่งครั้ง แล้วแตะอัปเดตอีกครั้ง</string>
+    <string name="update_error">อัปเดตไม่สำเร็จ: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">คัดลอก %1$d · ล่าสุด: %2$s</string>
+    <string name="copy_error_file">เกิดข้อผิดพลาดที่ %1$s</string>
+    <string name="drive_a_missing">ไดรฟ์ A ไม่ได้เชื่อมต่อ</string>
+    <string name="drive_b_missing">B ยังไม่ได้ตั้งค่า</string>
+    <string name="scan_done">↻ สแกน A ด้วยตนเอง: %1$d PDF</string>
+    <string name="access_ok">✓ ตรวจพบ ACCESS: การเฝ้าดูทำงาน</string>
+    <string name="access_missing">✗ ไม่พบ ACCESS บนอุปกรณ์นี้</string>
+    <string name="no_pdf_to_test">✗ ไม่มี PDF ให้ทดสอบบน A</string>
+    <string name="error_unknown">ข้อผิดพลาดที่ไม่รู้จัก</string>
+    <string name="copy_unreadable">อ่านไฟล์ไม่ได้</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

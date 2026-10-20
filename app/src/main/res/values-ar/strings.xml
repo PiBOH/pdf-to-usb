@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">اختيار محرك A (المصدر)</string>
+    <string name="picked_b">اختيار محرك B (الوجهة)</string>
+    <string name="start">بدء المراقبة</string>
+    <string name="stop">إيقاف المراقبة</string>
+    <string name="copy_all">انسخ كل ملفات PDF من A الآن</string>
+    <string name="test">اختبار الكشف على A</string>
+    <string name="log_title">أحدث النسخ</string>
+    <string name="empty_log">لا توجد نسخ: افتح ملف PDF من المحرك A.</string>
+    <string name="state_a">A (المصدر): %1$s</string>
+    <string name="state_b">B (الوجهة): %1$s — مجلد pdf-to-usb</string>
+    <string name="not_set">غير محددة</string>
+    <string name="channel_copies">النسخ</string>
+    <string name="waiting">المراقبة على A</string>
+    <string name="need_trees">اختر المحرك A والمحرك B</string>
+    <string name="channel_update">التحديثات</string>
+    <string name="update_title">يتوفر تحديث</string>
+    <string name="update_text">الإصدار %1$s: اضغط للتثبيت</string>
+    <string name="update_permission">اسمح مرة واحدة بالتثبيت من هذا التطبيق ثم اضغط على التحديث مرة أخرى.</string>
+    <string name="update_error">فشل التحديث: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">تم النسخ %1$d · الأخير: %2$s</string>
+    <string name="copy_error_file">خطأ في %1$s</string>
+    <string name="drive_a_missing">المحرك A غير متصل</string>
+    <string name="drive_b_missing">B غير محددة</string>
+    <string name="scan_done">↻ فحص يدوي لـ A: %1$d PDF</string>
+    <string name="access_ok">✓ تم اكتشاف ACCESS: المراقبة تعمل</string>
+    <string name="access_missing">✗ لم يتم اكتشاف ACCESS على هذا الجهاز</string>
+    <string name="no_pdf_to_test">✗ لا يوجد PDF للاختبار على A</string>
+    <string name="error_unknown">خطأ غير معروف</string>
+    <string name="copy_unreadable">الملف غير قابل للقراءة</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

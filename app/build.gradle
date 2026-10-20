@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+}
+
+// version.txt (repo root) is the only place the version is written.
+def versionFile = rootProject.file("version.txt")
+def versionNameValue = versionFile.text.trim()
+def versionParts = versionNameValue.split("\\.")
+if (versionParts.length != 3) {
+    throw new GradleException("version.txt must contain X.Y.Z, found: '" + versionNameValue + "'")
+}
+def (major, minor, patch) = versionParts.collect { it.toInteger() }
+if (major > 99 || minor > 99 || patch > 99) {
+    throw new GradleException("version.txt parts must be 0-99 (versionCode = major*10000 + minor*100 + patch)")
+}
+def versionCodeValue = major * 10000 + minor * 100 + patch
+
+// Release signing material is never committed: keystore.properties + the keystore
+// itself stay local (and on the CI, restored from repository secrets).
+def keystorePropsFile = rootProject.file("keystore.properties")
+def keystoreProps = new Properties()
+if (keystorePropsFile.exists()) {
+    keystorePropsFile.withInputStream { keystoreProps.load(it) }
+}
+
+android {
+    namespace 'pdf.to.usb'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "pdf.to.usb"
+        minSdk 21
+        targetSdk 28
+        versionCode versionCodeValue
+        versionName versionNameValue
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+
+    signingConfigs {
+        if (keystorePropsFile.exists()) {
+            release {
+                storeFile rootProject.file(keystoreProps['storeFile'])
+                storePassword keystoreProps['storePassword']
+                keyAlias keystoreProps['keyAlias']
+                keyPassword keystoreProps['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (keystorePropsFile.exists()) {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    lint {
+        // App for Android <=8.0 distributed outside the Play Store: targetSdk 28 is
+        // deliberate, raising it breaks legacy storage and foreground services there.
+        disable 'ExpiredTargetSdkVersion'
+    }
+}
+
+dependencies {
+    implementation 'androidx.documentfile:documentfile:1.1.0'
+    // FileProvider per passare l'APK aggiornato all'installer (documentfile la porta solo a runtime).
+    implementation 'androidx.core:core:1.7.0'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.13'
+}

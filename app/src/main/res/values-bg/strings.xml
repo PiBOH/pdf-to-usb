@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Избор на устройство A (източник)</string>
+    <string name="picked_b">Избор на устройство B (дестинация)</string>
+    <string name="start">Стартиране на наблюдение</string>
+    <string name="stop">Спиране на наблюдение</string>
+    <string name="copy_all">Копирай сега всички PDF от A</string>
+    <string name="test">Тест на откриването на A</string>
+    <string name="log_title">Последни копия</string>
+    <string name="empty_log">Няма копия: отворете PDF от устройство A.</string>
+    <string name="state_a">A (източник): %1$s</string>
+    <string name="state_b">B (дестинация): %1$s — папка pdf-to-usb</string>
+    <string name="not_set">не е зададено</string>
+    <string name="channel_copies">Копия</string>
+    <string name="waiting">Наблюдавам A</string>
+    <string name="need_trees">Изберете устройство A и устройство B</string>
+    <string name="channel_update">Актуализации</string>
+    <string name="update_title">Налично е обновление</string>
+    <string name="update_text">Версия %1$s: докоснете за инсталиране</string>
+    <string name="update_permission">Разрешете веднъж инсталирането от това приложение, след което докоснете отново обновлението.</string>
+    <string name="update_error">Обновяването е неуспешно: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Копирани %1$d · последен: %2$s</string>
+    <string name="copy_error_file">Грешка: %1$s</string>
+    <string name="drive_a_missing">Устройство A не е свързано</string>
+    <string name="drive_b_missing">B не е зададено</string>
+    <string name="scan_done">↻ ръчно сканиране на A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS е открит: наблюдението работи</string>
+    <string name="access_missing">✗ ACCESS не е открит на това устройство</string>
+    <string name="no_pdf_to_test">✗ няма PDF за тест на A</string>
+    <string name="error_unknown">неизвестна грешка</string>
+    <string name="copy_unreadable">файлът не може да бъде прочетен</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

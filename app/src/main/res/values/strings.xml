@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+
+    <string name="picked_a">Scegli chiavetta A (sorgente)</string>
+    <string name="picked_b">Scegli chiavetta B (destinazione)</string>
+    <string name="start">Avvia ascolto</string>
+    <string name="stop">Ferma ascolto</string>
+    <string name="copy_all">Copia ora tutti i PDF da A</string>
+    <string name="test">Prova rilevamento su A</string>
+    <string name="log_title">Ultime copie</string>
+    <string name="empty_log">Nessuna copia: apri un PDF dalla chiavetta A.</string>
+
+    <string name="state_a">A (sorgente): %1$s</string>
+    <string name="state_b">B (destinazione): %1$s — cartella pdf-to-usb</string>
+    <string name="not_set">non impostata</string>
+
+    <string name="channel_copies">Copie</string>
+    <string name="channel_update">Aggiornamenti</string>
+    <string name="update_title">Aggiornamento disponibile</string>
+    <string name="update_text">Versione %1$s: tocca per installare</string>
+    <string name="update_permission">Consenti una volta l\'installazione da questa app, poi tocca di nuovo l\'aggiornamento.</string>
+    <string name="update_error">Aggiornamento non riuscito: %1$s</string>
+    <string name="notification_title">Pdf To Usb</string>
+    <string name="waiting">In ascolto su A</string>
+    <string name="need_trees">Scegli la chiavetta A e la chiavetta B</string>
+
+    <!-- Registro e notifica del servizio. -->
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Copiati %1$d · ultimo: %2$s</string>
+    <string name="copy_error_file">Errore su %1$s</string>
+    <string name="copy_unreadable">file non leggibile</string>
+    <string name="drive_a_missing">Chiavetta A non collegata</string>
+    <string name="drive_b_missing">B non impostata</string>
+    <string name="scan_done">↻ scansione manuale di A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS rilevato: l\'ascolto funziona</string>
+    <string name="access_missing">✗ ACCESS non rilevato su questo device</string>
+    <string name="no_pdf_to_test">✗ nessun PDF da provare su A</string>
+    <string name="error_unknown">errore sconosciuto</string>
+</resources>

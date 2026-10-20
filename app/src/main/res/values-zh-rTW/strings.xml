@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">選擇 A 磁碟（來源）</string>
+    <string name="picked_b">選擇 B 磁碟（目標）</string>
+    <string name="start">開始監聽</string>
+    <string name="stop">停止監聽</string>
+    <string name="copy_all">立即複製 A 中的所有 PDF</string>
+    <string name="test">在 A 上測試偵測</string>
+    <string name="log_title">最近的複製</string>
+    <string name="empty_log">尚無複製：請從 A 磁碟開啟 PDF。</string>
+    <string name="state_a">A（來源）：%1$s</string>
+    <string name="state_b">B（目標）：%1$s — pdf-to-usb 資料夾</string>
+    <string name="not_set">未設定</string>
+    <string name="channel_copies">複製</string>
+    <string name="waiting">正在監聽 A</string>
+    <string name="need_trees">選擇 A 磁碟和 B 磁碟</string>
+    <string name="channel_update">更新</string>
+    <string name="update_title">有可用更新</string>
+    <string name="update_text">版本 %1$s：點擊安裝</string>
+    <string name="update_permission">請先允許一次從此應用程式安裝，然後再次點擊更新。</string>
+    <string name="update_error">更新失敗：%1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">已複製 %1$d 個 · 最新：%2$s</string>
+    <string name="copy_error_file">%1$s 發生錯誤</string>
+    <string name="drive_a_missing">A 磁碟未連接</string>
+    <string name="drive_b_missing">B 未設定</string>
+    <string name="scan_done">↻ 手動掃描 A：%1$d 個 PDF</string>
+    <string name="access_ok">✓ 偵測到 ACCESS：監聽正常</string>
+    <string name="access_missing">✗ 此裝置未偵測到 ACCESS</string>
+    <string name="no_pdf_to_test">✗ A 上沒有可測試的 PDF</string>
+    <string name="error_unknown">未知錯誤</string>
+    <string name="copy_unreadable">無法讀取檔案</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

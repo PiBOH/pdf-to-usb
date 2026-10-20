@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Vybrat disk A (zdroj)</string>
+    <string name="picked_b">Vybrat disk B (cíl)</string>
+    <string name="start">Spustit sledování</string>
+    <string name="stop">Zastavit sledování</string>
+    <string name="copy_all">Nyní zkopírovat všechny PDF z A</string>
+    <string name="test">Otestovat detekci na A</string>
+    <string name="log_title">Poslední kopie</string>
+    <string name="empty_log">Žádné kopie: otevřete PDF z disku A.</string>
+    <string name="state_a">A (zdroj): %1$s</string>
+    <string name="state_b">B (cíl): %1$s — složka pdf-to-usb</string>
+    <string name="not_set">nenastaveno</string>
+    <string name="channel_copies">Kopie</string>
+    <string name="waiting">Sleduji A</string>
+    <string name="need_trees">Vyberte disk A a disk B</string>
+    <string name="channel_update">Aktualizace</string>
+    <string name="update_title">K dispozici je aktualizace</string>
+    <string name="update_text">Verze %1$s: klepněte pro instalaci</string>
+    <string name="update_permission">Povolte jednou instalaci z této aplikace a potom znovu klepněte na aktualizaci.</string>
+    <string name="update_error">Aktualizace se nezdařila: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Zkopírováno %1$d · poslední: %2$s</string>
+    <string name="copy_error_file">Chyba: %1$s</string>
+    <string name="drive_a_missing">Disk A není připojen</string>
+    <string name="drive_b_missing">B není nastaven</string>
+    <string name="scan_done">↻ ruční skenování A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS zjištěn: sledování funguje</string>
+    <string name="access_missing">✗ ACCESS nebyl na tomto zařízení zjištěn</string>
+    <string name="no_pdf_to_test">✗ žádné PDF k testu na A</string>
+    <string name="error_unknown">neznámá chyba</string>
+    <string name="copy_unreadable">soubor nelze přečíst</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

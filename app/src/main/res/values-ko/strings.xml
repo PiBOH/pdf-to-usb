@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">A 드라이브 선택(원본)</string>
+    <string name="picked_b">B 드라이브 선택(대상)</string>
+    <string name="start">감시 시작</string>
+    <string name="stop">감시 중지</string>
+    <string name="copy_all">지금 A의 모든 PDF 복사</string>
+    <string name="test">A에서 감지 테스트</string>
+    <string name="log_title">최근 복사</string>
+    <string name="empty_log">복사본이 없습니다: A 드라이브에서 PDF를 여세요.</string>
+    <string name="state_a">A(원본): %1$s</string>
+    <string name="state_b">B(대상): %1$s — pdf-to-usb 폴더</string>
+    <string name="not_set">설정 안 됨</string>
+    <string name="channel_copies">복사</string>
+    <string name="waiting">A 감시 중</string>
+    <string name="need_trees">A 드라이브와 B 드라이브를 선택</string>
+    <string name="channel_update">업데이트</string>
+    <string name="update_title">업데이트가 있습니다</string>
+    <string name="update_text">버전 %1$s: 탭하여 설치</string>
+    <string name="update_permission">이 앱에서 설치를 한 번 허용한 뒤 업데이트를 다시 탭하세요.</string>
+    <string name="update_error">업데이트 실패: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">%1$d개 복사됨 · 최근: %2$s</string>
+    <string name="copy_error_file">%1$s 오류</string>
+    <string name="drive_a_missing">A 드라이브가 연결되지 않았습니다</string>
+    <string name="drive_b_missing">B가 설정되지 않았습니다</string>
+    <string name="scan_done">↻ A 수동 검사: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS 감지됨: 감시가 작동합니다</string>
+    <string name="access_missing">✗ 이 기기에서 ACCESS가 감지되지 않았습니다</string>
+    <string name="no_pdf_to_test">✗ A에 테스트할 PDF가 없습니다</string>
+    <string name="error_unknown">알 수 없는 오류</string>
+    <string name="copy_unreadable">파일을 읽을 수 없습니다</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

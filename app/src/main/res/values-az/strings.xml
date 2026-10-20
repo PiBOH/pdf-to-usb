@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">A diskini seç (mənbə)</string>
+    <string name="picked_b">B diskini seç (təyinat)</string>
+    <string name="start">Dinləməni başlat</string>
+    <string name="stop">Dinləməni dayandır</string>
+    <string name="copy_all">İndi A-dan bütün PDF-ləri kopyala</string>
+    <string name="test">A-da aşkarlamanı yoxla</string>
+    <string name="log_title">Son kopyalar</string>
+    <string name="empty_log">Kopya yoxdur: A diskindən PDF açın.</string>
+    <string name="state_a">A (mənbə): %1$s</string>
+    <string name="state_b">B (təyinat): %1$s — pdf-to-usb qovluğu</string>
+    <string name="not_set">təyin edilməyib</string>
+    <string name="channel_copies">Kopyalar</string>
+    <string name="waiting">A dinlənir</string>
+    <string name="need_trees">A və B disklərini seçin</string>
+    <string name="channel_update">Yeniləmələr</string>
+    <string name="update_title">Yeniləmə mövcuddur</string>
+    <string name="update_text">Versiya %1$s: quraşdırmaq üçün toxunun</string>
+    <string name="update_permission">Bu tətbiqdən quraşdırmaya bir dəfə icazə verin, sonra yeniləməyə yenidən toxunun.</string>
+    <string name="update_error">Yeniləmə alınmadı: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Kopyalandı %1$d · son: %2$s</string>
+    <string name="copy_error_file">Xəta: %1$s</string>
+    <string name="drive_a_missing">A diski qoşulmayıb</string>
+    <string name="drive_b_missing">B təyin edilməyib</string>
+    <string name="scan_done">↻ A əl ilə skan edildi: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS aşkarlandı: dinləmə işləyir</string>
+    <string name="access_missing">✗ bu cihazda ACCESS aşkarlanmadı</string>
+    <string name="no_pdf_to_test">✗ A-da sınamaq üçün PDF yoxdur</string>
+    <string name="error_unknown">naməlum xəta</string>
+    <string name="copy_unreadable">fayl oxunmur</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Chọn ổ A (nguồn)</string>
+    <string name="picked_b">Chọn ổ B (đích)</string>
+    <string name="start">Bắt đầu theo dõi</string>
+    <string name="stop">Dừng theo dõi</string>
+    <string name="copy_all">Sao chép tất cả PDF từ A ngay</string>
+    <string name="test">Kiểm tra nhận diện trên A</string>
+    <string name="log_title">Bản sao gần đây</string>
+    <string name="empty_log">Chưa có bản sao: mở một PDF từ ổ A.</string>
+    <string name="state_a">A (nguồn): %1$s</string>
+    <string name="state_b">B (đích): %1$s — thư mục pdf-to-usb</string>
+    <string name="not_set">chưa đặt</string>
+    <string name="channel_copies">Bản sao</string>
+    <string name="waiting">Đang theo dõi A</string>
+    <string name="need_trees">Chọn ổ A và ổ B</string>
+    <string name="channel_update">Cập nhật</string>
+    <string name="update_title">Có bản cập nhật</string>
+    <string name="update_text">Phiên bản %1$s: chạm để cài đặt</string>
+    <string name="update_permission">Cho phép cài đặt từ ứng dụng này một lần, sau đó chạm lại vào bản cập nhật.</string>
+    <string name="update_error">Cập nhật thất bại: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Đã sao chép %1$d · gần nhất: %2$s</string>
+    <string name="copy_error_file">Lỗi ở %1$s</string>
+    <string name="drive_a_missing">Ổ A chưa kết nối</string>
+    <string name="drive_b_missing">B chưa đặt</string>
+    <string name="scan_done">↻ quét thủ công A: %1$d PDF</string>
+    <string name="access_ok">✓ Đã phát hiện ACCESS: theo dõi hoạt động</string>
+    <string name="access_missing">✗ Không phát hiện ACCESS trên thiết bị này</string>
+    <string name="no_pdf_to_test">✗ không có PDF để thử trên A</string>
+    <string name="error_unknown">lỗi không xác định</string>
+    <string name="copy_unreadable">không đọc được tệp</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

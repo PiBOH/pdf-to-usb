@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Choisir clé A (source)</string>
+    <string name="picked_b">Choisir clé B (destination)</string>
+    <string name="start">Démarrer l\'écoute</string>
+    <string name="stop">Arrêter l\'écoute</string>
+    <string name="copy_all">Copier maintenant tous les PDF de A</string>
+    <string name="test">Tester la détection sur A</string>
+    <string name="log_title">Dernières copies</string>
+    <string name="empty_log">Aucune copie : ouvrez un PDF depuis la clé A.</string>
+    <string name="state_a">A (source) : %1$s</string>
+    <string name="state_b">B (destination) : %1$s — dossier pdf-to-usb</string>
+    <string name="not_set">non définie</string>
+    <string name="channel_copies">Copies</string>
+    <string name="waiting">À l\'écoute de A</string>
+    <string name="need_trees">Choisissez la clé A et la clé B</string>
+    <string name="channel_update">Mises à jour</string>
+    <string name="update_title">Mise à jour disponible</string>
+    <string name="update_text">Version %1$s : appuyez pour installer</string>
+    <string name="update_permission">Autorisez une fois l\'installation depuis cette app, puis touchez à nouveau la mise à jour.</string>
+    <string name="update_error">Échec de la mise à jour : %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Copiés %1$d · dernier : %2$s</string>
+    <string name="copy_error_file">Erreur sur %1$s</string>
+    <string name="drive_a_missing">Clé A non connectée</string>
+    <string name="drive_b_missing">B non définie</string>
+    <string name="scan_done">↻ analyse manuelle de A : %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS détecté : l\'écoute fonctionne</string>
+    <string name="access_missing">✗ ACCESS non détecté sur cet appareil</string>
+    <string name="no_pdf_to_test">✗ aucun PDF à tester sur A</string>
+    <string name="error_unknown">erreur inconnue</string>
+    <string name="copy_unreadable">fichier illisible</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

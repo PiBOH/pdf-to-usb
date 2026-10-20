@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">选择 A 盘（来源）</string>
+    <string name="picked_b">选择 B 盘（目标）</string>
+    <string name="start">开始监听</string>
+    <string name="stop">停止监听</string>
+    <string name="copy_all">立即复制 A 中的所有 PDF</string>
+    <string name="test">在 A 上测试检测</string>
+    <string name="log_title">最近的复制</string>
+    <string name="empty_log">还没有复制：请从 A 盘打开一个 PDF。</string>
+    <string name="state_a">A（来源）：%1$s</string>
+    <string name="state_b">B（目标）：%1$s — pdf-to-usb 文件夹</string>
+    <string name="not_set">未设置</string>
+    <string name="channel_copies">复制</string>
+    <string name="waiting">正在监听 A</string>
+    <string name="need_trees">选择 A 盘和 B 盘</string>
+    <string name="channel_update">更新</string>
+    <string name="update_title">有可用更新</string>
+    <string name="update_text">版本 %1$s：点击安装</string>
+    <string name="update_permission">请先允许一次从此应用安装，然后再次点击更新。</string>
+    <string name="update_error">更新失败：%1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">已复制 %1$d 个 · 最新：%2$s</string>
+    <string name="copy_error_file">%1$s 出错</string>
+    <string name="drive_a_missing">A 盘未连接</string>
+    <string name="drive_b_missing">B 未设置</string>
+    <string name="scan_done">↻ 手动扫描 A：%1$d 个 PDF</string>
+    <string name="access_ok">✓ 检测到 ACCESS：监听正常</string>
+    <string name="access_missing">✗ 此设备未检测到 ACCESS</string>
+    <string name="no_pdf_to_test">✗ A 上没有可测试的 PDF</string>
+    <string name="error_unknown">未知错误</string>
+    <string name="copy_unreadable">无法读取文件</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

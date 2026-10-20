@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Vybrať disk A (zdroj)</string>
+    <string name="picked_b">Vybrať disk B (cieľ)</string>
+    <string name="start">Spustiť sledovanie</string>
+    <string name="stop">Zastaviť sledovanie</string>
+    <string name="copy_all">Teraz skopírovať všetky PDF z A</string>
+    <string name="test">Otestovať detekciu na A</string>
+    <string name="log_title">Posledné kópie</string>
+    <string name="empty_log">Žiadne kópie: otvorte PDF z disku A.</string>
+    <string name="state_a">A (zdroj): %1$s</string>
+    <string name="state_b">B (cieľ): %1$s — priečinok pdf-to-usb</string>
+    <string name="not_set">nenastavené</string>
+    <string name="channel_copies">Kópie</string>
+    <string name="waiting">Sledujem A</string>
+    <string name="need_trees">Vyberte disk A a disk B</string>
+    <string name="channel_update">Aktualizácie</string>
+    <string name="update_title">Dostupná aktualizácia</string>
+    <string name="update_text">Verzia %1$s: ťuknutím nainštalujete</string>
+    <string name="update_permission">Povoľte raz inštaláciu z tejto aplikácie a potom znova ťuknite na aktualizáciu.</string>
+    <string name="update_error">Aktualizácia zlyhala: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Skopírované %1$d · posledné: %2$s</string>
+    <string name="copy_error_file">Chyba: %1$s</string>
+    <string name="drive_a_missing">Disk A nie je pripojený</string>
+    <string name="drive_b_missing">B nie je nastavené</string>
+    <string name="scan_done">↻ ručné skenovanie A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS zistený: sledovanie funguje</string>
+    <string name="access_missing">✗ ACCESS sa na tomto zariadení nezistil</string>
+    <string name="no_pdf_to_test">✗ žiadne PDF na test na A</string>
+    <string name="error_unknown">neznáma chyba</string>
+    <string name="copy_unreadable">súbor sa nedá prečítať</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

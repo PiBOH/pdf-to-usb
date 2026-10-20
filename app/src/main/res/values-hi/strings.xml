@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">A ड्राइव चुनें (स्रोत)</string>
+    <string name="picked_b">B ड्राइव चुनें (गंतव्य)</string>
+    <string name="start">निगरानी शुरू करें</string>
+    <string name="stop">निगरानी बंद करें</string>
+    <string name="copy_all">अब A से सभी PDF कॉपी करें</string>
+    <string name="test">A पर पहचान जाँचें</string>
+    <string name="log_title">हाल की कॉपियाँ</string>
+    <string name="empty_log">कोई कॉपी नहीं: A ड्राइव से PDF खोलें।</string>
+    <string name="state_a">A (स्रोत): %1$s</string>
+    <string name="state_b">B (गंतव्य): %1$s — pdf-to-usb फ़ोल्डर</string>
+    <string name="not_set">सेट नहीं है</string>
+    <string name="channel_copies">कॉपियाँ</string>
+    <string name="waiting">A पर निगरानी</string>
+    <string name="need_trees">A ड्राइव और B ड्राइव चुनें</string>
+    <string name="channel_update">अपडेट</string>
+    <string name="update_title">अपडेट उपलब्ध</string>
+    <string name="update_text">संस्करण %1$s: इंस्टॉल करने के लिए टैप करें</string>
+    <string name="update_permission">इस ऐप से इंस्टॉल की अनुमति एक बार दें, फिर अपडेट को दोबारा टैप करें।</string>
+    <string name="update_error">अपडेट विफल: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">%1$d कॉपी हुए · अंतिम: %2$s</string>
+    <string name="copy_error_file">%1$s पर त्रुटि</string>
+    <string name="drive_a_missing">A ड्राइव जुड़ी नहीं है</string>
+    <string name="drive_b_missing">B सेट नहीं है</string>
+    <string name="scan_done">↻ A की मैन्युअल स्कैन: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS मिला: निगरानी काम कर रही है</string>
+    <string name="access_missing">✗ इस डिवाइस पर ACCESS नहीं मिला</string>
+    <string name="no_pdf_to_test">✗ A पर जाँचने के लिए कोई PDF नहीं</string>
+    <string name="error_unknown">अज्ञात त्रुटि</string>
+    <string name="copy_unreadable">फ़ाइल पढ़ी नहीं जा सकती</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

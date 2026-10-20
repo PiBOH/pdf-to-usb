@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">ជ្រើសរើសដ្រាយ A (ប្រភព)</string>
+    <string name="picked_b">ជ្រើសរើសដ្រាយ B (គោលដៅ)</string>
+    <string name="start">ចាប់ផ្តើមតាមដាន</string>
+    <string name="stop">បញ្ឈប់ការតាមដាន</string>
+    <string name="copy_all">ចម្លង PDF ទាំងអស់ពី A ឥឡូវ</string>
+    <string name="test">សាកល្បងការស្វែងរកនៅ A</string>
+    <string name="log_title">ការចម្លងថ្មីៗ</string>
+    <string name="empty_log">មិនមានការចម្លង៖ បើក PDF ពីដ្រាយ A។</string>
+    <string name="state_a">A (ប្រភព): %1$s</string>
+    <string name="state_b">B (គោលដៅ): %1$s — ថត pdf-to-usb</string>
+    <string name="not_set">មិនបានកំណត់</string>
+    <string name="channel_copies">ការចម្លង</string>
+    <string name="waiting">កំពុងតាមដាន A</string>
+    <string name="need_trees">ជ្រើសរើសដ្រាយ A និងដ្រាយ B</string>
+    <string name="channel_update">បច្ចុប្បន្នភាព</string>
+    <string name="update_title">មានបច្ចុប្បន្នភាព</string>
+    <string name="update_text">កំណែ %1$s៖ ប៉ះដើម្បីដំឡើង</string>
+    <string name="update_permission">អនុញ្ញាតការដំឡើងពីកម្មវិធីនេះម្តង បន្ទាប់មកប៉ះបច្ចុប្បន្នភាពម្តងទៀត។</string>
+    <string name="update_error">បច្ចុប្បន្នភាពបរាជ័យ៖ %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">បានចម្លង %1$d · ចុងក្រោយ៖ %2$s</string>
+    <string name="copy_error_file">កំហុសនៅ %1$s</string>
+    <string name="drive_a_missing">ដ្រាយ A មិនបានភ្ជាប់</string>
+    <string name="drive_b_missing">B មិនបានកំណត់</string>
+    <string name="scan_done">↻ ស្កេនដោយដៃ A៖ %1$d PDF</string>
+    <string name="access_ok">✓ រកឃើញ ACCESS៖ ការតាមដានដំណើរការ</string>
+    <string name="access_missing">✗ រកមិនឃើញ ACCESS នៅលើឧបករណ៍នេះ</string>
+    <string name="no_pdf_to_test">✗ គ្មាន PDF សម្រាប់សាកល្បងនៅ A</string>
+    <string name="error_unknown">កំហុសមិនស្គាល់</string>
+    <string name="copy_unreadable">មិនអាចអានឯកសារ</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

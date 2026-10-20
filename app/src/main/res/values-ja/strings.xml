@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">A ドライブを選択（コピー元）</string>
+    <string name="picked_b">B ドライブを選択（コピー先）</string>
+    <string name="start">監視を開始</string>
+    <string name="stop">監視を停止</string>
+    <string name="copy_all">A の PDF をすべて今すぐコピー</string>
+    <string name="test">A で検出をテスト</string>
+    <string name="log_title">最近のコピー</string>
+    <string name="empty_log">コピーはまだありません：A ドライブから PDF を開いてください。</string>
+    <string name="state_a">A（コピー元）：%1$s</string>
+    <string name="state_b">B（コピー先）：%1$s — pdf-to-usb フォルダー</string>
+    <string name="not_set">未設定</string>
+    <string name="channel_copies">コピー</string>
+    <string name="waiting">A を監視中</string>
+    <string name="need_trees">A ドライブと B ドライブを選択</string>
+    <string name="channel_update">アップデート</string>
+    <string name="update_title">アップデートがあります</string>
+    <string name="update_text">バージョン %1$s：タップしてインストール</string>
+    <string name="update_permission">このアプリからのインストールを一度許可してから、もう一度アップデートをタップしてください。</string>
+    <string name="update_error">アップデートに失敗しました：%1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">%1$d 件コピー済み · 最新: %2$s</string>
+    <string name="copy_error_file">%1$s でエラー</string>
+    <string name="drive_a_missing">A ドライブが接続されていません</string>
+    <string name="drive_b_missing">B が未設定です</string>
+    <string name="scan_done">↻ A を手動スキャン: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS を検出: 監視は動作しています</string>
+    <string name="access_missing">✗ この端末では ACCESS を検出できません</string>
+    <string name="no_pdf_to_test">✗ A にテストする PDF がありません</string>
+    <string name="error_unknown">不明なエラー</string>
+    <string name="copy_unreadable">ファイルを読み取れません</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

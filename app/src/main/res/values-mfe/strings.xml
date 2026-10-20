@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Swazir disk A (sours)</string>
+    <string name="picked_b">Swazir disk B (destinasyon)</string>
+    <string name="start">Koumans siveyans</string>
+    <string name="stop">Aret siveyans</string>
+    <string name="copy_all">Kopye tou bann PDF depi A asterla</string>
+    <string name="test">Test deteksyon lor A</string>
+    <string name="log_title">Bann dernie kopi</string>
+    <string name="empty_log">Pena kopi: ouver enn PDF depi disk A.</string>
+    <string name="state_a">A (sours): %1$s</string>
+    <string name="state_b">B (destinasyon): %1$s — dosie pdf-to-usb</string>
+    <string name="not_set">pa konfigire</string>
+    <string name="channel_copies">Kopi</string>
+    <string name="waiting">Pe siveye A</string>
+    <string name="need_trees">Swazir disk A ek disk B</string>
+    <string name="channel_update">Mizaz</string>
+    <string name="update_title">Mizaz disponib</string>
+    <string name="update_text">Versyon %1$s: touche pou instal</string>
+    <string name="update_permission">Permet enn fwa instalasyon depi sa aplikasyon la, apre touche mizaz la ankò.</string>
+    <string name="update_error">Mizaz pa finn marse: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Kopie %1$d · dernie: %2$s</string>
+    <string name="copy_error_file">Erer: %1$s</string>
+    <string name="drive_a_missing">Disk A pa konekte</string>
+    <string name="drive_b_missing">B pa konfigire</string>
+    <string name="scan_done">↻ skan manyel A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS detekte: siveyans la mars</string>
+    <string name="access_missing">✗ ACCESS pa detekte lor sa aparèy</string>
+    <string name="no_pdf_to_test">✗ pena PDF pou test lor A</string>
+    <string name="error_unknown">erer inkoni</string>
+    <string name="copy_unreadable">fisye pa kapav lir</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

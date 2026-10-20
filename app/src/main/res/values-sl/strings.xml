@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Izber disk A (vir)</string>
+    <string name="picked_b">Izber disk B (cilj)</string>
+    <string name="start">Začni spremljanje</string>
+    <string name="stop">Ustavi spremljanje</string>
+    <string name="copy_all">Kopiraj zdaj vse PDF-je z A</string>
+    <string name="test">Preizkusi zaznavanje na A</string>
+    <string name="log_title">Zadnje kopije</string>
+    <string name="empty_log">Ni kopij: odpri PDF z diska A.</string>
+    <string name="state_a">A (vir): %1$s</string>
+    <string name="state_b">B (cilj): %1$s — mapa pdf-to-usb</string>
+    <string name="not_set">ni nastavljeno</string>
+    <string name="channel_copies">Kopije</string>
+    <string name="waiting">Spremljam A</string>
+    <string name="need_trees">Izberi disk A in disk B</string>
+    <string name="channel_update">Posodobitve</string>
+    <string name="update_title">Na voljo je posodobitev</string>
+    <string name="update_text">Različica %1$s: tapnite za namestitev</string>
+    <string name="update_permission">Dovolite enkrat namestitev iz te aplikacije, nato znova tapnite posodobitev.</string>
+    <string name="update_error">Posodobitev ni uspela: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Kopirano %1$d · zadnji: %2$s</string>
+    <string name="copy_error_file">Napaka: %1$s</string>
+    <string name="drive_a_missing">Disk A ni povezan</string>
+    <string name="drive_b_missing">B ni nastavljen</string>
+    <string name="scan_done">↻ ročno skeniranje A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS zaznan: spremljanje deluje</string>
+    <string name="access_missing">✗ ACCESS ni zaznan na tej napravi</string>
+    <string name="no_pdf_to_test">✗ ni PDF-ja za preizkus na A</string>
+    <string name="error_unknown">neznana napaka</string>
+    <string name="copy_unreadable">datoteke ni mogoče prebrati</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

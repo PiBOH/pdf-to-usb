@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Triar unitat A (origen)</string>
+    <string name="picked_b">Triar unitat B (destinació)</string>
+    <string name="start">Inicia l\'escolta</string>
+    <string name="stop">Atura l\'escolta</string>
+    <string name="copy_all">Copia ara tots els PDF de A</string>
+    <string name="test">Prova la detecció a A</string>
+    <string name="log_title">Últimes còpies</string>
+    <string name="empty_log">Cap còpia: obre un PDF de la unitat A.</string>
+    <string name="state_a">A (origen): %1$s</string>
+    <string name="state_b">B (destinació): %1$s — carpeta pdf-to-usb</string>
+    <string name="not_set">no configurada</string>
+    <string name="channel_copies">Còpies</string>
+    <string name="waiting">Escoltant A</string>
+    <string name="need_trees">Tria la unitat A i la unitat B</string>
+    <string name="channel_update">Actualitzacions</string>
+    <string name="update_title">Actualització disponible</string>
+    <string name="update_text">Versió %1$s: toca per instal·lar</string>
+    <string name="update_permission">Permet una vegada la instal·lació des d\'aquesta app i torna a tocar l\'actualització.</string>
+    <string name="update_error">L\'actualització ha fallat: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Copiats %1$d · darrer: %2$s</string>
+    <string name="copy_error_file">Error a %1$s</string>
+    <string name="drive_a_missing">Unitat A no connectada</string>
+    <string name="drive_b_missing">B no configurada</string>
+    <string name="scan_done">↻ escaneig manual de A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS detectat: l\'escolta funciona</string>
+    <string name="access_missing">✗ ACCESS no detectat en aquest dispositiu</string>
+    <string name="no_pdf_to_test">✗ cap PDF per provar a A</string>
+    <string name="error_unknown">error desconegut</string>
+    <string name="copy_unreadable">fitxer no llegible</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

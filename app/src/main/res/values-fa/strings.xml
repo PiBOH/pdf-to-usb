@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">انتخاب درایو A (مبدأ)</string>
+    <string name="picked_b">انتخاب درایو B (مقصد)</string>
+    <string name="start">شروع پایش</string>
+    <string name="stop">توقف پایش</string>
+    <string name="copy_all">اکنون همه PDFها را از A کپی کن</string>
+    <string name="test">آزمایش تشخیص روی A</string>
+    <string name="log_title">آخرین کپی‌ها</string>
+    <string name="empty_log">هیچ کپی‌ای نیست: یک PDF از درایو A باز کنید.</string>
+    <string name="state_a">A (مبدأ): %1$s</string>
+    <string name="state_b">B (مقصد): %1$s — پوشه pdf-to-usb</string>
+    <string name="not_set">تنظیم نشده</string>
+    <string name="channel_copies">کپی‌ها</string>
+    <string name="waiting">در حال پایش A</string>
+    <string name="need_trees">درایو A و درایو B را انتخاب کنید</string>
+    <string name="channel_update">به‌روزرسانی‌ها</string>
+    <string name="update_title">به‌روزرسانی موجود است</string>
+    <string name="update_text">نسخه %1$s: برای نصب ضربه بزنید</string>
+    <string name="update_permission">یک بار نصب از این برنامه را مجاز کنید و سپس دوباره روی به‌روزرسانی ضربه بزنید.</string>
+    <string name="update_error">به‌روزرسانی ناموفق: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">%1$d کپی شد · آخرین: %2$s</string>
+    <string name="copy_error_file">خطا در %1$s</string>
+    <string name="drive_a_missing">درایو A متصل نیست</string>
+    <string name="drive_b_missing">B تنظیم نشده</string>
+    <string name="scan_done">↻ اسکن دستی A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS شناسایی شد: پایش کار می‌کند</string>
+    <string name="access_missing">✗ ACCESS روی این دستگاه شناسایی نشد</string>
+    <string name="no_pdf_to_test">✗ هیچ PDF برای آزمایش روی A نیست</string>
+    <string name="error_unknown">خطای ناشناخته</string>
+    <string name="copy_unreadable">فایل خوانده نمی‌شود</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

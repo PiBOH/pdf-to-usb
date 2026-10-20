@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Pilih drive A (sumber)</string>
+    <string name="picked_b">Pilih drive B (tujuan)</string>
+    <string name="start">Mulai memantau</string>
+    <string name="stop">Hentikan pemantauan</string>
+    <string name="copy_all">Salin semua PDF dari A sekarang</string>
+    <string name="test">Uji deteksi di A</string>
+    <string name="log_title">Salinan terbaru</string>
+    <string name="empty_log">Belum ada salinan: buka PDF dari drive A.</string>
+    <string name="state_a">A (sumber): %1$s</string>
+    <string name="state_b">B (tujuan): %1$s — folder pdf-to-usb</string>
+    <string name="not_set">belum diatur</string>
+    <string name="channel_copies">Salinan</string>
+    <string name="waiting">Memantau A</string>
+    <string name="need_trees">Pilih drive A dan drive B</string>
+    <string name="channel_update">Pembaruan</string>
+    <string name="update_title">Pembaruan tersedia</string>
+    <string name="update_text">Versi %1$s: ketuk untuk memasang</string>
+    <string name="update_permission">Izinkan sekali pemasangan dari aplikasi ini, lalu ketuk pembaruan lagi.</string>
+    <string name="update_error">Pembaruan gagal: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">%1$d disalin · terakhir: %2$s</string>
+    <string name="copy_error_file">Kesalahan pada %1$s</string>
+    <string name="drive_a_missing">Drive A tidak terhubung</string>
+    <string name="drive_b_missing">B belum diatur</string>
+    <string name="scan_done">↻ pemindaian manual A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS terdeteksi: pemantauan berfungsi</string>
+    <string name="access_missing">✗ ACCESS tidak terdeteksi di perangkat ini</string>
+    <string name="no_pdf_to_test">✗ tidak ada PDF untuk diuji di A</string>
+    <string name="error_unknown">kesalahan tidak diketahui</string>
+    <string name="copy_unreadable">berkas tidak dapat dibaca</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

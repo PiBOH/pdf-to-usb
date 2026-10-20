@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">A ഡ്രൈവ് തിരഞ്ഞെടുക്കുക (സ്രോതസ്സ്)</string>
+    <string name="picked_b">B ഡ്രൈവ് തിരഞ്ഞെടുക്കുക (ലക്ഷ്യം)</string>
+    <string name="start">നിരീക്ഷണം ആരംഭിക്കുക</string>
+    <string name="stop">നിരീക്ഷണം നിർത്തുക</string>
+    <string name="copy_all">ഇപ്പോൾ A-യിൽ നിന്ന് എല്ലാ PDF-കളും പകർത്തുക</string>
+    <string name="test">A-യിൽ കണ്ടെത്തൽ പരിശോധിക്കുക</string>
+    <string name="log_title">സമീപകാല പകർപ്പുകൾ</string>
+    <string name="empty_log">പകർപ്പുകളില്ല: A ഡ്രൈവിൽ നിന്ന് ഒരു PDF തുറക്കുക.</string>
+    <string name="state_a">A (സ്രോതസ്സ്): %1$s</string>
+    <string name="state_b">B (ലക്ഷ്യം): %1$s — pdf-to-usb ഫോൾഡർ</string>
+    <string name="not_set">സജ്ജീകരിച്ചിട്ടില്ല</string>
+    <string name="channel_copies">പകർപ്പുകൾ</string>
+    <string name="waiting">A നിരീക്ഷിക്കുന്നു</string>
+    <string name="need_trees">A, B ഡ്രൈവുകൾ തിരഞ്ഞെടുക്കുക</string>
+    <string name="channel_update">അപ്ഡേറ്റുകൾ</string>
+    <string name="update_title">അപ്ഡേറ്റ് ലഭ്യമാണ്</string>
+    <string name="update_text">പതിപ്പ് %1$s: ഇൻസ്റ്റാൾ ചെയ്യാൻ ടാപ്പ് ചെയ്യുക</string>
+    <string name="update_permission">ഈ ആപ്പിൽ നിന്ന് ഇൻസ്റ്റാൾ ചെയ്യാൻ ഒരിക്കൽ അനുവദിക്കുക, തുടർന്ന് അപ്ഡേറ്റിൽ വീണ്ടും ടാപ്പ് ചെയ്യുക.</string>
+    <string name="update_error">അപ്ഡേറ്റ് പരാജയപ്പെട്ടു: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">%1$d പകർത്തി · അവസാനം: %2$s</string>
+    <string name="copy_error_file">%1$s-ൽ പിശക്</string>
+    <string name="drive_a_missing">A ഡ്രൈവ് കണക്ട് ചെയ്തിട്ടില്ല</string>
+    <string name="drive_b_missing">B സജ്ജീകരിച്ചിട്ടില്ല</string>
+    <string name="scan_done">↻ A-യുടെ മാനുവൽ സ്കാൻ: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS കണ്ടെത്തി: നിരീക്ഷണം പ്രവർത്തിക്കുന്നു</string>
+    <string name="access_missing">✗ ഈ ഉപകരണത്തിൽ ACCESS കണ്ടെത്തിയില്ല</string>
+    <string name="no_pdf_to_test">✗ A-യിൽ പരിശോധിക്കാൻ PDF ഇല്ല</string>
+    <string name="error_unknown">അജ്ഞാത പിശക്</string>
+    <string name="copy_unreadable">ഫയൽ വായിക്കാനാകുന്നില്ല</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">A sürücüsünü seç (kaynak)</string>
+    <string name="picked_b">B sürücüsünü seç (hedef)</string>
+    <string name="start">Dinlemeyi başlat</string>
+    <string name="stop">Dinlemeyi durdur</string>
+    <string name="copy_all">Şimdi A\'daki tüm PDF\'leri kopyala</string>
+    <string name="test">A\'da algılamayı test et</string>
+    <string name="log_title">Son kopyalar</string>
+    <string name="empty_log">Kopya yok: A sürücüsünden bir PDF aç.</string>
+    <string name="state_a">A (kaynak): %1$s</string>
+    <string name="state_b">B (hedef): %1$s — pdf-to-usb klasörü</string>
+    <string name="not_set">ayarlanmadı</string>
+    <string name="channel_copies">Kopyalar</string>
+    <string name="waiting">A dinleniyor</string>
+    <string name="need_trees">A ve B sürücülerini seç</string>
+    <string name="channel_update">Güncellemeler</string>
+    <string name="update_title">Güncelleme mevcut</string>
+    <string name="update_text">Sürüm %1$s: yüklemek için dokun</string>
+    <string name="update_permission">Bu uygulamadan yüklemeye bir kez izin ver, sonra güncellemeye tekrar dokun.</string>
+    <string name="update_error">Güncelleme başarısız: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Kopyalandı %1$d · son: %2$s</string>
+    <string name="copy_error_file">Hata: %1$s</string>
+    <string name="drive_a_missing">A sürücüsü bağlı değil</string>
+    <string name="drive_b_missing">B ayarlanmadı</string>
+    <string name="scan_done">↻ A elle tarandı: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS algılandı: dinleme çalışıyor</string>
+    <string name="access_missing">✗ bu cihazda ACCESS algılanmadı</string>
+    <string name="no_pdf_to_test">✗ A\'da test edilecek PDF yok</string>
+    <string name="error_unknown">bilinmeyen hata</string>
+    <string name="copy_unreadable">dosya okunamıyor</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

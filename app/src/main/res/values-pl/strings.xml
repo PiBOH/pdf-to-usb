@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Wybierz dysk A (źródło)</string>
+    <string name="picked_b">Wybierz dysk B (cel)</string>
+    <string name="start">Rozpocznij nasłuch</string>
+    <string name="stop">Zatrzymaj nasłuch</string>
+    <string name="copy_all">Skopiuj teraz wszystkie PDF-y z A</string>
+    <string name="test">Testuj wykrywanie na A</string>
+    <string name="log_title">Ostatnie kopie</string>
+    <string name="empty_log">Brak kopii: otwórz PDF z dysku A.</string>
+    <string name="state_a">A (źródło): %1$s</string>
+    <string name="state_b">B (cel): %1$s — folder pdf-to-usb</string>
+    <string name="not_set">nie ustawiono</string>
+    <string name="channel_copies">Kopie</string>
+    <string name="waiting">Nasłuchuję A</string>
+    <string name="need_trees">Wybierz dysk A i dysk B</string>
+    <string name="channel_update">Aktualizacje</string>
+    <string name="update_title">Dostępna aktualizacja</string>
+    <string name="update_text">Wersja %1$s: dotknij, aby zainstalować</string>
+    <string name="update_permission">Zezwól raz na instalowanie z tej aplikacji, a następnie dotknij aktualizacji ponownie.</string>
+    <string name="update_error">Aktualizacja nie powiodła się: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Skopiowano %1$d · ostatni: %2$s</string>
+    <string name="copy_error_file">Błąd: %1$s</string>
+    <string name="drive_a_missing">Dysk A nie jest podłączony</string>
+    <string name="drive_b_missing">B nie ustawiono</string>
+    <string name="scan_done">↻ ręczne skanowanie A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS wykryty: nasłuch działa</string>
+    <string name="access_missing">✗ nie wykryto ACCESS na tym urządzeniu</string>
+    <string name="no_pdf_to_test">✗ brak PDF do testu na A</string>
+    <string name="error_unknown">nieznany błąd</string>
+    <string name="copy_unreadable">nie można odczytać pliku</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

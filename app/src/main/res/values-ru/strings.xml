@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Выбрать диск A (источник)</string>
+    <string name="picked_b">Выбрать диск B (назначение)</string>
+    <string name="start">Начать наблюдение</string>
+    <string name="stop">Остановить наблюдение</string>
+    <string name="copy_all">Скопировать все PDF с A сейчас</string>
+    <string name="test">Проверить обнаружение на A</string>
+    <string name="log_title">Последние копии</string>
+    <string name="empty_log">Копий нет: откройте PDF с диска A.</string>
+    <string name="state_a">A (источник): %1$s</string>
+    <string name="state_b">B (назначение): %1$s — папка pdf-to-usb</string>
+    <string name="not_set">не задано</string>
+    <string name="channel_copies">Копии</string>
+    <string name="waiting">Наблюдаю за A</string>
+    <string name="need_trees">Выберите диск A и диск B</string>
+    <string name="channel_update">Обновления</string>
+    <string name="update_title">Доступно обновление</string>
+    <string name="update_text">Версия %1$s: нажмите, чтобы установить</string>
+    <string name="update_permission">Разрешите один раз установку из этого приложения, затем снова нажмите на обновление.</string>
+    <string name="update_error">Не удалось обновить: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Скопировано %1$d · последний: %2$s</string>
+    <string name="copy_error_file">Ошибка: %1$s</string>
+    <string name="drive_a_missing">Диск A не подключён</string>
+    <string name="drive_b_missing">B не задано</string>
+    <string name="scan_done">↻ ручное сканирование A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS обнаружен: наблюдение работает</string>
+    <string name="access_missing">✗ ACCESS не обнаружен на этом устройстве</string>
+    <string name="no_pdf_to_test">✗ нет PDF для проверки на A</string>
+    <string name="error_unknown">неизвестная ошибка</string>
+    <string name="copy_unreadable">файл не читается</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

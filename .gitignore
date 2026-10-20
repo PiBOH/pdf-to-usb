@@ -1,0 +1,17 @@
+.ignore/
+.freebuff/
+
+# Android / Gradle
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+captures/
+*.apk
+*.aab
+
+# Firma: mai nel repository
+*.keystore
+*.jks
+keystore.properties

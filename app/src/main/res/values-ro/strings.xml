@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Alege unitatea A (sursă)</string>
+    <string name="picked_b">Alege unitatea B (destinație)</string>
+    <string name="start">Pornește ascultarea</string>
+    <string name="stop">Oprește ascultarea</string>
+    <string name="copy_all">Copiază acum toate PDF-urile de pe A</string>
+    <string name="test">Testează detectarea pe A</string>
+    <string name="log_title">Ultimele copieri</string>
+    <string name="empty_log">Nicio copiere: deschide un PDF de pe unitatea A.</string>
+    <string name="state_a">A (sursă): %1$s</string>
+    <string name="state_b">B (destinație): %1$s — folderul pdf-to-usb</string>
+    <string name="not_set">nesetată</string>
+    <string name="channel_copies">Copieri</string>
+    <string name="waiting">Ascult A</string>
+    <string name="need_trees">Alege unitatea A și unitatea B</string>
+    <string name="channel_update">Actualizări</string>
+    <string name="update_title">Actualizare disponibilă</string>
+    <string name="update_text">Versiunea %1$s: atingeți pentru a instala</string>
+    <string name="update_permission">Permiteți o dată instalarea din această aplicație, apoi atingeți din nou actualizarea.</string>
+    <string name="update_error">Actualizarea a eșuat: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Copiate %1$d · ultimul: %2$s</string>
+    <string name="copy_error_file">Eroare la %1$s</string>
+    <string name="drive_a_missing">Unitatea A nu este conectată</string>
+    <string name="drive_b_missing">B nu este setată</string>
+    <string name="scan_done">↻ scanare manuală a A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS detectat: ascultarea funcționează</string>
+    <string name="access_missing">✗ ACCESS nedetectat pe acest dispozitiv</string>
+    <string name="no_pdf_to_test">✗ niciun PDF de testat pe A</string>
+    <string name="error_unknown">eroare necunoscută</string>
+    <string name="copy_unreadable">fișierul nu poate fi citit</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

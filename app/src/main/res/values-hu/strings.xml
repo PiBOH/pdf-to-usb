@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">A meghajtó kiválasztása (forrás)</string>
+    <string name="picked_b">B meghajtó kiválasztása (cél)</string>
+    <string name="start">Figyelés indítása</string>
+    <string name="stop">Figyelés leállítása</string>
+    <string name="copy_all">Most másold az összes PDF-et A-ról</string>
+    <string name="test">Detektálás tesztelése A-n</string>
+    <string name="log_title">Legutóbbi másolások</string>
+    <string name="empty_log">Nincs másolás: nyiss meg egy PDF-et az A meghajtóról.</string>
+    <string name="state_a">A (forrás): %1$s</string>
+    <string name="state_b">B (cél): %1$s — pdf-to-usb mappa</string>
+    <string name="not_set">nincs beállítva</string>
+    <string name="channel_copies">Másolások</string>
+    <string name="waiting">A figyelése</string>
+    <string name="need_trees">Válaszd ki az A és a B meghajtót</string>
+    <string name="channel_update">Frissítések</string>
+    <string name="update_title">Frissítés érhető el</string>
+    <string name="update_text">Verzió %1$s: koppints a telepítéshez</string>
+    <string name="update_permission">Engedélyezd egyszer a telepítést ebből az appból, majd koppints újra a frissítésre.</string>
+    <string name="update_error">A frissítés nem sikerült: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Másolva %1$d · utolsó: %2$s</string>
+    <string name="copy_error_file">Hiba: %1$s</string>
+    <string name="drive_a_missing">Az A meghajtó nincs csatlakoztatva</string>
+    <string name="drive_b_missing">B nincs beállítva</string>
+    <string name="scan_done">↻ A kézi beolvasása: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS észlelve: a figyelés működik</string>
+    <string name="access_missing">✗ ACCESS nem észlelhető ezen az eszközön</string>
+    <string name="no_pdf_to_test">✗ nincs PDF a teszteléshez az A-n</string>
+    <string name="error_unknown">ismeretlen hiba</string>
+    <string name="copy_unreadable">a fájl nem olvasható</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

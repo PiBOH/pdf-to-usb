@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">בחירת כונן A (מקור)</string>
+    <string name="picked_b">בחירת כונן B (יעד)</string>
+    <string name="start">התחלת האזנה</string>
+    <string name="stop">עצירת האזנה</string>
+    <string name="copy_all">העתק עכשיו את כל קובצי ה-PDF מ-A</string>
+    <string name="test">בדיקת זיהוי ב-A</string>
+    <string name="log_title">העותקים האחרונים</string>
+    <string name="empty_log">אין העתקים: פתחו PDF מכונן A.</string>
+    <string name="state_a">A (מקור): %1$s</string>
+    <string name="state_b">B (יעד): %1$s — תיקיית pdf-to-usb</string>
+    <string name="not_set">לא מוגדרת</string>
+    <string name="channel_copies">העתקים</string>
+    <string name="waiting">מאזין ל-A</string>
+    <string name="need_trees">בחרו כונן A וכונן B</string>
+    <string name="channel_update">עדכונים</string>
+    <string name="update_title">עדכון זמין</string>
+    <string name="update_text">גרסה %1$s: הקש להתקנה</string>
+    <string name="update_permission">אפשר פעם אחת התקנה מהאפליקציה הזו ואז הקש שוב על העדכון.</string>
+    <string name="update_error">העדכון נכשל: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">הועתקו %1$d · אחרון: %2$s</string>
+    <string name="copy_error_file">שגיאה ב-%1$s</string>
+    <string name="drive_a_missing">כונן A לא מחובר</string>
+    <string name="drive_b_missing">B לא מוגדרת</string>
+    <string name="scan_done">↻ סריקה ידנית של A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS זוהה: ההאזנה עובדת</string>
+    <string name="access_missing">✗ ACCESS לא זוהה במכשיר הזה</string>
+    <string name="no_pdf_to_test">✗ אין PDF לבדיקה ב-A</string>
+    <string name="error_unknown">שגיאה לא ידועה</string>
+    <string name="copy_unreadable">הקובץ אינו קריא</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

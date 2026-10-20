@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Выбраць дыск A (крыніца)</string>
+    <string name="picked_b">Выбраць дыск B (прызначэнне)</string>
+    <string name="start">Пачаць назіранне</string>
+    <string name="stop">Спыніць назіранне</string>
+    <string name="copy_all">Скапіраваць усе PDF з A зараз</string>
+    <string name="test">Праверыць выяўленне на A</string>
+    <string name="log_title">Апошнія копіі</string>
+    <string name="empty_log">Копій няма: адкрыйце PDF з дыска A.</string>
+    <string name="state_a">A (крыніца): %1$s</string>
+    <string name="state_b">B (прызначэнне): %1$s — тэчка pdf-to-usb</string>
+    <string name="not_set">не зададзена</string>
+    <string name="channel_copies">Копіі</string>
+    <string name="waiting">Назіраю за A</string>
+    <string name="need_trees">Выберыце дыск A і дыск B</string>
+    <string name="channel_update">Абнаўленні</string>
+    <string name="update_title">Даступна абнаўленне</string>
+    <string name="update_text">Версія %1$s: націсніце, каб усталяваць</string>
+    <string name="update_permission">Дазвольце адзін раз усталяванне з гэтай праграмы, затым зноў націсніце на абнаўленне.</string>
+    <string name="update_error">Не ўдалося абнавіць: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Скапіравана %1$d · апошні: %2$s</string>
+    <string name="copy_error_file">Памылка: %1$s</string>
+    <string name="drive_a_missing">Дыск A не падключаны</string>
+    <string name="drive_b_missing">B не зададзена</string>
+    <string name="scan_done">↻ ручное сканаванне A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS выяўлены: назіранне працуе</string>
+    <string name="access_missing">✗ ACCESS не выяўлены на гэтай прыладзе</string>
+    <string name="no_pdf_to_test">✗ няма PDF для праверкі на A</string>
+    <string name="error_unknown">невядомая памылка</string>
+    <string name="copy_unreadable">файл не чытаецца</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

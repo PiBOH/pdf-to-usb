@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Επιλογή μονάδας A (πηγή)</string>
+    <string name="picked_b">Επιλογή μονάδας B (προορισμός)</string>
+    <string name="start">Έναρξη παρακολούθησης</string>
+    <string name="stop">Διακοπή παρακολούθησης</string>
+    <string name="copy_all">Αντιγραφή όλων των PDF από το A τώρα</string>
+    <string name="test">Δοκιμή ανίχνευσης στο A</string>
+    <string name="log_title">Πρόσφατες αντιγραφές</string>
+    <string name="empty_log">Δεν υπάρχουν αντιγραφές: άνοιξε ένα PDF από τη μονάδα A.</string>
+    <string name="state_a">A (πηγή): %1$s</string>
+    <string name="state_b">B (προορισμός): %1$s — φάκελος pdf-to-usb</string>
+    <string name="not_set">δεν έχει οριστεί</string>
+    <string name="channel_copies">Αντιγραφές</string>
+    <string name="waiting">Παρακολούθηση A</string>
+    <string name="need_trees">Επιλογή μονάδας A και μονάδας B</string>
+    <string name="channel_update">Ενημερώσεις</string>
+    <string name="update_title">Διαθέσιμη ενημέρωση</string>
+    <string name="update_text">Έκδοση %1$s: πατήστε για εγκατάσταση</string>
+    <string name="update_permission">Επιτρέψτε μία φορά την εγκατάσταση από αυτή την εφαρμογή και μετά πατήστε ξανά την ενημέρωση.</string>
+    <string name="update_error">Η ενημέρωση απέτυχε: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Αντιγράφηκαν %1$d · τελευταίο: %2$s</string>
+    <string name="copy_error_file">Σφάλμα: %1$s</string>
+    <string name="drive_a_missing">Η μονάδα A δεν είναι συνδεδεμένη</string>
+    <string name="drive_b_missing">B δεν έχει οριστεί</string>
+    <string name="scan_done">↻ χειροκίνητη σάρωση A: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS εντοπίστηκε: η παρακολούθηση λειτουργεί</string>
+    <string name="access_missing">✗ ACCESS δεν εντοπίστηκε σε αυτή τη συσκευή</string>
+    <string name="no_pdf_to_test">✗ δεν υπάρχει PDF για δοκιμή στο A</string>
+    <string name="error_unknown">άγνωστο σφάλμα</string>
+    <string name="copy_unreadable">το αρχείο δεν είναι αναγνώσιμο</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

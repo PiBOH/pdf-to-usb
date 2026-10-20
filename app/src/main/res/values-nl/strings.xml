@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">Schijf A kiezen (bron)</string>
+    <string name="picked_b">Schijf B kiezen (doel)</string>
+    <string name="start">Bewaking starten</string>
+    <string name="stop">Bewaking stoppen</string>
+    <string name="copy_all">Nu alle pdf\'s van A kopiëren</string>
+    <string name="test">Detectie op A testen</string>
+    <string name="log_title">Recente kopieën</string>
+    <string name="empty_log">Nog geen kopieën: open een pdf vanaf schijf A.</string>
+    <string name="state_a">A (bron): %1$s</string>
+    <string name="state_b">B (doel): %1$s — map pdf-to-usb</string>
+    <string name="not_set">niet ingesteld</string>
+    <string name="channel_copies">Kopieën</string>
+    <string name="waiting">Luistert op A</string>
+    <string name="need_trees">Kies schijf A en schijf B</string>
+    <string name="channel_update">Updates</string>
+    <string name="update_title">Update beschikbaar</string>
+    <string name="update_text">Versie %1$s: tik om te installeren</string>
+    <string name="update_permission">Sta één keer installeren vanuit deze app toe en tik daarna opnieuw op de update.</string>
+    <string name="update_error">Update mislukt: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">Gekopieerd %1$d · laatst: %2$s</string>
+    <string name="copy_error_file">Fout bij %1$s</string>
+    <string name="drive_a_missing">Schijf A niet verbonden</string>
+    <string name="drive_b_missing">B niet ingesteld</string>
+    <string name="scan_done">↻ handmatige scan van A: %1$d pdf\'s</string>
+    <string name="access_ok">✓ ACCESS gedetecteerd: bewaking werkt</string>
+    <string name="access_missing">✗ ACCESS niet gedetecteerd op dit apparaat</string>
+    <string name="no_pdf_to_test">✗ geen pdf om te testen op A</string>
+    <string name="error_unknown">onbekende fout</string>
+    <string name="copy_unreadable">bestand niet leesbaar</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

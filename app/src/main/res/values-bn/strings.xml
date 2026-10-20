@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">A ড্রাইভ বাছুন (উৎস)</string>
+    <string name="picked_b">B ড্রাইভ বাছুন (গন্তব্য)</string>
+    <string name="start">নজরদারি শুরু করুন</string>
+    <string name="stop">নজরদারি বন্ধ করুন</string>
+    <string name="copy_all">এখন A থেকে সব PDF কপি করুন</string>
+    <string name="test">A-তে শনাক্তকরণ পরীক্ষা করুন</string>
+    <string name="log_title">সাম্প্রতিক কপি</string>
+    <string name="empty_log">কোনো কপি নেই: A ড্রাইভ থেকে একটি PDF খুলুন।</string>
+    <string name="state_a">A (উৎস): %1$s</string>
+    <string name="state_b">B (গন্তব্য): %1$s — pdf-to-usb ফোল্ডার</string>
+    <string name="not_set">সেট করা হয়নি</string>
+    <string name="channel_copies">কপি</string>
+    <string name="waiting">A-তে নজরদারি</string>
+    <string name="need_trees">A ও B ড্রাইভ বাছুন</string>
+    <string name="channel_update">আপডেট</string>
+    <string name="update_title">আপডেট উপলব্ধ</string>
+    <string name="update_text">সংস্করণ %1$s: ইনস্টল করতে ট্যাপ করুন</string>
+    <string name="update_permission">এই অ্যাপ থেকে ইনস্টল করার অনুমতি একবার দিন, তারপর আপডেটে আবার ট্যাপ করুন।</string>
+    <string name="update_error">আপডেট ব্যর্থ: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">%1$d কপি হয়েছে · সর্বশেষ: %2$s</string>
+    <string name="copy_error_file">%1$s-এ ত্রুটি</string>
+    <string name="drive_a_missing">A ড্রাইভ সংযুক্ত নয়</string>
+    <string name="drive_b_missing">B সেট করা হয়নি</string>
+    <string name="scan_done">↻ A-এর ম্যানুয়াল স্ক্যান: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS শনাক্ত হয়েছে: নজরদারি কাজ করছে</string>
+    <string name="access_missing">✗ এই ডিভাইসে ACCESS শনাক্ত হয়নি</string>
+    <string name="no_pdf_to_test">✗ A-তে পরীক্ষার জন্য PDF নেই</string>
+    <string name="error_unknown">অজানা ত্রুটি</string>
+    <string name="copy_unreadable">ফাইল পড়া যাচ্ছে না</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>

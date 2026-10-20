@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pdf To Usb</string>
+    <string name="picked_a">A ਡਰਾਈਵ ਚੁਣੋ (ਸਰੋਤ)</string>
+    <string name="picked_b">B ਡਰਾਈਵ ਚੁਣੋ (ਟਿਕਾਣਾ)</string>
+    <string name="start">ਨਿਗਰਾਨੀ ਸ਼ੁਰੂ ਕਰੋ</string>
+    <string name="stop">ਨਿਗਰਾਨੀ ਬੰਦ ਕਰੋ</string>
+    <string name="copy_all">ਹੁਣ A ਤੋਂ ਸਾਰੇ PDF ਕਾਪੀ ਕਰੋ</string>
+    <string name="test">A ’ਤੇ ਖੋਜ ਜਾਂਚੋ</string>
+    <string name="log_title">ਤਾਜ਼ਾ ਕਾਪੀਆਂ</string>
+    <string name="empty_log">ਕੋਈ ਕਾਪੀ ਨਹੀਂ: A ਡਰਾਈਵ ਤੋਂ PDF ਖੋਲ੍ਹੋ।</string>
+    <string name="state_a">A (ਸਰੋਤ): %1$s</string>
+    <string name="state_b">B (ਟਿਕਾਣਾ): %1$s — pdf-to-usb ਫੋਲਡਰ</string>
+    <string name="not_set">ਸੈੱਟ ਨਹੀਂ</string>
+    <string name="channel_copies">ਕਾਪੀਆਂ</string>
+    <string name="waiting">A ’ਤੇ ਨਿਗਰਾਨੀ</string>
+    <string name="need_trees">A ਅਤੇ B ਡਰਾਈਵ ਚੁਣੋ</string>
+    <string name="channel_update">ਅੱਪਡੇਟ</string>
+    <string name="update_title">ਅੱਪਡੇਟ ਉਪਲਬਧ</string>
+    <string name="update_text">ਵਰਜਨ %1$s: ਇੰਸਟਾਲ ਕਰਨ ਲਈ ਟੈਪ ਕਰੋ</string>
+    <string name="update_permission">ਇਸ ਐਪ ਤੋਂ ਇੰਸਟਾਲ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਇੱਕ ਵਾਰ ਦਿਓ, ਫਿਰ ਅੱਪਡੇਟ ਨੂੰ ਦੁਬਾਰਾ ਟੈਪ ਕਰੋ।</string>
+    <string name="update_error">ਅੱਪਡੇਟ ਅਸਫਲ: %1$s</string>
+    <string name="copy_ok">✓ %1$s → pdf-to-usb</string>
+    <string name="copy_error_detail">✗ %1$s: %2$s</string>
+    <string name="copy_progress">%1$d ਕਾਪੀ ਹੋਏ · ਆਖਰੀ: %2$s</string>
+    <string name="copy_error_file">%1$s ’ਤੇ ਤਰੁੱਟੀ</string>
+    <string name="drive_a_missing">A ਡਰਾਈਵ ਜੁੜੀ ਨਹੀਂ</string>
+    <string name="drive_b_missing">B ਸੈੱਟ ਨਹੀਂ</string>
+    <string name="scan_done">↻ A ਦੀ ਹੱਥੀ ਸਕੈਨ: %1$d PDF</string>
+    <string name="access_ok">✓ ACCESS ਮਿਲਿਆ: ਨਿਗਰਾਨੀ ਕੰਮ ਕਰ ਰਹੀ ਹੈ</string>
+    <string name="access_missing">✗ ਇਸ ਡਿਵਾਈਸ ’ਤੇ ACCESS ਨਹੀਂ ਮਿਲਿਆ</string>
+    <string name="no_pdf_to_test">✗ A ’ਤੇ ਜਾਂਚ ਲਈ PDF ਨਹੀਂ</string>
+    <string name="error_unknown">ਅਣਜਾਣ ਤਰੁੱਟੀ</string>
+    <string name="copy_unreadable">ਫਾਈਲ ਪੜ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕਦੀ</string>
+    <string name="notification_title">Pdf To Usb</string>
+</resources>
