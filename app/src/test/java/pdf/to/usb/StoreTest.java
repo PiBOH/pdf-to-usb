@@ -3,6 +3,7 @@ package pdf.to.usb;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.DocumentsContract;
@@ -62,6 +63,27 @@ public class StoreTest {
         org.junit.Assert.assertTrue(lines[0], lines[0].contains("2"));
         org.junit.Assert.assertTrue(lines[0], lines[0].endsWith("a.pdf"));
         org.junit.Assert.assertTrue(lines[1], lines[1].contains("a.pdf"));
+    }
+
+    /** A week old line disappears on read, and the next write drops it from storage. */
+    @Test
+    public void logDropsLinesOlderThanAWeek() {
+        Context c = RuntimeEnvironment.getApplication();
+        long now = System.currentTimeMillis();
+        long week = 7L * 24 * 60 * 60 * 1000;
+        String fresh = (now - 60_000) + "\u001e10:01  recente";
+        String old = (now - week - 60_000) + "\u001e10:00  vecchia";
+        c.getSharedPreferences("pdf-to-usb", Context.MODE_PRIVATE).edit()
+                .putString("log", old + "\n" + fresh).commit();
+
+        String[] lines = Store.log(c);
+        assertEquals(1, lines.length);
+        org.junit.Assert.assertTrue(lines[0], lines[0].endsWith("recente"));
+
+        Store.log(c, "copy_ok", "a.pdf");
+        String stored = c.getSharedPreferences("pdf-to-usb", Context.MODE_PRIVATE)
+                .getString("log", "");
+        org.junit.Assert.assertFalse(stored, stored.contains("vecchia"));
     }
 
     @Test

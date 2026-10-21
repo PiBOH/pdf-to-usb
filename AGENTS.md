@@ -16,8 +16,8 @@ foreground service, and updates itself from this repository's GitHub releases.
 - **Android**: `minSdk 21`, `targetSdk 28`, `compileSdk 35` (the target devices run Android
   5.0 to 9.0)
 - **Dependencies**: `androidx.documentfile`, `androidx.core` (FileProvider). Nothing else.
-- **UI**: one Activity, one layout, platform Material light theme, no AppCompat: header,
-  a status card, the action rows, the copy log and a bottom bar with language and updates.
+- **UI**: one Activity, four screens (drives, log, language, updates) behind a tab bar,
+  platform widgets only, no AppCompat. Listening is on by default.
 - **Locales**: 57 `values-*` folders, base language English in `values/`.
 - **Language**: English is the default everywhere: app, docs, code comments, commit
   messages. Android picks the system language when it matches a `values-*` folder; the
@@ -37,7 +37,7 @@ foreground service, and updates itself from this repository's GitHub releases.
 | `.github/workflows/build.yml` | debug build + tests + lint on every push and PR |
 | `.github/workflows/auto-release.yml` | signed release on a `v...` commit or manual run |
 | `icon.png`, `logo.png` | artwork: launcher source and README mark (§8) |
-| `tools/icons.py` | regenerates the artwork and every launcher mipmap (§8) |
+| `.ignore/tools/icons.py` | regenerates the artwork and every launcher mipmap (§8), gitignored on purpose |
 | `docs/NOTE.md` | technical notes, limits, release and signing details |
 | `README.md`, `AGENTS.md`, `LICENSE` | the only documentation files at the root |
 
@@ -54,7 +54,7 @@ with an English name; a document that grows beyond one screen starts with a summ
 | `PdfWatcher.java` | `FileObserver.ACCESS` watcher on drive A |
 | `CopyService.java` | foreground service: watches every removable volume except B, queue, retries, notification |
 | `Volumes.java` | `StorageManager`/`StorageVolume` detection, SAF tree to filesystem path |
-| `Store.java` | preferences (trees A/B, language, copy log, update timestamp) |
+| `Store.java` | preferences (trees A/B, language, copy log with 7 day retention, update timestamp) |
 | `Lang.java` | language list, BCP 47 tags, context with the chosen language |
 | `Update.java` | GitHub release check, version compare, APK download, install intent |
 | `MainActivity.java` | the four screens (drives, log, language, updates), automatic drive detection, pickers |
@@ -168,9 +168,9 @@ device run, not a "should be fine".
   square.
 - `mipmap-*/ic_launcher.png` and `ic_launcher_foreground.png` are generated from
   `matrix_logo.svg`; `mipmap-anydpi-v26/ic_launcher.xml` is the adaptive icon (background
-  `@color/icon_background`, the first stop of the SVG gradient). `python3 tools/icons.py`
-  (standard library only) redraws every PNG from the SVG geometry, so regenerate with it
-  instead of hand-editing the files.
+  `@color/icon_background`, the first stop of the SVG gradient). `python3 .ignore/tools/icons.py`
+  (standard library only, kept outside the repository on the owner's request) redraws every
+  PNG from the SVG geometry, so regenerate with it instead of hand-editing the files.
 - Launcher icons live in `mipmap`: `drawable` is for the notification vector only. The
   manifest declares `android:icon` and no `android:roundIcon` (a square round icon makes lint
   report five `IconLauncherShape` warnings).

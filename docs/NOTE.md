@@ -83,9 +83,11 @@ so opening a PDF already on the destination does nothing.
 - `targetSdk 28`: no scoped storage (Android 10+ is out of target) and no foreground service
   type requirement. The supported range is Android **5.0 to 9.0** (API 21-28); on 6/7/8/9 the
   foreground service behaves as required.
-- Verified by local unit tests (36 tests: copy engine, names, dedupe, partial-file cleanup,
-  store, automatic A/B detection, language tags, screen and tab bar, service strings,
-  translations, updater version compare and JSON parsing).
+- Verified by local unit tests (42 test cases: copy engine, names, dedupe, partial-file
+  cleanup, store and the 7 day log, automatic A/B detection, language tags, screen, tab bar
+  and service start, service strings, translations, updater version compare and JSON
+  parsing). `ScreenTest.screenOpensOnOldAndroid` runs the screen on Robolectric API 21, 23,
+  24 and 26, so Android 5.0, 6.0, 7.0 and 8.0 are exercised, not only API 28.
   **Never executed on real hardware.**
 
 ## 4. What is not silent (and cannot be)
@@ -216,10 +218,11 @@ log.
 
 ## 9. Icons
 
-`matrix_logo.svg` at the repository root is the source of the mark. `tools/icons.py`
-(python3, standard library only) renders it into `icon.png` (1024 px), `logo.png` (512 px,
-the README mark), `mipmap-*/ic_launcher.png` and `mipmap-*/ic_launcher_foreground.png`:
-all the PNGs, so regenerate with `python3 tools/icons.py` instead of hand-editing files.
+`matrix_logo.svg` at the repository root is the source of the mark. The generator
+`icons.py` (python3, standard library only) lives in `.ignore/tools/`, outside the repository
+by the owner's decision, and renders the SVG into `icon.png` (1024 px), `logo.png` (512 px,
+the README mark), `mipmap-*/ic_launcher.png` and `mipmap-*/ic_launcher_foreground.png`.
+Regenerate with `python3 .ignore/tools/icons.py` instead of hand-editing the files.
 The SVG shapes are redrawn with the same geometry (rounded square, page with folded corner,
 red PDF badge, matrix rain) and the `<text>` elements are read from the SVG itself; the
 script uses a small built-in 5x7 font because no font or renderer library is available.
@@ -264,6 +267,10 @@ missing monochrome layer (Android 13 only, out of the target range).
   formatted text, and are formatted with the language in force when the screen draws them.
   A language change therefore re-reads old entries in the new language instead of mixing
   languages; non-resource lines (a version tag) stay as they are (`Store.logRaw`).
+  Each line also carries its epoch, and `Store.recent` drops anything older than **7 days**:
+  on read, so the list never shows stale rows, and on write, so the preference shrinks. There
+  is no alarm and no background job, only the moment the log is touched. Lines written by
+  versions before this format (no epoch) are kept as they are, since their age is unknown.
 - Lint: `BatteryLife` is disabled in `app/build.gradle` because the battery exemption is a
   requested feature, together with `AppBundleLocaleChanges`; the two tolerated warnings are
   unchanged.

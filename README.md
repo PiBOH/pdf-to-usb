@@ -25,6 +25,7 @@ copied as well.
   leave it out of battery optimization (a normal system dialog)
 - four screens behind a tab bar: **Drives**, **Log**, **Language**, **Updates**
 - dedupe by name and size; a different PDF with the same name becomes `name (2).pdf`
+- the copy log keeps the last 7 days by itself, so old rows never pile up
 - English by default, with 57 languages taken from
   [vivizzz007/vivi-music](https://github.com/vivizzz007/vivi-music), picked from the
   **Language** screen or from the Android language
@@ -63,7 +64,8 @@ from A now**: details in [docs/NOTE.md](docs/NOTE.md).
 ```
 
 JDK 17+ (CI uses 21) and Android SDK 35. The version lives only in [version.txt](version.txt).
-Regenerate the launcher icons from `matrix_logo.svg` with `python3 tools/icons.py`.
+Regenerate the launcher icons from `matrix_logo.svg` with the `icons.py` script kept outside
+the repository.
 
 ## Updates
 

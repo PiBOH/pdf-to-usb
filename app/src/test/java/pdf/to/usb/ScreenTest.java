@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
+import org.robolectric.Shadows;
 import org.robolectric.android.controller.ServiceController;
 import org.robolectric.annotation.Config;
 
@@ -24,6 +25,24 @@ public class ScreenTest {
     @Before
     public void noUpdateCheck() {
         Store.markUpdateCheck(RuntimeEnvironment.getApplication(), System.currentTimeMillis());
+    }
+
+    /** The screen must open on every Android version of the supported range (5.0 to 8.0). */
+    @Test
+    @Config(sdk = {21, 23, 24, 26})
+    public void screenOpensOnOldAndroid() {
+        MainActivity activity = Robolectric.buildActivity(MainActivity.class).setup().get();
+        assertNotNull(activity.findViewById(R.id.toggle));
+        assertEquals(View.VISIBLE, activity.findViewById(R.id.screen_drives).getVisibility());
+    }
+
+    /** Listening starts by itself: opening the screen asks the service to run. */
+    @Test
+    public void openingTheScreenStartsTheService() {
+        Robolectric.buildActivity(MainActivity.class).setup().get();
+        Intent started = Shadows.shadowOf(RuntimeEnvironment.getApplication()).getNextStartedService();
+        assertNotNull(started);
+        assertEquals(CopyService.class.getName(), started.getComponent().getClassName());
     }
 
     /** The screen opens on the drives and the tab bar swaps one screen at a time. */

@@ -17,6 +17,9 @@ import java.util.Map;
  * Log entries are stored as a string key plus its arguments, never as formatted text: the
  * screen formats them with the language in force when it draws, so a language change (or a
  * service that is still running with the old one) cannot mix languages in the list.
+ *
+ * Every line carries its epoch, so entries older than a week disappear by themselves the
+ * next time the log is written or read: no button, no background job, no wake-up.
  */
 final class Store {
 
@@ -29,8 +32,12 @@ final class Store {
 
     private static final String PREF = "pdf-to-usb";
     private static final int LOG_MAX = 30;
+    /** Entries older than this are dropped when the log is written or read. */
+    private static final long KEEP = 7L * 24 * 60 * 60 * 1000;
     /** Field separator inside one stored log entry (unit separator, never in a message). */
     private static final String SEP = "\u001f";
+    /** Separates the epoch of a line from its "HH:mm" text (record separator, never typed). */
+    private static final String AGE = "\u001e";
 
     /** Translatable log lines: stored by name, resolved to the current resources on read. */
     private static final Map<String, Integer> LOG_KEYS = new HashMap<>();
@@ -130,20 +137,42 @@ final class Store {
     }
 
     private static void append(Context c, String entry) {
-        String stamp = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
+        long now = System.currentTimeMillis();
+        String stamp = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date(now));
         String[] old = raw(c);
-        StringBuilder sb = new StringBuilder(stamp).append("  ").append(entry);
-        for (int i = 0; i < old.length && i < LOG_MAX - 1; i++) sb.append('\n').append(old[i]);
+        StringBuilder sb = new StringBuilder().append(now).append(AGE).append(stamp)
+                .append("  ").append(entry);
+        // Writing the log is also when the expired lines are dropped for good.
+        for (int i = 0; i < old.length && i < LOG_MAX - 1; i++) {
+            if (recent(old[i], now)) sb.append('\n').append(old[i]);
+        }
         c.getSharedPreferences(PREF, Context.MODE_PRIVATE).edit().putString("log", sb.toString()).apply();
         c.sendBroadcast(new Intent(ACTION_CHANGED).setPackage(c.getPackageName()));
     }
 
-    /** Log lines formatted with the language in force now, newest first. */
+    /** Log lines formatted with the language in force now, newest first, a week at most. */
     static String[] log(Context c) {
         String[] lines = raw(c);
+        long now = System.currentTimeMillis();
+        int kept = 0;
         String[] out = new String[lines.length];
-        for (int i = 0; i < lines.length; i++) out[i] = render(c, lines[i]);
-        return out;
+        for (String line : lines) {
+            if (recent(line, now)) out[kept++] = render(c, line);
+        }
+        return kept == out.length ? out : java.util.Arrays.copyOf(out, kept);
+    }
+
+    /** A line without an epoch (written by an older version) is kept: its age is unknown. */
+    private static boolean recent(String line, long now) {
+        int age = line.indexOf(AGE);
+        if (age <= 0) return true;
+        try {
+            long epoch = Long.parseLong(line.substring(0, age));
+            // A clock moved backwards must not hide the log either.
+            return epoch > now || now - epoch <= KEEP;
+        } catch (NumberFormatException e) {
+            return true;
+        }
     }
 
     private static String[] raw(Context c) {
@@ -151,8 +180,10 @@ final class Store {
         return raw.isEmpty() ? new String[0] : raw.split("\n");
     }
 
-    /** Turns "HH:mm  key<SEP>arg" into the translated line; unknown entries stay as they are. */
+    /** Turns "epoch<AGE>HH:mm  key<SEP>arg" into the translated line; unknown entries stay. */
     private static String render(Context c, String line) {
+        int age = line.indexOf(AGE);
+        if (age > 0) line = line.substring(age + 1);
         int sep = line.indexOf(SEP);
         if (sep < 0) return line;
         String head = line.substring(0, sep);
