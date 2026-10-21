@@ -83,11 +83,12 @@ so opening a PDF already on the destination does nothing.
 - `targetSdk 28`: no scoped storage (Android 10+ is out of target) and no foreground service
   type requirement. The supported range is Android **5.0 to 9.0** (API 21-28); on 6/7/8/9 the
   foreground service behaves as required.
-- Verified by local unit tests (42 test cases: copy engine, names, dedupe, partial-file
-  cleanup, store and the 7 day log, automatic A/B detection, language tags, screen, tab bar
-  and service start, service strings, translations, updater version compare and JSON
-  parsing). `ScreenTest.screenOpensOnOldAndroid` runs the screen on Robolectric API 21, 23,
-  24 and 26, so Android 5.0, 6.0, 7.0 and 8.0 are exercised, not only API 28.
+- Verified by local unit tests (46 test cases: copy engine, names, dedupe, partial-file
+  cleanup, SAF-less destination, store and the 7 day log, automatic A/B detection, language
+  tags, screen, tab bar and service start, service strings, translations, updater version
+  compare and JSON parsing). `ScreenTest.screenOpensOnOldAndroid` runs the screen on
+  Robolectric API 21, 23, 24 and 26, so Android 5.0, 6.0, 7.0 and 8.0 are exercised, not
+  only API 28.
   **Never executed on real hardware.**
 
 ## 4. What is not silent (and cannot be)
@@ -274,3 +275,34 @@ missing monochrome layer (Android 13 only, out of the target range).
 - Lint: `BatteryLife` is disabled in `app/build.gradle` because the battery exemption is a
   requested feature, together with `AppBundleLocaleChanges`; the two tolerated warnings are
   unchanged.
+
+## 11. Managed boards (Promethean) and blocked installs
+
+What the APK already guarantees on those panels: **no native libraries** (it runs on ARM and
+x86 alike), no Google Play Services or Firebase, `minSdk 21`, `supports-screens` up to
+`xlarge`. So the app itself is installable and runnable on Android 5.0 to 8.0 panels.
+
+**Installation is a device policy, not an app feature.** Panels that block app installs have
+disabled "unknown sources" or are managed by a device owner/kiosk/MDM. No application can
+grant itself that permission, and this app does not try: no exploit, no root, no hidden
+bypass. The person who administers the panel has to do one of these:
+
+1. allow installs from the panel settings ("Unknown sources" / "Install apps"), then install
+   the APK from a USB stick or with `adb install -r pdf-to-usb-X.Y.Z.apk` from a PC;
+2. deploy it through the MDM or the Promethean admin tools, as device owner;
+3. if the panel has Google Play and the account may install, publish the APK there.
+
+With a normal user account and the policy in place, there is no fourth route. That is a
+limit of Android, not something missing in the code.
+
+**Boards without a folder picker.** Some panel builds ship without DocumentsUI, so
+`ACTION_OPEN_DOCUMENT_TREE` cannot open and B could never be chosen. In that case
+`MainActivity.usePathB` takes the only removable volume that is not A (three or more
+volumes: no guessing), stores it with `Store.setPathB` and `PathSink` writes to
+`B/pdf-to-usb` with plain `java.io`, using `WRITE_EXTERNAL_STORAGE` (available up to Android
+9, the maximum of this app). The SAF tree stays the preferred route: setting one clears the
+path and the other way round, and `CopyService.sinkB` picks whichever is set. Both paths end
+in the same folder, with the same dedupe, retries and log lines.
+
+Limits of the fallback: it needs the storage permission granted, it only exists on Android
+5.0 to 9.0, and it cannot write to a stick the system mounted read-only.

@@ -38,6 +38,13 @@ Android 5.0 to 9.0 (`minSdk 21`, `targetSdk 28`). Android 4.x is not supported: 
 directory picker starts at Android 5.0 and secondary storage is read-only for normal apps
 before that. Both USB drives must be connected at the same time.
 
+The APK contains no native code (ARM and x86 boards alike) and no Google Play Services
+dependency, so it runs on Android 5.0 to 9.0 panels such as the Promethean ActivPanel. On
+panel builds without the system folder picker, drive B is written by path with the storage
+permission instead of SAF. Boards that **block app installation** have to be unlocked by
+whoever administers them (panel settings, MDM or `adb install`): no app can grant itself
+that permission, and this one does not try.
+
 ## Install
 
 Download the APK from [Releases](https://github.com/PiBOH/pdf-to-usb/releases) and install

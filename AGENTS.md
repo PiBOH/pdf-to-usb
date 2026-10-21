@@ -51,6 +51,7 @@ with an English name; a document that grows beyond one screen starts with a summ
 |---|---|
 | `Copy.java` | copy engine, pure `java.io`: unique names, dedupe, partial-file cleanup |
 | `SafSink.java` | destination `B/pdf-to-usb` through SAF `DocumentFile` |
+| `PathSink.java` | same destination by plain `java.io`, for boards without a folder picker |
 | `PdfWatcher.java` | `FileObserver.ACCESS` watcher on drive A |
 | `CopyService.java` | foreground service: watches every removable volume except B, queue, retries, notification |
 | `Volumes.java` | `StorageManager`/`StorageVolume` detection, SAF tree to filesystem path |

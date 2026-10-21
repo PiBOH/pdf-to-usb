@@ -2,6 +2,7 @@ package pdf.to.usb;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -198,7 +199,7 @@ public class MainActivity extends Activity {
     /** State of A and B, the removable drives line, the toggle and the last copies. */
     private void showAll() {
         stateA.setText(getString(R.string.state_a, name(Store.tree(this, Store.KEY_A))));
-        stateB.setText(getString(R.string.state_b, name(Store.tree(this, Store.KEY_B))));
+        stateB.setText(getString(R.string.state_b, nameB()));
         List<Volumes.Volume> found = Volumes.removable(this);
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < found.size(); i++) {
@@ -294,8 +295,14 @@ public class MainActivity extends Activity {
                 Store.log(this, "auto_source", label(a));
             }
         }
-        if (b != null && Store.tree(this, Store.KEY_B) == null) {
-            suggestedB = Volumes.tree(b);
+        if (b != null && Store.tree(this, Store.KEY_B) == null && Store.pathB(this) == null) {
+            Uri tree = Volumes.tree(b);
+            if (tree != null) {
+                suggestedB = tree;
+            } else {
+                // No SAF id for this volume (managed board): write to its folder instead.
+                Store.setPathB(this, b.dir);
+            }
             Store.log(this, "auto_destination", label(b));
         }
         showAll();
@@ -314,6 +321,15 @@ public class MainActivity extends Activity {
         else for (String line : lines) log.add(line);
     }
 
+    /** B by SAF tree, or by plain folder on the boards that have no system picker. */
+    private String nameB() {
+        Uri tree = Store.tree(this, Store.KEY_B);
+        if (tree != null) return name(tree);
+        File dir = Store.pathB(this);
+        if (dir == null) return getString(R.string.not_set);
+        return dir.getName() + (dir.isDirectory() ? " ✓" : " (" + getString(R.string.not_connected) + ")");
+    }
+
     /** "UUID or label" plus a tick when the tree is still mounted, or "not connected". */
     private String name(Uri tree) {
         if (tree == null) return getString(R.string.not_set);
@@ -324,7 +340,11 @@ public class MainActivity extends Activity {
                 + (dir.isDirectory() ? " ✓" : " (" + getString(R.string.not_connected) + ")");
     }
 
-    /** System folder picker; the grant is persisted so it survives a reboot. */
+    /**
+     * System folder picker; the grant is persisted so it survives a reboot. On boards that
+     * ship without it (no DocumentsUI) B is taken from the detected volume and written by
+     * path with WRITE_EXTERNAL_STORAGE, which Android 5.0 to 9.0 still allow.
+     */
     private void pick(int which) {
         Intent i = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
         i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION
@@ -334,7 +354,41 @@ public class MainActivity extends Activity {
         if (which == PICK_B && suggestedB != null && Build.VERSION.SDK_INT >= 26) {
             i.putExtra(DocumentsContract.EXTRA_INITIAL_URI, suggestedB);
         }
-        startActivityForResult(i, which);
+        if (which == PICK_B && getPackageManager().resolveActivity(i, 0) == null) {
+            usePathB();
+            return;
+        }
+        try {
+            startActivityForResult(i, which);
+        } catch (ActivityNotFoundException e) {
+            if (which == PICK_B) usePathB();
+        }
+    }
+
+    /** B without a picker: the only removable stick that is not A, written by path. */
+    private void usePathB() {
+        List<Volumes.Volume> found = Volumes.removable(this);
+        String a = Store.volumeName(Store.tree(this, Store.KEY_A));
+        Volumes.Volume b = null;
+        for (Volumes.Volume v : found) {
+            if (a != null && a.equals(v.uuid)) continue;
+            if (b != null) {
+                b = null;   // three or more sticks: no guessing
+                break;
+            }
+            b = v;
+        }
+        if (b == null) {
+            Store.log(this, "auto_none");
+            showAll();
+            return;
+        }
+        Store.setPathB(this, b.dir);
+        Store.log(this, "auto_destination", label(b));
+        listening = true;
+        Store.setListening(this, true);
+        CopyService.send(this, CopyService.ACTION_START, null);
+        showAll();
     }
 
     @Override
@@ -361,11 +415,19 @@ public class MainActivity extends Activity {
         showAll();
     }
 
-    /** READ_EXTERNAL_STORAGE is only needed by FileObserver, never by the SAF writes. */
+    /**
+     * READ is for FileObserver. WRITE is only for the boards without a folder picker, where
+     * the copy goes to B by path; on Android 9 and above the permission does not exist.
+     */
     private void askReadPermission() {
-        if (Build.VERSION.SDK_INT >= 23
-                && checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, ASK_STORAGE);
-        }
+        if (Build.VERSION.SDK_INT < 23) return;
+        boolean read = checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                == PackageManager.PERMISSION_GRANTED;
+        boolean write = Build.VERSION.SDK_INT > 28
+                || checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                == PackageManager.PERMISSION_GRANTED;
+        if (read && write) return;
+        requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE}, ASK_STORAGE);
     }
 }

@@ -74,7 +74,24 @@ final class Store {
     }
 
     static void setTree(Context c, String key, Uri tree) {
-        c.getSharedPreferences(PREF, Context.MODE_PRIVATE).edit().putString(key, tree.toString()).apply();
+        android.content.SharedPreferences.Editor edit = c.getSharedPreferences(PREF, Context.MODE_PRIVATE).edit()
+                .putString(key, tree.toString());
+        // A SAF tree and a plain path are two ways to name the same drive: only one is active.
+        if (KEY_B.equals(key)) edit.remove("path_b");
+        edit.apply();
+    }
+
+    /** Drive B as a plain folder, used only on boards without the system folder picker. */
+    static java.io.File pathB(Context c) {
+        String raw = c.getSharedPreferences(PREF, Context.MODE_PRIVATE).getString("path_b", null);
+        return raw == null || raw.isEmpty() ? null : new java.io.File(raw);
+    }
+
+    static void setPathB(Context c, java.io.File dir) {
+        android.content.SharedPreferences.Editor edit = c.getSharedPreferences(PREF, Context.MODE_PRIVATE).edit();
+        if (dir == null) edit.remove("path_b");
+        else edit.putString("path_b", dir.getAbsolutePath()).remove(KEY_B);
+        edit.apply();
     }
 
     /** Readable tree name: for a USB stick it is the volume UUID (e.g. 1A2B-3C4D). */

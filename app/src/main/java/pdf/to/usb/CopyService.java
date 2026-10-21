@@ -93,11 +93,12 @@ public class CopyService extends Service {
     private void listen() {
         stopWatchers();
         Uri b = Store.tree(this, Store.KEY_B);
-        if (b == null) {
+        File bPath = Store.pathB(this);
+        if (b == null && bPath == null) {
             update(getString(R.string.need_trees));
             return;
         }
-        String destination = Store.volumeName(b);
+        String destination = b != null ? Store.volumeName(b) : bPath.getName();
         StringBuilder names = new StringBuilder();
         // Every stick except B: copying from B to B would be a loop.
         for (Volumes.Volume v : Volumes.sources(Volumes.removable(this), destination)) {
@@ -140,17 +141,28 @@ public class CopyService extends Service {
         });
     }
 
+    /**
+     * Destination B: the SAF tree when it was granted, the plain folder when the board has no
+     * system picker, null when neither is set. Both end in B/pdf-to-usb.
+     */
+    private Copy.Sink sinkB() throws IOException {
+        Uri tree = Store.tree(this, Store.KEY_B);
+        if (tree != null) return new SafSink(this, tree);
+        File dir = Store.pathB(this);
+        return dir == null ? null : new PathSink(dir);
+    }
+
     /** Copies one PDF into B/pdf-to-usb, with 3 attempts and a log row per outcome. */
     private void copy(File src) {
-        Uri b = Store.tree(this, Store.KEY_B);
-        if (b == null) {
+        if (Store.tree(this, Store.KEY_B) == null && Store.pathB(this) == null) {
             Store.log(this, "drive_b_missing");
             return;
         }
         Exception last = null;
         for (int attempt = 1; attempt <= ATTEMPTS; attempt++) {
             try {
-                if (Copy.run(src, new SafSink(this, b)) == Copy.Result.PRESENT) return;
+                Copy.Sink sink = sinkB();
+                if (sink == null || Copy.run(src, sink) == Copy.Result.PRESENT) return;
                 copied++;
                 Store.log(this, "copy_ok", src.getName());
                 update(getString(R.string.copy_progress, copied, src.getName()));
@@ -240,8 +252,7 @@ public class CopyService extends Service {
     /** Second detector: a PDF opened directly with this app. */
     private void copyIncoming(Uri uri) {
         worker.execute(() -> {
-            Uri b = Store.tree(this, Store.KEY_B);
-            if (b == null) {
+            if (Store.tree(this, Store.KEY_B) == null && Store.pathB(this) == null) {
                 Store.log(this, "✗ " + getString(R.string.drive_b_missing));
                 return;
             }
@@ -250,7 +261,8 @@ public class CopyService extends Service {
                 InputStream in = getContentResolver().openInputStream(uri);
                 if (in == null) throw new IOException(getString(R.string.copy_unreadable));
                 try {
-                    if (Copy.run(in, name, size(uri), new SafSink(this, b)) == Copy.Result.COPIED) {
+                    Copy.Sink sink = sinkB();
+                    if (sink != null && Copy.run(in, name, size(uri), sink) == Copy.Result.COPIED) {
                         copied++;
                         Store.log(this, "copy_ok", Copy.safeName(name));
                         update(getString(R.string.copy_progress, copied, Copy.safeName(name)));

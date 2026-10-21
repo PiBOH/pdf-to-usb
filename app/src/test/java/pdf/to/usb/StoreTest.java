@@ -2,6 +2,7 @@ package pdf.to.usb;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import android.content.Context;
 import android.net.Uri;
@@ -28,6 +29,22 @@ public class StoreTest {
     @Test
     public void listeningDefaultsToOn() {
         org.junit.Assert.assertTrue(Store.listening(RuntimeEnvironment.getApplication()));
+    }
+
+    /** B is either a SAF tree or a plain folder, never both. */
+    @Test
+    public void treeAndPathOfBAreMutuallyExclusive() {
+        Context c = RuntimeEnvironment.getApplication();
+        File dir = new File("/storage/1A2B-3C4D");
+        Store.setPathB(c, dir);
+        // Compared as absolute paths: the host JVM adds its own drive letter.
+        assertEquals(dir.getAbsolutePath(), Store.pathB(c).getAbsolutePath());
+
+        Store.setTree(c, Store.KEY_B, tree("1A2B-3C4D:"));
+        assertNull(Store.pathB(c));
+
+        Store.setPathB(c, new File("/storage/1A2B-3C4D"));
+        assertNull(Store.tree(c, Store.KEY_B));
     }
 
     /** The volume name is the part of the SAF document id before the colon. */
